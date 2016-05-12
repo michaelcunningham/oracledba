@@ -1,5 +1,9 @@
+*.pptx
 *.log
 *.dmp
+*.dbf
+*.trc
+arch
 afiedt.buf
 logs
 arch
