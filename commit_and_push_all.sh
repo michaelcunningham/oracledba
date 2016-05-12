@@ -13,4 +13,4 @@ git add . > $log_file
 git commit -m "$commit_message" >> $log_file
 git push >> $log_file
 
-mail -s "GIT PUSH LOG FILE" mcunningham@ifwe.co < $log_file
+# mail -s "GIT PUSH LOG FILE" mcunningham@ifwe.co < $log_file
