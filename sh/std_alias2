@@ -1,0 +1,4 @@
+alias asm1='ORAENV_ASK=NO ; export ORACLE_SID=$(ps x | grep pmon | cut -d_ -f3 | grep \"+ASM\") ; . /usr/local/bin/oraenv -s ; . /mnt/oracle_downloads/ora/sh/set_ora_alias.sh'
+alias asm2'ORAENV_ASK=NO ; export ORACLE_SID=`ps x | grep pmon | cut -d_ -f3 | grep \"+ASM\" | sort` ; . /usr/local/bin/oraenv -s ; . /mnt/oracle_downloads/ora/sh/set_ora_alias.sh'
+alias asm3'ORAENV_ASK=NO ; export ORACLE_SID=`ps x | grep pmon | cut -d_ -f3` ; . /usr/local/bin/oraenv -s ; . /mnt/oracle_downloads/ora/sh/set_ora_alias.sh'
+alias asm='ORAENV_ASK=NO ; export ORACLE_SID='$(ps x | grep pmon | awk '{print $5}' | cut -d_ -f3 | grep "+ASM")' ; . /usr/local/bin/oraenv -s ; . /mnt/oracle_downloads/ora/sh/set_ora_alias.sh'

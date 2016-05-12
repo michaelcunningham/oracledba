@@ -1,0 +1,50 @@
+#
+# All commands shown below assume a volume name of "newvol"
+#
+
+################################################################################
+# COMMANDS FOR VOLUMES
+################################################################################
+
+# Create a spapshot for a volume
+rsh npnetapp102 snap create newvol hot_backup.1
+
+# Rename a  a spapshot for a volume
+rsh npnetapp102 snap rename newvol hot_backup.1 hot_backup.2
+
+# Use this to view the snapshots for a volume
+rsh npnetapp102 snap list newvol
+
+# Use this volume to delete snapshots from a volume
+rsh npnetapp102 snap delete newvol hot_backup.5
+
+# Create the new volume.
+rsh npnetapp102 vol create newvol agg_fc_10k 20m
+
+# To remove a volume/qtree from being exported.
+rsh npnetapp102 exportfs -z /vol/volname
+rsh npnetapp102 exportfs -z /vol/volname/qtreename
+
+# Now you can run the following command
+/dba/admin/mk_new_filesystem.sh newvol
+
+# Use this command to increase the size of a volume.
+# The command adds an amount to the size of the volume.
+rsh npnetapp102 vol size newvol +20m
+
+# Give root access for the new volume to the server where it will be used.
+rsh npnetapp102 exportfs -p rw,root=tdccorp48 /vol/newvol
+
+################################################################################
+# COMMANDS FOR SNAPSHOTS
+################################################################################
+
+# Find the size of the snapshot reserve
+rsh npnetapp102 snap reserve newvol
+
+# Turn off the snapshot schedules for hourly and daily snapshots.
+rsh npnetapp102 vol options newvol nosnap on
+
+# Set the Snapshot Reserve to zero.
+rsh npnetapp102 snap reserve newvol 0
+

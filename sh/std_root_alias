@@ -1,0 +1,8 @@
+alias l='ls -al'
+alias lsd='ls -al | grep "^d"'
+alias pmon='ps -ef | grep pmon | grep -v "grep pmon";echo;ps -ef | grep tnslsnr | grep -v "grep tnslsnr"'
+alias dfmf="rsh npnetapp102 df -m | awk '{printf(\"%-30s%13s%13s%13s  %9s  %-s\\n\", \$1,\$2,\$3,\$4,\$5,\$6)}'"
+alias dfmf3="rsh npnetapp103 df -m | awk '{printf(\"%-30s%13s%13s%13s  %9s  %-s\\n\", \$1,\$2,\$3,\$4,\$5,\$6)}'"
+alias dfmf4="rsh npnetapp104 df -m | awk '{printf(\"%-30s%13s%13s%13s  %9s  %-s\\n\", \$1,\$2,\$3,\$4,\$5,\$6)}'"
+alias dfm="df -P -m | sed \"s/1048576-blocks/MB_blocks/g\" | sed \"s/Capacity/%Used/g\" | awk '{printf(\"%-45s%13s%10s%11s%11s  %-s\\n\", \$1,\$2,\$3,\$4,\$5,\$6)}'"
+

@@ -1,0 +1,39 @@
+Trace file /u01/app/oracle/diag/rdbms/fmda/fmd/trace/fmd_ora_16597.trc
+Oracle Database 12c Enterprise Edition Release 12.1.0.1.0 - 64bit Production
+With the Partitioning, Automatic Storage Management, OLAP, Advanced Analytics
+and Real Application Testing options
+ORACLE_HOME = /u01/app/oracle/product/12.1.0/dbhome_1
+System name:	Linux
+Node name:	ora10.localdomain
+Release:	3.8.13-16.2.1.el6uek.x86_64
+Version:	#1 SMP Thu Nov 7 17:01:44 PST 2013
+Machine:	x86_64
+Instance name: fmd
+Redo thread mounted by this instance: 1
+Oracle process number: 26
+Unix process pid: 16597, image: oracle@ora10.localdomain (TNS V1-V3)
+
+
+*** 2015-11-17 19:48:56.273
+*** SESSION ID:(59.39) 2015-11-17 19:48:56.274
+*** CLIENT ID:() 2015-11-17 19:48:56.274
+*** SERVICE NAME:(SYS$USERS) 2015-11-17 19:48:56.274
+*** MODULE NAME:(SQL*Plus) 2015-11-17 19:48:56.274
+*** ACTION NAME:() 2015-11-17 19:48:56.274
+ 
+CUR#1 XSC 0x7ff59717eba8 CHILD#-1 CI (nil) CTX (nil)
+ PARSING SQLTEXT=select /* TT_TEST */ distinct object_type from tt where object_name like 'SY%'
+ SQLHASH=c31bad7b
+ Checking for already pinned child. fbcflg 108
+ No valid child pinned
+ Parent 0xa0bc7d80(0xa33db688) ready for search
+ kksCheckCursor: next child is #0
+ kksCheckCursor: pinning child #0 in shared mode 0xa0bc7c70 0xa33da1e8
+ Compilation environment difference Failed sharing : 0
+ SQL pgadep:0 pgapls:0 user
+ Calling for auth
+ Checking for already pinned child. fbcflg 102
+ Cursor about get executed
+ Checking for already pinned child. fbcflg 1
+ Cursor#1 mapped
+ Cursor unmapped

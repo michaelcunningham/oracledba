@@ -1,0 +1,836 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>
+<html lang='en-US'><head>
+<meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
+<title>DB HCVE A DB12R1 Lin Res</title>
+<link rel='stylesheet' type='text/css' href='../RDA_rda.css'>
+</head>
+<body><div class='rda_normal'><p><a name='Top'></a>
+<p><!-- Oracle Remote Diagnostic Agent / Data Collection Results 8.10 -->
+<!-- Module:TOOL:TLhcve Version:1.14 Report:res OS:linux -->
+<h1 id='Sct1'>Health Check/Validation for &#x22;Oracle Database 12c R1 &#x28;12.1.0&#x29; Preinstallation &#x28;Linux&#x29;&#x22;</h1>
+<p>Tests &#x22;Oracle Database 12c R1 &#x28;12.1.0&#x29; Preinstallation &#x28;Linux&#x29;&#x22; executed at 06&#x2D;Dec&#x2D;2015 09:39:41 UTC UTC
+<div class='rda_toc'>
+<ul>
+<li><a href='#Hdr1'>Test Results</a>
+<li><a href='#Hdr2'>Failure Summary</a>
+<li><a href='#Hdr3'>Detailed Results</a>
+</ul>
+</div>
+<h1 id='Hdr1'>Test Results</h1>
+<table border='1' summary='Test Results Information'>
+<tr>
+<th align='left' id='T1'>Rule</th>
+<th align='left' id='T2'>Name</th>
+<th align='left' id='T3'>Result</th>
+<th align='left' id='T4'>Value</th>
+</tr>
+<tr>
+<td align='left' headers='T1'>A00100</td>
+<td align='left' headers='T2'>OS Certified?</td>
+<td align='left' headers='T3'><a href='#RuleA00100'>PASSED</a></td>
+<td align='left' headers='T4'><code>Adequate</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A01020</td>
+<td align='left' headers='T2'>User in /etc/passwd?</td>
+<td align='left' headers='T3'><a href='#RuleA01020'>PASSED</a></td>
+<td align='left' headers='T4'><code>userOK</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A01040</td>
+<td align='left' headers='T2'>Group in /etc/group?</td>
+<td align='left' headers='T3'><a href='#RuleA01040'>PASSED</a></td>
+<td align='left' headers='T4'><code>GroupOK</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A01050</td>
+<td align='left' headers='T2'>Enter ORACLE_HOME</td>
+<td align='left' headers='T3'>RECORD</td>
+<td align='left' headers='T4'><code>/u01/app/oracle/product/12.1.0.1/dbhome_1</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A01060</td>
+<td align='left' headers='T2'>ORACLE_HOME Valid?</td>
+<td align='left' headers='T3'><a href='#RuleA01060'>PASSED</a></td>
+<td align='left' headers='T4'><code>OHexists</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A01070</td>
+<td align='left' headers='T2'>O_H Permissions OK?</td>
+<td align='left' headers='T3'><a href='#RuleA01070'>PASSED</a></td>
+<td align='left' headers='T4'><code>CorrectPerms</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A01210</td>
+<td align='left' headers='T2'>Enter JDK Home</td>
+<td align='left' headers='T3'>RECORD</td>
+<td align='left' headers='T4'></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A01220</td>
+<td align='left' headers='T2'>JDK Version</td>
+<td align='left' headers='T3'><a href='#RuleA01220'>FAILED</a></td>
+<td align='left' headers='T4'><code>JDK home is missing</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A01410</td>
+<td align='left' headers='T2'>oraInventory Permissions</td>
+<td align='left' headers='T3'><a href='#RuleA01410'>PASSED</a></td>
+<td align='left' headers='T4'><code>oraInventoryOK</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A01420</td>
+<td align='left' headers='T2'>Other OUI Up?</td>
+<td align='left' headers='T3'><a href='#RuleA01420'>PASSED</a></td>
+<td align='left' headers='T4'><code>NoOtherOUI</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A01430</td>
+<td align='left' headers='T2'>Got Software Tools?</td>
+<td align='left' headers='T3'><a href='#RuleA01430'>PASSED</a></td>
+<td align='left' headers='T4'><code>ld_nm_ar_make_found</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A01440</td>
+<td align='left' headers='T2'>Other O_Hs in PATH?</td>
+<td align='left' headers='T3'><a href='#RuleA01440'>PASSED</a></td>
+<td align='left' headers='T4'><code>NoneFound</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A02010</td>
+<td align='left' headers='T2'>Umask Set to 022?</td>
+<td align='left' headers='T3'><a href='#RuleA02010'>FAILED</a></td>
+<td align='left' headers='T4'><code>UmaskNotOK</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A02030</td>
+<td align='left' headers='T2'>Limits Processes</td>
+<td align='left' headers='T3'><a href='#RuleA02030'>PASSED</a></td>
+<td align='left' headers='T4'><code>Adequate</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A02040</td>
+<td align='left' headers='T2'>Limits Stacksize</td>
+<td align='left' headers='T3'><a href='#RuleA02040'>FAILED</a></td>
+<td align='left' headers='T4'><code>HardHigh</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A02050</td>
+<td align='left' headers='T2'>Limits Descriptors</td>
+<td align='left' headers='T3'><a href='#RuleA02050'>PASSED</a></td>
+<td align='left' headers='T4'><code>Adequate</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A02100</td>
+<td align='left' headers='T2'>LDLIBRARYPATH Unset?</td>
+<td align='left' headers='T3'><a href='#RuleA02100'>FAILED</a></td>
+<td align='left' headers='T4'><code>IsSet</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A02170</td>
+<td align='left' headers='T2'>JAVA_HOME Unset?</td>
+<td align='left' headers='T3'><a href='#RuleA02170'>PASSED</a></td>
+<td align='left' headers='T4'><code>UnSet</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A03100</td>
+<td align='left' headers='T2'>RAM &#x28;in MB&#x29;</td>
+<td align='left' headers='T3'><a href='#RuleA03100'>PASSED</a></td>
+<td align='left' headers='T4'><code>60387</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A02210</td>
+<td align='left' headers='T2'>Kernel Parameters OK?</td>
+<td align='left' headers='T3'><a href='#RuleA02210'>PASSED</a></td>
+<td align='left' headers='T4'><code>KernelOK</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A02300</td>
+<td align='left' headers='T2'>Tainted Kernel?</td>
+<td align='left' headers='T3'><a href='#RuleA02300'>PASSED</a></td>
+<td align='left' headers='T4'><code>NotVerifiable</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A03010</td>
+<td align='left' headers='T2'>Temp Adequate?</td>
+<td align='left' headers='T3'><a href='#RuleA03010'>PASSED</a></td>
+<td align='left' headers='T4'><code>TempSpaceOK</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A03020</td>
+<td align='left' headers='T2'>Disk Space OK?</td>
+<td align='left' headers='T3'><a href='#RuleA03020'>PASSED</a></td>
+<td align='left' headers='T4'><code>DiskSpaceOK</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A03050</td>
+<td align='left' headers='T2'>Swap &#x28;in MB&#x29;</td>
+<td align='left' headers='T3'>RECORD</td>
+<td align='left' headers='T4'><code>8191</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A03100</td>
+<td align='left' headers='T2'>RAM &#x28;in MB&#x29;</td>
+<td align='left' headers='T3'><a href='#RuleA03100'>PASSED</a></td>
+<td align='left' headers='T4'><code>60387</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A03150</td>
+<td align='left' headers='T2'>SwapToRam OK?</td>
+<td align='left' headers='T3'><a href='#RuleA03150'>FAILED</a></td>
+<td align='left' headers='T4'><code>SwapLessThanRam</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A03500</td>
+<td align='left' headers='T2'>Network</td>
+<td align='left' headers='T3'><a href='#RuleA03500'>PASSED</a></td>
+<td align='left' headers='T4'><code>Connected</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A03510</td>
+<td align='left' headers='T2'>IP Address</td>
+<td align='left' headers='T3'>RECORD</td>
+<td align='left' headers='T4'><code>10.15.40.143</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A03530</td>
+<td align='left' headers='T2'>Domain Name</td>
+<td align='left' headers='T3'>RECORD</td>
+<td align='left' headers='T4'><code>tagged.com</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A03540</td>
+<td align='left' headers='T2'>/etc/hosts Format</td>
+<td align='left' headers='T3'><a href='#RuleA03540'>PASSED</a></td>
+<td align='left' headers='T4'><code>Adequate IPv4 entry</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A03550</td>
+<td align='left' headers='T2'>DNS Lookup</td>
+<td align='left' headers='T3'><a href='#RuleA03550'>PASSED</a></td>
+<td align='left' headers='T4'><code>Host correctly registered in DNS</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A03600</td>
+<td align='left' headers='T2'>ip_local_port_range OK?</td>
+<td align='left' headers='T3'><a href='#RuleA03600'>FAILED</a></td>
+<td align='left' headers='T4'><code>LowValue<br/>HighValue</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A04301</td>
+<td align='left' headers='T2'>OL5 Server RPMs OK?</td>
+<td align='left' headers='T3'><a href='#RuleA04301'>SKIPPED</a></td>
+<td align='left' headers='T4'><code>NotOracle</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A04302</td>
+<td align='left' headers='T2'>OL5 32&#x2D;bit Client RPMs OK?</td>
+<td align='left' headers='T3'><a href='#RuleA04302'>SKIPPED</a></td>
+<td align='left' headers='T4'><code>NotOracle</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A04303</td>
+<td align='left' headers='T2'>OL6 Server RPMs OK?</td>
+<td align='left' headers='T3'><a href='#RuleA04303'>SKIPPED</a></td>
+<td align='left' headers='T4'><code>NotOracle</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A04304</td>
+<td align='left' headers='T2'>OL6 32&#x2D;bit Client RPMs OK?</td>
+<td align='left' headers='T3'><a href='#RuleA04304'>SKIPPED</a></td>
+<td align='left' headers='T4'><code>NotOracle</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A04305</td>
+<td align='left' headers='T2'>OL7 Server RPMs OK?</td>
+<td align='left' headers='T3'><a href='#RuleA04305'>SKIPPED</a></td>
+<td align='left' headers='T4'><code>NotOracle</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A04311</td>
+<td align='left' headers='T2'>RHEL5 Server RPMs OK?</td>
+<td align='left' headers='T3'><a href='#RuleA04311'>SKIPPED</a></td>
+<td align='left' headers='T4'><code>NotRHEL5</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A04312</td>
+<td align='left' headers='T2'>RHEL5 32&#x2D;bit Client RPMs OK?</td>
+<td align='left' headers='T3'><a href='#RuleA04312'>SKIPPED</a></td>
+<td align='left' headers='T4'><code>NotRHEL5</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A04313</td>
+<td align='left' headers='T2'>RHEL6 Server RPMs OK?</td>
+<td align='left' headers='T3'><a href='#RuleA04313'>PASSED</a></td>
+<td align='left' headers='T4'><code>RHEL6rpmsOK</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A04314</td>
+<td align='left' headers='T2'>RHEL6 32&#x2D;bit Client RPMs OK?</td>
+<td align='left' headers='T3'><a href='#RuleA04314'>FAILED</a></td>
+<td align='left' headers='T4'><code>&#x5B;compat&#x2D;libstdc&#x2B;&#x2B;&#x2D;33&#x28;i686&#x29;&#x5D; not installed</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A04315</td>
+<td align='left' headers='T2'>RHEL7 Server RPMs OK?</td>
+<td align='left' headers='T3'><a href='#RuleA04315'>SKIPPED</a></td>
+<td align='left' headers='T4'><code>NotRHEL7</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A04321</td>
+<td align='left' headers='T2'>SLES11 Server RPMs OK?</td>
+<td align='left' headers='T3'><a href='#RuleA04321'>SKIPPED</a></td>
+<td align='left' headers='T4'><code>NotSuSE</code></td>
+</tr>
+<tr>
+<td align='left' headers='T1'>A04322</td>
+<td align='left' headers='T2'>SLES11 32&#x2D;bit Client RPMs OK?</td>
+<td align='left' headers='T3'><a href='#RuleA04322'>SKIPPED</a></td>
+<td align='left' headers='T4'><code>NotSuSE</code></td>
+</tr>
+</table>
+<p><a href='#Top'>Back to top</a>
+<h1 id='Hdr2'>Failure Summary</h1>
+<table border='1' summary='Failure Summary Information'>
+<tr>
+<th align='left' id='T5'>Rule</th>
+<th align='left' id='T6'>Description</th>
+<th align='left' id='T7'>Result</th>
+<th align='left' id='T8'>Action</th>
+</tr>
+<tr>
+<td align='left' headers='T5'><a href='#RuleA01220'>A01220</a></td>
+<td align='left' headers='T6'>This rule checks that the installed JDK version is JDK 6.0 update 37 or later. This is required for products like Oracle Java Database Connectivity and Oracle Call Interface drivers.</td>
+<td align='left' headers='T7'><code>JDK home is missing</code></td>
+<td align='left' headers='T8'>Provide correct location for JDK home.</td>
+</tr>
+<tr>
+<td align='left' headers='T5'><a href='#RuleA02010'>A02010</a></td>
+<td align='left' headers='T6'>This rule checks that the <code>umask</code> value is set correctly for installing Oracle Database 12c R1.</td>
+<td align='left' headers='T7'><code>UmaskNotOK</code></td>
+<td align='left' headers='T8'>The <code>umask</code> value is not set correctly. Set the <code>umask</code> to 022 before installing Oracle Database 12c R1.</td>
+</tr>
+<tr>
+<td align='left' headers='T5'><a href='#RuleA02040'>A02040</a></td>
+<td align='left' headers='T6'>This rule checks that the soft limit for the size of the stack segment is set to 10240 or higher and the hard limit for the size of the stack segment is set to at least 10240 and not greater than 32768. For details about configuring this parameter, see the <em>Oracle Database Installation Guide 12c Release 1 &#x28;12.1&#x29; for Linux</em>.</td>
+<td align='left' headers='T7'><code>HardHigh</code></td>
+<td align='left' headers='T8'>Decrease the hard limit for <code>stacksize</code> to 32768 or lower, but not less than 10240.</td>
+</tr>
+<tr>
+<td align='left' headers='T5'><a href='#RuleA02100'>A02100</a></td>
+<td align='left' headers='T6'>This rule checks that the <code>LD_LIBRARY_PATH</code> environment variable is not set.</td>
+<td align='left' headers='T7'><code>IsSet</code></td>
+<td align='left' headers='T8'>The <code>LD_LIBRARY_PATH</code> environment variable is set in your environment and must be unset before installing Oracle Database 12c R1.</td>
+</tr>
+<tr>
+<td align='left' headers='T5'><a href='#RuleA03150'>A03150</a></td>
+<td align='left' headers='T6'>This rule verifies that the total amount of swap space is greater than or equal to the amount recommended by the <em>Oracle Database Installation Guide 12c Release 1 &#x28;12.1&#x29; for Linux</em>.</td>
+<td align='left' headers='T7'><code>SwapLessThanRam</code></td>
+<td align='left' headers='T8'>The amount of swap space is less than the amount recommended by the <em>Oracle Database Installation Guide 12c Release 1 &#x28;12.1&#x29; for Linux</em>. Verify the requirements and adjust your system accordingly.<br/>If physical memory is between 1 GB and 2 GB, then the swap space is to be at least 1.5 times the physical memory. If physical memory is between 2 GB and 16 GB, then the swap space is to be at least equal to physical memory. If physical memory is more than 16 GB, then the swap space is to be at least 16 GB.</td>
+</tr>
+<tr>
+<td align='left' headers='T5'><a href='#RuleA03600'>A03600</a></td>
+<td align='left' headers='T6'>This rule checks that the <code>ip_local_port_range</code> kernel parameter is set according to the <em>Oracle Database Installation Guide 12c Release 1 &#x28;12.1&#x29; for Linux</em>.</td>
+<td align='left' headers='T7'><code>LowValue<br/>HighValue</code></td>
+<td align='left' headers='T8'>The values in <code>/proc/sys/net/ipv4/ip_local_port_range</code> are not set as recommended for installing Oracle Database 12c R1. Change the values according to the latest recommendations:<br/><br/><code>$ /bin/echo 9000 65500 &#x3E; /proc/sys/net/ipv4/ip_local_port_range</code><br/><br/>The recommended low end value for <code>ip_local_port_range</code> is 9000<br/>The recommended high end value for <code>ip_local_port_range</code> is 65500</td>
+</tr>
+<tr>
+<td align='left' headers='T5'><a href='#RuleA04314'>A04314</a></td>
+<td align='left' headers='T6'>This rule verifies that the correct versions of the required RPMs for Oracle Database 12c R1 &#x28;12.1.0&#x29; 32&#x2D;bit Client installation are installed on an Red Hat Linux 6 system.</td>
+<td align='left' headers='T7'><code>compat&#x2D;libstdc&#x2B;&#x2B;&#x2D;33&#x28;i686&#x29; not installed</code></td>
+<td align='left' headers='T8'>You have incorrect versions of <code>compat&#x2D;libstdc&#x2B;&#x2B;&#x2D;33</code>, <code>glibc&#x2D;devel</code>, <code>glibc</code>, <code>libaio&#x2D;devel</code>, <code>libaio</code>, <code>libgcc</code>, <code>libstdc&#x2B;&#x2B;&#x2D;devel</code>, <code>libstdc&#x2B;&#x2B;</code>, <code>libX11</code>, <code>libXau</code>, <code>libxcb</code>, <code>libXext</code>, <code>libXi</code>, or <code>libXtst</code> installed on your system. Make sure that the correct versions are installed. For the required versions, see <em>Oracle Database Installation Guide 12c Release 1 &#x28;12.1&#x29; for Linux</em>.</td>
+</tr>
+</table>
+<p><a href='#Top'>Back to top</a>
+<h1 id='Hdr3'>Detailed Results</h1>
+<h2><a name='RuleA00100'>Rule A00100: OS Certified?</a></h2>
+<h3>Description</h3>
+<p>This rule checks for the correct version of Linux for installing Oracle Database 12c R1.
+<h3>Action</h3>
+<ul>
+<li>Result: <strong>PASSED</strong>
+<li>Condition: <code>Adequate =~ Adequate</code>
+</ul>
+<p>The correct version of Linux is installed on your server.
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA01020'>Rule A01020: User in /etc/passwd?</a></h2>
+<h3>Description</h3>
+<p>This rule verifies that the user name of the user who runs this script is in the <code>/etc/passwd</code> file.
+<h3>Action</h3>
+<ul>
+<li>Result: <strong>PASSED</strong>
+<li>Condition: <code>userOK == userOK</code>
+</ul>
+<p>The <code>/etc/passwd</code> file contains the user. No action is required.
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA01040'>Rule A01040: Group in /etc/group?</a></h2>
+<h3>Description</h3>
+<p>This rule verifies that the group to which the user belongs exists in the <code>/etc/group</code> file.
+<h3>Action</h3>
+<ul>
+<li>Result: <strong>PASSED</strong>
+<li>Condition: <code>GroupOK == GroupOK</code>
+</ul>
+<p>The <code>/etc/group</code> file contains the group of the user. No action required.
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA01060'>Rule A01060: ORACLE_HOME Valid?</a></h2>
+<h3>Description</h3>
+<p>This rule checks for the Oracle home directory.
+<h3>Action</h3>
+<ul>
+<li>Result: <strong>PASSED</strong>
+<li>Condition: <code>OHexists =~ OHexists&#x7C;OHsymlink</code>
+</ul>
+<p>The Oracle home directory exists. No action required
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA01070'>Rule A01070: O_H Permissions OK?</a></h2>
+<h3>Description</h3>
+<p>This rule checks that the user has the correct privileges to install Oracle Database 12c R1 in the Oracle home directory.
+<h3>Action</h3>
+<ul>
+<li>Result: <strong>PASSED</strong>
+<li>Condition: <code>CorrectPerms == CorrectPerms</code>
+</ul>
+<p>The permissions for the Oracle home directory are correct. No action required.
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA01220'>Rule A01220: JDK Version</a></h2>
+<h3>Description</h3>
+<p>This rule checks that the installed JDK version is JDK 6.0 update 37 or later. This is required for products like Oracle Java Database Connectivity and Oracle Call Interface drivers.
+<h3>Unmatched Actions</h3>
+<ul>
+<li><code>JDK home is missing == Adequate</code>
+</ul>
+<h3>Default Action</h3>
+<ul>
+<li>Result: <strong>FAILED</strong>
+<li>Value: <code>JDK home is missing</code>
+</ul>
+<p>Provide correct location for JDK home.
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA01410'>Rule A01410: oraInventory Permissions</a></h2>
+<h3>Description</h3>
+<p>This rule verifies that the user who is installing Oracle Database 12c R1 has sufficient privileges for the <code>oraInventory</code> directory.
+<h3>Action</h3>
+<ul>
+<li>Result: <strong>PASSED</strong>
+<li>Condition: <code>oraInventoryOK =~ oraInventoryOK&#x7C;oraInventoryNotFound</code>
+</ul>
+<p>Either the user has sufficient privileges for the <code>oraInventory</code> directory to install Oracle Database 12c R1 or this is the first Oracle product to be installed on the system. In that case, the installer creates the <code>oraInventory</code> directory. No action required.
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA01420'>Rule A01420: Other OUI Up?</a></h2>
+<h3>Description</h3>
+<p>This rule checks for another active <code>runInstaller</code> process on the system.
+<h3>Action</h3>
+<ul>
+<li>Result: <strong>PASSED</strong>
+<li>Condition: <code>NoOtherOUI == NoOtherOUI</code>
+</ul>
+<p>No other <code>runInstaller</code> process is running. No action required.
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA01430'>Rule A01430: Got Software Tools?</a></h2>
+<h3>Description</h3>
+<p>This rule verifies that the required assembly tools for the installation of Oracle Database 12c R1 exist.
+<h3>Action</h3>
+<ul>
+<li>Result: <strong>PASSED</strong>
+<li>Condition: <code>ld_nm_ar_make_found == ld_nm_ar_make_found</code>
+</ul>
+<p>All required assembly tools for the installation of Oracle Database 12c R1 were found. No action required.
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA01440'>Rule A01440: Other O_Hs in PATH?</a></h2>
+<h3>Description</h3>
+<p>This rule checks to ensure that the PATH variable does not contain any references to other Oracle home directories based on the /etc/oratab entries.
+<h3>Action</h3>
+<ul>
+<li>Result: <strong>PASSED</strong>
+<li>Condition: <code>NoneFound == NoneFound</code>
+</ul>
+<p>The PATH does not contain any of the Oracle home directories in the <code>/etc/oratab</code> file. No action required.
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA02010'>Rule A02010: Umask Set to 022?</a></h2>
+<h3>Description</h3>
+<p>This rule checks that the <code>umask</code> value is set correctly for installing Oracle Database 12c R1.
+<h3>Unmatched Actions</h3>
+<ul>
+<li><code>UmaskNotOK == UmaskOK</code>
+</ul>
+<h3>Default Action</h3>
+<ul>
+<li>Result: <strong>FAILED</strong>
+<li>Value: <code>UmaskNotOK</code>
+</ul>
+<p>The <code>umask</code> value is not set correctly. Set the <code>umask</code> to 022 before installing Oracle Database 12c R1.
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA02030'>Rule A02030: Limits Processes</a></h2>
+<h3>Description</h3>
+<p>This rule checks that the soft limit for maximum processes is set to 2047 or higher and the hard limit of maximum processes is set to 16384 or higher. For details about configuring this parameter, see the <em>Oracle Database Installation Guide 12c Release 1 &#x28;12.1&#x29; for Linux</em>.
+<h3>Action</h3>
+<ul>
+<li>Result: <strong>PASSED</strong>
+<li>Condition: <code>Adequate == Adequate</code>
+</ul>
+<p>The soft limit of maximum processes is set to 2047 or higher and the hard limit of maximum processes is set to 16384 or higher.
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA02040'>Rule A02040: Limits Stacksize</a></h2>
+<h3>Description</h3>
+<p>This rule checks that the soft limit for the size of the stack segment is set to 10240 or higher and the hard limit for the size of the stack segment is set to at least 10240 and not greater than 32768. For details about configuring this parameter, see the <em>Oracle Database Installation Guide 12c Release 1 &#x28;12.1&#x29; for Linux</em>.
+<h3>Unmatched Actions</h3>
+<ul>
+<li><code>HardHigh == Adequate</code>
+</ul>
+<h3>Default Action</h3>
+<ul>
+<li>Result: <strong>FAILED</strong>
+<li>Value: <code>HardHigh</code>
+</ul>
+<p>Decrease the hard limit for <code>stacksize</code> to 32768 or lower, but not less than 10240.
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA02050'>Rule A02050: Limits Descriptors</a></h2>
+<h3>Description</h3>
+<p>This rule checks that the soft limit of file descriptors is set to 1024 or higher and that the hard limit of file descriptors is set to 65536 or higher. For details about configuring this parameter, see the <em>Oracle Database Installation Guide 12c Release 1 &#x28;12.1&#x29; for Linux</em>.
+<h3>Action</h3>
+<ul>
+<li>Result: <strong>PASSED</strong>
+<li>Condition: <code>Adequate == Adequate</code>
+</ul>
+<p>The soft limit of descriptors is set to 1024 or higher and the hard limit of descriptors is set to 65536 or higher.
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA02100'>Rule A02100: LDLIBRARYPATH Unset?</a></h2>
+<h3>Description</h3>
+<p>This rule checks that the <code>LD_LIBRARY_PATH</code> environment variable is not set.
+<h3>Unmatched Actions</h3>
+<ul>
+<li><code>IsSet == UnSet</code>
+</ul>
+<h3>Default Action</h3>
+<ul>
+<li>Result: <strong>FAILED</strong>
+<li>Value: <code>IsSet</code>
+</ul>
+<p>The <code>LD_LIBRARY_PATH</code> environment variable is set in your environment and must be unset before installing Oracle Database 12c R1.
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA02170'>Rule A02170: JAVA_HOME Unset?</a></h2>
+<h3>Description</h3>
+<p>This rule checks that the JAVA_HOME environment variable is not set.
+<h3>Action</h3>
+<ul>
+<li>Result: <strong>PASSED</strong>
+<li>Condition: <code>UnSet == UnSet</code>
+</ul>
+<p>The JAVA_HOME environment variable is not set. No action required.
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA02210'>Rule A02210: Kernel Parameters OK?</a></h2>
+<h3>Description</h3>
+<p>This rule verifies that the kernel parameters are set according to the <em>Oracle Database Installation Guide 12c Release 1 &#x28;12.1&#x29; for Linux</em>.
+<h3>Action</h3>
+<ul>
+<li>Result: <strong>PASSED</strong>
+<li>Condition: <code>KernelOK == KernelOK</code>
+</ul>
+<p>The kernel parameters are set according to the <em>Oracle Database Installation Guide 12c Release 1 &#x28;12.1&#x29; for Linux</em>. No action required.
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA02300'>Rule A02300: Tainted Kernel?</a></h2>
+<h3>Description</h3>
+<p>This rule determines if the kernel contains tainted modules.
+<h3>Action</h3>
+<ul>
+<li>Result: <strong>PASSED</strong>
+<li>Condition: <code>NotVerifiable =~ NotTainted&#x7C;NotVerifiable</code>
+</ul>
+<p>The Linux kernel is not tainted.  No action is required.
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA03010'>Rule A03010: Temp Adequate?</a></h2>
+<h3>Description</h3>
+<p>This rule checks that there is sufficient space available for storing temporary files during the Oracle Database 12c installation.
+<h3>Action</h3>
+<ul>
+<li>Result: <strong>PASSED</strong>
+<li>Condition: <code>TempSpaceOK == TempSpaceOK</code>
+</ul>
+<p>There is sufficient temporary disk space available for installing Oracle Database 12c. No action required.
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA03020'>Rule A03020: Disk Space OK?</a></h2>
+<h3>Description</h3>
+<p>This rule verifies that the amount of disk space in the Oracle home directory is sufficient for installing Oracle Database 12c R1.
+<h3>Action</h3>
+<ul>
+<li>Result: <strong>PASSED</strong>
+<li>Condition: <code>DiskSpaceOK == DiskSpaceOK</code>
+</ul>
+<p>The Oracle home directory has sufficient disk space to install Oracle Database software, and create a database. No action required.
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA03100'>Rule A03100: RAM &#x28;in MB&#x29;</a></h2>
+<h3>Description</h3>
+<p>This rule verifies that your system has sufficient physical memory installed to install Oracle Database 12c R1.
+<h3>Unmatched Actions</h3>
+<ul>
+<li><code>60387 == Unknown</code>
+</ul>
+<h3>Action</h3>
+<ul>
+<li>Result: <strong>PASSED</strong>
+<li>Condition: <code>60387 &gt;= 2048</code>
+</ul>
+<p>You have sufficient physical memory &#x28;MB&#x29; installed to install Oracle Database 12c R1. No action required.
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA03150'>Rule A03150: SwapToRam OK?</a></h2>
+<h3>Description</h3>
+<p>This rule verifies that the total amount of swap space is greater than or equal to the amount recommended by the <em>Oracle Database Installation Guide 12c Release 1 &#x28;12.1&#x29; for Linux</em>.
+<h3>Unmatched Actions</h3>
+<ul>
+<li><code>SwapLessThanRam == SwapToRamOK</code>
+</ul>
+<h3>Default Action</h3>
+<ul>
+<li>Result: <strong>FAILED</strong>
+<li>Value: <code>SwapLessThanRam</code>
+</ul>
+<p>The amount of swap space is less than the amount recommended by the <em>Oracle Database Installation Guide 12c Release 1 &#x28;12.1&#x29; for Linux</em>. Verify the requirements and adjust your system accordingly.<br/>If physical memory is between 1 GB and 2 GB, then the swap space is to be at least 1.5 times the physical memory. If physical memory is between 2 GB and 16 GB, then the swap space is to be at least equal to physical memory. If physical memory is more than 16 GB, then the swap space is to be at least 16 GB.
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA03500'>Rule A03500: Network</a></h2>
+<h3>Description</h3>
+<p>This rule checks that the system is connected to a network. You can install Oracle Database 12c R1 on a standalone system that is not connected to a network or on a system that is connected to a network. Although both cases are supported, when the system is not connected to a network, you must configure the system to resolve the host name of the computer to either a static IP address or a loopback IP address. To access Oracle Database 12c R1, you must use a local browser. For more information, see the <em>Oracle Database Installation Guide 12c Release 1 &#x28;12.1&#x29; for Linux</em>.
+<h3>Action</h3>
+<ul>
+<li>Result: <strong>PASSED</strong>
+<li>Condition: <code>Connected =~ Connected&#x7C;Not connected. Check log.</code>
+</ul>
+<p>The system is connected to a network.
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA03540'>Rule A03540: /etc/hosts Format</a></h2>
+<h3>Description</h3>
+<p>This rule checks that the <code>/etc/hosts</code> file contains a line with <code>ip_address fully_qualified_domainname short_hostname</code>.
+<h3>Action</h3>
+<ul>
+<li>Result: <strong>PASSED</strong>
+<li>Condition: <code>Adequate IPv4 entry =~ ^Adequate</code>
+</ul>
+<p>The <code>/etc/hosts</code> entry for the fully qualified domain name and host name is adequate.
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA03550'>Rule A03550: DNS Lookup</a></h2>
+<h3>Description</h3>
+<p>This rule checks that the host is registered correctly in the DNS.
+<h3>Action</h3>
+<ul>
+<li>Result: <strong>PASSED</strong>
+<li>Condition: <code>Host correctly registered in DNS == Host correctly registered in DNS</code>
+</ul>
+<p>The host is registered correctly in the DNS.
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA03600'>Rule A03600: ip_local_port_range OK?</a></h2>
+<h3>Description</h3>
+<p>This rule checks that the <code>ip_local_port_range</code> kernel parameter is set according to the <em>Oracle Database Installation Guide 12c Release 1 &#x28;12.1&#x29; for Linux</em>.
+<h3>Unmatched Actions</h3>
+<ul>
+<li><code>LowValue<br/>HighValue == RangeOK</code>
+</ul>
+<h3>Default Action</h3>
+<ul>
+<li>Result: <strong>FAILED</strong>
+<li>Value: <code>LowValue<br/>HighValue</code>
+</ul>
+<p>The values in <code>/proc/sys/net/ipv4/ip_local_port_range</code> are not set as recommended for installing Oracle Database 12c R1. Change the values according to the latest recommendations:<br/><br/><code>$ /bin/echo 9000 65500 &#x3E; /proc/sys/net/ipv4/ip_local_port_range</code><br/><br/>The recommended low end value for <code>ip_local_port_range</code> is 9000<br/>The recommended high end value for <code>ip_local_port_range</code> is 65500
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA04301'>Rule A04301: OL5 Server RPMs OK?</a></h2>
+<h3>Description</h3>
+<p>This rule verifies that the correct versions of the required RPMs for Oracle Database 12c R1 &#x28;12.1.0&#x29; Server installation are installed on an Oracle Linux 5 system.
+<h3>Unmatched Actions</h3>
+<ul>
+<li><code>NotOracle =~ OL5rpmsOK</code>
+</ul>
+<h3>Action</h3>
+<ul>
+<li>Result: <strong>SKIPPED</strong>
+<li>Condition: <code>NotOracle =~ NotOL5&#x7C;NotOracle</code>
+</ul>
+<p>Not applicable on this system
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA04302'>Rule A04302: OL5 32&#x2D;bit Client RPMs OK?</a></h2>
+<h3>Description</h3>
+<p>This rule verifies that the correct versions of the required RPMs for Oracle Database 12c R1 &#x28;12.1.0&#x29; 32&#x2D;bit Client installation are installed on a Oracle Linux 5 system.
+<h3>Unmatched Actions</h3>
+<ul>
+<li><code>NotOracle =~ OL5rpmsOK</code>
+</ul>
+<h3>Action</h3>
+<ul>
+<li>Result: <strong>SKIPPED</strong>
+<li>Condition: <code>NotOracle =~ NotOL5&#x7C;NotOracle</code>
+</ul>
+<p>Not applicable on this system
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA04303'>Rule A04303: OL6 Server RPMs OK?</a></h2>
+<h3>Description</h3>
+<p>This rule verifies that the correct versions of the required RPMs for Oracle Database 12c R1 &#x28;12.1.0&#x29; Server installation are installed on an Oracle Linux 6 system.
+<h3>Unmatched Actions</h3>
+<ul>
+<li><code>NotOracle =~ OL6rpmsOK</code>
+</ul>
+<h3>Action</h3>
+<ul>
+<li>Result: <strong>SKIPPED</strong>
+<li>Condition: <code>NotOracle =~ NotOL6&#x7C;NotOracle</code>
+</ul>
+<p>Not applicable on this system
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA04304'>Rule A04304: OL6 32&#x2D;bit Client RPMs OK?</a></h2>
+<h3>Description</h3>
+<p>This rule verifies that the correct versions of the required RPMs for Oracle Database 12c R1 &#x28;12.1.0&#x29; 32&#x2D;bit Client installation are installed on an Oracle Linux 6 system.
+<h3>Unmatched Actions</h3>
+<ul>
+<li><code>NotOracle =~ OL6rpmsOK</code>
+</ul>
+<h3>Action</h3>
+<ul>
+<li>Result: <strong>SKIPPED</strong>
+<li>Condition: <code>NotOracle =~ NotOL6&#x7C;NotOracle</code>
+</ul>
+<p>Not applicable on this system
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA04305'>Rule A04305: OL7 Server RPMs OK?</a></h2>
+<h3>Description</h3>
+<p>This rule verifies that the correct versions of the required RPMs for Oracle Database 12c R1 &#x28;12.1.0&#x29; Server installation are installed on an Oracle Linux 7 system.
+<h3>Unmatched Actions</h3>
+<ul>
+<li><code>NotOracle =~ OL7rpmsOK</code>
+</ul>
+<h3>Action</h3>
+<ul>
+<li>Result: <strong>SKIPPED</strong>
+<li>Condition: <code>NotOracle =~ NotOL7&#x7C;NotOracle</code>
+</ul>
+<p>Not applicable on this system
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA04311'>Rule A04311: RHEL5 Server RPMs OK?</a></h2>
+<h3>Description</h3>
+<p>This rule verifies that the correct versions of the required RPMs for Oracle Database 12c R1 &#x28;12.1.0&#x29; Server installation are installed on a Red Hat Enterprise Linux 5 system.
+<h3>Unmatched Actions</h3>
+<ul>
+<li><code>NotRHEL5 =~ RHEL5rpmsOK</code>
+</ul>
+<h3>Action</h3>
+<ul>
+<li>Result: <strong>SKIPPED</strong>
+<li>Condition: <code>NotRHEL5 =~ NotRHEL5&#x7C;NotRedHat</code>
+</ul>
+<p>Not applicable on this system
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA04312'>Rule A04312: RHEL5 32&#x2D;bit Client RPMs OK?</a></h2>
+<h3>Description</h3>
+<p>This rule verifies that the correct versions of the required RPMs for Oracle Database 12c R1 &#x28;12.1.0&#x29; 32&#x2D;bit Client installation are installed on a Red Hat Enterprise Linux 5 system.
+<h3>Unmatched Actions</h3>
+<ul>
+<li><code>NotRHEL5 =~ RHEL5rpmsOK</code>
+</ul>
+<h3>Action</h3>
+<ul>
+<li>Result: <strong>SKIPPED</strong>
+<li>Condition: <code>NotRHEL5 =~ NotRHEL5&#x7C;NotRedHat</code>
+</ul>
+<p>Not applicable on this system
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA04313'>Rule A04313: RHEL6 Server RPMs OK?</a></h2>
+<h3>Description</h3>
+<p>This rule verifies that the correct versions of the required RPMs for Oracle Database 12c R1 &#x28;12.1.0&#x29; Server installation are installed on an Red Hat Linux 6 system.
+<h3>Action</h3>
+<ul>
+<li>Result: <strong>PASSED</strong>
+<li>Condition: <code>RHEL6rpmsOK =~ RHEL6rpmsOK</code>
+</ul>
+<p>The correct <code>binutils</code>, <code>compat&#x2D;libcap1</code>, <code>compat&#x2D;libstdc&#x2B;&#x2B;&#x2D;33</code>, <code>gcc&#x2D;c&#x2B;&#x2B;</code>, <code>gcc</code>, <code>glibc&#x2D;devel</code>, <code>glibc</code>, <code>ksh</code>, <code>libaio&#x2D;devel</code>, <code>libaio</code>, <code>libgcc</code>, <code>libstdc&#x2B;&#x2B;&#x2D;devel</code>, <code>libstdc&#x2B;&#x2B;</code>, <code>libX11</code>, <code>libXau</code>, <code>libxcb</code>, <code>libXext</code>, <code>libXi</code>, <code>libXtst</code>, <code>make</code>, <code>sysstat</code>, <code>unixODBC&#x2D;devel</code>, and <code>unixODBC</code> packages are installed on your Red Hat Linux 6 system. No action required.
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA04314'>Rule A04314: RHEL6 32&#x2D;bit Client RPMs OK?</a></h2>
+<h3>Description</h3>
+<p>This rule verifies that the correct versions of the required RPMs for Oracle Database 12c R1 &#x28;12.1.0&#x29; 32&#x2D;bit Client installation are installed on an Red Hat Linux 6 system.
+<h3>Unmatched Actions</h3>
+<ul>
+<li><code>&#x5B;compat&#x2D;libstdc&#x2B;&#x2B;&#x2D;33&#x28;i686&#x29;&#x5D; not installed =~ RHEL6rpmsOK</code>
+<li><code>&#x5B;compat&#x2D;libstdc&#x2B;&#x2B;&#x2D;33&#x28;i686&#x29;&#x5D; not installed =~ NotRHEL6&#x7C;NotRedHat</code>
+</ul>
+<h3>Default Action</h3>
+<ul>
+<li>Result: <strong>FAILED</strong>
+<li>Value: <code>&#x5B;compat&#x2D;libstdc&#x2B;&#x2B;&#x2D;33&#x28;i686&#x29;&#x5D; not installed</code>
+</ul>
+<p>You have incorrect versions of <code>compat&#x2D;libstdc&#x2B;&#x2B;&#x2D;33</code>, <code>glibc&#x2D;devel</code>, <code>glibc</code>, <code>libaio&#x2D;devel</code>, <code>libaio</code>, <code>libgcc</code>, <code>libstdc&#x2B;&#x2B;&#x2D;devel</code>, <code>libstdc&#x2B;&#x2B;</code>, <code>libX11</code>, <code>libXau</code>, <code>libxcb</code>, <code>libXext</code>, <code>libXi</code>, or <code>libXtst</code> installed on your system. Make sure that the correct versions are installed. For the required versions, see <em>Oracle Database Installation Guide 12c Release 1 &#x28;12.1&#x29; for Linux</em>.
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA04315'>Rule A04315: RHEL7 Server RPMs OK?</a></h2>
+<h3>Description</h3>
+<p>This rule verifies that the correct versions of the required RPMs for Oracle Database 12c R1 &#x28;12.1.0&#x29; Server installation are installed on an Red Hat Linux 7 system.
+<h3>Unmatched Actions</h3>
+<ul>
+<li><code>NotRHEL7 =~ RHEL7rpmsOK</code>
+</ul>
+<h3>Action</h3>
+<ul>
+<li>Result: <strong>SKIPPED</strong>
+<li>Condition: <code>NotRHEL7 =~ NotRHEL7&#x7C;NotRedHat</code>
+</ul>
+<p>Not applicable on this system
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA04321'>Rule A04321: SLES11 Server RPMs OK?</a></h2>
+<h3>Description</h3>
+<p>This rule verifies that the correct versions of the required RPMs for Oracle Database 12c R1 &#x28;12.1.0&#x29; Server installation are installed on a SuSE Linux Enterprise Server 11 system.
+<h3>Unmatched Actions</h3>
+<ul>
+<li><code>NotSuSE =~ SLES11rpmsOK</code>
+</ul>
+<h3>Action</h3>
+<ul>
+<li>Result: <strong>SKIPPED</strong>
+<li>Condition: <code>NotSuSE =~ NotSLES11&#x7C;NotSuSE</code>
+</ul>
+<p>Not applicable on this system
+<p><a href='#Top'>Back to top</a>
+<hr size='1'/>
+<h2><a name='RuleA04322'>Rule A04322: SLES11 32&#x2D;bit Client RPMs OK?</a></h2>
+<h3>Description</h3>
+<p>This rule verifies that the correct versions of the required RPMs for Oracle Database 12c R1 &#x28;12.1.0&#x29; 32&#x2D;bit Client installation are installed on a SuSE Linux Enterprise Server 11 system.
+<h3>Unmatched Actions</h3>
+<ul>
+<li><code>NotSuSE =~ SLES11rpmsOK</code>
+</ul>
+<h3>Action</h3>
+<ul>
+<li>Result: <strong>SKIPPED</strong>
+<li>Condition: <code>NotSuSE =~ NotSLES11&#x7C;NotSuSE</code>
+</ul>
+<p>Not applicable on this system
+<p><a href='#Top'>Back to top</a>
+</div></body></html>

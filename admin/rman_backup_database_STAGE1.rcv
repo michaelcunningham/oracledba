@@ -1,0 +1,3 @@
+delete force noprompt obsolete;
+backup format '/mnt/stagebackup/backup/df_t%t_s%s_p%p'  database;
+delete force noprompt obsolete;

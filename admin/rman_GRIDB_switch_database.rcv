@@ -1,0 +1,5 @@
+shutdown immediate;
+startup mount;
+switch database to copy;
+recover database;
+alter database open;

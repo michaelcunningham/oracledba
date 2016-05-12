@@ -1,0 +1,402 @@
+  ***************************************
+  PARAMETERS IN OPT_PARAM HINT
+  ****************************
+***************************************
+Column Usage Monitoring is ON: tracking level = 1
+***************************************
+
+Considering Query Transformations on query block SEL$1 (#0)
+**************************
+Query transformations (QT)
+**************************
+CBQT: Validity checks passed for df6u3x2v6abn9.
+CSE: Considering common sub-expression elimination in query block SEL$1 (#0)
+*************************
+Common Subexpression elimination (CSE)
+*************************
+CSE:     CSE not performed on query block SEL$1 (#0).
+OBYE:   Considering Order-by Elimination from view SEL$1 (#0)
+***************************
+Order-by elimination (OBYE)
+***************************
+OBYE:     OBYE bypassed: no order by to eliminate.
+OJE: Begin: find best directive for query block SEL$1 (#0)
+OJE: End: finding best directive for query block SEL$1 (#0)
+query block SEL$1 (#0) unchanged
+Considering Query Transformations on query block SEL$1 (#0)
+**************************
+Query transformations (QT)
+**************************
+CSE: Considering common sub-expression elimination in query block SEL$1 (#0)
+*************************
+Common Subexpression elimination (CSE)
+*************************
+CSE:     CSE not performed on query block SEL$1 (#0).
+query block SEL$1 (#0) unchanged
+apadrv-start sqlid=15500057209297251977
+CSE: Considering common sub-expression elimination in query block SEL$1 (#0)
+*************************
+Common Subexpression elimination (CSE)
+*************************
+CSE:     CSE not performed on query block SEL$1 (#0).
+  :
+    call(in-use=1304, alloc=16344), compile(in-use=58216, alloc=62760), execution(in-use=2632, alloc=4032)
+
+*******************************************
+Peeked values of the binds in SQL statement
+*******************************************
+
+=====================================
+SPD: BEGIN context at statement level
+=====================================
+Stmt: ******* UNPARSED QUERY IS *******
+SELECT DISTINCT "TT"."OBJECT_TYPE" "OBJECT_TYPE" FROM "MICHAEL"."TT" "TT" WHERE "TT"."OBJECT_NAME" LIKE 'SY%'
+Objects referenced in the statement
+  TT[TT] 20677, type = 1
+Objects in the hash table
+  Hash table Object 20677, type = 1, ownerid = 17608007097663829578:
+    Dynamic Sampling Directives at location 1:
+       dirid = 586526229928658492, state = 3, flags = 1, loc = 1 {C(20677)[1, 2]}
+       dirid = 9612659649520591497, state = 1, flags = 1, loc = 1 {(20677)[2]}
+       dirid = 1843398046279065297, state = 1, flags = 1, loc = 1 {(20677)[]}
+    Dynamic Sampling Directives at location 4:
+       dirid = 6746156473480418925, state = 1, flags = 1, loc = 4 {(20677)[2]}
+Return code in qosdInitDirCtx: ENBLD
+===================================
+SPD: END context at statement level
+===================================
+CBQT: Considering cost-based transformation on query block SEL$1 (#0)
+********************************
+COST-BASED QUERY TRANSFORMATIONS
+********************************
+FPD: Considering simple filter push (pre rewrite) in query block SEL$1 (#0)
+FPD:  Current where clause predicates "TT"."OBJECT_NAME" LIKE 'SY%'
+
+OBYE:   Considering Order-by Elimination from view SEL$1 (#0)
+***************************
+Order-by elimination (OBYE)
+***************************
+OBYE:     OBYE bypassed: no order by to eliminate.
+Considering Query Transformations on query block SEL$1 (#0)
+**************************
+Query transformations (QT)
+**************************
+CSE: Considering common sub-expression elimination in query block SEL$1 (#0)
+*************************
+Common Subexpression elimination (CSE)
+*************************
+CSE:     CSE not performed on query block SEL$1 (#0).
+kkqctdrvTD-start on query block SEL$1 (#0)
+kkqctdrvTD-start: :
+    call(in-use=1392, alloc=16344), compile(in-use=110352, alloc=118560), execution(in-use=2632, alloc=4032)
+
+kkqctdrvTD-cleanup: transform(in-use=0, alloc=0) :
+    call(in-use=1392, alloc=16344), compile(in-use=110824, alloc=118560), execution(in-use=2632, alloc=4032)
+
+kkqctdrvTD-end:
+    call(in-use=1392, alloc=16344), compile(in-use=110944, alloc=118560), execution(in-use=2632, alloc=4032)
+
+SJC: Considering set-join conversion in query block SEL$1 (#1)
+*************************
+Set-Join Conversion (SJC)
+*************************
+SJC: not performed
+OJE: Begin: find best directive for query block SEL$1 (#1)
+OJE: End: finding best directive for query block SEL$1 (#1)
+PM: Considering predicate move-around in query block SEL$1 (#1)
+**************************
+Predicate Move-Around (PM)
+**************************
+PM:     PM bypassed: Outer query contains no views.
+PM:     PM bypassed: Outer query contains no views.
+kkqctdrvTD-start on query block SEL$1 (#1)
+kkqctdrvTD-start: :
+    call(in-use=1816, alloc=16344), compile(in-use=111024, alloc=118560), execution(in-use=2632, alloc=4032)
+
+kkqctdrvTD-cleanup: transform(in-use=0, alloc=0) :
+    call(in-use=1816, alloc=16344), compile(in-use=111432, alloc=118560), execution(in-use=2632, alloc=4032)
+
+kkqctdrvTD-end:
+    call(in-use=1816, alloc=16344), compile(in-use=111552, alloc=118560), execution(in-use=2632, alloc=4032)
+
+kkqctdrvTD-start on query block SEL$1 (#1)
+kkqctdrvTD-start: :
+    call(in-use=1816, alloc=16344), compile(in-use=111552, alloc=118560), execution(in-use=2632, alloc=4032)
+
+Registered qb: SEL$1 0x706fde28 (COPY SEL$1)
+---------------------
+QUERY BLOCK SIGNATURE
+---------------------
+  signature(): NULL
+****************************************
+ Cost-Based Group-By/Distinct Placement
+****************************************
+GBP/DP: Checking validity of GBP/DP for query block SEL$1 (#1)
+GBP: Checking validity of group-by placement for query block SEL$1 (#1)
+GBP: Bypassed: Query has invalid constructs.
+DP: Checking validity of distinct placement for query block SEL$1 (#1)
+DP: Bypassed: Query has invalid constructs.
+kkqctdrvTD-cleanup: transform(in-use=3472, alloc=4184) :
+    call(in-use=1816, alloc=16344), compile(in-use=119248, alloc=131096), execution(in-use=2632, alloc=4032)
+
+kkqctdrvTD-end:
+    call(in-use=1816, alloc=16344), compile(in-use=115120, alloc=131096), execution(in-use=2632, alloc=4032)
+
+kkqctdrvTD-start on query block SEL$1 (#1)
+kkqctdrvTD-start: :
+    call(in-use=1816, alloc=16344), compile(in-use=115120, alloc=131096), execution(in-use=2632, alloc=4032)
+
+TE: Checking validity of table expansion for query block SEL$1 (#1)
+TE: Bypassed: No partitioned table in query block.
+kkqctdrvTD-cleanup: transform(in-use=0, alloc=0) :
+    call(in-use=1816, alloc=16344), compile(in-use=115528, alloc=131096), execution(in-use=2632, alloc=4032)
+
+kkqctdrvTD-end:
+    call(in-use=1816, alloc=16344), compile(in-use=115648, alloc=131096), execution(in-use=2632, alloc=4032)
+
+TE: Checking validity of table expansion for query block SEL$1 (#1)
+TE: Bypassed: No partitioned table in query block.
+ST: Query in kkqstardrv:******* UNPARSED QUERY IS *******
+SELECT DISTINCT "TT"."OBJECT_TYPE" "OBJECT_TYPE" FROM "MICHAEL"."TT" "TT" WHERE "TT"."OBJECT_NAME" LIKE 'SY%'
+ST: not valid since star transformation parameter is FALSE
+kkqctdrvTD-start on query block SEL$1 (#1)
+kkqctdrvTD-start: :
+    call(in-use=1872, alloc=16344), compile(in-use=115648, alloc=131096), execution(in-use=2632, alloc=4032)
+
+JF: Checking validity of join factorization for query block SEL$1 (#1)
+JF: Bypassed: not a UNION or UNION-ALL query block.
+kkqctdrvTD-cleanup: transform(in-use=0, alloc=0) :
+    call(in-use=1872, alloc=16344), compile(in-use=116056, alloc=131096), execution(in-use=2632, alloc=4032)
+
+kkqctdrvTD-end:
+    call(in-use=1872, alloc=16344), compile(in-use=116176, alloc=131096), execution(in-use=2632, alloc=4032)
+
+JPPD:  Considering Cost-based predicate pushdown from query block SEL$1 (#1)
+************************************
+Cost-based predicate pushdown (JPPD)
+************************************
+kkqctdrvTD-start on query block SEL$1 (#1)
+kkqctdrvTD-start: :
+    call(in-use=1872, alloc=16344), compile(in-use=116176, alloc=131096), execution(in-use=2632, alloc=4032)
+
+kkqctdrvTD-cleanup: transform(in-use=0, alloc=0) :
+    call(in-use=1872, alloc=16344), compile(in-use=116584, alloc=131096), execution(in-use=2632, alloc=4032)
+
+kkqctdrvTD-end:
+    call(in-use=1872, alloc=16344), compile(in-use=116704, alloc=131096), execution(in-use=2632, alloc=4032)
+
+JPPD: Applying transformation directives
+query block SEL$1 (#1) unchanged
+FPD: Considering simple filter push in query block SEL$1 (#1)
+"TT"."OBJECT_NAME" LIKE 'SY%'
+try to generate transitive predicate from check constraints for query block SEL$1 (#1)
+finally: "TT"."OBJECT_NAME" LIKE 'SY%'
+
+Final query after transformations:******* UNPARSED QUERY IS *******
+SELECT DISTINCT "TT"."OBJECT_TYPE" "OBJECT_TYPE" FROM "MICHAEL"."TT" "TT" WHERE "TT"."OBJECT_NAME" LIKE 'SY%'
+kkoqbc: optimizing query block SEL$1 (#1)
+        
+        :
+    call(in-use=1928, alloc=16344), compile(in-use=117768, alloc=131096), execution(in-use=2632, alloc=4032)
+
+kkoqbc-subheap (create addr=0x7f917083fb60)
+****************
+QUERY BLOCK TEXT
+****************
+select distinct object_type from tt where object_name like 'SY%'
+---------------------
+QUERY BLOCK SIGNATURE
+---------------------
+signature (optimizer): qb_name=SEL$1 nbfros=1 flg=0
+  fro(0): flg=0 objn=20677 hint_alias="TT"@"SEL$1"
+
+-----------------------------
+SYSTEM STATISTICS INFORMATION
+-----------------------------
+  Using NOWORKLOAD Stats
+  CPUSPEEDNW: 3839 millions instructions/sec (default is 100)
+  IOTFRSPEED: 4096 bytes per millisecond (default is 4096)
+  IOSEEKTIM:  10 milliseconds (default is 10)
+  MBRC:       NO VALUE blocks (default is 8)
+
+***************************************
+BASE STATISTICAL INFORMATION
+***********************
+Table Stats::
+  Table: TT  Alias: TT
+  #Rows: 19463  #Blks:  297  AvgRowLen:  98.00  ChainCnt:  0.00
+Index Stats::
+  Index: TT_IE1  Col#: 2
+    LVLS: 1  #LB: 83  #DK: 14508  LB/K: 1.00  DB/K: 1.00  CLUF: 7707.00
+  Index: TT_IE2  Col#: 2 1
+    LVLS: 1  #LB: 96  #DK: 18124  LB/K: 1.00  DB/K: 1.00  CLUF: 7745.00
+  Index: TT_PK  Col#: 4
+    LVLS: 1  #LB: 40  #DK: 19463  LB/K: 1.00  DB/K: 1.00  CLUF: 343.00
+  Column (#6): OBJECT_TYPE(VARCHAR2)
+    AvgLen: 7 NDV: 40 Nulls: 0 Density: 0.025000
+=======================================
+SPD: BEGIN context at query block level
+=======================================
+Query Block SEL$1 (#1)
+Applicable DS directives:
+   dirid = 586526229928658492, state = 3, flags = 1, loc = 1 {C(20677)[1, 2]}
+   dirid = 9612659649520591497, state = 1, flags = 1, loc = 1 {(20677)[2]}
+   dirid = 1843398046279065297, state = 1, flags = 1, loc = 1 {(20677)[]}
+   dirid = 6746156473480418925, state = 1, flags = 1, loc = 4 {(20677)[2]}
+SPD: Checking valid directives for the query block
+SPD: Return code in qosdDSDirSetup: NODIR, estType = GROUP_BY
+SPD: Return code in qosdDSDirSetup: NODIR, estType = QUERY_BLOCK
+Return code in qosdSetupDirCtx4QB: EXISTS
+=====================================
+SPD: END context at query block level
+=====================================
+Access path analysis for TT
+***************************************
+SINGLE TABLE ACCESS PATH 
+  Single Table Cardinality Estimation for TT[TT] 
+SPD: Return code in qosdDSDirSetup: NODIR, estType = TABLE
+  Column (#2): 
+    NewDensity:0.000069, OldDensity:0.000069 BktCnt:19463.000000, PopBktCnt:101.000000, PopValCnt:1, NDV:14508
+  Column (#2): OBJECT_NAME(VARCHAR2)
+    AvgLen: 20 NDV: 14508 Nulls: 0 Density: 0.000069
+    Histogram: Hybrid  #Bkts: 254  UncompBkts: 19463  EndPtVals: 254  ActualVal: yes
+  Table: TT  Alias: TT
+    Card: Original: 19463.000000  Rounded: 1773  Computed: 1773.15  Non Adjusted: 1773.15
+  Access Path: TableScan
+    Cost:  82.16  Resp: 82.16  Degree: 0
+      Cost_io: 82.00  Cost_cpu: 7511918
+      Resp_io: 82.00  Resp_cpu: 7511918
+kkofmx: index filter:"TT"."OBJECT_NAME" LIKE 'SY%'
+
+SPD: Return code in qosdDSDirSetup: NODIR, estType = INDEX_SCAN
+SPD: Return code in qosdDSDirSetup: NODIR, estType = INDEX_FILTER
+  Access Path: index (RangeScan)
+    Index: TT_IE1
+    resc_io: 712.00  resc_cpu: 5868765
+    ix_sel: 0.091104  ix_sel_with_filters: 0.091104 
+    Cost: 712.13  Resp: 712.13  Degree: 1
+SPD: Return code in qosdDSDirSetup: NODIR, estType = INDEX_SCAN
+
+  Access Path: index (RangeScan)
+    Index: TT_IE2
+    resc_io: 716.00  resc_cpu: 5897251
+    ix_sel: 0.091104  ix_sel_with_filters: 0.091104 
+    Cost: 716.13  Resp: 716.13  Degree: 1
+  ****** trying bitmap/domain indexes ******
+  ****** finished trying bitmap/domain indexes ******
+  Best:: AccessPath: TableScan
+         Cost: 82.16  Degree: 1  Resp: 82.16  Card: 1773.15  Bytes: 0
+
+Grouping column cardinality [OBJECT_TYP]    40
+***************************************
+
+OPTIMIZER STATISTICS AND COMPUTATIONS
+PJE:  Bypassed; QB has a single table SEL$1 (#1)
+***************************************
+GENERAL PLANS
+***************************************
+Considering cardinality-based initial join order.
+Permutations for Starting Table :0
+Join order[1]:  TT[TT]#0
+***********************
+Best so far:  Table#: 0  cost: 82.1631  card: 1773.1492  bytes: 47871
+***********************
+(newjo-stop-1) k:0, spcnt:0, perm:1, maxperm:2000
+
+*********************************
+Number of join permutations tried: 1
+*********************************
+Enumerating distribution method (advanced)
+
+GROUP BY/Correlated Subquery Filter adjustment factor: 1.000000
+GROUP BY cardinality:  40.000000, TABLE cardinality:  1773.000000
+Trying or-Expansion on query block SEL$1 (#1)
+    SORT ressource         Sort statistics
+      Sort width:         502 Area size:      440320 Max Area size:    88080384
+      Degree:               1
+      Blocks to Sort: 9 Row size:     40 Total Rows:           1773
+      Initial runs:   1 Merge passes:  0 IO Cost / pass:          0
+      Total IO sort cost: 0      Total CPU sort cost: 2062082
+      Total Temp space used: 0
+Transfer Optimizer annotations for query block SEL$1 (#1)
+DP: Checking validity for query block SEL$1, sqlid=df6u3x2v6abn9.
+AutoDOP: Consider caching for TT[TT](obj#20677) 
+cost:82.16 blkSize:8192 objSize:297.00 marObjSize:282.15 bufSize:98350.00 affPercent:80 smallTab:YES affinitized:NO
+kkecComputeAPDop: IO Dop: 0 - CPU Dop: 0
+Replication not feasible based on distribution
+id=0 frofand predicate="TT"."OBJECT_NAME" LIKE 'SY%'
+Transfer optimizer annotations for TT[TT]
+Final cost for query block SEL$1 (#1) - All Rows Plan:
+  Best join order: 1
+  Cost: 82.2078  Degree: 1  Card: 1773.0000  Bytes: 47871
+  Resc: 82.2078  Resc_io: 82.0000  Resc_cpu: 9574000
+  Resp: 82.2078  Resp_io: 82.0000  Resc_cpu: 9574000
+kkoqbc-subheap (delete addr=0x7f917083fb60, in-use=18536, alloc=32840)
+kkoqbc-end:
+        :
+    call(in-use=39824, alloc=82024), compile(in-use=134560, alloc=141280), execution(in-use=2632, alloc=4032)
+
+kkoqbc: finish optimizing query block SEL$1 (#1)
+
+ CBRID - frodef: TT queryblock SEL$1 blocking operation                 found. 
+apadrv-end
+          :
+    call(in-use=39824, alloc=82024), compile(in-use=135472, alloc=141280), execution(in-use=2632, alloc=4032)
+
+
+kkeCostToTime: using io calibrate stats maxpmbps=200(MB/s) 
+ block_size=8192 mb_io_count=1 mb_io_size=8192 (bytes) 
+ tot_io_size=1(MB) time=3(ms)
+kkeCostToTime: using io calibrate stats maxpmbps=200(MB/s) 
+ block_size=8192 mb_io_count=1 mb_io_size=8192 (bytes) 
+ tot_io_size=1(MB) time=3(ms)
+kkeCostToTime: using io calibrate stats maxpmbps=200(MB/s) 
+ block_size=8192 mb_io_count=1 mb_io_size=8192 (bytes) 
+ tot_io_size=1(MB) time=3(ms)
+kkeCostToTime: using io calibrate stats maxpmbps=200(MB/s) 
+ block_size=8192 mb_io_count=1 mb_io_size=8192 (bytes) 
+ tot_io_size=1(MB) time=3(ms)
+Starting SQL statement dump
+
+user_id=67 user_name=MICHAEL module=SQL*Plus action=
+sql_id=df6u3x2v6abn9 plan_hash_value=-1286786530 problem_type=3
+----- Current SQL Statement for this session (sql_id=df6u3x2v6abn9) -----
+select distinct object_type from tt where object_name like 'SY%'
+sql_text_length=65
+sql=select distinct object_type from tt where object_name like 'SY%'
+----- Explain Plan Dump -----
+----- Plan Table -----
+ 
+============
+Plan Table
+============
+--------------------------------------+-----------------------------------+
+| Id  | Operation           | Name    | Rows  | Bytes | Cost  | Time      |
+--------------------------------------+-----------------------------------+
+| 0   | SELECT STATEMENT    |         |       |       |    82 |           |
+| 1   |  HASH UNIQUE        |         |    40 |  1080 |    82 |  00:00:01 |
+| 2   |   TABLE ACCESS FULL | TT      |  1773 |   47K |    82 |  00:00:01 |
+--------------------------------------+-----------------------------------+
+Predicate Information:
+----------------------
+2 - filter("OBJECT_NAME" LIKE 'SY%')
+ 
+Content of other_xml column
+===========================
+  db_version     : 12.1.0.1
+  parse_schema   : MICHAEL
+  plan_hash      : 3008180766
+  plan_hash_2    : 1083647831
+  Outline Data:
+  /*+
+    BEGIN_OUTLINE_DATA
+      IGNORE_OPTIM_EMBEDDED_HINTS
+      OPTIMIZER_FEATURES_ENABLE('12.1.0.1')
+      DB_VERSION('12.1.0.1')
+      ALL_ROWS
+      OUTLINE_LEAF(@"SEL$1")
+      FULL(@"SEL$1" "TT"@"SEL$1")
+      USE_HASH_AGGREGATION(@"SEL$1")
+    END_OUTLINE_DATA
+  */
+ 

@@ -1,0 +1,7 @@
+RUN
+{
+  ALLOCATE CHANNEL ch1 DEVICE TYPE DISK FORMAT '/mnt/whsebackup2/db_%d_df_t%t_s%s_p%p_level0';
+  ALLOCATE CHANNEL ch2 DEVICE TYPE DISK FORMAT '/mnt/whsebackup2/db_%d_df_t%t_s%s_p%p_level1';
+  RESTORE datafile 152;
+  RECOVER datafile 152;
+}

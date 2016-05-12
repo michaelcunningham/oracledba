@@ -1,0 +1,2998 @@
+Trace file /u01/app/oracle/diag/rdbms/fmda/fmd/trace/fmd_ora_12423_s4_580_trace_run_1.trc
+Oracle Database 12c Enterprise Edition Release 12.1.0.1.0 - 64bit Production
+With the Partitioning, Automatic Storage Management, OLAP, Advanced Analytics
+and Real Application Testing options
+ORACLE_HOME = /u01/app/oracle/product/12.1.0/dbhome_1
+System name:	Linux
+Node name:	ora10.localdomain
+Release:	3.8.13-16.2.1.el6uek.x86_64
+Version:	#1 SMP Thu Nov 7 17:01:44 PST 2013
+Machine:	x86_64
+Instance name: fmd
+Redo thread mounted by this instance: 1
+Oracle process number: 53
+Unix process pid: 12423, image: oracle@ora10.localdomain (TNS V1-V3)
+
+
+*** 2016-02-18 10:19:50.736
+*** SESSION ID:(64.3) 2016-02-18 10:19:50.736
+*** CLIENT ID:() 2016-02-18 10:19:50.736
+*** SERVICE NAME:(SYS$USERS) 2016-02-18 10:19:50.736
+*** MODULE NAME:(SQL*Plus) 2016-02-18 10:19:50.736
+*** ACTION NAME:() 2016-02-18 10:19:50.736
+ 
+WAIT #139849212455048: nam='SQL*Net message to client' ela= 3 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=34579075146
+WAIT #139849212455048: nam='SQL*Net message from client' ela= 334 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=34579076257
+CLOSE #139849212455048:c=0,e=7,dep=0,type=1,tim=34579076317
+=====================
+PARSING IN CURSOR #139849212449440 len=48 dep=0 uid=67 oct=47 lid=67 tim=34579093964 hv=1080929281 ad='a518b180' sqlid='f2n5bn906vb01'
+BEGIN :s_object_name := 'DBMS_TRACE_LIB'; END;
+END OF STMT
+PARSE #139849212449440:c=0,e=661,p=0,cr=0,cu=0,mis=1,r=0,dep=0,og=1,plh=0,tim=34579093963
+Registered qb: MISC$1 0x2e9c2868 (PARSER)
+---------------------
+QUERY BLOCK SIGNATURE
+---------------------
+  signature(): NULL
+SPM: disallowed: statement type not supported
+
+***************************************
+Column Usage Monitoring is ON: tracking level = 1
+***************************************
+
+Considering Query Transformations on query block MISC$1 (#0)
+**************************
+Query transformations (QT)
+**************************
+CBQT bypassed for query block MISC$1 (#0): statement type.
+CBQT: Validity checks failed for f2n5bn906vb01.
+CSE: Considering common sub-expression elimination in query block MISC$1 (#0)
+*************************
+Common Subexpression elimination (CSE)
+*************************
+CSE:     CSE not performed on query block MISC$1 (#0).
+OBYE:   Considering Order-by Elimination from view MISC$1 (#0)
+***************************
+Order-by elimination (OBYE)
+***************************
+OBYE:     OBYE bypassed: no order by to eliminate.
+CVM: Considering view merge in query block MISC$1 (#0)
+OJE: Begin: find best directive for query block MISC$1 (#0)
+OJE: End: finding best directive for query block MISC$1 (#0)
+query block MISC$1 (#0) unchanged
+Considering Query Transformations on query block MISC$1 (#0)
+**************************
+Query transformations (QT)
+**************************
+CBQT bypassed for query block MISC$1 (#0): statement type.
+CBQT: Validity checks failed for f2n5bn906vb01.
+CSE: Considering common sub-expression elimination in query block MISC$1 (#0)
+*************************
+Common Subexpression elimination (CSE)
+*************************
+CSE:     CSE not performed on query block MISC$1 (#0).
+SU: Considering subquery unnesting in query block MISC$1 (#0)
+********************
+Subquery Unnest (SU)
+********************
+SJC: Considering set-join conversion in query block MISC$1 (#0)
+*************************
+Set-Join Conversion (SJC)
+*************************
+SJC: not performed
+PM: Considering predicate move-around in query block MISC$1 (#0)
+**************************
+Predicate Move-Around (PM)
+**************************
+PM:     PM bypassed: Outer query contains no views.
+PM:     PM bypassed: Outer query contains no views.
+query block MISC$1 (#0) unchanged
+BINDS #139849212449440:
+ Bind#0
+  oacdty=01 mxl=128(96) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=03 fl2=1000000 frm=01 csi=873 siz=128 off=0
+  kxsbbbfp=7f312ea14df0  bln=128  avl=00  flg=05
+WAIT #139849212449440: nam='SQL*Net message to client' ela= 3 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=34579127598
+EXEC #139849212449440:c=27000,e=33516,p=0,cr=0,cu=0,mis=1,r=1,dep=0,og=1,plh=0,tim=34579127631
+WAIT #139849212449440: nam='SQL*Net message from client' ela= 415 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=34579128134
+CLOSE #139849212449440:c=0,e=14,dep=0,type=0,tim=34579128190
+------------------------------------------------------------------------------------------------------------------------
+CUR#1 XSC 0x7f312ea152a0 CHILD#-1 CI (nil) CTX (nil)
+ PARSING SQLTEXT=select	object_id, owner, object_name, object_type
+from	tt
+where	object_name = :s_object_name
+ SQLHASH=eef41818
+ Checking for already pinned child. fbcflg 108
+ No valid child pinned
+ Parent 0xa54438d8(0xa51865b8) ready for search
+ kksSearchChildList: no suitable child found (hash_match=0)
+ SearchChildList failed ctx=(nil) xscflg=28 ctxflg=0 flg=108
+ allocated new child slot bi=0xa5185af0 flg=1 cld=0 hsh=eef41818
+kkshinins insert child into incomplete list bi=0xa5185af0 cld=0 flg=25
+ Created new child obj #0 dsfl=2002011 8003c00 xsc=0x7f312ea152a0 chd=0xa5185118 clk=0xa54432e8
+ Pin new child obj #0 dsfl=2002011 xsc=0x7f312ea152a0 chd=0xa5185118 clk=0xa54432e8 cpn=(nil)
+ kksLoadChild: reload 0 path 2
+ kksLoadChild: reload 0 path 3
+ Compilation environment difference Failed sharing : 0
+ Change in cursor environment
+ SQL pgadep:0 pgapls:0 user
+ Child creation successful xsc=0x7f312ea152a0 chd=0xa5185118 cpn=0xa5456c88 sta=0 bi=0xa5185af0 cld=0
+ Add new child to parent list pi=0xa5185620 psn=0 bi=0xa5185af0 cld=0 flg=35
+------------------------------------------------------------------------------------------------------------------------
+=====================
+PARSING IN CURSOR #139849212449440 len=92 dep=0 uid=67 oct=3 lid=67 tim=34579130002 hv=4008974360 ad='a51865b8' sqlid='2yhyu5brg860s'
+select	object_id, owner, object_name, object_type
+from	tt
+where	object_name = :s_object_name
+END OF STMT
+PARSE #139849212449440:c=1000,e=1770,p=0,cr=0,cu=0,mis=1,r=0,dep=0,og=1,plh=0,tim=34579130001
+------------------------------------------------------------------------------------------------------------------------
+ Checking for already pinned child. fbcflg 102
+ kkssbt: setting types
+ kkssbt: opitca 0xa5184180 0xa4877cd0
+ Compilation environment difference Failed sharing : 0
+ Change in cursor environment
+ SQL pgadep:0 pgapls:0 user
+ Cursor#1 mapped
+------------------------------------------------------------------------------------------------------------------------
+=====================
+PARSING IN CURSOR #139849212446728 len=245 dep=1 uid=0 oct=3 lid=0 tim=34579131871 hv=1602468406 ad='a78133d8' sqlid='1p5grz1gs7fjq'
+select obj#,type#,ctime,mtime,stime, status, dataobj#, flags, oid$, spare1, spare2, spare3, signature, spare7, spare8, spare9 from obj$ where owner#=:1 and name=:2 and namespace=:3 and remoteowner is null and linkname is null and subname is null
+END OF STMT
+PARSE #139849212446728:c=0,e=783,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=0,tim=34579131870
+ Cursor#1 mapped
+BINDS #139849212446728:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=80 off=0
+  kxsbbbfp=7f312ea12708  bln=22  avl=02  flg=05
+  value=67
+ Bind#1
+  oacdty=01 mxl=32(02) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=10 fl2=0001 frm=01 csi=873 siz=0 off=24
+  kxsbbbfp=7f312ea12720  bln=32  avl=02  flg=01
+  value="TT"
+ Bind#2
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=56
+  kxsbbbfp=7f312ea12740  bln=22  avl=02  flg=01
+  value=1
+EXEC #139849212446728:c=4000,e=8064,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=813480514,tim=34579140056
+WAIT #139849212446728: nam='Disk file operations I/O' ela= 279 FileOperation=2 fileno=1 filetype=2 obj#=18 tim=34579140481
+WAIT #139849212446728: nam='Disk file operations I/O' ela= 71462 FileOperation=2 fileno=0 filetype=15 obj#=18 tim=34579212418
+WAIT #139849212446728: nam='db file sequential read' ela= 25996 file#=1 block#=36527 blocks=1 obj#=18 tim=34579238768
+FETCH #139849212446728:c=3000,e=99487,p=1,cr=3,cu=0,mis=0,r=1,dep=1,og=4,plh=813480514,tim=34579239568
+ Cursor#1 mapped
+STAT #139849212446728 id=1 cnt=1 pid=0 pos=1 obj=18 op='TABLE ACCESS BY INDEX ROWID BATCHED OBJ$ (cr=3 pr=1 pw=0 time=99472 us cost=3 size=101 card=1)'
+STAT #139849212446728 id=2 cnt=1 pid=1 pos=1 obj=37 op='INDEX RANGE SCAN I_OBJ2 (cr=2 pr=0 pw=0 time=43 us cost=2 size=0 card=1)'
+CLOSE #139849212446728:c=0,e=140,dep=1,type=3,tim=34579239864
+ Cursor#1 mapped
+ Cursor#1 mapped
+=====================
+PARSING IN CURSOR #139849212436720 len=484 dep=1 uid=0 oct=3 lid=0 tim=34579242934 hv=3039452944 ad='a779a128' sqlid='7fwum1yuknrsh'
+select t.ts#,t.file#,t.block#,nvl(t.bobj#,0),nvl(t.tab#,0),t.intcols,nvl(t.clucols,0),t.flags,t.pctfree$,t.pctused$,t.initrans,t.maxtrans,t.rowcnt,t.blkcnt,t.empcnt,t.avgspc,t.chncnt,t.avgrln,t.analyzetime,t.samplesize,t.cols,t.property,nvl(t.degree,1),nvl(t.instances,1),t.avgspc_flb,t.flbcnt,t.kernelcols,nvl(t.trigflag, 0),nvl(t.spare1,0),nvl(t.spare2,0),t.spare4,t.spare6,ts.cachedblk,ts.cachehit,ts.logicalread from tab$ t, tab_stats$ ts where t.obj#= :1 and t.obj# = ts.obj# (+)
+END OF STMT
+PARSE #139849212436720:c=2000,e=2835,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=0,tim=34579242933
+ Cursor#1 mapped
+BINDS #139849212436720:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7f312e99e9e8  bln=22  avl=04  flg=05
+  value=20677
+EXEC #139849212436720:c=5000,e=5211,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=2035254952,tim=34579248420
+WAIT #139849212436720: nam='db file sequential read' ela= 40434 file#=1 block#=37869 blocks=1 obj#=4 tim=34579289038
+FETCH #139849212436720:c=2000,e=40938,p=1,cr=5,cu=0,mis=0,r=1,dep=1,og=4,plh=2035254952,tim=34579289395
+ Cursor#1 mapped
+STAT #139849212436720 id=1 cnt=1 pid=0 pos=1 obj=0 op='MERGE JOIN OUTER (cr=5 pr=1 pw=0 time=40947 us cost=2 size=169 card=1)'
+STAT #139849212436720 id=2 cnt=1 pid=1 pos=1 obj=4 op='TABLE ACCESS CLUSTER TAB$ (cr=3 pr=1 pw=0 time=40888 us cost=2 size=130 card=1)'
+STAT #139849212436720 id=3 cnt=1 pid=2 pos=1 obj=3 op='INDEX UNIQUE SCAN I_OBJ# (cr=2 pr=0 pw=0 time=51 us cost=1 size=0 card=1)'
+STAT #139849212436720 id=4 cnt=0 pid=1 pos=2 obj=0 op='BUFFER SORT (cr=2 pr=0 pw=0 time=51 us cost=0 size=39 card=1)'
+STAT #139849212436720 id=5 cnt=0 pid=4 pos=1 obj=73 op='TABLE ACCESS BY INDEX ROWID TAB_STATS$ (cr=2 pr=0 pw=0 time=22 us cost=0 size=39 card=1)'
+STAT #139849212436720 id=6 cnt=0 pid=5 pos=1 obj=74 op='INDEX UNIQUE SCAN I_TAB_STATS$_OBJ# (cr=2 pr=0 pw=0 time=18 us cost=0 size=0 card=1)'
+CLOSE #139849212436720:c=0,e=267,dep=1,type=3,tim=34579289672
+ Cursor#1 mapped
+ Cursor#1 mapped
+=====================
+PARSING IN CURSOR #139849211962264 len=39 dep=1 uid=0 oct=3 lid=0 tim=34579290420 hv=2576572266 ad='a780a3c0' sqlid='gd28w82ct6rva'
+select audit$ from tab$ where obj# = :1
+END OF STMT
+PARSE #139849211962264:c=0,e=663,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=0,tim=34579290419
+ Cursor#1 mapped
+BINDS #139849211962264:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7f312e99d1a0  bln=22  avl=04  flg=05
+  value=20677
+EXEC #139849211962264:c=2000,e=1911,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=2970138452,tim=34579292454
+FETCH #139849211962264:c=0,e=34,p=0,cr=3,cu=0,mis=0,r=1,dep=1,og=4,plh=2970138452,tim=34579292516
+ Cursor#1 mapped
+STAT #139849211962264 id=1 cnt=1 pid=0 pos=1 obj=4 op='TABLE ACCESS CLUSTER TAB$ (cr=3 pr=0 pw=0 time=34 us cost=2 size=44 card=1)'
+STAT #139849211962264 id=2 cnt=1 pid=1 pos=1 obj=3 op='INDEX UNIQUE SCAN I_OBJ# (cr=2 pr=0 pw=0 time=17 us cost=1 size=0 card=1)'
+CLOSE #139849211962264:c=0,e=67,dep=1,type=3,tim=34579292716
+ Cursor#1 mapped
+ Cursor#1 mapped
+=====================
+PARSING IN CURSOR #139849211956632 len=76 dep=1 uid=0 oct=3 lid=0 tim=34579293673 hv=1052578227 ad='a5faea90' sqlid='04kug40zbu4dm'
+select policy#, action# from aud_object_opt$ where object# = :1 and type = 2
+END OF STMT
+PARSE #139849211956632:c=1000,e=821,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=0,tim=34579293672
+ Cursor#1 mapped
+ Cursor#1 mapped
+ Cursor#1 mapped
+ Cursor#1 mapped
+BINDS #139849211956632:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=08 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7f312e99bd70  bln=22  avl=04  flg=05
+  value=20677
+EXEC #139849211956632:c=1000,e=1360,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=4006480256,tim=34579295189
+ Cursor#1 mapped
+FETCH #139849211956632:c=0,e=66,p=0,cr=3,cu=0,mis=0,r=0,dep=1,og=4,plh=4006480256,tim=34579295308
+STAT #139849211956632 id=1 cnt=0 pid=0 pos=1 obj=442 op='TABLE ACCESS FULL AUD_OBJECT_OPT$ (cr=3 pr=0 pw=0 time=64 us cost=2 size=91 card=1)'
+ Cursor#1 mapped
+CLOSE #139849211956632:c=0,e=7,dep=1,type=0,tim=34579295407
+ Cursor#1 mapped
+ Cursor#1 mapped
+=====================
+PARSING IN CURSOR #139849211956048 len=865 dep=1 uid=0 oct=3 lid=0 tim=34579297821 hv=715221786 ad='a7778788' sqlid='616m6uhpa2usu'
+select i.obj#,i.ts#,i.file#,i.block#,i.intcols,i.type#,i.flags,i.property,i.pctfree$,i.initrans,i.maxtrans,i.blevel,i.leafcnt,i.distkey,i.lblkkey,i.dblkkey,i.clufac,i.cols,i.analyzetime,i.samplesize,i.dataobj#,nvl(i.degree,1),nvl(i.instances,1),i.rowcnt,mod(i.pctthres$,256),i.indmethod#,i.trunccnt,nvl(c.unicols,0),nvl(c.deferrable#+c.valid#,0),nvl(i.spare1,i.intcols),i.spare4,i.spare2,i.spare6,decode(i.pctthres$,null,null,mod(trunc(i.pctthres$/256),256)),nvl(i.evaledition#,1),nvl(i.unusablebefore#,0),nvl(i.unusablebeginning#,0), ist.cachedblk,ist.cachehit,ist.logicalread from ind$ i, ind_stats$ ist, (select enabled, min(cols) unicols,min(to_number(bitand(defer,1))) deferrable#,min(to_number(bitand(defer,4))) valid# from cdef$ where obj#=:1 and enabled > 1 group by enabled) c where i.obj#=c.enabled(+) and i.obj# = ist.obj#(+) and i.bo#=:1 order by i.obj#
+END OF STMT
+PARSE #139849211956048:c=1000,e=1670,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=0,tim=34579297820
+ Cursor#1 mapped
+BINDS #139849211956048:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7f312e996090  bln=22  avl=04  flg=05
+  value=20677
+ Bind#1
+  No oacdef for this bind.
+EXEC #139849211956048:c=7000,e=7539,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=2556297882,tim=34579305519
+FETCH #139849211956048:c=1000,e=1151,p=0,cr=6,cu=0,mis=0,r=1,dep=1,og=4,plh=2556297882,tim=34579306707
+ Cursor#1 mapped
+ Cursor#1 mapped
+=====================
+PARSING IN CURSOR #139849209743088 len=74 dep=1 uid=0 oct=3 lid=0 tim=34579308123 hv=3309402135 ad='a77f1b58' sqlid='5n1fs4m2n2y0r'
+select pos#,intcol#,col#,spare1,bo#,spare2,spare3 from icol$ where obj#=:1
+END OF STMT
+PARSE #139849209743088:c=2000,e=1261,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=0,tim=34579308118
+ Cursor#1 mapped
+BINDS #139849209743088:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7f312e7444f0  bln=22  avl=04  flg=05
+  value=20678
+EXEC #139849209743088:c=1000,e=1414,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=452367486,tim=34579309720
+FETCH #139849209743088:c=0,e=56,p=0,cr=3,cu=0,mis=0,r=1,dep=1,og=4,plh=452367486,tim=34579309805
+ Cursor#1 mapped
+FETCH #139849209743088:c=0,e=8,p=0,cr=1,cu=0,mis=0,r=0,dep=1,og=4,plh=452367486,tim=34579309873
+STAT #139849209743088 id=1 cnt=1 pid=0 pos=1 obj=20 op='TABLE ACCESS BY INDEX ROWID BATCHED ICOL$ (cr=4 pr=0 pw=0 time=57 us cost=2 size=54 card=2)'
+STAT #139849209743088 id=2 cnt=1 pid=1 pos=1 obj=42 op='INDEX RANGE SCAN I_ICOL1 (cr=3 pr=0 pw=0 time=48 us cost=1 size=0 card=2)'
+ Cursor#1 mapped
+CLOSE #139849209743088:c=0,e=4,dep=1,type=3,tim=34579309995
+ Cursor#1 mapped
+FETCH #139849211956048:c=0,e=24,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=2556297882,tim=34579310154
+ Cursor#1 mapped
+BINDS #139849209743088:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7f312e7444f0  bln=22  avl=04  flg=05
+  value=20679
+EXEC #139849209743088:c=0,e=97,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=4,plh=452367486,tim=34579310315
+FETCH #139849209743088:c=0,e=26,p=0,cr=3,cu=0,mis=0,r=1,dep=1,og=4,plh=452367486,tim=34579310362
+ Cursor#1 mapped
+FETCH #139849209743088:c=0,e=6,p=0,cr=1,cu=0,mis=0,r=0,dep=1,og=4,plh=452367486,tim=34579310413
+ Cursor#1 mapped
+CLOSE #139849209743088:c=0,e=3,dep=1,type=3,tim=34579310467
+ Cursor#1 mapped
+FETCH #139849211956048:c=0,e=15,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=2556297882,tim=34579310509
+ Cursor#1 mapped
+BINDS #139849209743088:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7f312e7444f0  bln=22  avl=04  flg=05
+  value=20681
+EXEC #139849209743088:c=0,e=97,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=4,plh=452367486,tim=34579310688
+FETCH #139849209743088:c=0,e=21,p=0,cr=3,cu=0,mis=0,r=1,dep=1,og=4,plh=452367486,tim=34579310731
+ Cursor#1 mapped
+FETCH #139849209743088:c=0,e=13,p=0,cr=2,cu=0,mis=0,r=1,dep=1,og=4,plh=452367486,tim=34579310787
+ Cursor#1 mapped
+FETCH #139849209743088:c=0,e=6,p=0,cr=1,cu=0,mis=0,r=0,dep=1,og=4,plh=452367486,tim=34579310831
+ Cursor#1 mapped
+CLOSE #139849209743088:c=0,e=2,dep=1,type=3,tim=34579310888
+ Cursor#1 mapped
+FETCH #139849211956048:c=0,e=12,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=4,plh=2556297882,tim=34579310944
+STAT #139849211956048 id=1 cnt=3 pid=0 pos=1 obj=0 op='SORT ORDER BY (cr=6 pr=0 pw=0 time=1166 us cost=4 size=360 card=2)'
+STAT #139849211956048 id=2 cnt=3 pid=1 pos=1 obj=0 op='HASH JOIN OUTER (cr=6 pr=0 pw=0 time=1042 us cost=4 size=360 card=2)'
+STAT #139849211956048 id=3 cnt=3 pid=2 pos=1 obj=0 op='NESTED LOOPS OUTER (cr=4 pr=0 pw=0 time=91 us cost=2 size=274 card=2)'
+STAT #139849211956048 id=4 cnt=3 pid=3 pos=1 obj=19 op='TABLE ACCESS CLUSTER IND$ (cr=3 pr=0 pw=0 time=52 us cost=2 size=170 card=2)'
+STAT #139849211956048 id=5 cnt=1 pid=4 pos=1 obj=3 op='INDEX UNIQUE SCAN I_OBJ# (cr=2 pr=0 pw=0 time=23 us cost=1 size=0 card=1)'
+STAT #139849211956048 id=6 cnt=0 pid=3 pos=2 obj=75 op='TABLE ACCESS BY INDEX ROWID IND_STATS$ (cr=1 pr=0 pw=0 time=28 us cost=0 size=52 card=1)'
+STAT #139849211956048 id=7 cnt=0 pid=6 pos=1 obj=76 op='INDEX UNIQUE SCAN I_IND_STATS$_OBJ# (cr=1 pr=0 pw=0 time=22 us cost=0 size=0 card=1)'
+STAT #139849211956048 id=8 cnt=0 pid=2 pos=2 obj=0 op='VIEW  (cr=2 pr=0 pw=0 time=128 us cost=2 size=43 card=1)'
+STAT #139849211956048 id=9 cnt=0 pid=8 pos=1 obj=0 op='SORT GROUP BY (cr=2 pr=0 pw=0 time=125 us cost=2 size=15 card=1)'
+STAT #139849211956048 id=10 cnt=0 pid=9 pos=1 obj=31 op='TABLE ACCESS BY INDEX ROWID BATCHED CDEF$ (cr=2 pr=0 pw=0 time=57 us cost=2 size=15 card=1)'
+STAT #139849211956048 id=11 cnt=0 pid=10 pos=1 obj=54 op='INDEX RANGE SCAN I_CDEF2 (cr=2 pr=0 pw=0 time=55 us cost=1 size=0 card=4)'
+ Cursor#1 mapped
+CLOSE #139849211956048:c=0,e=3,dep=1,type=3,tim=34579311354
+ Cursor#1 mapped
+ Cursor#1 mapped
+=====================
+PARSING IN CURSOR #139849209747640 len=418 dep=1 uid=0 oct=3 lid=0 tim=34579312830 hv=3759961951 ad='a7802158' sqlid='14d7z6mh1sxuz'
+select name,intcol#,segcol#,type#,length,nvl(precision#,0),decode(type#,2,nvl(scale,-127/*MAXSB1MINAL*/),178,scale,179,scale,180,scale,181,scale,182,scale,183,scale,231,scale,0),null$,fixedstorage,nvl(deflength,0),default$,rowid,col#,property, nvl(charsetid,0),nvl(charsetform,0),spare1,spare2,nvl(spare3,0), nvl(evaledition#,1),nvl(unusablebefore#,0),nvl(unusablebeginning#,0) from col$ where obj#=:1 order by intcol#
+END OF STMT
+PARSE #139849209747640:c=2000,e=1387,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=0,tim=34579312807
+ Cursor#1 mapped
+BINDS #139849209747640:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7f312e995448  bln=22  avl=04  flg=05
+  value=20677
+EXEC #139849209747640:c=2000,e=2722,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=3765558045,tim=34579315697
+FETCH #139849209747640:c=0,e=285,p=0,cr=3,cu=0,mis=0,r=1,dep=1,og=4,plh=3765558045,tim=34579316032
+ Cursor#1 mapped
+FETCH #139849209747640:c=0,e=26,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=3765558045,tim=34579316140
+ Cursor#1 mapped
+FETCH #139849209747640:c=0,e=10,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=3765558045,tim=34579316212
+ Cursor#1 mapped
+FETCH #139849209747640:c=0,e=10,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=3765558045,tim=34579316262
+ Cursor#1 mapped
+FETCH #139849209747640:c=0,e=9,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=3765558045,tim=34579316310
+ Cursor#1 mapped
+FETCH #139849209747640:c=0,e=14,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=3765558045,tim=34579316400
+ Cursor#1 mapped
+FETCH #139849209747640:c=0,e=9,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=3765558045,tim=34579316461
+ Cursor#1 mapped
+FETCH #139849209747640:c=0,e=9,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=3765558045,tim=34579316521
+ Cursor#1 mapped
+FETCH #139849209747640:c=0,e=8,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=3765558045,tim=34579316573
+ Cursor#1 mapped
+FETCH #139849209747640:c=0,e=8,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=3765558045,tim=34579316619
+ Cursor#1 mapped
+FETCH #139849209747640:c=0,e=8,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=3765558045,tim=34579316665
+ Cursor#1 mapped
+FETCH #139849209747640:c=0,e=8,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=3765558045,tim=34579316710
+ Cursor#1 mapped
+FETCH #139849209747640:c=0,e=8,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=3765558045,tim=34579316756
+ Cursor#1 mapped
+FETCH #139849209747640:c=0,e=8,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=3765558045,tim=34579316820
+ Cursor#1 mapped
+FETCH #139849209747640:c=0,e=16,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=3765558045,tim=34579316898
+ Cursor#1 mapped
+FETCH #139849209747640:c=0,e=9,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=3765558045,tim=34579316953
+ Cursor#1 mapped
+FETCH #139849209747640:c=0,e=8,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=3765558045,tim=34579316999
+ Cursor#1 mapped
+FETCH #139849209747640:c=0,e=8,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=3765558045,tim=34579317045
+ Cursor#1 mapped
+FETCH #139849209747640:c=0,e=14,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=4,plh=3765558045,tim=34579317097
+STAT #139849209747640 id=1 cnt=18 pid=0 pos=1 obj=0 op='SORT ORDER BY (cr=3 pr=0 pw=0 time=366 us cost=2 size=720 card=12)'
+STAT #139849209747640 id=2 cnt=18 pid=1 pos=1 obj=21 op='TABLE ACCESS CLUSTER COL$ (cr=3 pr=0 pw=0 time=369 us cost=2 size=720 card=12)'
+STAT #139849209747640 id=3 cnt=1 pid=2 pos=1 obj=3 op='INDEX UNIQUE SCAN I_OBJ# (cr=2 pr=0 pw=0 time=61 us cost=1 size=0 card=1)'
+ Cursor#1 mapped
+CLOSE #139849209747640:c=0,e=3,dep=1,type=3,tim=34579317237
+ Cursor#1 mapped
+ Cursor#1 mapped
+=====================
+PARSING IN CURSOR #139849211924392 len=226 dep=1 uid=0 oct=3 lid=0 tim=34579318800 hv=1011610568 ad='a77fe398' sqlid='9tgj4g8y4rwy8'
+select type#,blocks,extents,minexts,maxexts,extsize,extpct,user#,iniexts,NVL(lists,65535),NVL(groups,65535),cachehint,hwmincr, NVL(spare1,0),NVL(scanhint,0),NVL(bitmapranges,0) from seg$ where ts#=:1 and file#=:2 and block#=:3
+END OF STMT
+PARSE #139849211924392:c=0,e=1448,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=0,tim=34579318799
+ Cursor#1 mapped
+BINDS #139849211924392:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=72 off=0
+  kxsbbbfp=7f312e747100  bln=22  avl=02  flg=05
+  value=4
+ Bind#1
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=24
+  kxsbbbfp=7f312e747118  bln=22  avl=02  flg=01
+  value=4
+ Bind#2
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=48
+  kxsbbbfp=7f312e747130  bln=22  avl=03  flg=01
+  value=146
+EXEC #139849211924392:c=3000,e=3039,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=3755742892,tim=34579321990
+FETCH #139849211924392:c=0,e=92,p=0,cr=3,cu=0,mis=0,r=1,dep=1,og=4,plh=3755742892,tim=34579322175
+ Cursor#1 mapped
+STAT #139849211924392 id=1 cnt=1 pid=0 pos=1 obj=14 op='TABLE ACCESS CLUSTER SEG$ (cr=3 pr=0 pw=0 time=75 us cost=2 size=65 card=1)'
+STAT #139849211924392 id=2 cnt=1 pid=1 pos=1 obj=9 op='INDEX UNIQUE SCAN I_FILE#_BLOCK# (cr=2 pr=0 pw=0 time=44 us cost=1 size=0 card=1)'
+CLOSE #139849211924392:c=0,e=74,dep=1,type=3,tim=34579322329
+ Cursor#1 mapped
+ Cursor#1 mapped
+=====================
+PARSING IN CURSOR #139849209506960 len=97 dep=1 uid=0 oct=3 lid=0 tim=34579323295 hv=791757000 ad='a77ed9e8' sqlid='87gaftwrm2h68'
+select o.owner#,o.name,o.namespace,o.remoteowner,o.linkname,o.subname from obj$ o where o.obj#=:1
+END OF STMT
+PARSE #139849209506960:c=1000,e=719,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=0,tim=34579323294
+ Cursor#1 mapped
+BINDS #139849209506960:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7f312e7430c0  bln=22  avl=04  flg=05
+  value=20681
+EXEC #139849209506960:c=2000,e=1989,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=1072382624,tim=34579325405
+FETCH #139849209506960:c=0,e=62,p=0,cr=3,cu=0,mis=0,r=1,dep=1,og=4,plh=1072382624,tim=34579325498
+ Cursor#1 mapped
+STAT #139849209506960 id=1 cnt=1 pid=0 pos=1 obj=18 op='TABLE ACCESS BY INDEX ROWID BATCHED OBJ$ (cr=3 pr=0 pw=0 time=63 us cost=3 size=101 card=1)'
+STAT #139849209506960 id=2 cnt=1 pid=1 pos=1 obj=36 op='INDEX RANGE SCAN I_OBJ1 (cr=2 pr=0 pw=0 time=49 us cost=2 size=0 card=1)'
+CLOSE #139849209506960:c=0,e=104,dep=1,type=3,tim=34579325670
+ Cursor#1 mapped
+BINDS #139849212446728:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=80 off=0
+  kxsbbbfp=7f312e743088  bln=22  avl=02  flg=05
+  value=67
+ Bind#1
+  oacdty=01 mxl=32(06) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=10 fl2=0001 frm=01 csi=873 siz=0 off=24
+  kxsbbbfp=7f312e7430a0  bln=32  avl=06  flg=01
+  value="TT_IE2"
+ Bind#2
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=56
+  kxsbbbfp=7f312e7430c0  bln=22  avl=02  flg=01
+  value=4
+EXEC #139849212446728:c=0,e=204,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=4,plh=813480514,tim=34579325941
+FETCH #139849212446728:c=0,e=32,p=0,cr=3,cu=0,mis=0,r=1,dep=1,og=4,plh=813480514,tim=34579326055
+ Cursor#1 mapped
+CLOSE #139849212446728:c=0,e=14,dep=1,type=3,tim=34579326122
+ Cursor#1 mapped
+BINDS #139849211924392:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=72 off=0
+  kxsbbbfp=7f312e743090  bln=22  avl=02  flg=05
+  value=4
+ Bind#1
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=24
+  kxsbbbfp=7f312e7430a8  bln=22  avl=02  flg=01
+  value=4
+ Bind#2
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=48
+  kxsbbbfp=7f312e7430c0  bln=22  avl=03  flg=01
+  value=1074
+EXEC #139849211924392:c=0,e=169,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=4,plh=3755742892,tim=34579326363
+FETCH #139849211924392:c=0,e=40,p=0,cr=3,cu=0,mis=0,r=1,dep=1,og=4,plh=3755742892,tim=34579326425
+ Cursor#1 mapped
+CLOSE #139849211924392:c=0,e=32,dep=1,type=3,tim=34579328728
+ Cursor#1 mapped
+BINDS #139849209506960:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7f312e7430c0  bln=22  avl=04  flg=05
+  value=20679
+EXEC #139849209506960:c=0,e=121,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=4,plh=1072382624,tim=34579329081
+FETCH #139849209506960:c=0,e=40,p=0,cr=3,cu=0,mis=0,r=1,dep=1,og=4,plh=1072382624,tim=34579329147
+ Cursor#1 mapped
+CLOSE #139849209506960:c=1000,e=13,dep=1,type=3,tim=34579329203
+ Cursor#1 mapped
+BINDS #139849212446728:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=80 off=0
+  kxsbbbfp=7f312e743088  bln=22  avl=02  flg=05
+  value=67
+ Bind#1
+  oacdty=01 mxl=32(06) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=10 fl2=0001 frm=01 csi=873 siz=0 off=24
+  kxsbbbfp=7f312e7430a0  bln=32  avl=06  flg=01
+  value="TT_IE1"
+ Bind#2
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=56
+  kxsbbbfp=7f312e7430c0  bln=22  avl=02  flg=01
+  value=4
+EXEC #139849212446728:c=0,e=165,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=4,plh=813480514,tim=34579329371
+FETCH #139849212446728:c=0,e=31,p=0,cr=3,cu=0,mis=0,r=1,dep=1,og=4,plh=813480514,tim=34579329426
+ Cursor#1 mapped
+CLOSE #139849212446728:c=0,e=49,dep=1,type=3,tim=34579329523
+ Cursor#1 mapped
+BINDS #139849211924392:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=72 off=0
+  kxsbbbfp=7f312e743090  bln=22  avl=02  flg=05
+  value=4
+ Bind#1
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=24
+  kxsbbbfp=7f312e7430a8  bln=22  avl=02  flg=01
+  value=4
+ Bind#2
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=48
+  kxsbbbfp=7f312e7430c0  bln=22  avl=03  flg=01
+  value=8530
+EXEC #139849211924392:c=0,e=167,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=4,plh=3755742892,tim=34579329763
+FETCH #139849211924392:c=0,e=30,p=0,cr=3,cu=0,mis=0,r=1,dep=1,og=4,plh=3755742892,tim=34579329814
+ Cursor#1 mapped
+CLOSE #139849211924392:c=0,e=12,dep=1,type=3,tim=34579329868
+ Cursor#1 mapped
+BINDS #139849209506960:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7f312e7430c0  bln=22  avl=04  flg=05
+  value=20678
+EXEC #139849209506960:c=0,e=107,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=4,plh=1072382624,tim=34579330032
+FETCH #139849209506960:c=0,e=20,p=0,cr=3,cu=0,mis=0,r=1,dep=1,og=4,plh=1072382624,tim=34579330083
+ Cursor#1 mapped
+CLOSE #139849209506960:c=0,e=12,dep=1,type=3,tim=34579330136
+ Cursor#1 mapped
+BINDS #139849212446728:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=80 off=0
+  kxsbbbfp=7f312e743088  bln=22  avl=02  flg=05
+  value=67
+ Bind#1
+  oacdty=01 mxl=32(05) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=10 fl2=0001 frm=01 csi=873 siz=0 off=24
+  kxsbbbfp=7f312e7430a0  bln=32  avl=05  flg=01
+  value="TT_PK"
+ Bind#2
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=56
+  kxsbbbfp=7f312e7430c0  bln=22  avl=02  flg=01
+  value=4
+EXEC #139849212446728:c=0,e=166,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=4,plh=813480514,tim=34579330372
+FETCH #139849212446728:c=0,e=465,p=0,cr=3,cu=0,mis=0,r=1,dep=1,og=4,plh=813480514,tim=34579330858
+ Cursor#1 mapped
+CLOSE #139849212446728:c=0,e=19,dep=1,type=3,tim=34579331021
+ Cursor#1 mapped
+BINDS #139849211924392:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=72 off=0
+  kxsbbbfp=7f312e743090  bln=22  avl=02  flg=05
+  value=4
+ Bind#1
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=24
+  kxsbbbfp=7f312e7430a8  bln=22  avl=02  flg=01
+  value=4
+ Bind#2
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=48
+  kxsbbbfp=7f312e7430c0  bln=22  avl=03  flg=01
+  value=8482
+EXEC #139849211924392:c=2000,e=2932,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=4,plh=3755742892,tim=34579334050
+FETCH #139849211924392:c=0,e=35,p=0,cr=3,cu=0,mis=0,r=1,dep=1,og=4,plh=3755742892,tim=34579334133
+ Cursor#1 mapped
+CLOSE #139849211924392:c=0,e=24,dep=1,type=3,tim=34579334207
+ Cursor#1 mapped
+ Cursor#1 mapped
+=====================
+PARSING IN CURSOR #139849209501600 len=276 dep=1 uid=0 oct=3 lid=0 tim=34579349710 hv=412367524 ad='a773ccc0' sqlid='ct2g3h4c98fp4'
+select col#, grantee#, privilege#,max(mod(nvl(option$,0),2)), min(bitand(nvl(option$,0), 4) /4), max(bitand(nvl(option$,0), 8) /8), max(bitand(nvl(option$,0), 16) /16) from objauth$ where obj#=:1 and col# is not null group by privilege#, col#, grantee# order by col#, grantee#
+END OF STMT
+PARSE #139849209501600:c=2000,e=15241,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=0,tim=34579349707
+ Cursor#1 mapped
+BINDS #139849209501600:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7f312e7420c8  bln=22  avl=04  flg=05
+  value=20677
+EXEC #139849209501600:c=3000,e=2972,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=2968095032,tim=34579352859
+FETCH #139849209501600:c=1000,e=173,p=0,cr=2,cu=0,mis=0,r=0,dep=1,og=4,plh=2968095032,tim=34579353085
+STAT #139849209501600 id=1 cnt=0 pid=0 pos=1 obj=0 op='SORT GROUP BY (cr=2 pr=0 pw=0 time=277 us cost=3 size=16 card=1)'
+STAT #139849209501600 id=2 cnt=0 pid=1 pos=1 obj=61 op='TABLE ACCESS BY INDEX ROWID BATCHED OBJAUTH$ (cr=2 pr=0 pw=0 time=149 us cost=3 size=16 card=1)'
+STAT #139849209501600 id=3 cnt=0 pid=2 pos=1 obj=62 op='INDEX RANGE SCAN I_OBJAUTH1 (cr=2 pr=0 pw=0 time=82 us cost=2 size=0 card=1)'
+ Cursor#1 mapped
+CLOSE #139849209501600:c=0,e=3,dep=1,type=3,tim=34579353278
+ Cursor#1 mapped
+ Cursor#1 mapped
+=====================
+PARSING IN CURSOR #139849209486376 len=258 dep=1 uid=0 oct=3 lid=0 tim=34579354152 hv=743590400 ad='a7735020' sqlid='8uh6xphq54kh0'
+select grantee#,privilege#,nvl(col#,0),max(mod(nvl(option$,0),2)),min(bitand(nvl(option$,0), 4) /4), max(bitand(nvl(option$,0), 8) /8), max(bitand(nvl(option$,0), 16) /16) from objauth$ where obj#=:1 group by grantee#,privilege#,nvl(col#,0) order by grantee#
+END OF STMT
+PARSE #139849209486376:c=1000,e=768,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=0,tim=34579354151
+ Cursor#1 mapped
+BINDS #139849209486376:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7f312e75fbd0  bln=22  avl=04  flg=05
+  value=20677
+EXEC #139849209486376:c=1000,e=1829,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=2968095032,tim=34579356137
+FETCH #139849209486376:c=0,e=31,p=0,cr=2,cu=0,mis=0,r=0,dep=1,og=4,plh=2968095032,tim=34579356197
+STAT #139849209486376 id=1 cnt=0 pid=0 pos=1 obj=0 op='SORT GROUP BY (cr=2 pr=0 pw=0 time=45 us cost=3 size=16 card=1)'
+STAT #139849209486376 id=2 cnt=0 pid=1 pos=1 obj=61 op='TABLE ACCESS BY INDEX ROWID BATCHED OBJAUTH$ (cr=2 pr=0 pw=0 time=25 us cost=3 size=16 card=1)'
+STAT #139849209486376 id=3 cnt=0 pid=2 pos=1 obj=62 op='INDEX RANGE SCAN I_OBJAUTH1 (cr=2 pr=0 pw=0 time=23 us cost=2 size=0 card=1)'
+ Cursor#1 mapped
+CLOSE #139849209486376:c=0,e=3,dep=1,type=3,tim=34579356370
+ Cursor#1 mapped
+ Cursor#1 mapped
+=====================
+PARSING IN CURSOR #139849209607552 len=90 dep=1 uid=0 oct=3 lid=0 tim=34579357305 hv=3433193208 ad='a7731510' sqlid='cn6hhn36a4rrs'
+select con#,obj#,rcon#,enabled,nvl(defer,0),spare2,spare3,refact from cdef$ where robj#=:1
+END OF STMT
+PARSE #139849209607552:c=2000,e=843,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=0,tim=34579357304
+ Cursor#1 mapped
+BINDS #139849209607552:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7f312e75d740  bln=22  avl=04  flg=05
+  value=20677
+EXEC #139849209607552:c=0,e=838,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=3845132125,tim=34579358214
+FETCH #139849209607552:c=0,e=20,p=0,cr=1,cu=0,mis=0,r=0,dep=1,og=4,plh=3845132125,tim=34579358249
+STAT #139849209607552 id=1 cnt=0 pid=0 pos=1 obj=31 op='TABLE ACCESS BY INDEX ROWID BATCHED CDEF$ (cr=1 pr=0 pw=0 time=23 us cost=2 size=58 card=2)'
+STAT #139849209607552 id=2 cnt=0 pid=1 pos=1 obj=55 op='INDEX RANGE SCAN I_CDEF3 (cr=1 pr=0 pw=0 time=20 us cost=1 size=0 card=1)'
+ Cursor#1 mapped
+CLOSE #139849209607552:c=0,e=2,dep=1,type=3,tim=34579358321
+ Cursor#1 mapped
+ Cursor#1 mapped
+=====================
+PARSING IN CURSOR #139849209598624 len=160 dep=1 uid=0 oct=3 lid=0 tim=34579358712 hv=2880999359 ad='a77c75d0' sqlid='gx4mv66pvj3xz'
+select con#,type#,condlength,intcols,robj#,rcon#,match#,refact,nvl(enabled,0),rowid,cols,nvl(defer,0),mtime,nvl(spare1,0),spare2,spare3 from cdef$ where obj#=:1
+END OF STMT
+PARSE #139849209598624:c=0,e=357,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=0,tim=34579358712
+ Cursor#1 mapped
+BINDS #139849209598624:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7f312e75b330  bln=22  avl=04  flg=05
+  value=20677
+EXEC #139849209598624:c=1000,e=519,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=4120883053,tim=34579359303
+FETCH #139849209598624:c=0,e=14,p=0,cr=2,cu=0,mis=0,r=0,dep=1,og=4,plh=4120883053,tim=34579359333
+STAT #139849209598624 id=1 cnt=0 pid=0 pos=1 obj=31 op='TABLE ACCESS BY INDEX ROWID BATCHED CDEF$ (cr=2 pr=0 pw=0 time=17 us cost=2 size=192 card=4)'
+STAT #139849209598624 id=2 cnt=0 pid=1 pos=1 obj=54 op='INDEX RANGE SCAN I_CDEF2 (cr=2 pr=0 pw=0 time=15 us cost=1 size=0 card=4)'
+ Cursor#1 mapped
+CLOSE #139849209598624:c=0,e=1,dep=1,type=3,tim=34579359405
+ Cursor#1 mapped
+Registered qb: SEL$1 0x2e9c2578 (PARSER)
+---------------------
+QUERY BLOCK SIGNATURE
+---------------------
+  signature (): qb_name=SEL$1 nbfros=1 flg=0
+    fro(0): flg=4 objn=20677 hint_alias="TT"@"SEL$1"
+
+SPM: statement not found in SMB
+SPM: capture of plan baseline is OFF
+ Compilation environment difference Failed sharing : 0
+------------------------------------------------------------------------------------------------------------------------
+    sqlstat_enabled                     = false                true                
+ Change in cursor environment
+ SQL pgadep:0 pgapls:0 user
+
+**************************
+Automatic degree of parallelism (AUTODOP)
+**************************
+Automatic degree of parallelism is disabled: Parameter.
+
+PM: Considering predicate move-around in query block SEL$1 (#0)
+**************************
+Predicate Move-Around (PM)
+**************************
+OPTIMIZER INFORMATION
+
+******************************************
+----- Current SQL Statement for this session (sql_id=2yhyu5brg860s) -----
+select	object_id, owner, object_name, object_type
+from	tt
+where	object_name = :s_object_name
+*******************************************
+Legend
+The following abbreviations are used by optimizer trace.
+CBQT - cost-based query transformation
+JPPD - join predicate push-down
+OJPPD - old-style (non-cost-based) JPPD
+FPD - filter push-down
+PM - predicate move-around
+CVM - complex view merging
+SPJ - select-project-join
+SJC - set join conversion
+SU - subquery unnesting
+OBYE - order by elimination
+OST - old style star transformation
+ST - new (cbqt) star transformation
+CNT - count(col) to count(*) transformation
+JE - Join Elimination
+JF - join factorization
+SLP - select list pruning
+DP - distinct placement
+qb - query block
+LB - leaf blocks
+DK - distinct keys
+LB/K - average number of leaf blocks per key
+DB/K - average number of data blocks per key
+CLUF - clustering factor
+NDV - number of distinct values
+Resp - response cost
+Card - cardinality
+Resc - resource cost
+NL - nested loops (join)
+SM - sort merge (join)
+HA - hash (join)
+CPUSPEED - CPU Speed 
+IOTFRSPEED - I/O transfer speed
+IOSEEKTIM - I/O seek time
+SREADTIM - average single block read time
+MREADTIM - average multiblock read time
+MBRC - average multiblock read count
+MAXTHR - maximum I/O system throughput
+SLAVETHR - average slave I/O throughput
+dmeth - distribution method
+  1: no partitioning required
+  2: value partitioned
+  4: right is random (round-robin)
+  128: left is random (round-robin)
+  8: broadcast right and partition left
+  16: broadcast left and partition right
+  32: partition left using partitioning of right
+  64: partition right using partitioning of left
+  256: run the join in serial
+  0: invalid distribution method
+sel - selectivity
+ptn - partition
+AP - adaptive plans
+***************************************
+PARAMETERS USED BY THE OPTIMIZER
+********************************
+  *************************************
+  PARAMETERS WITH ALTERED VALUES
+  ******************************
+Compilation Environment Dump
+sqlstat_enabled                     = true
+Bug Fix Control Environment
+
+
+  *************************************
+  PARAMETERS WITH DEFAULT VALUES
+  ******************************
+Compilation Environment Dump
+optimizer_mode_hinted               = false
+optimizer_features_hinted           = 0.0.0
+parallel_execution_enabled          = true
+parallel_query_forced_dop           = 0
+parallel_dml_forced_dop             = 0
+parallel_ddl_forced_degree          = 0
+parallel_ddl_forced_instances       = 0
+_query_rewrite_fudge                = 90
+optimizer_features_enable           = 12.1.0.1
+_optimizer_search_limit             = 5
+cpu_count                           = 1
+active_instance_count               = 1
+parallel_threads_per_cpu            = 2
+hash_area_size                      = 131072
+bitmap_merge_area_size              = 1048576
+sort_area_size                      = 65536
+sort_area_retained_size             = 0
+_sort_elimination_cost_ratio        = 0
+_optimizer_block_size               = 8192
+_sort_multiblock_read_count         = 2
+_hash_multiblock_io_count           = 0
+_db_file_optimizer_read_count       = 8
+_optimizer_max_permutations         = 2000
+pga_aggregate_target                = 430080 KB
+_pga_max_size                       = 204800 KB
+_query_rewrite_maxdisjunct          = 257
+_smm_auto_min_io_size               = 56 KB
+_smm_auto_max_io_size               = 248 KB
+_smm_min_size                       = 430 KB
+_smm_max_size_static                = 86016 KB
+_smm_px_max_size_static             = 215040 KB
+_cpu_to_io                          = 0
+_optimizer_undo_cost_change         = 12.1.0.1
+parallel_query_mode                 = enabled
+parallel_dml_mode                   = disabled
+parallel_ddl_mode                   = enabled
+optimizer_mode                      = all_rows
+_optimizer_percent_parallel         = 101
+_always_anti_join                   = choose
+_always_semi_join                   = choose
+_optimizer_mode_force               = true
+_partition_view_enabled             = true
+_always_star_transformation         = false
+_query_rewrite_or_error             = false
+_hash_join_enabled                  = true
+cursor_sharing                      = exact
+_b_tree_bitmap_plans                = true
+star_transformation_enabled         = false
+_optimizer_cost_model               = choose
+_new_sort_cost_estimate             = true
+_complex_view_merging               = true
+_unnest_subquery                    = true
+_eliminate_common_subexpr           = true
+_pred_move_around                   = true
+_convert_set_to_join                = false
+_push_join_predicate                = true
+_push_join_union_view               = true
+_fast_full_scan_enabled             = true
+_optim_enhance_nnull_detection      = true
+_parallel_broadcast_enabled         = true
+_px_broadcast_fudge_factor          = 100
+_ordered_nested_loop                = true
+_no_or_expansion                    = false
+optimizer_index_cost_adj            = 100
+optimizer_index_caching             = 0
+_system_index_caching               = 0
+_disable_datalayer_sampling         = false
+query_rewrite_enabled               = true
+query_rewrite_integrity             = enforced
+_query_cost_rewrite                 = true
+_query_rewrite_2                    = true
+_query_rewrite_1                    = true
+_query_rewrite_expression           = true
+_query_rewrite_jgmigrate            = true
+_query_rewrite_fpc                  = true
+_query_rewrite_drj                  = false
+_full_pwise_join_enabled            = true
+_partial_pwise_join_enabled         = true
+_left_nested_loops_random           = true
+_improved_row_length_enabled        = true
+_index_join_enabled                 = true
+_enable_type_dep_selectivity        = true
+_improved_outerjoin_card            = true
+_optimizer_adjust_for_nulls         = true
+_optimizer_degree                   = 0
+_use_column_stats_for_function      = true
+_subquery_pruning_enabled           = true
+_subquery_pruning_mv_enabled        = false
+_or_expand_nvl_predicate            = true
+_like_with_bind_as_equality         = false
+_table_scan_cost_plus_one           = true
+_cost_equality_semi_join            = true
+_default_non_equality_sel_check     = true
+_new_initial_join_orders            = true
+_oneside_colstat_for_equijoins      = true
+_optim_peek_user_binds              = true
+_minimal_stats_aggregation          = true
+_force_temptables_for_gsets         = false
+workarea_size_policy                = auto
+_smm_auto_cost_enabled              = true
+_gs_anti_semi_join_allowed          = true
+_optim_new_default_join_sel         = true
+optimizer_dynamic_sampling          = 2
+_pre_rewrite_push_pred              = true
+_optimizer_new_join_card_computation = true
+_union_rewrite_for_gs               = yes_gset_mvs
+_generalized_pruning_enabled        = true
+_optim_adjust_for_part_skews        = true
+_force_datefold_trunc               = false
+statistics_level                    = typical
+_optimizer_system_stats_usage       = true
+skip_unusable_indexes               = true
+_remove_aggr_subquery               = true
+_optimizer_push_down_distinct       = 0
+_dml_monitoring_enabled             = true
+_optimizer_undo_changes             = false
+_predicate_elimination_enabled      = true
+_nested_loop_fudge                  = 100
+_project_view_columns               = true
+_local_communication_costing_enabled = true
+_local_communication_ratio          = 50
+_query_rewrite_vop_cleanup          = true
+_slave_mapping_enabled              = true
+_optimizer_cost_based_transformation = linear
+_optimizer_mjc_enabled              = true
+_right_outer_hash_enable            = true
+_spr_push_pred_refspr               = true
+_optimizer_cache_stats              = false
+_optimizer_cbqt_factor              = 50
+_optimizer_squ_bottomup             = true
+_fic_area_size                      = 131072
+_optimizer_skip_scan_enabled        = true
+_optimizer_cost_filter_pred         = false
+_optimizer_sortmerge_join_enabled   = true
+_optimizer_join_sel_sanity_check    = true
+_mmv_query_rewrite_enabled          = true
+_bt_mmv_query_rewrite_enabled       = true
+_add_stale_mv_to_dependency_list    = true
+_distinct_view_unnesting            = false
+_optimizer_dim_subq_join_sel        = true
+_optimizer_disable_strans_sanity_checks = 0
+_optimizer_compute_index_stats      = true
+_push_join_union_view2              = true
+_optimizer_ignore_hints             = false
+_optimizer_random_plan              = 0
+_query_rewrite_setopgrw_enable      = true
+_optimizer_correct_sq_selectivity   = true
+_disable_function_based_index       = false
+_optimizer_join_order_control       = 3
+_optimizer_cartesian_enabled        = true
+_optimizer_starplan_enabled         = true
+_extended_pruning_enabled           = true
+_optimizer_push_pred_cost_based     = true
+_optimizer_null_aware_antijoin      = true
+_optimizer_extend_jppd_view_types   = true
+_sql_model_unfold_forloops          = run_time
+_enable_dml_lock_escalation         = false
+_bloom_filter_enabled               = true
+_update_bji_ipdml_enabled           = 0
+_optimizer_extended_cursor_sharing  = udo
+_dm_max_shared_pool_pct             = 1
+_optimizer_cost_hjsmj_multimatch    = true
+_optimizer_transitivity_retain      = true
+_px_pwg_enabled                     = true
+optimizer_secure_view_merging       = true
+_optimizer_join_elimination_enabled = true
+flashback_table_rpi                 = non_fbt
+_optimizer_cbqt_no_size_restriction = true
+_optimizer_enhanced_filter_push     = true
+_optimizer_filter_pred_pullup       = true
+_rowsrc_trace_level                 = 0
+_simple_view_merging                = true
+_optimizer_rownum_pred_based_fkr    = true
+_optimizer_better_inlist_costing    = all
+_optimizer_self_induced_cache_cost  = false
+_optimizer_min_cache_blocks         = 10
+_optimizer_or_expansion             = depth
+_optimizer_order_by_elimination_enabled = true
+_optimizer_outer_to_anti_enabled    = true
+_selfjoin_mv_duplicates             = true
+_dimension_skip_null                = true
+_force_rewrite_enable               = false
+_optimizer_star_tran_in_with_clause = true
+_optimizer_complex_pred_selectivity = true
+_optimizer_connect_by_cost_based    = true
+_gby_hash_aggregation_enabled       = true
+_globalindex_pnum_filter_enabled    = true
+_px_minus_intersect                 = true
+_fix_control_key                    = 0
+_force_slave_mapping_intra_part_loads = false
+_force_tmp_segment_loads            = false
+_query_mmvrewrite_maxpreds          = 10
+_query_mmvrewrite_maxintervals      = 5
+_query_mmvrewrite_maxinlists        = 5
+_query_mmvrewrite_maxdmaps          = 10
+_query_mmvrewrite_maxcmaps          = 20
+_query_mmvrewrite_maxregperm        = 512
+_query_mmvrewrite_maxqryinlistvals  = 500
+_disable_parallel_conventional_load = false
+_trace_virtual_columns              = false
+_replace_virtual_columns            = true
+_virtual_column_overload_allowed    = true
+_kdt_buffering                      = true
+_first_k_rows_dynamic_proration     = true
+_optimizer_sortmerge_join_inequality = true
+_optimizer_aw_stats_enabled         = true
+_bloom_pruning_enabled              = true
+result_cache_mode                   = MANUAL
+_px_ual_serial_input                = true
+_optimizer_skip_scan_guess          = false
+_enable_row_shipping                = true
+_row_shipping_threshold             = 80
+_row_shipping_explain               = false
+transaction_isolation_level         = read_commited
+_optimizer_distinct_elimination     = true
+_optimizer_multi_level_push_pred    = true
+_optimizer_group_by_placement       = true
+_optimizer_rownum_bind_default      = 10
+_enable_query_rewrite_on_remote_objs = true
+_optimizer_extended_cursor_sharing_rel = simple
+_optimizer_adaptive_cursor_sharing  = true
+_direct_path_insert_features        = 0
+_optimizer_improve_selectivity      = true
+optimizer_use_pending_statistics    = false
+_optimizer_enable_density_improvements = true
+_optimizer_aw_join_push_enabled     = true
+_optimizer_connect_by_combine_sw    = true
+_enable_pmo_ctas                    = 0
+_optimizer_native_full_outer_join   = force
+_bloom_predicate_enabled            = true
+_optimizer_enable_extended_stats    = true
+_is_lock_table_for_ddl_wait_lock    = 0
+_pivot_implementation_method        = choose
+optimizer_capture_sql_plan_baselines = false
+optimizer_use_sql_plan_baselines    = true
+_optimizer_star_trans_min_cost      = 0
+_optimizer_star_trans_min_ratio     = 0
+_with_subquery                      = OPTIMIZER
+_optimizer_fkr_index_cost_bias      = 10
+_optimizer_use_subheap              = true
+parallel_degree_policy              = manual
+parallel_degree                     = 0
+parallel_min_time_threshold         = 10
+_parallel_time_unit                 = 10
+_optimizer_or_expansion_subheap     = true
+_optimizer_free_transformation_heap = true
+_optimizer_reuse_cost_annotations   = true
+_result_cache_auto_size_threshold   = 100
+_result_cache_auto_time_threshold   = 1000
+_optimizer_nested_rollup_for_gset   = 100
+_nlj_batching_enabled               = 1
+parallel_query_default_dop          = 0
+is_recur_flags                      = 0
+optimizer_use_invisible_indexes     = false
+flashback_data_archive_internal_cursor = 0
+_optimizer_extended_stats_usage_control = 192
+_parallel_syspls_obey_force         = true
+cell_offload_processing             = true
+_rdbms_internal_fplib_enabled       = false
+db_file_multiblock_read_count       = 128
+_bloom_folding_enabled              = true
+_mv_generalized_oj_refresh_opt      = true
+cell_offload_compaction             = ADAPTIVE
+cell_offload_plan_display           = AUTO
+_bloom_predicate_offload            = true
+_bloom_filter_size                  = 0
+_bloom_pushing_max                  = 512
+parallel_degree_limit               = 65535
+parallel_force_local                = false
+parallel_max_degree                 = 2
+total_cpu_count                     = 1
+_optimizer_coalesce_subqueries      = true
+_optimizer_fast_pred_transitivity   = true
+_optimizer_fast_access_pred_analysis = true
+_optimizer_unnest_disjunctive_subq  = true
+_optimizer_unnest_corr_set_subq     = true
+_optimizer_distinct_agg_transform   = true
+_aggregation_optimization_settings  = 0
+_optimizer_connect_by_elim_dups     = true
+_optimizer_eliminate_filtering_join = true
+_connect_by_use_union_all           = true
+dst_upgrade_insert_conv             = true
+advanced_queuing_internal_cursor    = 0
+_optimizer_unnest_all_subqueries    = true
+parallel_autodop                    = 0
+parallel_ddldml                     = 0
+_parallel_cluster_cache_policy      = adaptive
+_parallel_scalability               = 50
+iot_internal_cursor                 = 0
+_optimizer_instance_count           = 0
+_optimizer_connect_by_cb_whr_only   = false
+_suppress_scn_chk_for_cqn           = nosuppress_1466
+_optimizer_join_factorization       = true
+_optimizer_use_cbqt_star_transformation = true
+_optimizer_table_expansion          = true
+_and_pruning_enabled                = true
+_deferred_constant_folding_mode     = DEFAULT
+_optimizer_distinct_placement       = true
+partition_pruning_internal_cursor   = 0
+parallel_hinted                     = none
+_sql_compatibility                  = 0
+_optimizer_use_feedback             = true
+_optimizer_try_st_before_jppd       = true
+_dml_frequency_tracking             = false
+_optimizer_interleave_jppd          = true
+kkb_drop_empty_segments             = 0
+_px_partition_scan_enabled          = true
+_px_partition_scan_threshold        = 64
+_optimizer_false_filter_pred_pullup = true
+_bloom_minmax_enabled               = true
+only_move_row                       = 0
+_optimizer_enable_table_lookup_by_nl = true
+parallel_execution_message_size     = 16384
+_px_loc_msg_cost                    = 1000
+_px_net_msg_cost                    = 10000
+_optimizer_generate_transitive_pred = true
+_optimizer_cube_join_enabled        = true
+_optimizer_filter_pushdown          = true
+deferred_segment_creation           = true
+_optimizer_outer_join_to_inner      = true
+_allow_level_without_connect_by     = false
+_max_rwgs_groupings                 = 8192
+_optimizer_hybrid_fpwj_enabled      = true
+_px_replication_enabled             = true
+ilm_filter                          = 0
+_optimizer_partial_join_eval        = true
+_px_concurrent                      = true
+_px_object_sampling_enabled         = true
+_px_back_to_parallel                = OFF
+_optimizer_unnest_scalar_sq         = true
+_optimizer_full_outer_join_to_outer = true
+_px_filter_parallelized             = true
+_px_filter_skew_handling            = true
+_zonemap_use_enabled                = true
+_zonemap_control                    = 0
+_optimizer_multi_table_outerjoin    = true
+_px_groupby_pushdown                = force
+_partition_advisor_srs_active       = true
+_optimizer_ansi_join_lateral_enhance = true
+_px_parallelize_expression          = true
+_fast_index_maintenance             = true
+_optimizer_ansi_rearchitecture      = true
+_optimizer_gather_stats_on_load     = true
+ilm_access_tracking                 = 0
+ilm_dml_timestamp                   = 0
+_px_adaptive_dist_method            = choose
+_px_adaptive_dist_method_threshold  = 0
+_optimizer_batch_table_access_by_rowid = true
+optimizer_adaptive_reporting_only   = false
+_optimizer_ads_max_table_count      = 0
+_optimizer_ads_time_limit           = 0
+_optimizer_ads_use_result_cache     = true
+_px_wif_dfo_declumping              = choose
+_px_wif_extend_distribution_keys    = true
+_px_join_skew_handling              = true
+_px_join_skew_ratio                 = 10
+_px_join_skew_minfreq               = 30
+CLI_internal_cursor                 = 0
+parallel_fault_tolerance_enabled    = false
+_parallel_fault_tolerance_threshold = 3
+_px_partial_rollup_pushdown         = adaptive
+_px_single_server_enabled           = true
+_optimizer_dsdir_usage_control      = 126
+_px_cpu_autodop_enabled             = true
+parallel_degree_level               = 100
+_px_cpu_process_bandwidth           = 200
+_sql_hvshare_threshold              = 0
+_px_tq_rowhvs                       = true
+_optimizer_use_gtt_session_stats    = true
+_optimizer_adaptive_plans           = true
+_optimizer_proc_rate_level          = basic
+_px_hybrid_TSM_HWMB_load            = true
+_optimizer_use_histograms           = true
+PMO_altidx_rebuild                  = 0
+_cell_offload_expressions           = true
+_cell_materialize_virtual_columns   = true
+_cell_materialize_all_expressions   = false
+_rowsets_enabled                    = true
+_rowsets_target_maxsize             = 524288
+_rowsets_max_rows                   = 200
+_use_hidden_partitions              = false
+_px_monitor_load                    = false
+_px_load_monitor_threshold          = 10000
+_px_numa_support_enabled            = false
+total_processor_group_count         = 1
+_adaptive_window_consolidator_enabled = true
+_optimizer_strans_adaptive_pruning  = true
+_bloom_rm_filter                    = false
+_optimizer_null_accepting_semijoin  = true
+_long_varchar_allow_IOT             = 0
+_parallel_ctas_enabled              = true
+_cell_offload_complex_processing    = true
+_optimizer_performance_feedback     = off
+_optimizer_proc_rate_source         = DEFAULT
+_hashops_prefetch_size              = 4
+_cell_offload_sys_context           = true
+_multi_commit_global_index_maint    = 0
+_stat_aggs_one_pass_algorithm       = false
+_dbg_scan                           = 0
+_oltp_comp_dbg_scan                 = 0
+_arch_comp_dbg_scan                 = 0
+_optimizer_gather_feedback          = true
+_upddel_dba_hash_mask_bits          = 0
+_px_pwmr_enabled                    = true
+_px_cdb_view_enabled                = true
+_bloom_sm_enabled                   = false
+optimizer_adaptive_features         = true
+_optimizer_cluster_by_rowid         = true
+_optimizer_cluster_by_rowid_control = 3
+_partition_cdb_view_enabled         = true
+_common_data_view_enabled           = true
+_pred_push_cdb_view_enabled         = true
+_rowsets_cdb_view_enabled           = true
+_array_cdb_view_enabled             = true
+Bug Fix Control Environment
+    fix  3834770 = 1       
+    fix  3746511 = enabled
+    fix  4519016 = enabled
+    fix  3118776 = enabled
+    fix  4488689 = enabled
+    fix  2194204 = disabled
+    fix  2660592 = enabled
+    fix  2320291 = enabled
+    fix  2324795 = enabled
+    fix  4308414 = enabled
+    fix  3499674 = disabled
+    fix  4569940 = enabled
+    fix  4631959 = enabled
+    fix  4519340 = enabled
+    fix  4550003 = enabled
+    fix  1403283 = enabled
+    fix  4554846 = enabled
+    fix  4602374 = enabled
+    fix  4584065 = enabled
+    fix  4545833 = enabled
+    fix  4611850 = enabled
+    fix  4663698 = enabled
+    fix  4663804 = enabled
+    fix  4666174 = enabled
+    fix  4567767 = enabled
+    fix  4556762 = 15      
+    fix  4728348 = enabled
+    fix  4708389 = enabled
+    fix  4175830 = enabled
+    fix  4752814 = enabled
+    fix  4583239 = enabled
+    fix  4386734 = enabled
+    fix  4887636 = enabled
+    fix  4483240 = enabled
+    fix  4872602 = disabled
+    fix  4711525 = enabled
+    fix  4545802 = enabled
+    fix  4605810 = enabled
+    fix  4704779 = enabled
+    fix  4900129 = enabled
+    fix  4924149 = enabled
+    fix  4663702 = enabled
+    fix  4878299 = enabled
+    fix  4658342 = enabled
+    fix  4881533 = enabled
+    fix  4676955 = enabled
+    fix  4273361 = enabled
+    fix  4967068 = enabled
+    fix  4969880 = disabled
+    fix  5005866 = enabled
+    fix  5015557 = enabled
+    fix  4705343 = enabled
+    fix  4904838 = enabled
+    fix  4716096 = enabled
+    fix  4483286 = disabled
+    fix  4722900 = enabled
+    fix  4615392 = enabled
+    fix  5096560 = enabled
+    fix  5029464 = enabled
+    fix  4134994 = enabled
+    fix  4904890 = enabled
+    fix  5104624 = enabled
+    fix  5014836 = enabled
+    fix  4768040 = enabled
+    fix  4600710 = enabled
+    fix  5129233 = enabled
+    fix  4595987 = enabled
+    fix  4908162 = enabled
+    fix  5139520 = enabled
+    fix  5084239 = enabled
+    fix  5143477 = disabled
+    fix  2663857 = enabled
+    fix  4717546 = enabled
+    fix  5240264 = disabled
+    fix  5099909 = enabled
+    fix  5240607 = enabled
+    fix  5195882 = enabled
+    fix  5220356 = enabled
+    fix  5263572 = enabled
+    fix  5385629 = enabled
+    fix  5302124 = enabled
+    fix  5391942 = enabled
+    fix  5384335 = enabled
+    fix  5482831 = enabled
+    fix  4158812 = enabled
+    fix  5387148 = enabled
+    fix  5383891 = enabled
+    fix  5466973 = enabled
+    fix  5396162 = enabled
+    fix  5394888 = enabled
+    fix  5395291 = enabled
+    fix  5236908 = enabled
+    fix  5509293 = enabled
+    fix  5449488 = enabled
+    fix  5567933 = enabled
+    fix  5570494 = enabled
+    fix  5288623 = enabled
+    fix  5505995 = enabled
+    fix  5505157 = enabled
+    fix  5112460 = enabled
+    fix  5554865 = enabled
+    fix  5112260 = enabled
+    fix  5112352 = enabled
+    fix  5547058 = enabled
+    fix  5618040 = enabled
+    fix  5585313 = enabled
+    fix  5547895 = enabled
+    fix  5634346 = enabled
+    fix  5620485 = enabled
+    fix  5483301 = enabled
+    fix  5657044 = enabled
+    fix  5694984 = enabled
+    fix  5868490 = enabled
+    fix  5650477 = enabled
+    fix  5611962 = enabled
+    fix  4279274 = enabled
+    fix  5741121 = enabled
+    fix  5714944 = enabled
+    fix  5391505 = enabled
+    fix  5762598 = enabled
+    fix  5578791 = enabled
+    fix  5259048 = enabled
+    fix  5882954 = enabled
+    fix  2492766 = enabled
+    fix  5707608 = enabled
+    fix  5891471 = enabled
+    fix  5884780 = enabled
+    fix  5680702 = enabled
+    fix  5371452 = enabled
+    fix  5838613 = enabled
+    fix  5949981 = enabled
+    fix  5624216 = enabled
+    fix  5741044 = enabled
+    fix  5976822 = enabled
+    fix  6006457 = enabled
+    fix  5872956 = enabled
+    fix  5923644 = enabled
+    fix  5943234 = enabled
+    fix  5844495 = enabled
+    fix  4168080 = enabled
+    fix  6020579 = enabled
+    fix  5842686 = disabled
+    fix  5996801 = enabled
+    fix  5593639 = enabled
+    fix  6133948 = enabled
+    fix  3151991 = enabled
+    fix  6146906 = enabled
+    fix  6239909 = enabled
+    fix  6267621 = enabled
+    fix  5909305 = enabled
+    fix  6279918 = enabled
+    fix  6141818 = enabled
+    fix  6151963 = enabled
+    fix  6251917 = enabled
+    fix  6282093 = enabled
+    fix  6119510 = enabled
+    fix  6119382 = enabled
+    fix  3801750 = enabled
+    fix  5705630 = disabled
+    fix  5944076 = enabled
+    fix  5406763 = enabled
+    fix  6070954 = enabled
+    fix  6282944 = enabled
+    fix  6138746 = enabled
+    fix  6082745 = enabled
+    fix  3426050 = enabled
+    fix   599680 = enabled
+    fix  6062266 = enabled
+    fix  6087237 = enabled
+    fix  6122894 = enabled
+    fix  6377505 = enabled
+    fix  5893768 = enabled
+    fix  6163564 = enabled
+    fix  6073325 = enabled
+    fix  6188881 = enabled
+    fix  6007259 = enabled
+    fix  6239971 = enabled
+    fix  5284200 = disabled
+    fix  6042205 = enabled
+    fix  6051211 = enabled
+    fix  6434668 = enabled
+    fix  6438752 = enabled
+    fix  5936366 = enabled
+    fix  6439032 = enabled
+    fix  6438892 = enabled
+    fix  6006300 = enabled
+    fix  5947231 = enabled
+    fix  5416118 = 1       
+    fix  6365442 = 1       
+    fix  6239039 = enabled
+    fix  6502845 = enabled
+    fix  6913094 = enabled
+    fix  6029469 = enabled
+    fix  5919513 = enabled
+    fix  6057611 = enabled
+    fix  6469667 = enabled
+    fix  6608941 = disabled
+    fix  6368066 = enabled
+    fix  6329318 = enabled
+    fix  6656356 = enabled
+    fix  4507997 = enabled
+    fix  6671155 = enabled
+    fix  6694548 = enabled
+    fix  6688200 = enabled
+    fix  6612471 = enabled
+    fix  6708183 = disabled
+    fix  6326934 = enabled
+    fix  6520717 = disabled
+    fix  6714199 = enabled
+    fix  6681545 = enabled
+    fix  6748058 = enabled
+    fix  6167716 = enabled
+    fix  6674254 = enabled
+    fix  6468287 = enabled
+    fix  6503543 = enabled
+    fix  6808773 = disabled
+    fix  6766962 = enabled
+    fix  6120483 = enabled
+    fix  6670551 = enabled
+    fix  6771838 = enabled
+    fix  6626018 = disabled
+    fix  6530596 = enabled
+    fix  6778642 = enabled
+    fix  6699059 = enabled
+    fix  6376551 = enabled
+    fix  6429113 = enabled
+    fix  6782437 = enabled
+    fix  6776808 = enabled
+    fix  6765823 = enabled
+    fix  6768660 = enabled
+    fix  6782665 = enabled
+    fix  6610822 = enabled
+    fix  6514189 = enabled
+    fix  6818410 = enabled
+    fix  6827696 = enabled
+    fix  6773613 = enabled
+    fix  5902962 = enabled
+    fix  6956212 = enabled
+    fix  3056297 = enabled
+    fix  6440977 = disabled
+    fix  6972291 = disabled
+    fix  6904146 = enabled
+    fix  6221403 = enabled
+    fix  5475051 = enabled
+    fix  6845871 = enabled
+    fix  5468809 = enabled
+    fix  6917633 = enabled
+    fix  4444536 = disabled
+    fix  6955210 = enabled
+    fix  6994194 = enabled
+    fix  6399597 = disabled
+    fix  6951776 = enabled
+    fix  5648287 = 3       
+    fix  6987082 = disabled
+    fix  7132036 = enabled
+    fix  6980350 = enabled
+    fix  5199213 = enabled
+    fix  7138405 = enabled
+    fix  7148689 = enabled
+    fix  6820988 = enabled
+    fix  7032684 = enabled
+    fix  6617866 = enabled
+    fix  7155968 = enabled
+    fix  7127980 = enabled
+    fix  6982954 = enabled
+    fix  7241819 = enabled
+    fix  6897034 = enabled
+    fix  7236148 = enabled
+    fix  7298570 = enabled
+    fix  7249095 = enabled
+    fix  7314499 = enabled
+    fix  7324224 = enabled
+    fix  7289023 = enabled
+    fix  7237571 = enabled
+    fix  7116357 = enabled
+    fix  7345484 = enabled
+    fix  7375179 = enabled
+    fix  6430500 = disabled
+    fix  5897486 = enabled
+    fix  6774209 = enabled
+    fix  7306637 = enabled
+    fix  6451322 = enabled
+    fix  7208131 = enabled
+    fix  7388652 = enabled
+    fix  7127530 = enabled
+    fix  6751206 = enabled
+    fix  6669103 = enabled
+    fix  7430474 = enabled
+    fix  6990305 = enabled
+    fix  7043307 = enabled
+    fix  3120429 = enabled
+    fix  7452823 = disabled
+    fix  6838105 = enabled
+    fix  6769711 = enabled
+    fix  7170213 = enabled
+    fix  6528872 = enabled
+    fix  7295298 = enabled
+    fix  5922070 = enabled
+    fix  7259468 = enabled
+    fix  6418552 = enabled
+    fix  4619997 = enabled
+    fix  7524366 = enabled
+    fix  6942476 = enabled
+    fix  6418771 = enabled
+    fix  7375077 = enabled
+    fix  5400639 = enabled
+    fix  4570921 = enabled
+    fix  7426911 = enabled
+    fix  5099019 = disabled
+    fix  7528216 = enabled
+    fix  7521266 = enabled
+    fix  7385140 = enabled
+    fix  7576516 = enabled
+    fix  7573526 = enabled
+    fix  7576476 = enabled
+    fix  7165898 = enabled
+    fix  7263214 = enabled
+    fix  3320140 = enabled
+    fix  7555510 = enabled
+    fix  7613118 = enabled
+    fix  7597059 = enabled
+    fix  7558911 = enabled
+    fix  5520732 = enabled
+    fix  7679490 = disabled
+    fix  7449971 = enabled
+    fix  3628118 = enabled
+    fix  4370840 = enabled
+    fix  7281191 = enabled
+    fix  7519687 = enabled
+    fix  5029592 = 3       
+    fix  6012093 = 1       
+    fix  6053861 = disabled
+    fix  6941515 = disabled
+    fix  7696414 = enabled
+    fix  7272039 = enabled
+    fix  7834811 = enabled
+    fix  7640597 = enabled
+    fix  7341616 = enabled
+    fix  7168184 = enabled
+    fix   399198 = enabled
+    fix  7831070 = enabled
+    fix  7676897 = disabled
+    fix  7414637 = enabled
+    fix  7585456 = enabled
+    fix  8202421 = enabled
+    fix  7658097 = disabled
+    fix  8251486 = enabled
+    fix  7132684 = enabled
+    fix  7512227 = enabled
+    fix  6972987 = enabled
+    fix  7199035 = enabled
+    fix  8243446 = enabled
+    fix  7650462 = enabled
+    fix  6720701 = enabled
+    fix  7592673 = enabled
+    fix  7718694 = enabled
+    fix  7534027 = enabled
+    fix  7708267 = enabled
+    fix  5716785 = enabled
+    fix  7356191 = enabled
+    fix  7679161 = enabled
+    fix  7597159 = enabled
+    fix  7499258 = enabled
+    fix  8328363 = enabled
+    fix  7452863 = enabled
+    fix  8284930 = enabled
+    fix  7298626 = enabled
+    fix  7657126 = enabled
+    fix  8371884 = enabled
+    fix  8318020 = enabled
+    fix  8255423 = enabled
+    fix  7135745 = enabled
+    fix  8356253 = enabled
+    fix  7534257 = enabled
+    fix  8323407 = enabled
+    fix  7539815 = enabled
+    fix  8289316 = enabled
+    fix  8447850 = enabled
+    fix  7675944 = enabled
+    fix  8355120 = enabled
+    fix  7176746 = enabled
+    fix  8442891 = enabled
+    fix  8373261 = enabled
+    fix  7679164 = enabled
+    fix  7670533 = enabled
+    fix  8408665 = enabled
+    fix  8491399 = enabled
+    fix  8348392 = enabled
+    fix  8348585 = enabled
+    fix  8508056 = enabled
+    fix  8335178 = enabled
+    fix  8515269 = enabled
+    fix  8247017 = enabled
+    fix  7325597 = enabled
+    fix  8531490 = enabled
+    fix  6163600 = enabled
+    fix  8589278 = disabled
+    fix  8557992 = enabled
+    fix  7556098 = enabled
+    fix  8580883 = enabled
+    fix  5892599 = disabled
+    fix  8609714 = enabled
+    fix  8619631 = disabled
+    fix  8672915 = enabled
+    fix  8514561 = enabled
+    fix  8213977 = enabled
+    fix  8560951 = disabled
+    fix  8578587 = enabled
+    fix  8287870 = enabled
+    fix  8467123 = enabled
+    fix  8602185 = enabled
+    fix  8519457 = enabled
+    fix  3335182 = enabled
+    fix  8602840 = enabled
+    fix  8725296 = enabled
+    fix  8628970 = enabled
+    fix  6754080 = enabled
+    fix  8767442 = enabled
+    fix  8760135 = enabled
+    fix  8644935 = enabled
+    fix  8352378 = enabled
+    fix  8685327 = enabled
+    fix  8763472 = enabled
+    fix  8773324 = enabled
+    fix  8813674 = enabled
+    fix  8532236 = enabled
+    fix  8629716 = enabled
+    fix  7277732 = enabled
+    fix  8692170 = enabled
+    fix  8900973 = enabled
+    fix  8919133 = enabled
+    fix  8927050 = enabled
+    fix  8551880 = enabled
+    fix  8901237 = enabled
+    fix  8812372 = enabled
+    fix  6236862 = enabled
+    fix  8528517 = enabled
+    fix  7215982 = enabled
+    fix  8214022 = enabled
+    fix  8595392 = enabled
+    fix  8890233 = enabled
+    fix  8999317 = enabled
+    fix  9004800 = enabled
+    fix  8986163 = enabled
+    fix  8855396 = enabled
+    fix  8800514 = 20      
+    fix  9007859 = enabled
+    fix  8198783 = disabled
+    fix  9053879 = enabled
+    fix  6086930 = enabled
+    fix  7641601 = enabled
+    fix  9052506 = enabled
+    fix  9103775 = enabled
+    fix  9047975 = enabled
+    fix  8893626 = enabled
+    fix  9111170 = enabled
+    fix  8971829 = enabled
+    fix  7628358 = enabled
+    fix  9125151 = enabled
+    fix  9039715 = enabled
+    fix  9106224 = enabled
+    fix  9185228 = enabled
+    fix  9206747 = enabled
+    fix  9088510 = enabled
+    fix  9143856 = enabled
+    fix  8833381 = enabled
+    fix  8949971 = enabled
+    fix  8951812 = enabled
+    fix  9148171 = enabled
+    fix  8706652 = enabled
+    fix  9245114 = enabled
+    fix  8802198 = enabled
+    fix  9011016 = enabled
+    fix  9265681 = enabled
+    fix  7284269 = enabled
+    fix  9272549 = enabled
+    fix  8917507 = 7       
+    fix  8531463 = enabled
+    fix  9263333 = enabled
+    fix  8675087 = enabled
+    fix  8571403 = enabled
+    fix  8896955 = enabled
+    fix  9041934 = enabled
+    fix  9344709 = enabled
+    fix  9024933 = enabled
+    fix  9033718 = enabled
+    fix  9240455 = enabled
+    fix  9081848 = enabled
+    fix  5982893 = enabled
+    fix  9287401 = enabled
+    fix  8590021 = enabled
+    fix  9340120 = enabled
+    fix  9355794 = enabled
+    fix  9356656 = enabled
+    fix  9385634 = enabled
+    fix  9069046 = enabled
+    fix  9239337 = enabled
+    fix  9300228 = enabled
+    fix  9298010 = enabled
+    fix  9384170 = enabled
+    fix  9407929 = enabled
+    fix  8836806 = enabled
+    fix  9344055 = enabled
+    fix  9274675 = enabled
+    fix  9203723 = enabled
+    fix  9443476 = enabled
+    fix  9195582 = enabled
+    fix  8226666 = enabled
+    fix  9433490 = enabled
+    fix  9065494 = enabled
+    fix  9303766 = enabled
+    fix  9437283 = enabled
+    fix  9116214 = enabled
+    fix  9456688 = enabled
+    fix  9456746 = disabled
+    fix  9342979 = enabled
+    fix  9465425 = enabled
+    fix  9092442 = enabled
+    fix  4926618 = enabled
+    fix  8792846 = enabled
+    fix  9474259 = enabled
+    fix  9495669 = disabled
+    fix  6472966 = enabled
+    fix  6408301 = enabled
+    fix  9380298 = disabled
+    fix  8500130 = enabled
+    fix  9584723 = enabled
+    fix  9270951 = enabled
+    fix  9508254 = enabled
+    fix  9593680 = enabled
+    fix  9196440 = disabled
+    fix  9309281 = enabled
+    fix  8693158 = enabled
+    fix  9381638 = enabled
+    fix  9383967 = enabled
+    fix  7711900 = enabled
+    fix  9218587 = enabled
+    fix  9728438 = enabled
+    fix  9038395 = enabled
+    fix  9577300 = enabled
+    fix  9171113 = enabled
+    fix  8973745 = enabled
+    fix  9732434 = enabled
+    fix  8937971 = disabled
+    fix  9102474 = enabled
+    fix  9243499 = enabled
+    fix  9791810 = enabled
+    fix  9785632 = enabled
+    fix  9898249 = enabled
+    fix  9153459 = enabled
+    fix  9680430 = enabled
+    fix  9841679 = enabled
+    fix  9912503 = enabled
+    fix  9850461 = enabled
+    fix  9762592 = 3       
+    fix  9716877 = enabled
+    fix  9814067 = enabled
+    fix  9776736 = enabled
+    fix  8349119 = enabled
+    fix  9958518 = enabled
+    fix 10041074 = enabled
+    fix 10004943 = enabled
+    fix  9980661 = enabled
+    fix  9554026 = enabled
+    fix  9593547 = enabled
+    fix  9833381 = enabled
+    fix 10043801 = enabled
+    fix  9940732 = enabled
+    fix  9702850 = enabled
+    fix  9659125 = 0       
+    fix  9668086 = enabled
+    fix  9476520 = enabled
+    fix 10158107 = enabled
+    fix 10148457 = enabled
+    fix 10106423 = enabled
+    fix  9721439 = disabled
+    fix 10162430 = enabled
+    fix 10134677 = enabled
+    fix 10182051 = 3       
+    fix 10175079 = enabled
+    fix 10026972 = enabled
+    fix 10192889 = enabled
+    fix  3566843 = enabled
+    fix  9550277 = disabled
+    fix 10236566 = enabled
+    fix 10227392 = enabled
+    fix  8961143 = enabled
+    fix  9721228 = enabled
+    fix 10080014 = enabled
+    fix 10101489 = enabled
+    fix  9929609 = enabled
+    fix 10015652 = enabled
+    fix  9918661 = enabled
+    fix 10333395 = enabled
+    fix 10336499 = disabled
+    fix 10182672 = enabled
+    fix  9578670 = enabled
+    fix 10232225 = enabled
+    fix 10330090 = enabled
+    fix 10232623 = enabled
+    fix  9630092 = disabled
+    fix 10271790 = enabled
+    fix  9227576 = enabled
+    fix 10197666 = enabled
+    fix 10376744 = enabled
+    fix  8274946 = enabled
+    fix 10046368 = enabled
+    fix  9569678 = enabled
+    fix  9002661 = enabled
+    fix 10038373 = enabled
+    fix  9477688 = enabled
+    fix 10013899 = enabled
+    fix  9832338 = enabled
+    fix 10623119 = enabled
+    fix  9898066 = enabled
+    fix 11699884 = enabled
+    fix 10640430 = enabled
+    fix 10428450 = enabled
+    fix 10117760 = enabled
+    fix 11720178 = enabled
+    fix  9881812 = enabled
+    fix 10428278 = enabled
+    fix 11741436 = enabled
+    fix 11668189 = enabled
+    fix 10359631 = enabled
+    fix  9829887 = enabled
+    fix  8275054 = enabled
+    fix 11814428 = enabled
+    fix 11676888 = disabled
+    fix 10348427 = enabled
+    fix 11843512 = enabled
+    fix 11657468 = enabled
+    fix 11877160 = enabled
+    fix 11738631 = enabled
+    fix 11744086 = enabled
+    fix 11830663 = enabled
+    fix 11853331 = enabled
+    fix  9748015 = enabled
+    fix 11834739 = enabled
+    fix  6055658 = enabled
+    fix 11740670 = enabled
+    fix 11940126 = enabled
+    fix 12315002 = enabled
+    fix  8275023 = enabled
+    fix 12352373 = enabled
+    fix 12390139 = enabled
+    fix 11935589 = enabled
+    fix 10226906 = enabled
+    fix 12327548 = enabled
+    fix 12388221 = enabled
+    fix 11892888 = enabled
+    fix 11814265 = enabled
+    fix 10230017 = enabled
+    fix 12341619 = enabled
+    fix 11744016 = enabled
+    fix 10216738 = enabled
+    fix 10298302 = enabled
+    fix 12563419 = enabled
+    fix 12399886 = enabled
+    fix 12584007 = enabled
+    fix 11881047 = enabled
+    fix 12534597 = enabled
+    fix  8683604 = enabled
+    fix 12410972 = enabled
+    fix  7147087 = enabled
+    fix 11846314 = enabled
+    fix 12535474 = enabled
+    fix 12561635 = enabled
+    fix 12432426 = enabled
+    fix  9913117 = enabled
+    fix 12432089 = enabled
+    fix 12587690 = enabled
+    fix 11858963 = enabled
+    fix 12569245 = enabled
+    fix 12569300 = enabled
+    fix  7308975 = disabled
+    fix 12569316 = enabled
+    fix 12569321 = enabled
+    fix 12335617 = enabled
+    fix  9002958 = enabled
+    fix 12591120 = enabled
+    fix 11876260 = enabled
+    fix 12313574 = enabled
+    fix 12569713 = enabled
+    fix 12348584 = enabled
+    fix 10420220 = enabled
+    fix 12559453 = enabled
+    fix 12727549 = enabled
+    fix 12728203 = enabled
+    fix 12828479 = enabled
+    fix 10181153 = enabled
+    fix  9971371 = disabled
+    fix 12864791 = enabled
+    fix 12810427 = enabled
+    fix 12605402 = enabled
+    fix 12914055 = enabled
+    fix 12861609 = enabled
+    fix 12915337 = enabled
+    fix 12942119 = enabled
+    fix 12622441 = enabled
+    fix 11072246 = enabled
+    fix 12739252 = enabled
+    fix 12953765 = enabled
+    fix 12905116 = enabled
+    fix 12978495 = enabled
+    fix  9633142 = disabled
+    fix  3639130 = enabled
+    fix 12827166 = enabled
+    fix 12944193 = enabled
+    fix 13020272 = enabled
+    fix 12673320 = enabled
+    fix 12975771 = enabled
+    fix 12882092 = enabled
+    fix 12379334 = enabled
+    fix 12723414 = enabled
+    fix  9488694 = disabled
+    fix 13255388 = 10      
+    fix 11727871 = enabled
+    fix 13110511 = enabled
+    fix 13075297 = enabled
+    fix 13345888 = enabled
+    fix 11657903 = disabled
+    fix 13396096 = enabled
+    fix 12591379 = enabled
+    fix 13398214 = enabled
+    fix 13382280 = enabled
+    fix 12869367 = enabled
+    fix 12999577 = enabled
+    fix 12433153 = enabled
+    fix  9094254 = enabled
+    fix 13104618 = enabled
+    fix 13524237 = enabled
+    fix 11813257 = enabled
+    fix 13489017 = enabled
+    fix 12954320 = enabled
+    fix 13555551 = enabled
+    fix 13499154 = enabled
+    fix 13036910 = enabled
+    fix 13545925 = enabled
+    fix 13545956 = enabled
+    fix 13545989 = enabled
+    fix 12839247 = enabled
+    fix  9858777 = enabled
+    fix 13568366 = enabled
+    fix 13393357 = enabled
+    fix 13040171 = enabled
+    fix 13406619 = enabled
+    fix 13594757 = enabled
+    fix 13543207 = enabled
+    fix 13594712 = enabled
+    fix 12648629 = enabled
+    fix 13549808 = enabled
+    fix 13634700 = enabled
+    fix  8792821 = enabled
+    fix 13454409 = enabled
+    fix 13146487 = enabled
+    fix 13592248 = enabled
+    fix 11689541 = enabled
+    fix 13527374 = enabled
+    fix 13430622 = enabled
+    fix 13704562 = enabled
+    fix  9547706 = enabled
+    fix 13497184 = enabled
+    fix 13704977 = enabled
+    fix 13734456 = enabled
+    fix 13070532 = enabled
+    fix  6520878 = enabled
+    fix  2273284 = enabled
+    fix 13786127 = enabled
+    fix 13065064 = enabled
+    fix 13972896 = enabled
+    fix 11843466 = enabled
+    fix 13777823 = enabled
+    fix 13616573 = enabled
+    fix 13831671 = enabled
+    fix 13652216 = enabled
+    fix 13912192 = enabled
+    fix 13909909 = enabled
+    fix 13849486 = enabled
+    fix 13321547 = enabled
+    fix 13886606 = disabled
+    fix 14013502 = enabled
+    fix 13850256 = enabled
+    fix 13929275 = enabled
+    fix 11732303 = enabled
+    fix 13906168 = enabled
+    fix 14055128 = enabled
+    fix 12856200 = enabled
+    fix 14008590 = enabled
+    fix 13627489 = disabled
+    fix 13961105 = enabled
+    fix 13583722 = enabled
+    fix 13076238 = enabled
+    fix 13936229 = enabled
+    fix  9852856 = enabled
+    fix  3904125 = enabled
+    fix  5910187 = enabled
+    fix 10068316 = enabled
+    fix 14029891 = enabled
+    fix  4215125 = enabled
+    fix 13711083 = enabled
+    fix 13973691 = enabled
+    fix 13486825 = enabled
+    fix 13682550 = enabled
+    fix 13826669 = enabled
+    fix 14033181 = enabled
+    fix 13836796 = enabled
+    fix 12555499 = enabled
+    fix 13568506 = enabled
+    fix  9891396 = enabled
+    fix 13699643 = enabled
+    fix 13835788 = enabled
+    fix  7271518 = enabled
+    fix 14127824 = enabled
+    fix 12557401 = enabled
+    fix 13350470 = enabled
+    fix 14095362 = enabled
+    fix 13000118 = enabled
+    fix 14254795 = enabled
+    fix 14012261 = enabled
+    fix 14241953 = enabled
+    fix 14221012 = enabled
+    fix 13329748 = enabled
+    fix 13843964 = enabled
+    fix 14254052 = enabled
+    fix 13814866 = enabled
+    fix 14255600 = disabled
+    fix 13735304 = enabled
+    fix 14142884 = disabled
+    fix 12909121 = enabled
+    fix 14464068 = enabled
+    fix 14295250 = 45000   
+    fix  6873091 = enabled
+    fix 13448445 = enabled
+    fix 14155722 = enabled
+    fix 14098180 = enabled
+    fix 11905801 = enabled
+    fix 14467202 = enabled
+    fix 14541122 = enabled
+    fix 13905599 = disabled
+    fix 14320077 = enabled
+    fix 14243782 = enabled
+    fix  9114915 = enabled
+    fix 14516175 = enabled
+    fix 12812697 = enabled
+    fix 13109345 = enabled
+    fix 14456124 = enabled
+    fix 14605040 = enabled
+    fix 14595273 = disabled
+    fix 14176247 = enabled
+    fix 11894476 = enabled
+    fix 14256885 = enabled
+    fix 14545269 = enabled
+    fix 14668404 = disabled
+    fix 14144611 = enabled
+    fix 14346182 = enabled
+    fix 13083139 = enabled
+    fix 14726188 = enabled
+    fix 14707009 = enabled
+    fix 14703133 = enabled
+    fix 14618560 = enabled
+    fix 14170552 = enabled
+    fix 13263174 = enabled
+    fix 14669785 = enabled
+    fix 14633570 = enabled
+    fix 14755138 = enabled
+    fix 14682092 = enabled
+    fix 14712222 = enabled
+    fix 14570575 = enabled
+    fix 14707748 = disabled
+    fix 14684079 = disabled
+    fix 13245379 = enabled
+    fix 13853916 = enabled
+    fix 13699007 = enabled
+    fix 14843189 = enabled
+    fix 14147762 = enabled
+    fix 14795969 = enabled
+    fix 13573073 = enabled
+    fix 14058291 = disabled
+    fix 16029607 = enabled
+    fix 16058481 = enabled
+    fix 16166364 = enabled
+    fix 16496848 = disabled
+    fix 12693573 = enabled
+
+
+  ***************************************
+  PARAMETERS IN OPT_PARAM HINT
+  ****************************
+***************************************
+Column Usage Monitoring is ON: tracking level = 1
+***************************************
+
+Considering Query Transformations on query block SEL$1 (#0)
+**************************
+Query transformations (QT)
+**************************
+JF: Checking validity of join factorization for query block SEL$1 (#0)
+JF: Bypassed: not a UNION or UNION-ALL query block.
+ST: not valid since star transformation parameter is FALSE
+TE: Checking validity of table expansion for query block SEL$1 (#0)
+TE: Bypassed: No partitioned table in query block.
+CBQT bypassed for query block SEL$1 (#0): no complex view, sub-queries or UNION (ALL) queries.
+CBQT: Validity checks failed for 2yhyu5brg860s.
+CSE: Considering common sub-expression elimination in query block SEL$1 (#0)
+*************************
+Common Subexpression elimination (CSE)
+*************************
+CSE:     CSE not performed on query block SEL$1 (#0).
+OBYE:   Considering Order-by Elimination from view SEL$1 (#0)
+***************************
+Order-by elimination (OBYE)
+***************************
+OBYE:     OBYE bypassed: no order by to eliminate.
+CVM: Considering view merge in query block SEL$1 (#0)
+OJE: Begin: find best directive for query block SEL$1 (#0)
+OJE: End: finding best directive for query block SEL$1 (#0)
+query block SEL$1 (#0) unchanged
+Considering Query Transformations on query block SEL$1 (#0)
+**************************
+Query transformations (QT)
+**************************
+JF: Checking validity of join factorization for query block SEL$1 (#0)
+JF: Bypassed: not a UNION or UNION-ALL query block.
+ST: not valid since star transformation parameter is FALSE
+TE: Checking validity of table expansion for query block SEL$1 (#0)
+TE: Bypassed: No partitioned table in query block.
+CBQT bypassed for query block SEL$1 (#0): no complex view, sub-queries or UNION (ALL) queries.
+CBQT: Validity checks failed for 2yhyu5brg860s.
+CSE: Considering common sub-expression elimination in query block SEL$1 (#0)
+*************************
+Common Subexpression elimination (CSE)
+*************************
+CSE:     CSE not performed on query block SEL$1 (#0).
+SU: Considering subquery unnesting in query block SEL$1 (#0)
+********************
+Subquery Unnest (SU)
+********************
+SJC: Considering set-join conversion in query block SEL$1 (#0)
+*************************
+Set-Join Conversion (SJC)
+*************************
+SJC: not performed
+PM: Considering predicate move-around in query block SEL$1 (#0)
+**************************
+Predicate Move-Around (PM)
+**************************
+PM:     PM bypassed: Outer query contains no views.
+PM:     PM bypassed: Outer query contains no views.
+query block SEL$1 (#0) unchanged
+ Compilation environment difference Failed sharing : 0
+    sqlstat_enabled                     = false                true                
+ Change in cursor environment
+ SQL pgadep:0 pgapls:0 user
+FPD: Considering simple filter push in query block SEL$1 (#0)
+"TT"."OBJECT_NAME"=:B1
+try to generate transitive predicate from check constraints for query block SEL$1 (#0)
+finally: "TT"."OBJECT_NAME"=:B1
+
+apadrv-start sqlid=3405805621154682904
+CSE: Considering common sub-expression elimination in query block SEL$1 (#0)
+*************************
+Common Subexpression elimination (CSE)
+*************************
+CSE:     CSE not performed on query block SEL$1 (#0).
+  :
+    call(in-use=1376, alloc=16344), compile(in-use=60200, alloc=62552), execution(in-use=3464, alloc=4032)
+
+*******************************************
+Peeked values of the binds in SQL statement
+*******************************************
+----- Bind Info (kkscoacd) -----
+ Bind#0
+  oacdty=01 mxl=128(96) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=03 fl2=1000000 frm=01 csi=873 siz=128 off=0
+  kxsbbbfp=7f312e75b2c8  bln=128  avl=14  flg=05
+  value="DBMS_TRACE_LIB"
+
+=====================================
+SPD: BEGIN context at statement level
+=====================================
+Stmt: ******* UNPARSED QUERY IS *******
+SELECT "TT"."OBJECT_ID" "OBJECT_ID","TT"."OWNER" "OWNER","TT"."OBJECT_NAME" "OBJECT_NAME","TT"."OBJECT_TYPE" "OBJECT_TYPE" FROM "MICHAEL"."TT" "TT" WHERE "TT"."OBJECT_NAME"=:B1
+Objects referenced in the statement
+  TT[TT] 20677, type = 1
+ Cursor#1 mapped
+=====================
+PARSING IN CURSOR #139849209584840 len=58 dep=1 uid=0 oct=3 lid=0 tim=34579383073 hv=499105949 ad='a7170ce8' sqlid='9y2w9gsfvzh4x'
+select dir_cnt from opt_directive_own$ where dir_own# = :1
+END OF STMT
+PARSE #139849209584840:c=1000,e=442,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=0,tim=34579383070
+ Cursor#1 mapped
+BINDS #139849209584840:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7f312e759348  bln=22  avl=11  flg=05
+  value=17608007097663829578
+EXEC #139849209584840:c=0,e=855,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=3646447030,tim=34579384011
+FETCH #139849209584840:c=0,e=35,p=0,cr=2,cu=0,mis=0,r=1,dep=1,og=4,plh=3646447030,tim=34579384062
+STAT #139849209584840 id=1 cnt=1 pid=0 pos=1 obj=603 op='TABLE ACCESS BY INDEX ROWID OPT_DIRECTIVE_OWN$ (cr=2 pr=0 pw=0 time=36 us cost=1 size=15 card=1)'
+STAT #139849209584840 id=2 cnt=1 pid=1 pos=1 obj=604 op='INDEX UNIQUE SCAN I_OPT_DIRECTIVE_OWN# (cr=1 pr=0 pw=0 time=17 us cost=0 size=0 card=1)'
+ Cursor#1 mapped
+CLOSE #139849209584840:c=0,e=2,dep=1,type=3,tim=34579384138
+ Cursor#1 mapped
+ Cursor#1 mapped
+=====================
+PARSING IN CURSOR #139849209580792 len=114 dep=1 uid=0 oct=3 lid=0 tim=34579384448 hv=3439991553 ad='a71665d8' sqlid='7hcrv5v6hn6s1'
+select dir_id, f_id, type, state, flags, created, last_modified, last_used from opt_directive$ where dir_own# = :1
+END OF STMT
+PARSE #139849209580792:c=1000,e=250,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=0,tim=34579384448
+ Cursor#1 mapped
+BINDS #139849209580792:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7f312e756eb8  bln=22  avl=11  flg=05
+  value=17608007097663829578
+EXEC #139849209580792:c=1000,e=1272,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=2544558965,tim=34579385720
+FETCH #139849209580792:c=0,e=84,p=0,cr=2,cu=0,mis=0,r=1,dep=1,og=4,plh=2544558965,tim=34579385830
+ Cursor#1 mapped
+FETCH #139849209580792:c=0,e=39,p=0,cr=2,cu=0,mis=0,r=1,dep=1,og=4,plh=2544558965,tim=34579385910
+ Cursor#1 mapped
+FETCH #139849209580792:c=0,e=13,p=0,cr=2,cu=0,mis=0,r=1,dep=1,og=4,plh=2544558965,tim=34579385955
+ Cursor#1 mapped
+FETCH #139849209580792:c=0,e=35,p=0,cr=2,cu=0,mis=0,r=1,dep=1,og=4,plh=2544558965,tim=34579386019
+ Cursor#1 mapped
+FETCH #139849209580792:c=0,e=15,p=0,cr=1,cu=0,mis=0,r=0,dep=1,og=4,plh=2544558965,tim=34579386095
+STAT #139849209580792 id=1 cnt=4 pid=0 pos=1 obj=605 op='TABLE ACCESS BY INDEX ROWID BATCHED OPT_DIRECTIVE$ (cr=9 pr=0 pw=0 time=99 us cost=3 size=195 card=3)'
+STAT #139849209580792 id=2 cnt=4 pid=1 pos=1 obj=608 op='INDEX RANGE SCAN I_OPT_DIRECTIVE_OWN#_ID (cr=5 pr=0 pw=0 time=63 us cost=1 size=0 card=3)'
+ Cursor#1 mapped
+CLOSE #139849209580792:c=0,e=2,dep=1,type=3,tim=34579386172
+ Cursor#1 mapped
+ Cursor#1 mapped
+=====================
+PARSING IN CURSOR #139849209571864 len=77 dep=1 uid=0 oct=3 lid=0 tim=34579386634 hv=1122222141 ad='a7158348' sqlid='c7pd2v91f7h1x'
+select f_own#, type, reason, ctime, tab_cnt from opt_finding$ where f_id = :1
+END OF STMT
+PARSE #139849209571864:c=0,e=397,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=0,tim=34579386634
+ Cursor#1 mapped
+BINDS #139849209571864:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7f312e755a80  bln=22  avl=11  flg=05
+  value=6318872224442996464
+EXEC #139849209571864:c=1000,e=496,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=2762236736,tim=34579387202
+FETCH #139849209571864:c=0,e=27,p=0,cr=2,cu=0,mis=0,r=1,dep=1,og=4,plh=2762236736,tim=34579387245
+STAT #139849209571864 id=1 cnt=1 pid=0 pos=1 obj=599 op='TABLE ACCESS BY INDEX ROWID OPT_FINDING$ (cr=2 pr=0 pw=0 time=26 us cost=1 size=41 card=1)'
+STAT #139849209571864 id=2 cnt=1 pid=1 pos=1 obj=600 op='INDEX UNIQUE SCAN I_OPT_FINDING_F_ID (cr=1 pr=0 pw=0 time=14 us cost=0 size=0 card=1)'
+ Cursor#1 mapped
+CLOSE #139849209571864:c=0,e=2,dep=1,type=3,tim=34579387316
+ Cursor#1 mapped
+ Cursor#1 mapped
+=====================
+PARSING IN CURSOR #139849209566256 len=89 dep=1 uid=0 oct=3 lid=0 tim=34579387706 hv=51511366 ad='a7149f00' sqlid='gd90ygn1j4026'
+select f_obj#, obj_type, col_list, cvec_size, flags from opt_finding_obj$ where f_id = :1
+END OF STMT
+PARSE #139849209566256:c=0,e=344,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=0,tim=34579387706
+ Cursor#1 mapped
+BINDS #139849209566256:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7f312e754300  bln=22  avl=11  flg=05
+  value=6318872224442996464
+EXEC #139849209566256:c=1000,e=716,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=1120054736,tim=34579388488
+FETCH #139849209566256:c=0,e=36,p=0,cr=3,cu=0,mis=0,r=1,dep=1,og=4,plh=1120054736,tim=34579388561
+ Cursor#1 mapped
+FETCH #139849209566256:c=0,e=5,p=0,cr=1,cu=0,mis=0,r=0,dep=1,og=4,plh=1120054736,tim=34579388602
+STAT #139849209566256 id=1 cnt=1 pid=0 pos=1 obj=601 op='TABLE ACCESS BY INDEX ROWID BATCHED OPT_FINDING_OBJ$ (cr=4 pr=0 pw=0 time=35 us cost=3 size=96 card=4)'
+STAT #139849209566256 id=2 cnt=1 pid=1 pos=1 obj=602 op='INDEX RANGE SCAN I_OPT_FINDING_OBJ_ID_OBJ_TYPE (cr=3 pr=0 pw=0 time=28 us cost=2 size=0 card=4)'
+ Cursor#1 mapped
+CLOSE #139849209566256:c=0,e=2,dep=1,type=3,tim=34579388676
+ Cursor#1 mapped
+BINDS #139849209571864:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7f312e754300  bln=22  avl=11  flg=05
+  value=12994268751477745423
+EXEC #139849209571864:c=0,e=55,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=4,plh=2762236736,tim=34579388794
+FETCH #139849209571864:c=0,e=17,p=0,cr=2,cu=0,mis=0,r=1,dep=1,og=4,plh=2762236736,tim=34579388824
+ Cursor#1 mapped
+CLOSE #139849209571864:c=0,e=1,dep=1,type=3,tim=34579388855
+ Cursor#1 mapped
+BINDS #139849209566256:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7f312e754300  bln=22  avl=11  flg=05
+  value=12994268751477745423
+EXEC #139849209566256:c=0,e=49,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=4,plh=1120054736,tim=34579388939
+FETCH #139849209566256:c=0,e=22,p=0,cr=3,cu=0,mis=0,r=1,dep=1,og=4,plh=1120054736,tim=34579388973
+ Cursor#1 mapped
+FETCH #139849209566256:c=0,e=4,p=0,cr=1,cu=0,mis=0,r=0,dep=1,og=4,plh=1120054736,tim=34579389003
+ Cursor#1 mapped
+CLOSE #139849209566256:c=0,e=4,dep=1,type=3,tim=34579389052
+ Cursor#1 mapped
+BINDS #139849209571864:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7f312e754300  bln=22  avl=11  flg=05
+  value=3892594589816684150
+EXEC #139849209571864:c=0,e=52,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=4,plh=2762236736,tim=34579389159
+FETCH #139849209571864:c=0,e=10,p=0,cr=2,cu=0,mis=0,r=1,dep=1,og=4,plh=2762236736,tim=34579389181
+ Cursor#1 mapped
+CLOSE #139849209571864:c=0,e=2,dep=1,type=3,tim=34579389212
+ Cursor#1 mapped
+BINDS #139849209566256:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7f312e754300  bln=22  avl=11  flg=05
+  value=3892594589816684150
+EXEC #139849209566256:c=0,e=49,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=4,plh=1120054736,tim=34579389290
+FETCH #139849209566256:c=0,e=17,p=0,cr=3,cu=0,mis=0,r=1,dep=1,og=4,plh=1120054736,tim=34579389319
+ Cursor#1 mapped
+FETCH #139849209566256:c=0,e=4,p=0,cr=1,cu=0,mis=0,r=0,dep=1,og=4,plh=1120054736,tim=34579389349
+ Cursor#1 mapped
+CLOSE #139849209566256:c=0,e=1,dep=1,type=3,tim=34579389384
+ Cursor#1 mapped
+BINDS #139849209571864:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7f312e754300  bln=22  avl=11  flg=05
+  value=12173760314416106361
+EXEC #139849209571864:c=0,e=59,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=4,plh=2762236736,tim=34579389490
+FETCH #139849209571864:c=0,e=9,p=0,cr=2,cu=0,mis=0,r=1,dep=1,og=4,plh=2762236736,tim=34579389513
+ Cursor#1 mapped
+CLOSE #139849209571864:c=0,e=1,dep=1,type=3,tim=34579389543
+ Cursor#1 mapped
+BINDS #139849209566256:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7f312e754300  bln=22  avl=11  flg=05
+  value=12173760314416106361
+EXEC #139849209566256:c=0,e=49,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=4,plh=1120054736,tim=34579389621
+FETCH #139849209566256:c=0,e=11,p=0,cr=3,cu=0,mis=0,r=1,dep=1,og=4,plh=1120054736,tim=34579389643
+ Cursor#1 mapped
+FETCH #139849209566256:c=0,e=4,p=0,cr=1,cu=0,mis=0,r=0,dep=1,og=4,plh=1120054736,tim=34579389673
+ Cursor#1 mapped
+CLOSE #139849209566256:c=0,e=1,dep=1,type=3,tim=34579389702
+ Cursor#1 mapped
+Objects in the hash table
+  Hash table Object 20677, type = 1, ownerid = 17608007097663829578:
+    Dynamic Sampling Directives at location 1:
+       dirid = 586526229928658492, state = 3, flags = 1, loc = 1 {C(20677)[1, 2]}
+       dirid = 9612659649520591497, state = 1, flags = 1, loc = 1 {(20677)[2]}
+       dirid = 1843398046279065297, state = 1, flags = 1, loc = 1 {(20677)[]}
+    Dynamic Sampling Directives at location 4:
+       dirid = 6746156473480418925, state = 3, flags = 1, loc = 4 {(20677)[2]}
+Return code in qosdInitDirCtx: ENBLD
+===================================
+SPD: END context at statement level
+===================================
+Final query after transformations:******* UNPARSED QUERY IS *******
+SELECT "TT"."OBJECT_ID" "OBJECT_ID","TT"."OWNER" "OWNER","TT"."OBJECT_NAME" "OBJECT_NAME","TT"."OBJECT_TYPE" "OBJECT_TYPE" FROM "MICHAEL"."TT" "TT" WHERE "TT"."OBJECT_NAME"=:B1
+kkoqbc: optimizing query block SEL$1 (#0)
+        
+        :
+    call(in-use=1488, alloc=16344), compile(in-use=70696, alloc=70888), execution(in-use=3736, alloc=4032)
+
+kkoqbc-subheap (create addr=0x7f312e9cfb60)
+****************
+QUERY BLOCK TEXT
+****************
+select	object_id, owner, object_name, object_type
+from	tt
+where	object_name = :s_object_name
+---------------------
+QUERY BLOCK SIGNATURE
+---------------------
+signature (optimizer): qb_name=SEL$1 nbfros=1 flg=0
+  fro(0): flg=0 objn=20677 hint_alias="TT"@"SEL$1"
+
+-----------------------------
+SYSTEM STATISTICS INFORMATION
+-----------------------------
+  Using NOWORKLOAD Stats
+  CPUSPEEDNW: 3839 millions instructions/sec (default is 100)
+  IOTFRSPEED: 4096 bytes per millisecond (default is 4096)
+  IOSEEKTIM:  10 milliseconds (default is 10)
+  MBRC:       NO VALUE blocks (default is 8)
+
+***************************************
+BASE STATISTICAL INFORMATION
+***********************
+Table Stats::
+  Table: TT  Alias: TT
+  #Rows: 19463  #Blks:  297  AvgRowLen:  98.00  ChainCnt:  0.00
+Index Stats::
+  Index: TT_IE1  Col#: 2
+    LVLS: 1  #LB: 83  #DK: 14508  LB/K: 1.00  DB/K: 1.00  CLUF: 7707.00
+  Index: TT_IE2  Col#: 2 1
+    LVLS: 1  #LB: 96  #DK: 18124  LB/K: 1.00  DB/K: 1.00  CLUF: 7745.00
+  Index: TT_PK  Col#: 4
+    LVLS: 1  #LB: 40  #DK: 19463  LB/K: 1.00  DB/K: 1.00  CLUF: 343.00
+=======================================
+SPD: BEGIN context at query block level
+=======================================
+Query Block SEL$1 (#0)
+Applicable DS directives:
+   dirid = 586526229928658492, state = 3, flags = 1, loc = 1 {C(20677)[1, 2]}
+   dirid = 9612659649520591497, state = 1, flags = 1, loc = 1 {(20677)[2]}
+   dirid = 1843398046279065297, state = 1, flags = 1, loc = 1 {(20677)[]}
+   dirid = 6746156473480418925, state = 3, flags = 1, loc = 4 {(20677)[2]}
+SPD: Checking valid directives for the query block
+SPD: Return code in qosdDSDirSetup: NODIR, estType = QUERY_BLOCK
+Return code in qosdSetupDirCtx4QB: EXISTS
+=====================================
+SPD: END context at query block level
+=====================================
+Access path analysis for TT
+***************************************
+SINGLE TABLE ACCESS PATH 
+  Single Table Cardinality Estimation for TT[TT] 
+SPD: Return code in qosdDSDirSetup: NODIR, estType = TABLE
+ Cursor#1 mapped
+=====================
+PARSING IN CURSOR #139849209560240 len=210 dep=1 uid=0 oct=3 lid=0 tim=34579391774 hv=864012087 ad='a77b5778' sqlid='96g93hntrzjtr'
+select /*+ rule */ bucket_cnt, row_cnt, cache_cnt, null_cnt, timestamp#, sample_size, minimum, maximum, distcnt, lowval, hival, density, col#, spare1, spare2, avgcln from hist_head$ where obj#=:1 and intcol#=:2
+END OF STMT
+PARSE #139849209560240:c=1000,e=774,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=3,plh=0,tim=34579391773
+ Cursor#1 mapped
+BINDS #139849209560240:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=48 off=0
+  kxsbbbfp=7f312e74fff0  bln=22  avl=04  flg=05
+  value=20677
+ Bind#1
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=24
+  kxsbbbfp=7f312e750008  bln=22  avl=02  flg=01
+  value=2
+EXEC #139849209560240:c=1000,e=684,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=3,plh=2239883476,tim=34579392532
+FETCH #139849209560240:c=0,e=43,p=0,cr=3,cu=0,mis=0,r=1,dep=1,og=3,plh=2239883476,tim=34579392593
+ Cursor#1 mapped
+STAT #139849209560240 id=1 cnt=1 pid=0 pos=1 obj=68 op='TABLE ACCESS BY INDEX ROWID HIST_HEAD$ (cr=3 pr=0 pw=0 time=39 us)'
+STAT #139849209560240 id=2 cnt=1 pid=1 pos=1 obj=70 op='INDEX RANGE SCAN I_HH_OBJ#_INTCOL# (cr=2 pr=0 pw=0 time=27 us)'
+CLOSE #139849209560240:c=0,e=38,dep=1,type=3,tim=34579392667
+ Cursor#1 mapped
+ Cursor#1 mapped
+=====================
+PARSING IN CURSOR #139849209543096 len=151 dep=1 uid=0 oct=3 lid=0 tim=34579393109 hv=2507062328 ad='a7232040' sqlid='7u49y06aqxg1s'
+select /*+ rule */ bucket, endpoint, col#, epvalue, epvalue_raw, ep_repeat_count from histgrm$ where obj#=:1 and intcol#=:2 and row#=:3 order by bucket
+END OF STMT
+PARSE #139849209543096:c=1000,e=381,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=3,plh=0,tim=34579393108
+ Cursor#1 mapped
+BINDS #139849209543096:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=72 off=0
+  kxsbbbfp=7f312e74e2c0  bln=22  avl=04  flg=05
+  value=20677
+ Bind#1
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=24
+  kxsbbbfp=7f312e74e2d8  bln=22  avl=02  flg=01
+  value=2
+ Bind#2
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=48
+  kxsbbbfp=7f312e74e2f0  bln=22  avl=01  flg=01
+  value=0
+EXEC #139849209543096:c=0,e=654,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=3,plh=3312420081,tim=34579393843
+WAIT #139849209543096: nam='Disk file operations I/O' ela= 42 FileOperation=2 fileno=0 filetype=15 obj#=66 tim=34579393970
+WAIT #139849209543096: nam='db file sequential read' ela= 19479 file#=1 block#=45331 blocks=1 obj#=66 tim=34579413486
+WAIT #139849209543096: nam='db file sequential read' ela= 14531 file#=1 block#=46621 blocks=1 obj#=66 tim=34579428167
+FETCH #139849209543096:c=1000,e=34613,p=2,cr=4,cu=0,mis=0,r=20,dep=1,og=3,plh=3312420081,tim=34579428471
+ Cursor#1 mapped
+STAT #139849209543096 id=1 cnt=20 pid=0 pos=1 obj=0 op='SORT ORDER BY (cr=4 pr=2 pw=0 time=34615 us cost=0 size=0 card=0)'
+STAT #139849209543096 id=2 cnt=20 pid=1 pos=1 obj=66 op='TABLE ACCESS CLUSTER HISTGRM$ (cr=4 pr=2 pw=0 time=19728 us)'
+STAT #139849209543096 id=3 cnt=1 pid=2 pos=1 obj=65 op='INDEX UNIQUE SCAN I_OBJ#_INTCOL# (cr=2 pr=0 pw=0 time=24 us)'
+CLOSE #139849209543096:c=0,e=120,dep=1,type=3,tim=34579428703
+ Cursor#1 mapped
+BINDS #139849209543096:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=72 off=0
+  kxsbbbfp=7f312e74e2c0  bln=22  avl=04  flg=05
+  value=20677
+ Bind#1
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=24
+  kxsbbbfp=7f312e74e2d8  bln=22  avl=02  flg=01
+  value=2
+ Bind#2
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=48
+  kxsbbbfp=7f312e74e2f0  bln=22  avl=02  flg=01
+  value=1
+EXEC #139849209543096:c=0,e=256,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=3,plh=3312420081,tim=34579429104
+FETCH #139849209543096:c=1000,e=167,p=0,cr=4,cu=0,mis=0,r=20,dep=1,og=3,plh=3312420081,tim=34579429302
+ Cursor#1 mapped
+CLOSE #139849209543096:c=0,e=0,dep=1,type=3,tim=34579429302
+ Cursor#1 mapped
+BINDS #139849209543096:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=72 off=0
+  kxsbbbfp=7f312e74e2c0  bln=22  avl=04  flg=05
+  value=20677
+ Bind#1
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=24
+  kxsbbbfp=7f312e74e2d8  bln=22  avl=02  flg=01
+  value=2
+ Bind#2
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=48
+  kxsbbbfp=7f312e74e2f0  bln=22  avl=02  flg=01
+  value=2
+EXEC #139849209543096:c=0,e=274,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=3,plh=3312420081,tim=34579429685
+FETCH #139849209543096:c=0,e=155,p=0,cr=4,cu=0,mis=0,r=20,dep=1,og=3,plh=3312420081,tim=34579429871
+ Cursor#1 mapped
+CLOSE #139849209543096:c=0,e=17,dep=1,type=3,tim=34579429943
+ Cursor#1 mapped
+BINDS #139849209543096:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=72 off=0
+  kxsbbbfp=7f312e74e2c0  bln=22  avl=04  flg=05
+  value=20677
+ Bind#1
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=24
+  kxsbbbfp=7f312e74e2d8  bln=22  avl=02  flg=01
+  value=2
+ Bind#2
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=48
+  kxsbbbfp=7f312e74e2f0  bln=22  avl=02  flg=01
+  value=3
+EXEC #139849209543096:c=0,e=182,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=3,plh=3312420081,tim=34579430193
+FETCH #139849209543096:c=0,e=187,p=0,cr=4,cu=0,mis=0,r=20,dep=1,og=3,plh=3312420081,tim=34579430438
+ Cursor#1 mapped
+CLOSE #139849209543096:c=0,e=17,dep=1,type=3,tim=34579430519
+ Cursor#1 mapped
+BINDS #139849209543096:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=72 off=0
+  kxsbbbfp=7f312e74e2c0  bln=22  avl=04  flg=05
+  value=20677
+ Bind#1
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=24
+  kxsbbbfp=7f312e74e2d8  bln=22  avl=02  flg=01
+  value=2
+ Bind#2
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=48
+  kxsbbbfp=7f312e74e2f0  bln=22  avl=02  flg=01
+  value=4
+EXEC #139849209543096:c=0,e=197,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=3,plh=3312420081,tim=34579430801
+FETCH #139849209543096:c=0,e=194,p=0,cr=4,cu=0,mis=0,r=20,dep=1,og=3,plh=3312420081,tim=34579431020
+ Cursor#1 mapped
+CLOSE #139849209543096:c=0,e=15,dep=1,type=3,tim=34579431094
+ Cursor#1 mapped
+BINDS #139849209543096:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=72 off=0
+  kxsbbbfp=7f312e74e2c0  bln=22  avl=04  flg=05
+  value=20677
+ Bind#1
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=24
+  kxsbbbfp=7f312e74e2d8  bln=22  avl=02  flg=01
+  value=2
+ Bind#2
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=48
+  kxsbbbfp=7f312e74e2f0  bln=22  avl=02  flg=01
+  value=5
+EXEC #139849209543096:c=1000,e=4043,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=3,plh=3312420081,tim=34579435212
+FETCH #139849209543096:c=0,e=153,p=0,cr=4,cu=0,mis=0,r=20,dep=1,og=3,plh=3312420081,tim=34579435395
+ Cursor#1 mapped
+CLOSE #139849209543096:c=0,e=17,dep=1,type=3,tim=34579435466
+ Cursor#1 mapped
+BINDS #139849209543096:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=72 off=0
+  kxsbbbfp=7f312e74e2c0  bln=22  avl=04  flg=05
+  value=20677
+ Bind#1
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=24
+  kxsbbbfp=7f312e74e2d8  bln=22  avl=02  flg=01
+  value=2
+ Bind#2
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=48
+  kxsbbbfp=7f312e74e2f0  bln=22  avl=02  flg=01
+  value=6
+EXEC #139849209543096:c=0,e=229,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=3,plh=3312420081,tim=34579435784
+FETCH #139849209543096:c=0,e=148,p=0,cr=4,cu=0,mis=0,r=20,dep=1,og=3,plh=3312420081,tim=34579435960
+ Cursor#1 mapped
+CLOSE #139849209543096:c=0,e=15,dep=1,type=3,tim=34579436026
+ Cursor#1 mapped
+BINDS #139849209543096:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=72 off=0
+  kxsbbbfp=7f312e74e2c0  bln=22  avl=04  flg=05
+  value=20677
+ Bind#1
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=24
+  kxsbbbfp=7f312e74e2d8  bln=22  avl=02  flg=01
+  value=2
+ Bind#2
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=48
+  kxsbbbfp=7f312e74e2f0  bln=22  avl=02  flg=01
+  value=7
+EXEC #139849209543096:c=0,e=203,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=3,plh=3312420081,tim=34579436443
+FETCH #139849209543096:c=1000,e=1957,p=0,cr=4,cu=0,mis=0,r=20,dep=1,og=3,plh=3312420081,tim=34579438426
+ Cursor#1 mapped
+CLOSE #139849209543096:c=0,e=43,dep=1,type=3,tim=34579438544
+ Cursor#1 mapped
+BINDS #139849209543096:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=72 off=0
+  kxsbbbfp=7f312e74e2c0  bln=22  avl=04  flg=05
+  value=20677
+ Bind#1
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=24
+  kxsbbbfp=7f312e74e2d8  bln=22  avl=02  flg=01
+  value=2
+ Bind#2
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=48
+  kxsbbbfp=7f312e74e2f0  bln=22  avl=02  flg=01
+  value=8
+EXEC #139849209543096:c=0,e=227,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=3,plh=3312420081,tim=34579438873
+FETCH #139849209543096:c=0,e=179,p=0,cr=4,cu=0,mis=0,r=20,dep=1,og=3,plh=3312420081,tim=34579439085
+ Cursor#1 mapped
+CLOSE #139849209543096:c=0,e=16,dep=1,type=3,tim=34579439163
+ Cursor#1 mapped
+BINDS #139849209543096:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=72 off=0
+  kxsbbbfp=7f312e74e2c0  bln=22  avl=04  flg=05
+  value=20677
+ Bind#1
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=24
+  kxsbbbfp=7f312e74e2d8  bln=22  avl=02  flg=01
+  value=2
+ Bind#2
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=48
+  kxsbbbfp=7f312e74e2f0  bln=22  avl=02  flg=01
+  value=9
+EXEC #139849209543096:c=0,e=216,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=3,plh=3312420081,tim=34579439458
+FETCH #139849209543096:c=1000,e=2650,p=0,cr=4,cu=0,mis=0,r=20,dep=1,og=3,plh=3312420081,tim=34579442528
+ Cursor#1 mapped
+CLOSE #139849209543096:c=0,e=25,dep=1,type=3,tim=34579442630
+ Cursor#1 mapped
+BINDS #139849209543096:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=72 off=0
+  kxsbbbfp=7f312e74e2c0  bln=22  avl=04  flg=05
+  value=20677
+ Bind#1
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=24
+  kxsbbbfp=7f312e74e2d8  bln=22  avl=02  flg=01
+  value=2
+ Bind#2
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=48
+  kxsbbbfp=7f312e74e2f0  bln=22  avl=02  flg=01
+  value=10
+EXEC #139849209543096:c=0,e=249,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=3,plh=3312420081,tim=34579442969
+FETCH #139849209543096:c=0,e=157,p=0,cr=4,cu=0,mis=0,r=20,dep=1,og=3,plh=3312420081,tim=34579443156
+ Cursor#1 mapped
+CLOSE #139849209543096:c=0,e=17,dep=1,type=3,tim=34579443228
+ Cursor#1 mapped
+BINDS #139849209543096:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=72 off=0
+  kxsbbbfp=7f312e74e2c0  bln=22  avl=04  flg=05
+  value=20677
+ Bind#1
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=24
+  kxsbbbfp=7f312e74e2d8  bln=22  avl=02  flg=01
+  value=2
+ Bind#2
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=48
+  kxsbbbfp=7f312e74e2f0  bln=22  avl=02  flg=01
+  value=11
+EXEC #139849209543096:c=2000,e=841,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=3,plh=3312420081,tim=34579444153
+FETCH #139849209543096:c=0,e=192,p=0,cr=4,cu=0,mis=0,r=20,dep=1,og=3,plh=3312420081,tim=34579444393
+ Cursor#1 mapped
+CLOSE #139849209543096:c=0,e=15,dep=1,type=3,tim=34579444470
+ Cursor#1 mapped
+BINDS #139849209543096:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=72 off=0
+  kxsbbbfp=7f312e74e2c0  bln=22  avl=04  flg=05
+  value=20677
+ Bind#1
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=24
+  kxsbbbfp=7f312e74e2d8  bln=22  avl=02  flg=01
+  value=2
+ Bind#2
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=48
+  kxsbbbfp=7f312e74e2f0  bln=22  avl=02  flg=01
+  value=12
+EXEC #139849209543096:c=0,e=195,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=3,plh=3312420081,tim=34579444746
+FETCH #139849209543096:c=0,e=156,p=0,cr=4,cu=0,mis=0,r=14,dep=1,og=3,plh=3312420081,tim=34579444961
+ Cursor#1 mapped
+CLOSE #139849209543096:c=0,e=3,dep=1,type=3,tim=34579445035
+ Cursor#1 mapped
+  Column (#2): 
+    NewDensity:0.000069, OldDensity:0.000069 BktCnt:19463.000000, PopBktCnt:101.000000, PopValCnt:1, NDV:14508
+  Column (#2): OBJECT_NAME(VARCHAR2)
+    AvgLen: 20 NDV: 14508 Nulls: 0 Density: 0.000069
+    Histogram: Hybrid  #Bkts: 254  UncompBkts: 19463  EndPtVals: 254  ActualVal: yes
+  Table: TT  Alias: TT
+    Card: Original: 19463.000000  Rounded: 1  Computed: 1.33  Non Adjusted: 1.33
+  Access Path: TableScan
+    Cost:  82.14  Resp: 82.14  Degree: 0
+      Cost_io: 82.00  Cost_cpu: 6397008
+      Resp_io: 82.00  Resp_cpu: 6397008
+SPD: Return code in qosdDSDirSetup: NODIR, estType = INDEX_SCAN
+SPD: Return code in qosdDSDirSetup: NODIR, estType = INDEX_FILTER
+  Access Path: index (AllEqRange)
+    Index: TT_IE1
+    resc_io: 2.00  resc_cpu: 15993
+    ix_sel: 0.000069  ix_sel_with_filters: 0.000069 
+    Cost: 2.00  Resp: 2.00  Degree: 1
+SPD: Return code in qosdDSDirSetup: NODIR, estType = INDEX_SCAN
+
+SPD: Return code in qosdDSDirSetup: NODIR, estType = INDEX_FILTER
+
+  Access Path: index (RangeScan)
+    Index: TT_IE2
+    resc_io: 3.00  resc_cpu: 22264
+    ix_sel: 0.000069  ix_sel_with_filters: 0.000069 
+    Cost: 3.00  Resp: 3.00  Degree: 1
+  ****** trying bitmap/domain indexes ******
+  ****** finished trying bitmap/domain indexes ******
+  Best:: AccessPath: IndexRange
+  Index: TT_IE1
+         Cost: 2.00  Degree: 1  Resp: 2.00  Card: 1.33  Bytes: 0
+
+BINDS #139849209560240:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=48 off=0
+  kxsbbbfp=7f312e74e2d8  bln=22  avl=04  flg=05
+  value=20677
+ Bind#1
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=24
+  kxsbbbfp=7f312e74e2f0  bln=22  avl=02  flg=01
+  value=1
+EXEC #139849209560240:c=0,e=169,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=3,plh=2239883476,tim=34579446315
+FETCH #139849209560240:c=0,e=74,p=0,cr=3,cu=0,mis=0,r=1,dep=1,og=3,plh=2239883476,tim=34579446416
+ Cursor#1 mapped
+CLOSE #139849209560240:c=0,e=17,dep=1,type=3,tim=34579446499
+ Cursor#1 mapped
+BINDS #139849209543096:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=72 off=0
+  kxsbbbfp=7f312e74e2c0  bln=22  avl=04  flg=05
+  value=20677
+ Bind#1
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=24
+  kxsbbbfp=7f312e74e2d8  bln=22  avl=02  flg=01
+  value=1
+ Bind#2
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=48
+  kxsbbbfp=7f312e74e2f0  bln=22  avl=01  flg=01
+  value=0
+EXEC #139849209543096:c=0,e=198,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=3,plh=3312420081,tim=34579446764
+WAIT #139849209543096: nam='db file sequential read' ela= 19161 file#=1 block#=46597 blocks=1 obj#=66 tim=34579466254
+FETCH #139849209543096:c=1000,e=19701,p=1,cr=3,cu=0,mis=0,r=12,dep=1,og=3,plh=3312420081,tim=34579466491
+ Cursor#1 mapped
+CLOSE #139849209543096:c=0,e=3,dep=1,type=3,tim=34579466611
+ Cursor#1 mapped
+BINDS #139849209560240:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=48 off=0
+  kxsbbbfp=7f312e74e2d8  bln=22  avl=04  flg=05
+  value=20677
+ Bind#1
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=24
+  kxsbbbfp=7f312e74e2f0  bln=22  avl=02  flg=01
+  value=4
+EXEC #139849209560240:c=0,e=184,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=3,plh=2239883476,tim=34579466947
+FETCH #139849209560240:c=0,e=38,p=0,cr=3,cu=0,mis=0,r=1,dep=1,og=3,plh=2239883476,tim=34579467031
+ Cursor#1 mapped
+CLOSE #139849209560240:c=0,e=22,dep=1,type=3,tim=34579467110
+ Cursor#1 mapped
+BINDS #139849209560240:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=48 off=0
+  kxsbbbfp=7f312e74e2d8  bln=22  avl=04  flg=05
+  value=20677
+ Bind#1
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=24
+  kxsbbbfp=7f312e74e2f0  bln=22  avl=02  flg=01
+  value=6
+EXEC #139849209560240:c=0,e=170,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=3,plh=2239883476,tim=34579467384
+FETCH #139849209560240:c=0,e=30,p=0,cr=3,cu=0,mis=0,r=1,dep=1,og=3,plh=2239883476,tim=34579467441
+ Cursor#1 mapped
+CLOSE #139849209560240:c=0,e=15,dep=1,type=3,tim=34579467509
+ Cursor#1 mapped
+***************************************
+
+
+OPTIMIZER STATISTICS AND COMPUTATIONS
+PJE:  Bypassed; QB has a single table SEL$1 (#0)
+***************************************
+GENERAL PLANS
+***************************************
+Considering cardinality-based initial join order.
+Permutations for Starting Table :0
+Join order[1]:  TT[TT]#0
+***********************
+Best so far:  Table#: 0  cost: 2.0003  card: 1.3347  bytes: 37
+***********************
+(newjo-stop-1) k:0, spcnt:0, perm:1, maxperm:2000
+
+*********************************
+Number of join permutations tried: 1
+*********************************
+Enumerating distribution method (advanced)
+
+Trying or-Expansion on query block SEL$1 (#0)
+Transfer Optimizer annotations for query block SEL$1 (#0)
+DP: Checking validity for query block SEL$1, sqlid=2yhyu5brg860s.
+AutoDOP: Consider caching for TT[TT](obj#-1) 
+cost:2.00 blkSize:8192 objSize:297.00 marObjSize:282.15 bufSize:98350.00 affPercent:80 smallTab:YES affinitized:NO
+kkecComputeAPDop: IO Dop: 0 - CPU Dop: 0
+Replication not feasible based on distribution
+id=0 frofkks[i] (index start key) predicate="TT"."OBJECT_NAME"=:B1
+id=0 frofkke[i] (index stop key) predicate="TT"."OBJECT_NAME"=:B1
+Transfer optimizer annotations for TT[TT]
+Final cost for query block SEL$1 (#0) - All Rows Plan:
+  Best join order: 1
+  Cost: 2.0003  Degree: 1  Card: 1.0000  Bytes: 37
+  Resc: 2.0003  Resc_io: 2.0000  Resc_cpu: 15993
+  Resp: 2.0003  Resp_io: 2.0000  Resc_cpu: 15993
+kkoqbc-subheap (delete addr=0x7f312e9cfb60, in-use=24704, alloc=32840)
+kkoqbc-end:
+        :
+    call(in-use=38000, alloc=82024), compile(in-use=92512, alloc=93504), execution(in-use=4304, alloc=8088)
+
+kkoqbc: finish optimizing query block SEL$1 (#0)
+
+ CBRID - frodef: TT no blocking operation found. 
+apadrv-end
+          :
+    call(in-use=38000, alloc=82024), compile(in-use=93456, alloc=94096), execution(in-use=4304, alloc=8088)
+
+
+kkeCostToTime: using io calibrate stats maxpmbps=200(MB/s) 
+ block_size=8192 mb_io_count=1 mb_io_size=8192 (bytes) 
+ tot_io_size=0(MB) time=0(ms)
+kkeCostToTime: using io calibrate stats maxpmbps=200(MB/s) 
+ block_size=8192 mb_io_count=1 mb_io_size=8192 (bytes) 
+ tot_io_size=0(MB) time=0(ms)
+kkeCostToTime: using io calibrate stats maxpmbps=200(MB/s) 
+ block_size=8192 mb_io_count=1 mb_io_size=8192 (bytes) 
+ tot_io_size=0(MB) time=0(ms)
+kkeCostToTime: using io calibrate stats maxpmbps=200(MB/s) 
+ block_size=8192 mb_io_count=1 mb_io_size=8192 (bytes) 
+ tot_io_size=0(MB) time=0(ms)
+Starting SQL statement dump
+
+user_id=67 user_name=MICHAEL module=SQL*Plus action=
+sql_id=2yhyu5brg860s plan_hash_value=-1348718542 problem_type=3
+----- Current SQL Statement for this session (sql_id=2yhyu5brg860s) -----
+select	object_id, owner, object_name, object_type
+
+*** 2016-02-18 10:19:51.132
+from	tt
+where	object_name = :s_object_name
+sql_text_length=93
+sql=select	object_id, owner, object_name, object_type
+from	tt
+where	object_name = :s_object_name
+----- Explain Plan Dump -----
+----- Plan Table -----
+ 
+============
+Plan Table
+============
+-------------------------------------------------------+-----------------------------------+
+| Id  | Operation                            | Name    | Rows  | Bytes | Cost  | Time      |
+-------------------------------------------------------+-----------------------------------+
+| 0   | SELECT STATEMENT                     |         |       |       |     2 |           |
+| 1   |  TABLE ACCESS BY INDEX ROWID BATCHED | TT      |     1 |    37 |     2 |  00:00:01 |
+| 2   |   INDEX RANGE SCAN                   | TT_IE1  |     1 |       |     1 |  00:00:01 |
+-------------------------------------------------------+-----------------------------------+
+Predicate Information:
+----------------------
+2 - access("OBJECT_NAME"=:S_OBJECT_NAME)
+ 
+Content of other_xml column
+===========================
+  db_version     : 12.1.0.1
+  parse_schema   : MICHAEL
+  plan_hash      : 2946248754
+  plan_hash_2    : 2694642877
+Peeked Binds
+============
+  Bind variable information
+    position=1
+    datatype(code)=1
+    datatype(string)=VARCHAR2(128)
+    char set id=873
+    char format=1
+    max length=128
+    value=DBMS_TRACE_LIB
+  Outline Data:
+  /*+
+    BEGIN_OUTLINE_DATA
+      IGNORE_OPTIM_EMBEDDED_HINTS
+      OPTIMIZER_FEATURES_ENABLE('12.1.0.1')
+      DB_VERSION('12.1.0.1')
+      ALL_ROWS
+      OUTLINE_LEAF(@"SEL$1")
+      INDEX_RS_ASC(@"SEL$1" "TT"@"SEL$1" ("TT"."OBJECT_NAME"))
+      BATCH_TABLE_ACCESS_BY_ROWID(@"SEL$1" "TT"@"SEL$1")
+    END_OUTLINE_DATA
+  */
+ 
+
+
+Query Block Registry:
+SEL$1 0x2e9c2578 (PARSER) [FINAL]
+
+:
+    call(in-use=41176, alloc=82024), compile(in-use=122120, alloc=182832), execution(in-use=10424, alloc=12144)
+
+End of Optimizer State Dump
+Dumping Hints
+=============
+====================== END SQL Statement Dump ======================
+ kkssbt: opitca complete 0xa5184180 0xa4877cd0 Cursor#1 mapped
+kkshindel remove child from incomplete list bi=0xa5185af0 cld=0 flg=30
+ kkshhcins insert child into hash table bi=0xa5185af0 cld=0 flg=38
+ Cursor about get executed
+BINDS #139849212449440:
+ Bind#0
+  oacdty=01 mxl=128(96) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=03 fl2=1000000 frm=01 csi=873 siz=128 off=0
+  kxsbbbfp=7f312e75b2c8  bln=128  avl=14  flg=05
+  value="DBMS_TRACE_LIB"
+EXEC #139849212449440:c=157000,e=393820,p=5,cr=176,cu=0,mis=1,r=0,dep=0,og=1,plh=2946248754,tim=34579523939
+ Checking for already pinned child. fbcflg 1
+WAIT #139849212449440: nam='SQL*Net message to client' ela= 3 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=34579524052
+WAIT #139849212449440: nam='Disk file operations I/O' ela= 6 FileOperation=2 fileno=4 filetype=2 obj#=20679 tim=34579524318
+WAIT #139849212449440: nam='KSV master wait' ela= 1563 indicator=10 p2=0 p3=0 obj#=20679 tim=34579526017
+WAIT #139849212449440: nam='ASM file metadata operation' ela= 46 msgop=33 locn=0 p3=0 obj#=20679 tim=34579526054
+WAIT #139849212449440: nam='db file sequential read' ela= 15635 file#=4 block#=8531 blocks=1 obj#=20679 tim=34579541744
+WAIT #139849212449440: nam='db file sequential read' ela= 20836 file#=4 block#=8563 blocks=1 obj#=20679 tim=34579562801
+WAIT #139849212449440: nam='db file sequential read' ela= 59507 file#=4 block#=754 blocks=1 obj#=20677 tim=34579623026
+FETCH #139849212449440:c=4000,e=99294,p=3,cr=3,cu=0,mis=0,r=1,dep=0,og=1,plh=2946248754,tim=34579623380
+WAIT #139849212449440: nam='SQL*Net message from client' ela= 2555 driver id=1650815232 #bytes=1 p3=0 obj#=20677 tim=34579626166
+ Cursor#1 mapped
+FETCH #139849212449440:c=0,e=17,p=0,cr=1,cu=0,mis=0,r=0,dep=0,og=1,plh=2946248754,tim=34579626268
+kkeCostToTime: using io calibrate stats maxpmbps=200(MB/s) 
+ block_size=8192 mb_io_count=1 mb_io_size=8192 (bytes) 
+ tot_io_size=0(MB) time=0(ms)
+STAT #139849212449440 id=1 cnt=1 pid=0 pos=1 obj=20677 op='TABLE ACCESS BY INDEX ROWID BATCHED TT (cr=4 pr=3 pw=0 time=99283 us cost=2 size=37 card=1)'
+kkeCostToTime: using io calibrate stats maxpmbps=200(MB/s) 
+ block_size=8192 mb_io_count=1 mb_io_size=8192 (bytes) 
+ tot_io_size=0(MB) time=0(ms)
+STAT #139849212449440 id=2 cnt=1 pid=1 pos=1 obj=20679 op='INDEX RANGE SCAN TT_IE1 (cr=3 pr=2 pw=0 time=39341 us cost=1 size=0 card=1)'
+ Cursor unmapped
+WAIT #139849212449440: nam='SQL*Net message to client' ela= 3 driver id=1650815232 #bytes=1 p3=0 obj#=20677 tim=34579626578
+WAIT #139849212449440: nam='SQL*Net message from client' ela= 606 driver id=1650815232 #bytes=1 p3=0 obj#=20677 tim=34579627210
+CUR#1 XSC 0x7f312ea152a0 CHILD#0 CI 0xa5184180 CTX (nil)
+ Cursor#1 mapped
+ Closing cursor
+CLOSE #139849212449440:c=0,e=20,dep=0,type=0,tim=34579627313
+=====================
+PARSING IN CURSOR #139849212449440 len=55 dep=0 uid=67 oct=42 lid=67 tim=34579627443 hv=4153801004 ad='0' sqlid='d9u7st7vtby9c'
+alter session set events '10053 trace name context off'
+END OF STMT
+PARSE #139849212449440:c=1000,e=69,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=0,plh=0,tim=34579627442
+EXEC #139849212449440:c=1000,e=1259,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=0,plh=0,tim=34579628907
+WAIT #139849212449440: nam='SQL*Net message to client' ela= 22 driver id=1650815232 #bytes=1 p3=0 obj#=20677 tim=34579629023
+WAIT #139849212449440: nam='SQL*Net message from client' ela= 1960 driver id=1650815232 #bytes=1 p3=0 obj#=20677 tim=34579631082
+CLOSE #139849212449440:c=0,e=8,dep=0,type=1,tim=34579631154
+=====================
+PARSING IN CURSOR #139849212388424 len=55 dep=0 uid=67 oct=42 lid=67 tim=34579631435 hv=2217940283 ad='0' sqlid='06nvwn223659v'
+alter session set events '10046 trace name context off'
+END OF STMT
+PARSE #139849212388424:c=0,e=235,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=0,plh=0,tim=34579631434
+EXEC #139849212388424:c=2000,e=1102,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=0,plh=0,tim=34579632619

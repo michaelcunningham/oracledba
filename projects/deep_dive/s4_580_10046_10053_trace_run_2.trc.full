@@ -1,0 +1,106 @@
+Trace file /u01/app/oracle/diag/rdbms/fmda/fmd/trace/fmd_ora_26042_s4_580_trace_run_2.trc
+Oracle Database 12c Enterprise Edition Release 12.1.0.1.0 - 64bit Production
+With the Partitioning, Automatic Storage Management, OLAP, Advanced Analytics
+and Real Application Testing options
+ORACLE_HOME = /u01/app/oracle/product/12.1.0/dbhome_1
+System name:	Linux
+Node name:	ora10.localdomain
+Release:	3.8.13-16.2.1.el6uek.x86_64
+Version:	#1 SMP Thu Nov 7 17:01:44 PST 2013
+Machine:	x86_64
+Instance name: fmd
+Redo thread mounted by this instance: 1
+Oracle process number: 57
+Unix process pid: 26042, image: oracle@ora10.localdomain (TNS V1-V3)
+
+
+*** 2016-02-27 16:30:50.376
+*** SESSION ID:(71.23) 2016-02-27 16:30:50.376
+*** CLIENT ID:() 2016-02-27 16:30:50.376
+*** SERVICE NAME:(SYS$USERS) 2016-02-27 16:30:50.376
+*** MODULE NAME:(SQL*Plus) 2016-02-27 16:30:50.376
+*** ACTION NAME:() 2016-02-27 16:30:50.376
+ 
+WAIT #140689705413744: nam='SQL*Net message to client' ela= 5 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=94512317157
+WAIT #140689705413744: nam='SQL*Net message from client' ela= 3464 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=94512321295
+CLOSE #140689705413744:c=0,e=9,dep=0,type=1,tim=94512321371
+=====================
+PARSING IN CURSOR #140689705412320 len=48 dep=0 uid=67 oct=47 lid=67 tim=94512321544 hv=1080929281 ad='a3eb6758' sqlid='f2n5bn906vb01'
+BEGIN :s_object_name := 'DBMS_TRACE_LIB'; END;
+END OF STMT
+PARSE #140689705412320:c=0,e=119,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=1,plh=0,tim=94512321542
+BINDS #140689705412320:
+ Bind#0
+  oacdty=01 mxl=128(96) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=03 fl2=1000000 frm=01 csi=873 siz=128 off=0
+  kxsbbbfp=7ff4dfea21b8  bln=128  avl=00  flg=05
+WAIT #140689705412320: nam='SQL*Net message to client' ela= 6 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=94512321852
+EXEC #140689705412320:c=0,e=236,p=0,cr=0,cu=0,mis=0,r=1,dep=0,og=1,plh=0,tim=94512321882
+WAIT #140689705412320: nam='SQL*Net message from client' ela= 348 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=94512322310
+CLOSE #140689705412320:c=0,e=20,dep=0,type=1,tim=94512322381
+CUR#1 XSC 0x7ff4dfea20d8 CHILD#-1 CI (nil) CTX (nil)
+ PARSING SQLTEXT=select	object_id, owner, object_name, object_type
+from	tt
+where	object_name = :s_object_name
+ SQLHASH=eef41818
+ Checking for already pinned child. fbcflg 108
+ No valid child pinned
+ Parent 0xa7531ec0(0xa78fcce8) ready for search
+ kksCheckCursor: next child is #1
+ kksCheckCursor: pinning child #1 in shared mode 0xa7531cc8 0xa74eeed8
+ Compilation environment difference Failed sharing : 0
+    sqlstat_enabled                     = false                true                
+ SQL pgadep:0 pgapls:0 user
+ Calling for auth
+=====================
+PARSING IN CURSOR #140689705410776 len=92 dep=0 uid=67 oct=3 lid=67 tim=94512323664 hv=4008974360 ad='a78fcce8' sqlid='2yhyu5brg860s'
+select	object_id, owner, object_name, object_type
+from	tt
+where	object_name = :s_object_name
+END OF STMT
+PARSE #140689705410776:c=1000,e=1241,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=1,plh=2946248754,tim=94512323663
+ Checking for already pinned child. fbcflg 102
+ Cursor about get executed
+BINDS #140689705410776:
+ Bind#0
+  oacdty=01 mxl=128(96) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=03 fl2=1000000 frm=01 csi=873 siz=128 off=0
+  kxsbbbfp=7ff4dfea1bb0  bln=128  avl=14  flg=05
+  value="DBMS_TRACE_LIB"
+EXEC #140689705410776:c=0,e=181,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=1,plh=2946248754,tim=94512323936
+ Checking for already pinned child. fbcflg 1
+WAIT #140689705410776: nam='SQL*Net message to client' ela= 5 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=94512324043
+FETCH #140689705410776:c=0,e=97,p=0,cr=3,cu=0,mis=0,r=1,dep=0,og=1,plh=2946248754,tim=94512324179
+WAIT #140689705410776: nam='SQL*Net message from client' ela= 674 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=94512324904
+ Cursor#1 mapped
+FETCH #140689705410776:c=0,e=114,p=0,cr=1,cu=0,mis=0,r=0,dep=0,og=1,plh=2946248754,tim=94512325131
+kkeCostToTime: using io calibrate stats maxpmbps=200(MB/s) 
+ block_size=8192 mb_io_count=1 mb_io_size=8192 (bytes) 
+ tot_io_size=0(MB) time=0(ms)
+STAT #140689705410776 id=1 cnt=1 pid=0 pos=1 obj=20677 op='TABLE ACCESS BY INDEX ROWID BATCHED TT (cr=4 pr=0 pw=0 time=116 us cost=2 size=37 card=1)'
+kkeCostToTime: using io calibrate stats maxpmbps=200(MB/s) 
+ block_size=8192 mb_io_count=1 mb_io_size=8192 (bytes) 
+ tot_io_size=0(MB) time=0(ms)
+STAT #140689705410776 id=2 cnt=1 pid=1 pos=1 obj=20679 op='INDEX RANGE SCAN TT_IE1 (cr=3 pr=0 pw=0 time=162 us cost=1 size=0 card=1)'
+ Cursor unmapped
+WAIT #140689705410776: nam='SQL*Net message to client' ela= 4 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=94512325486
+WAIT #140689705410776: nam='SQL*Net message from client' ela= 530 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=94512326041
+CUR#1 XSC 0x7ff4dfea20d8 CHILD#1 CI 0xa7861180 CTX (nil)
+ Cursor#1 mapped
+ Closing cursor
+CLOSE #140689705410776:c=0,e=20,dep=0,type=0,tim=94512326135
+=====================
+PARSING IN CURSOR #140689705410776 len=55 dep=0 uid=67 oct=42 lid=67 tim=94512326224 hv=4153801004 ad='0' sqlid='d9u7st7vtby9c'
+alter session set events '10053 trace name context off'
+END OF STMT
+PARSE #140689705410776:c=0,e=35,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=0,plh=0,tim=94512326224
+EXEC #140689705410776:c=1000,e=1006,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=0,plh=0,tim=94512327309
+WAIT #140689705410776: nam='SQL*Net message to client' ela= 7 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=94512327365
+WAIT #140689705410776: nam='SQL*Net message from client' ela= 347 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=94512327741
+CLOSE #140689705410776:c=0,e=8,dep=0,type=1,tim=94512327797
+=====================
+PARSING IN CURSOR #140689705409352 len=55 dep=0 uid=67 oct=42 lid=67 tim=94512327871 hv=2217940283 ad='0' sqlid='06nvwn223659v'
+alter session set events '10046 trace name context off'
+END OF STMT
+PARSE #140689705409352:c=0,e=34,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=0,plh=0,tim=94512327870
+EXEC #140689705409352:c=0,e=389,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=0,plh=0,tim=94512328572

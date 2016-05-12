@@ -1,0 +1,4 @@
+connect / as sysdba
+alter system archive log current;
+shutdown immediate
+exit;

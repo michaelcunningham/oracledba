@@ -1,0 +1,907 @@
+#!/bin/sh
+
+date=`/usr/bin/date +%y:%m:%d:%H:%M`
+log_dir=/home/maint/log
+
+############################################################################
+#
+# Reboot process
+#
+############################################################################
+REBOOT_PROCESS() {
+clear
+echo '
+     ************************************************************
+     *****  WARNING                                         *****
+     *****                                                  *****
+     *****  MAKE SURE YOU ABOUT TO SHUTDOWN THE DATABASES   *****
+     *****  AND REBOOT THE SYSTEM.                          *****
+     *****                                                  *****
+     ************************************************************
+
+     Are you sure you want to continue? (y/n) '
+read answer
+if [ "$answer" != y ]
+then
+  RETURN_TO_MAIN_MSG
+  maint_menu
+fi
+echo "" | mail -s "SHUTDOWN OF DATABASES AND REBOOT OF SYSTEM STARTED" <dbapagers>@tagged.com
+sudo -u oracle /dba/admin/shutdown_db_all.sh
+sudo -u root /sbin/reboot 
+echo '
+     ************************************************************
+     *****                                                  *****
+     *****                                                  *****
+     *****                     GOODBYE                      *****
+     *****                                                  *****
+     *****                                                  *****
+     ************************************************************
+     ' 
+sleep 1
+exit 1
+}
+
+############################################################################
+#
+# Halt process
+#
+############################################################################
+HALT_PROCESS() {
+clear
+echo '
+     ************************************************************
+     *****  WARNING                                         *****
+     *****                                                  *****
+     *****  MAKE SURE YOU ABOUT TO SHUTDOWN THE DATABASES   *****
+     *****  AND HALT THE SYSTEM.                            *****
+     *****                                                  *****
+     ************************************************************
+
+     Are you sure you want to continue? (y/n) '
+read answer
+if [ "$answer" != y ]
+then
+  RETURN_TO_MAIN_MSG
+  maint_menu
+fi
+echo "" | mail -s "SHUTDOWN OF DATABASES AND HALT OF SYSTEM STARTED" <dbapagers>@tagged.com
+sudo -u oracle /dba/admin/shutdown_db_all.sh
+sudo /sbin/shutdown -h now
+}
+
+############################################################################
+#
+# Shutdown all databases
+#
+############################################################################
+SHUTDOWN_DB_ALL() {
+clear
+echo '
+     ************************************************************
+     *****  WARNING                                         *****
+     *****                                                  *****
+     *****  YOU ARE ABOUT TO SHUTDOWN ALL THE DATABASES.    *****
+     *****                                                  *****
+     ************************************************************
+
+     Are you sure you want to continue? (y/n) '
+
+read answer
+if [ "$answer" != y ]
+then
+  RETURN_TO_DB_MSG
+  DATABASE_MENU
+fi
+echo "" | mail -s "SHUTDOWN OF DATABASES STARTED" <dbapagers>@tagged.com
+echo "SHUTING DOWN ALL DATABASES"
+sleep 2
+sudo -u oracle /dba/admin/shutdown_db_all.sh
+#su - oracle -c /usr/local/bin/oracle/shutdown_db_all.sh
+}
+
+############################################################################
+#
+# Startup all databases
+#
+############################################################################
+STARTUP_DB_ALL() {
+clear
+echo '
+     ************************************************************
+     *****  WARNING                                         *****
+     *****                                                  *****
+     *****  YOU ARE ABOUT TO STARTUP ALL THE DATABASES.     *****
+     *****                                                  *****
+     *****  This process can also be used to verify that    *****
+     *****  all the databases are up and running.  It       *****
+     *****  does not hurt anything to run this process.     *****
+     *****                                                  *****
+     ************************************************************
+
+     Are you sure you want to continue? (y/n) '
+
+read answer
+if [ "$answer" != y ]
+then
+  RETURN_TO_DB_MSG
+  DATABASE_MENU
+fi
+echo "" | mail -s "STARTUP OF DATABASES STARTED" <dbapagers>@tagged.com
+echo "STARTING UP ALL DATABASES"
+sleep 2
+sudo -u oracle /dba/admin/startup_db_all.sh
+}
+
+############################################################################
+#
+# Shutdown database
+#
+############################################################################
+SHUTDOWN_DB() {
+if [ "$1" = "" ]
+then
+  exit
+else
+  ORACLE_SID=$1
+fi
+clear
+echo '
+     ************************************************************
+     *****  WARNING                                         *****
+     *****                                                  *****
+     *****  YOU ABOUT TO SHUTDOWN THE FOLLOWING DATABASE.   *****
+     *****                                                  *****'
+printf "     *****  Database : %-30s       *****" $ORACLE_SID
+echo '
+     *****                                                  *****
+     ************************************************************
+
+     Are you sure you want to continue? (y/n) '
+
+read answer
+if [ "$answer" != y ]
+then
+  RETURN_TO_DB_MSG
+  DATABASE_MENU
+fi
+sudo -u oracle /dba/admin/shutdown_db.sh $ORACLE_SID
+}
+
+############################################################################
+#
+# Startup database
+#
+############################################################################
+DB_STARTUP() {
+if [ "$1" = "" ]
+then
+  exit
+else
+  ORACLE_SID=$1
+fi
+clear
+echo '
+     ************************************************************
+     *****  WARNING                                         *****
+     *****                                                  *****
+     *****  YOU ARE ABOUT TO STARTUP THE FOLLOWING DATABASE *****
+     *****                                                  *****'
+printf "     *****  Database : %-30s       *****" $ORACLE_SID
+echo '
+     *****                                                  *****
+     ************************************************************
+     
+     Are you sure you want to continue? (y/n) '
+
+read answer
+if [ "$answer" != y ]
+then
+  RETURN_TO_DB_MSG
+  DATABASE_MENU
+fi
+sudo -u oracle /dba/admin/startup_db.sh $ORACLE_SID
+sudo -u oracle /dba/admin/chk_db_status.sh $ORACLE_SID
+status=$?
+if [ $status -ne 0 ]
+then
+  echo "Database startup failed."
+  dp 4/ `uname -n ` $ORACLE_SID DB startup failed.
+  sleep 1
+  DATABASE_MENU
+fi
+}
+
+############################################################################
+#
+# Take a snapshot of a database.
+#
+############################################################################
+DB_SNAPSHOT() {
+if [ "$1" = "" ]
+then
+  exit
+else
+  ORACLE_SID=$1
+fi
+
+if [ "$2" = "" ]
+then
+  SNAPSHOT_NAME=hot_backup
+else
+  SNAPSHOT_NAME=$2
+fi
+
+clear
+echo '
+     ************************************************************
+     *****                                                  *****
+     *****  YOU ARE ABOUT TO TAKE A SNAPSHOT OF THE         *****
+     *****  FOLLOWING DATABASE                              *****
+     *****                                                  *****'
+printf "     *****  Database : %-30s       *****" $ORACLE_SID
+echo '
+     *****                                                  *****
+     ************************************************************
+     
+     Are you sure you want to continue? (y/n) '
+
+read answer
+if [ "$answer" != y ]
+then
+  RETURN_TO_BACKUP_MSG
+  BACKUP_MENU
+fi
+
+#
+# Customization for the ability to restart the database.
+# This is intended to be use for the production pre-cycle backup.
+#
+if [ "$3" = "restart" ]
+then
+  sudo -u oracle /dba/admin/shutdown_db.sh $ORACLE_SID
+  sudo -u oracle /dba/admin/startup_db.sh $ORACLE_SID
+  sleep 5
+fi
+
+sudo -u oracle /dba/admin/hot_db_snapshot.sh $ORACLE_SID $SNAPSHOT_NAME
+clear
+echo '
+     ************************************************************
+     *****                                                  *****'
+printf "     *****  %-45s   *****" "SNAPSHOT OF "$ORACLE_SID" IS COMPLETED"
+echo '
+     *****                                                  *****
+     ************************************************************'
+sleep 5
+}
+
+############################################################################
+#
+# Take a cold snapshot of a database.
+#
+############################################################################
+DB_COLD_SNAPSHOT() {
+if [ "$1" = "" ]
+then
+  exit
+else
+  ORACLE_SID=$1
+fi
+
+if [ "$2" = "" ]
+then
+  SNAPSHOT_NAME=cold_backup
+else
+  SNAPSHOT_NAME=$2
+fi
+
+clear
+echo '
+     ************************************************************
+     *****                                                  *****
+     *****  YOU ARE ABOUT TO TAKE A SNAPSHOT OF THE         *****
+     *****  FOLLOWING DATABASE                              *****
+     *****                                                  *****'
+printf "     *****  Database : %-30s       *****" $ORACLE_SID
+echo '
+     *****                                                  *****
+     ************************************************************
+
+     Are you sure you want to continue? (y/n) '
+
+read answer
+if [ "$answer" != y ]
+then
+  RETURN_TO_BACKUP_MSG
+  BACKUP_MENU
+fi
+
+
+sudo -u oracle /dba/admin/cold_db_snapshot.sh $ORACLE_SID $SNAPSHOT_NAME
+clear
+echo '
+     ************************************************************
+     *****                                                  *****'
+printf "     *****  %-45s   *****" "SNAPSHOT OF "$ORACLE_SID" IS COMPLETED"
+echo '
+     *****                                                  *****
+     ************************************************************'
+sleep 5
+}
+
+############################################################################
+#
+# Clone a database
+#
+############################################################################
+CLONE_DB() {
+if [ "$1" = "" -o "$2" = "" ]
+then
+  echo "Empty "$1"-"$2
+  sleep 2
+  exit
+else
+  SOURCE_TNS=$1
+  ORACLE_SID=$2
+fi
+
+if [ "$3" = "" ]
+then
+  SNAPSHOT_NAME=hot_backup.1
+else
+  SNAPSHOT_NAME=$3
+fi
+
+clear
+echo '
+     ************************************************************
+     *****                                                  *****
+     *****  YOU ARE ABOUT TO CLONE THE FOLLOWING DATABASE   *****
+     *****                                                  *****'
+printf "     *****  Database : %-30s       *****" $ORACLE_SID
+echo '
+     *****                                                  *****
+     ************************************************************
+
+     Are you sure you want to continue? (y/n) '
+
+read answer
+if [ "$answer" != y ]
+then
+  RETURN_TO_BACKUP_MSG
+  BACKUP_MENU
+fi
+sudo -u oracle /dba/admin/clone_db.sh $SOURCE_TNS $ORACLE_SID $SNAPSHOT_NAME
+clear
+echo '
+     ************************************************************
+     *****                                                  *****'
+printf "     *****  %-45s   *****" "CLONE OF "$ORACLE_SID" IS COMPLETED"
+echo '
+     *****                                                  *****
+     ************************************************************'
+
+if [ "$4" = "split" ]
+then
+  sudo -u oracle /dba/admin/clone_split.sh $ORACLE_SID
+  sudo -u oracle /dba/admin/clone_split.sh ${ORACLE_SID}arch
+  echo '
+     ************************************************************
+     *****                                                  *****'
+  printf "     *****  %-45s   *****" "SPLIT OF "$ORACLE_SID" IS COMPLETED"
+  echo '
+     *****                                                  *****
+     ************************************************************'
+fi
+sleep 5
+}
+
+############################################################################
+#
+# Clone a database from a cold snapshot
+#
+############################################################################
+CLONE_DB_COLD() {
+if [ "$1" = "" -o "$2" = "" ]
+then
+  echo "Empty "$1"-"$2
+  sleep 2
+  exit
+else
+  SOURCE_TNS=$1
+  ORACLE_SID=$2
+fi
+
+if [ "$3" = "" ]
+then
+  SNAPSHOT_NAME=cold_backup.1
+else
+  SNAPSHOT_NAME=$3
+fi
+
+clear
+echo '
+     ************************************************************
+     *****                                                  *****
+     *****  YOU ARE ABOUT TO CLONE THE FOLLOWING DATABASE   *****
+     *****                                                  *****'
+printf "     *****  Database : %-30s       *****" $ORACLE_SID
+echo '
+     *****                                                  *****
+     ************************************************************
+
+     Are you sure you want to continue? (y/n) '
+
+read answer
+if [ "$answer" != y ]
+then
+  RETURN_TO_BACKUP_MSG
+  BACKUP_MENU
+fi
+sudo -u oracle /dba/admin/clone_db_cold.sh $SOURCE_TNS $ORACLE_SID $SNAPSHOT_NAME
+clear
+echo '
+     ************************************************************
+     *****                                                  *****'
+printf "     *****  %-45s   *****" "CLONE OF "$ORACLE_SID" IS COMPLETED"
+echo '
+     *****                                                  *****
+     ************************************************************'
+
+if [ "$4" = "split" ]
+then
+  sudo -u oracle /dba/admin/clone_split.sh $ORACLE_SID
+  echo '
+     ************************************************************
+     *****                                                  *****'
+  printf "     *****  %-45s   *****" "SPLIT OF "$ORACLE_SID" IS COMPLETED"
+  echo '
+     *****                                                  *****
+     ************************************************************'
+fi
+sleep 5
+}
+
+############################################################################
+#
+# Choose database process
+#
+############################################################################
+DATABASE_MENU() {
+clear
+echo '
+     ************************************************************
+     *****                                                  *****
+     *****  WARNING                                         *****
+     *****                                                  *****
+     *****  YOU ARE ABOUT TO SHUTDOWN OR STARTUP A DATABASE *****
+     *****                                                  *****
+     ************************************************************
+
+                           Database Menu
+
+               11. DEVDB - Shutdown
+               12. DEVDB - Startup
+
+               71. PRDDB - Switchover to standby (PDBDBB)
+
+               81. Shutdown ALL Databases
+               82. Startup ALL Databases
+
+               99. Return to Maint Menu
+
+	Please select one of the above : '
+
+read answer
+echo
+case "$answer"
+in
+       11) clear
+           SHUTDOWN_DB devdb
+           DATABASE_MENU;; 
+
+       12) clear
+           DB_STARTUP devdb
+           DATABASE_MENU;; 
+
+       71) clear
+           SWITCHOVER_DB 
+           DATABASE_MENU;; 
+
+       71) clear
+           SWITCHOVER_DB prddba prddbb
+           BACKUP_MENU;;
+
+       81) clear
+           SHUTDOWN_DB_ALL
+           DATABASE_MENU;; 
+
+       82) clear
+           STARTUP_DB_ALL
+           DATABASE_MENU;;
+
+       99) clear
+           RETURN_TO_MAIN_MSG
+           maint_menu;;
+
+        *) WRONG_CHOICE_MSG
+           DATABASE_MENU;;
+esac
+}
+
+############################################################################
+#
+# Backup system process
+#
+############################################################################
+BACKUP_MENU() {
+clear
+echo '
+                   Backup/Restore Menu - '`uname -n`'
+
+               11. DEVDB - Cold snapshot of database
+               12. DEVDB - Clone from PRDDB snapshot
+               13. DEVDB - Clone from DEVDB2 cold snapshot
+
+               51. DEVDB2 - Cold snapshot of database
+               52. DEVDB2 - Clone from PRDDB post-cycle
+               53. DEVDB2 - Clone from DEVDB cold snapshot
+
+               99. Return to Maint Menu
+	
+        Please select one of the above : ' 
+
+read answer
+echo
+case "$answer"
+in
+        1) clear
+           MKSYSB_BACKUP
+           BACKUP_MENU;;
+
+       11) clear
+           DB_COLD_SNAPSHOT devdb
+           BACKUP_MENU;;
+
+       12) clear
+           SNAPMIRROR_DB na108-10g na109-10g prddb devdb backup.1
+           BACKUP_MENU;;
+
+       13) clear
+           SNAPMIRROR_DB na109-10g na109-10g tdcqa tdcuat FINAL_FPIC_QA_CONV_TABLES_TO_COPY_TO_PROD.1
+           BACKUP_MENU;;
+
+       14) clear
+           CLONE_DB tdcdv5 tdcuat cold_backup.1 split
+           BACKUP_MENU;;
+
+       15) clear
+           CLONE_DB tdcdv3 tdcuat cold_backup.1 split
+           BACKUP_MENU;;
+
+       16) clear
+           CLONE_DB tdcsnp tdcuat cold_backup.1 split
+           BACKUP_MENU;;
+
+       17) clear
+           CLONE_DB tdccln tdcuat cold_backup.1 split
+           BACKUP_MENU;;
+
+       18) clear
+           SNAPMIRROR_DB na108-10g na109-10g tdcprd tdcuat monthend.1
+           BACKUP_MENU;;
+
+       21) clear
+           DB_COLD_SNAPSHOT tdcqa2
+           BACKUP_MENU;;
+
+       22) clear
+           SNAPMIRROR_DB na108-10g na109-10g tdcprd tdcqa2 post_cycle.1
+           BACKUP_MENU;;
+
+       23) clear
+           SNAPMIRROR_DB na108-10g na109-10g tdcprd tdcqa2 pre_cycle.1
+           BACKUP_MENU;;
+
+       24) clear
+           CLONE_DB tdcuat4 tdcqa2 cold_backup.1 split
+           BACKUP_MENU;;
+
+       25) clear
+           CLONE_DB tdcdv7 tdcqa2 cold_backup.1 split
+           BACKUP_MENU;;
+
+       26) clear
+           CLONE_DB tdccln tdcqa2 cold_backup.1 split
+           BACKUP_MENU;;
+
+       27) clear
+           CLONE_DB tdcdv3 tdcqa2 cold_backup.1 split
+           BACKUP_MENU;;
+
+       28) clear
+           SNAPMIRROR_DB na109-10g na109-10g tdcqa tdcqa2 FPIC_QA_CONVERSION_TABLES_TO_COPY_TO_UAT.1
+           BACKUP_MENU;;
+
+       31) clear
+           DB_COLD_SNAPSHOT tdcqa2
+           BACKUP_MENU;;
+
+       32) clear
+           SNAPMIRROR_DB na108-10g na109-10g tdcprd tdcqa2 post_cycle.1
+           BACKUP_MENU;;
+
+       33) clear
+           CLONE_DB tdcqa tdcqa2 cold_backup.1 split
+           BACKUP_MENU;;
+
+       34) clear
+           CLONE_DB tdcuat4 tdcqa2 cold_backup.1 split
+           BACKUP_MENU;;
+
+       35) clear
+           CLONE_DB tdcdv7 tdcqa2 cold_backup.1 split
+           BACKUP_MENU;;
+
+       36) clear
+           CLONE_DB novadev tdcqa2 post_build5.92 split
+           BACKUP_MENU;;
+
+       37) clear
+           CLONE_DB tdcdv3 tdcqa2 cold_backup.1 split
+           BACKUP_MENU;;
+
+       51) clear
+           DB_COLD_SNAPSHOT tdcuat4
+           BACKUP_MENU;;
+
+       52) clear
+           SNAPMIRROR_DB na108-10g na103-10g tdcprd tdcuat4 post_cycle.1
+           BACKUP_MENU;;
+
+       53) clear
+           CLONE_DB tdcqa tdcuat4 cold_backup.1 split
+           BACKUP_MENU;;
+
+       61) clear
+           DB_COLD_SNAPSHOT tdcdv5
+           BACKUP_MENU;;
+
+       62) clear
+           SNAPMIRROR_DB na108-10g na109-10g tdcprd tdcdv5 post_cycle.1
+           BACKUP_MENU;;
+
+       63) clear
+           SNAPMIRROR_DB na103-10g na109-10g tdcdv3 tdcdv5 cold_backup.1 
+           BACKUP_MENU;;
+
+       64) clear
+           SNAPMIRROR_DB na108-10g na109-10g tdcprd tdcdv5 pre_cycle.1
+           BACKUP_MENU;;
+
+       68) clear
+           RESTORE_DV5_NAMED_BACKUP
+           BACKUP_MENU;;
+
+       69) clear
+           RESTORE_DV5_COLD_BACKUP_1
+           BACKUP_MENU;;
+
+       71) clear
+           DB_COLD_SNAPSHOT dwdev
+           BACKUP_MENU;;
+
+       72) clear
+           SNAPMIRROR_DB na108-10g na103-10g dwprd dwdev post_cycle.1
+           BACKUP_MENU;;
+
+       73) clear
+           SNAPMIRROR_DB na108-10g na103-10g dwprd dwdev monthend.1
+           BACKUP_MENU;;
+
+       74) clear
+           CLONE_DB dwqa dwdev cold_backup.1 split
+           BACKUP_MENU;;
+
+       81) clear
+           SNAPMIRROR_DB na108-10g na104-10g ecmprd ecmdev cold_backup.1
+           BACKUP_MENU;;
+
+       91) clear
+           CLONE_DB tdcuat4 tdcrt2 cold_backup.1 
+           BACKUP_MENU;;
+
+       99) RETURN_TO_MAIN_MSG
+           maint_menu;;
+
+        *) WRONG_CHOICE_MSG
+           BACKUP_MENU;;
+esac
+}
+
+############################################################################
+#
+# Export a schema from a database
+#
+############################################################################
+EXP_USER() {
+if [ "$1" = "" -o "$2" = "" ]
+then
+  exit
+else
+  TNS=$1
+  USERNAME=$2
+fi
+clear
+echo '
+     ************************************************************
+     *****                                                  *****
+     *****  YOU ARE ABOUT TO EXPORT THE FOLLOWING SCHEMA    *****
+     *****                                                  *****'
+printf "     *****  %-40s        *****" $USERNAME
+echo '
+     *****                                                  *****
+     ************************************************************
+
+     Are you sure you want to continue? (y/n) '
+
+read answer
+if [ "$answer" != y ]
+then
+  RETURN_TO_BACKUP_MSG
+  BACKUP_MENU
+fi
+su - oracle -c /dba/export/exp_user.sh $TNS $USERNAME
+if [ "$?" != 0 ]
+then
+  clear
+  echo '
+     ************************************************************
+     *****                                                  *****
+     *****  ERROR                                           *****
+     *****                                                  *****'
+  printf "     *****  %-40s        *****" "Export of "$USERNAME" failed"
+  echo '
+     *****  Notify a Database Administrator.                *****
+     *****                                                  *****
+     ************************************************************
+
+     Hit ENTER key to continue.'
+  dp 4/Export of ${USERNAME} from ${TNS} on TDCCORP41 failed.
+  read
+else
+  clear
+  echo '
+     ************************************************************
+     *****                                                  *****'
+  printf "     *****  %-40s        *****" "Export of "$USERNAME" successful."
+  echo '
+     *****                                                  *****
+     ************************************************************
+
+     Hit ENTER key to continue.'
+  read
+fi
+}
+
+############################################################################
+#
+# Returning to main menu process
+#
+############################################################################
+RETURN_TO_MAIN_MSG() {
+clear
+echo '
+     ************************************************************
+     *****                                                  *****
+     *****  Returning to Main Menu                          *****
+     *****                                                  *****
+     ************************************************************
+'
+sleep 1
+}
+
+############################################################################
+#
+# Returning to database menu
+#
+############################################################################
+RETURN_TO_BACKUP_MSG() {
+clear
+echo '
+     ************************************************************
+     *****                                                  *****
+     *****  Returning to Backup Menu                        *****
+     *****                                                  *****
+     ************************************************************
+'
+sleep 2
+}
+
+############################################################################
+#
+# Returning to database menu
+#
+############################################################################
+RETURN_TO_DB_MSG() {
+clear
+echo '
+     ************************************************************
+     *****                                                  *****
+     *****  Returning to Database Menu                      *****
+     *****                                                  *****
+     ************************************************************
+'
+sleep 2
+}
+
+############################################################################
+#
+# Returning to main menu
+#
+############################################################################
+WRONG_CHOICE_MSG() {
+clear
+echo '
+     ************************************************************
+     *****                                                  *****
+     *****  You made an incorrect choice.                   *****
+     *****                                                  *****
+     *****  Please try again.                               *****
+     *****                                                  *****
+     ************************************************************
+'
+sleep 2
+}
+
+############################################################################
+#
+# Maintenance menu
+#
+############################################################################
+maint_menu() {
+clear
+echo '
+    ********    MAINTENANCE MENU - '`uname -n`'   ********
+
+                1. Shutdown Databases and System REBOOT
+                2. Shutdown Databases and System HALT
+                3. Database Menu 
+                4. Backup/Restore Menu 
+
+               91. Page someone
+
+               99. EXIT 
+
+        Please select one of the above : ' 
+
+read answer
+echo 
+case "$answer" 
+in 
+
+        1) clear
+           REBOOT_PROCESS
+           maint_menu;;
+
+        2) clear
+           HALT_PROCESS
+           maint_menu;;
+
+        3) clear 
+           DATABASE_MENU
+           maint_menu;; 
+
+        4) clear
+           BACKUP_MENU
+           maint_menu;;
+
+       99) clear
+           exit 1;;
+
+        *) WRONG_CHOICE_MSG
+           maint_menu;;
+esac
+}
+maint_menu

@@ -1,0 +1,27 @@
+grant select on STG_CONV_COLUMN_GROUP to nova_select;                           
+grant select on STG_CONV_LOAD_COLUMN to nova_select;                            
+grant select on STG_CONV_LOAD_ERROR_LOG to nova_select;                         
+grant select on STG_CONV_LOAD_HIST to nova_select;                              
+grant select on STG_CONV_LOAD_TABLE to nova_select;                             
+grant select on STG_CONV_ROW_POINTER to nova_select;                            
+grant select on STG_CONV_VALIDATION_ERROR_LOG to nova_select;                   
+grant select on STG_CONV_VALIDATION_RULE to nova_select;                        
+grant select on STG_EDLE_VALIDATION_ERROR_LOG to nova_select;                   
+grant select on STG_EDLL_DOCUCORP_E_IMAGE to nova_select;                       
+grant select on STG_SCME_VALIDATION_ERROR_LOG to nova_select;                   
+grant select on STG_SCML_CMS to nova_select;                                    
+grant select on STG_SCML_CMS_DIRMKT to nova_select;                             
+create synonym nova_select.STG_CONV_COLUMN_GROUP for novaprd.STG_CONV_COLUMN_GROUP;
+create synonym nova_select.STG_CONV_LOAD_COLUMN for novaprd.STG_CONV_LOAD_COLUMN;
+create synonym nova_select.STG_CONV_LOAD_ERROR_LOG for novaprd.STG_CONV_LOAD_ERROR_LOG;
+create synonym nova_select.STG_CONV_LOAD_HIST for novaprd.STG_CONV_LOAD_HIST;
+create synonym nova_select.STG_CONV_LOAD_TABLE for novaprd.STG_CONV_LOAD_TABLE;
+create synonym nova_select.STG_CONV_ROW_POINTER for novaprd.STG_CONV_ROW_POINTER;
+create synonym nova_select.STG_CONV_VALIDATION_ERROR_LOG for novaprd.STG_CONV_VALIDATION_ERROR_LOG;
+create synonym nova_select.STG_CONV_VALIDATION_RULE for novaprd.STG_CONV_VALIDATION_RULE;
+create synonym nova_select.STG_EDLE_VALIDATION_ERROR_LOG for novaprd.STG_EDLE_VALIDATION_ERROR_LOG;
+create synonym nova_select.STG_EDLL_DOCUCORP_E_IMAGE for novaprd.STG_EDLL_DOCUCORP_E_IMAGE;
+create synonym nova_select.STG_SCME_VALIDATION_ERROR_LOG for novaprd.STG_SCME_VALIDATION_ERROR_LOG;
+create synonym nova_select.STG_SCML_CMS for novaprd.STG_SCML_CMS;
+create synonym nova_select.STG_SCML_CMS_DIRMKT for novaprd.STG_SCML_CMS_DIRMKT;
+

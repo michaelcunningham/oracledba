@@ -1,0 +1,11 @@
+grant connect to tag;
+grant resource to tag;
+grant dba to tag;
+grant exp_full_database to tag;
+grant select_catalog_role to tag;
+grant create table to tag;
+grant create database link to tag;
+grant create view to tag;
+grant debug connect session to tag;
+grant unlimited tablespace to tag;
+grant select any dictionary to tag;

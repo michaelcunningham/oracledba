@@ -1,0 +1,9 @@
+run
+{
+  allocate channel ch1 device type disk format '/mnt/db_transfer/tdb32_restore_test/db_%d_df_t%t_s%s_p%p_level0';
+  allocate channel ch2 device type disk format '/mnt/db_transfer/tdb32_restore_test/db_%d_df_t%t_s%s_p%p_level0';
+  allocate channel ch3 device type disk format '/mnt/db_transfer/tdb32_restore_test/db_%d_df_t%t_s%s_p%p_level0';
+  allocate channel ch4 device type disk format '/mnt/db_transfer/tdb32_restore_test/db_%d_df_t%t_s%s_p%p_level0';
+  restore database;
+  recover database;
+}

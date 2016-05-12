@@ -1,0 +1,12 @@
+*.log
+*.dmp
+afiedt.buf
+logs
+arch
+backup
+homenet
+linux_backup
+netapp
+nova4
+perfstat
+stori

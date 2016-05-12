@@ -1,0 +1,97 @@
+
+COLUMN_NAME                    NULLABLE DATA_TYPE  LENGTH                                                                    
+------------------------------ -------- ---------- ----------                                                                
+UNIT_TYPE_CODE                 NOT NULL VARCHAR2   10                                                                        
+UNIT_OF_WORK_ID                NOT NULL NUMBER     20,0                                                                      
+TYPE_DESC                      NOT NULL VARCHAR2   40                                                                        
+TYPE_LONG_DESC                 NOT NULL VARCHAR2   255                                                                       
+TYPE_ORDER_NUM                 NOT NULL NUMBER     5,0                                                                       
+TYPE_BEGIN_DATE                NOT NULL DATE                                                                                 
+TYPE_END_DATE                           DATE                                                                                 
+SCHEDULED_FLAG                 NOT NULL VARCHAR2   10                                                                        
+AUDITABLE_FLAG                 NOT NULL VARCHAR2   10                                                                        
+FACILITY_FLAG                  NOT NULL VARCHAR2   10                                                                        
+CREATED_BY                     NOT NULL VARCHAR2   40                                                                        
+CREATED_DATE                   NOT NULL DATE                                                                                 
+ROW_VERSION                    NOT NULL NUMBER     20,0                                                                      
+ADMIN_FEE_FLAG                 NOT NULL VARCHAR2   10                                                                        
+
+14 rows selected.
+
+
+TABLE_NAME                     TABLESPACE_NAME                DEPENDEN                                                       
+------------------------------ ------------------------------ --------                                                       
+LU_UNIT_TYPE                   VISTA_DAT                      DISABLED                                                       
+
+1 row selected.
+
+
+SYNONYM_NAME                                                                                                                 
+-------------------------------------------------------------                                                                
+VISTA_ASU.LU_UNIT_TYPE                                                                                                       
+VISTA_USERPRD.LU_UNIT_TYPE                                                                                                   
+
+2 rows selected.
+
+
+CONSTRAINT_NAME                R_CONSTRAINT_NAME              INDEX_NAME                     SEARCH_CONDITION                
+------------------------------ ------------------------------ ------------------------------ ------------------------------  
+SYS_C0010737                                                                                 "UNIT_TYPE_CODE" IS NOT NULL    
+SYS_C0010738                                                                                 "UNIT_OF_WORK_ID" IS NOT NULL   
+SYS_C0010739                                                                                 "TYPE_DESC" IS NOT NULL         
+SYS_C0010740                                                                                 "TYPE_LONG_DESC" IS NOT NULL    
+SYS_C0010741                                                                                 "TYPE_ORDER_NUM" IS NOT NULL    
+SYS_C0010742                                                                                 "TYPE_BEGIN_DATE" IS NOT NULL   
+SYS_C0010743                                                                                 "SCHEDULED_FLAG" IS NOT NULL    
+SYS_C0010744                                                                                 "AUDITABLE_FLAG" IS NOT NULL    
+SYS_C0010745                                                                                 "FACILITY_FLAG" IS NOT NULL     
+SYS_C0010746                                                                                 "CREATED_BY" IS NOT NULL        
+SYS_C0010747                                                                                 "CREATED_DATE" IS NOT NULL      
+SYS_C0010748                                                                                 "ROW_VERSION" IS NOT NULL       
+SYS_C0010749                                                                                 "ADMIN_FEE_FLAG" IS NOT NULL    
+XIF1_LU_FLAG_LU_UNIT_TYPE      XPK_FLAG_CODE                                                                                 
+XIF1_LU_UNIT_TYPE              XPK_UNIT_OF_WORK                                                                              
+XIF2_LU_UNIT_TYPE              XPK_FLAG_CODE                                                                                 
+XIF4_LU_UNIT_TYPE              XPK_FLAG_CODE                                                                                 
+XIF5_LU_UNIT_TYPE              XPK_FLAG_CODE                                                                                 
+XPK_UNIT_TYPE_CODE                                            XPK_UNIT_TYPE_CODE                                             
+
+19 rows selected.
+
+
+Constraint Name:                                   References:                                                               
+ Table.Column                                       Table.Column                                                             
+-------------------------------------------------- --------------------------------------------------                        
+XIF1_LU_FLAG_LU_UNIT_TYPE                          REFERENCES                                                                
+(LU_UNIT_TYPE.FACILITY_FLAG)                       (LU_FLAG.FLAG_CODE)                                                       
+                                                                                                                             
+XIF1_LU_UNIT_TYPE                                  REFERENCES                                                                
+(LU_UNIT_TYPE.UNIT_OF_WORK_ID)                     (UNIT_OF_WORK.UNIT_OF_WORK_ID)                                            
+                                                                                                                             
+XIF2_LU_UNIT_TYPE                                  REFERENCES                                                                
+(LU_UNIT_TYPE.SCHEDULED_FLAG)                      (LU_FLAG.FLAG_CODE)                                                       
+                                                                                                                             
+XIF4_LU_UNIT_TYPE                                  REFERENCES                                                                
+(LU_UNIT_TYPE.AUDITABLE_FLAG)                      (LU_FLAG.FLAG_CODE)                                                       
+                                                                                                                             
+XIF5_LU_UNIT_TYPE                                  REFERENCES                                                                
+(LU_UNIT_TYPE.ADMIN_FEE_FLAG)                      (LU_FLAG.FLAG_CODE)                                                       
+                                                                                                                             
+
+5 rows selected.
+
+
+INDEX_NAME                     TABLESPACE_N UNIQUENES COLUMN_NAME                    COLUMN_POSITION                         
+------------------------------ ------------ --------- ------------------------------ ---------------                         
+XPK_UNIT_TYPE_CODE             VISTA_INDEX  UNIQUE    UNIT_TYPE_CODE                               1                         
+
+1 row selected.
+
+
+GRANTEE                        PRIVILEGE                                                                                     
+------------------------------ ----------------------------------------                                                      
+SELECT_ROLE                    SELECT                                                                                        
+VISTA_USERPRD                  SELECT                                                                                        
+
+2 rows selected.
+

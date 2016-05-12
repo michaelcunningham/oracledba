@@ -1,0 +1,353 @@
+Trace file /u01/app/oracle/diag/rdbms/spdb04a/SPDB04/trace/SPDB04_ora_56399.trc
+Oracle Database 12c Enterprise Edition Release 12.1.0.1.0 - 64bit Production
+With the Partitioning, Automatic Storage Management, OLAP, Advanced Analytics
+and Real Application Testing options
+ORACLE_HOME = /u01/app/oracle/product/12.1.0.1/dbhome_1
+System name:	Linux
+Node name:	sora02.tag-stage.com
+Release:	2.6.32-431.23.3.el6.x86_64
+Version:	#1 SMP Wed Jul 16 06:12:23 EDT 2014
+Machine:	x86_64
+Instance name: SPDB04
+Redo thread mounted by this instance: 1
+Oracle process number: 68
+Unix process pid: 56399, image: oracle@sora02.tag-stage.com (TNS V1-V3)
+
+
+*** 2016-04-21 09:46:28.620
+*** SESSION ID:(1284.1) 2016-04-21 09:46:28.620
+*** CLIENT ID:() 2016-04-21 09:46:28.620
+*** SERVICE NAME:() 2016-04-21 09:46:28.620
+*** MODULE NAME:(sqlplus@sora02.tag-stage.com (TNS V1-V3)) 2016-04-21 09:46:28.620
+*** ACTION NAME:() 2016-04-21 09:46:28.620
+ 
+-- The following are current System-scope REDO Log Archival related
+-- parameters and can be included in the database initialization file.
+--
+-- LOG_ARCHIVE_DEST=''
+-- LOG_ARCHIVE_DUPLEX_DEST=''
+--
+-- LOG_ARCHIVE_FORMAT=%t_%s_%r.dbf
+--
+-- DB_UNIQUE_NAME="SPDB04A"
+--
+-- LOG_ARCHIVE_CONFIG='SEND, RECEIVE'
+-- LOG_ARCHIVE_CONFIG='DG_CONFIG=("spdb04b")'
+-- LOG_ARCHIVE_MAX_PROCESSES=4
+-- ARCHIVE_LAG_TARGET=900
+-- STANDBY_FILE_MANAGEMENT=MANUAL
+-- STANDBY_ARCHIVE_DEST=?/dbs/arch
+-- FAL_CLIENT=''
+-- FAL_SERVER=spdb04b
+--
+-- LOG_ARCHIVE_DEST_1='LOCATION=+STAGELOG'
+-- LOG_ARCHIVE_DEST_1='OPTIONAL REOPEN=300 NODELAY'
+-- LOG_ARCHIVE_DEST_1='ARCH NOAFFIRM NOEXPEDITE NOVERIFY SYNC'
+-- LOG_ARCHIVE_DEST_1='REGISTER NOALTERNATE NODEPENDENCY'
+-- LOG_ARCHIVE_DEST_1='NOMAX_FAILURE NOQUOTA_SIZE NOQUOTA_USED NODB_UNIQUE_NAME'
+-- LOG_ARCHIVE_DEST_1='VALID_FOR=(PRIMARY_ROLE,ONLINE_LOGFILES)'
+-- LOG_ARCHIVE_DEST_STATE_1=ENABLE
+--
+-- Below are two sets of SQL statements, each of which creates a new
+-- control file and uses it to open the database. The first set opens
+-- the database with the NORESETLOGS option and should be used only if
+-- the current versions of all online logs are available. The second
+-- set opens the database with the RESETLOGS option and should be used
+-- if online logs are unavailable.
+-- The appropriate set of statements can be copied from the trace into
+-- a script file, edited as necessary, and executed when there is a
+-- need to re-create the control file.
+--
+--     Set #1. NORESETLOGS case
+--
+-- The following commands will create a new control file and use it
+-- to open the database.
+-- Data used by Recovery Manager will be lost.
+-- Additional logs may be required for media recovery of offline
+-- Use this only if the current versions of all online logs are
+-- available.
+-- WARNING! The current control file needs to be checked against
+-- the datafiles to insure it contains the correct files. The
+-- commands printed here may be missing log and/or data files.
+-- Another report should be made after the database has been
+-- successfully opened.
+-- After mounting the created controlfile, the following SQL
+-- statement will place the database in the appropriate
+-- protection mode:
+--  ALTER DATABASE SET STANDBY DATABASE TO MAXIMIZE PERFORMANCE
+STARTUP NOMOUNT
+CREATE CONTROLFILE REUSE DATABASE "SPDB04" NORESETLOGS FORCE LOGGING ARCHIVELOG
+    MAXLOGFILES 40
+    MAXLOGMEMBERS 3
+    MAXDATAFILES 100
+    MAXINSTANCES 8
+    MAXLOGHISTORY 1168
+LOGFILE
+  GROUP 1 '+STAGEDATA/SPDB04/log01.ora'  SIZE 1024M BLOCKSIZE 512,
+  GROUP 2 '+STAGEDATA/SPDB04/log02.ora'  SIZE 1024M BLOCKSIZE 512,
+  GROUP 3 '+STAGEDATA/SPDB04/log03.ora'  SIZE 1024M BLOCKSIZE 512,
+  GROUP 4 '+STAGEDATA/SPDB04/log04.ora'  SIZE 1024M BLOCKSIZE 512,
+  GROUP 5 '+STAGEDATA/SPDB04/log05.ora'  SIZE 1024M BLOCKSIZE 512,
+  GROUP 6 '+STAGEDATA/SPDB04/log06.ora'  SIZE 1024M BLOCKSIZE 512,
+  GROUP 7 '+STAGEDATA/SPDB04/log07.ora'  SIZE 1024M BLOCKSIZE 512,
+  GROUP 8 '+STAGEDATA/SPDB04/log08.ora'  SIZE 1024M BLOCKSIZE 512,
+  GROUP 9 '+STAGEDATA/SPDB04/log09.ora'  SIZE 1024M BLOCKSIZE 512,
+  GROUP 10 '+STAGEDATA/SPDB04/log10.ora'  SIZE 1024M BLOCKSIZE 512
+-- STANDBY LOGFILE
+--   GROUP 21 '+STAGEDATA/SPDB04/stby_log21.ora'  SIZE 1024M BLOCKSIZE 512,
+--   GROUP 22 '+STAGEDATA/SPDB04/stby_log22.ora'  SIZE 1024M BLOCKSIZE 512,
+--   GROUP 23 '+STAGEDATA/SPDB04/stby_log23.ora'  SIZE 1024M BLOCKSIZE 512,
+--   GROUP 24 '+STAGEDATA/SPDB04/stby_log24.ora'  SIZE 1024M BLOCKSIZE 512,
+--   GROUP 25 '+STAGEDATA/SPDB04/stby_log25.ora'  SIZE 1024M BLOCKSIZE 512,
+--   GROUP 26 '+STAGEDATA/SPDB04/stby_log26.ora'  SIZE 1024M BLOCKSIZE 512,
+--   GROUP 27 '+STAGEDATA/SPDB04/stby_log27.ora'  SIZE 1024M BLOCKSIZE 512,
+--   GROUP 28 '+STAGEDATA/SPDB04/stby_log28.ora'  SIZE 1024M BLOCKSIZE 512,
+--   GROUP 29 '+STAGEDATA/SPDB04/stby_log29.ora'  SIZE 1024M BLOCKSIZE 512,
+--   GROUP 30 '+STAGEDATA/SPDB04/stby_log30.ora'  SIZE 1024M BLOCKSIZE 512,
+--   GROUP 31 '+STAGEDATA/SPDB04/stby_log31.ora'  SIZE 1024M BLOCKSIZE 512
+DATAFILE
+  '+STAGEDATA/SPDB04A/DATAFILE/system.665.906643055',
+  '+STAGEDATA/SPDB04A/DATAFILE/undotbs1.681.906642937',
+  '+STAGEDATA/SPDB04A/DATAFILE/sysaux.1052.906647225',
+  '+STAGEDATA/SPDB04A/DATAFILE/users.1031.906647323',
+  '+STAGEDATA/SPDB04A/DATAFILE/datatbs1.645.906642929',
+  '+STAGEDATA/SPDB04A/DATAFILE/datatbs1.1053.906647229',
+  '+STAGEDATA/SPDB04A/DATAFILE/indxtbs1.612.906642931',
+  '+STAGEDATA/SPDB04A/DATAFILE/datatbs1.1054.906647231',
+  '+STAGEDATA/SPDB04A/DATAFILE/indxtbs1.1055.906647235',
+  '+STAGEDATA/SPDB04A/DATAFILE/datatbs1.676.906642937',
+  '+STAGEDATA/SPDB04A/DATAFILE/p48tbs.1035.906647285',
+  '+STAGEDATA/SPDB04A/DATAFILE/p49tbs.608.906647235',
+  '+STAGEDATA/SPDB04A/DATAFILE/p50tbs.646.906642939',
+  '+STAGEDATA/SPDB04A/DATAFILE/p51tbs.1737.906643019',
+  '+STAGEDATA/SPDB04A/DATAFILE/p52tbs.607.906647237',
+  '+STAGEDATA/SPDB04A/DATAFILE/p53tbs.1036.906647283',
+  '+STAGEDATA/SPDB04A/DATAFILE/p54tbs.323.906642939',
+  '+STAGEDATA/SPDB04A/DATAFILE/p55tbs.606.906647247',
+  '+STAGEDATA/SPDB04A/DATAFILE/p56tbs.1040.906642933',
+  '+STAGEDATA/SPDB04A/DATAFILE/p57tbs.609.906647235',
+  '+STAGEDATA/SPDB04A/DATAFILE/p58tbs.394.906642983',
+  '+STAGEDATA/SPDB04A/DATAFILE/p59tbs.664.906643025',
+  '+STAGEDATA/SPDB04A/DATAFILE/p60tbs.597.906647281',
+  '+STAGEDATA/SPDB04A/DATAFILE/p61tbs.370.906643017',
+  '+STAGEDATA/SPDB04A/DATAFILE/p62tbs.1037.906647283',
+  '+STAGEDATA/SPDB04A/DATAFILE/p63tbs.1042.906642937'
+CHARACTER SET WE8MSWIN1252
+;
+-- Configure RMAN configuration record 1
+VARIABLE RECNO NUMBER;
+EXECUTE :RECNO := SYS.DBMS_BACKUP_RESTORE.SETCONFIG('RETENTION POLICY','TO REDUNDANCY 1');
+-- Configure RMAN configuration record 2
+VARIABLE RECNO NUMBER;
+EXECUTE :RECNO := SYS.DBMS_BACKUP_RESTORE.SETCONFIG('CONTROLFILE AUTOBACKUP FORMAT FOR DEVICE TYPE','DISK TO ''/mnt/db_transfer/SPDB04/rman_backup/%F''');
+-- Configure RMAN configuration record 3
+VARIABLE RECNO NUMBER;
+EXECUTE :RECNO := SYS.DBMS_BACKUP_RESTORE.SETCONFIG('MAXSETSIZE TO','128 G');
+-- Configure RMAN configuration record 4
+VARIABLE RECNO NUMBER;
+EXECUTE :RECNO := SYS.DBMS_BACKUP_RESTORE.SETCONFIG('SNAPSHOT CONTROLFILE NAME','TO ''/mnt/db_transfer/SPDB04/rman_backup/ctl/snapcf_SPDB04.f''');
+-- Configure RMAN configuration record 5
+VARIABLE RECNO NUMBER;
+EXECUTE :RECNO := SYS.DBMS_BACKUP_RESTORE.SETCONFIG('ARCHIVELOG DELETION POLICY','TO APPLIED ON ALL STANDBY');
+-- Commands to re-create incarnation table
+-- Below log names MUST be changed to existing filenames on
+-- disk. Any one log file from each branch can be used to
+-- re-create incarnation records.
+-- ALTER DATABASE REGISTER LOGFILE '+STAGELOG';
+-- ALTER DATABASE REGISTER LOGFILE '+STAGELOG';
+-- ALTER DATABASE REGISTER LOGFILE '+STAGELOG';
+-- ALTER DATABASE REGISTER LOGFILE '+STAGELOG';
+-- Recovery is required if any of the datafiles are restored backups,
+-- or if the last shutdown was not normal or immediate.
+RECOVER DATABASE
+-- All logs need archiving and a log switch is needed.
+ALTER SYSTEM ARCHIVE LOG ALL;
+-- Database can now be opened normally.
+ALTER DATABASE OPEN;
+-- Files in read-only tablespaces are now named.
+ALTER DATABASE RENAME FILE 'MISSING00027'
+  TO '+STAGEDATA/SPDB04A/DATAFILE/readtbs.614.906647235';
+-- Online the files in read-only tablespaces.
+ALTER TABLESPACE "READTBS" ONLINE;
+-- Commands to add tempfiles to temporary tablespaces.
+-- Online tempfiles have complete space information.
+-- Other tempfiles may require adjustment.
+ALTER TABLESPACE TEMP ADD TEMPFILE '+STAGEDATA' REUSE;
+-- End of tempfile additions.
+--
+--
+--
+----------------------------------------------------------
+-- The following script can be used on the standby database
+-- to re-populate entries for a standby controlfile created
+-- on the primary and copied to the standby site.
+----------------------------------------------------------
+ALTER DATABASE ADD STANDBY LOGFILE THREAD 1 '+STAGEDATA/SPDB04/stby_log21.ora'
+ SIZE 1024M BLOCKSIZE 512 REUSE;
+ALTER DATABASE ADD STANDBY LOGFILE THREAD 1 '+STAGEDATA/SPDB04/stby_log22.ora'
+ SIZE 1024M BLOCKSIZE 512 REUSE;
+ALTER DATABASE ADD STANDBY LOGFILE THREAD 1 '+STAGEDATA/SPDB04/stby_log23.ora'
+ SIZE 1024M BLOCKSIZE 512 REUSE;
+ALTER DATABASE ADD STANDBY LOGFILE THREAD 1 '+STAGEDATA/SPDB04/stby_log24.ora'
+ SIZE 1024M BLOCKSIZE 512 REUSE;
+ALTER DATABASE ADD STANDBY LOGFILE THREAD 1 '+STAGEDATA/SPDB04/stby_log25.ora'
+ SIZE 1024M BLOCKSIZE 512 REUSE;
+ALTER DATABASE ADD STANDBY LOGFILE THREAD 1 '+STAGEDATA/SPDB04/stby_log26.ora'
+ SIZE 1024M BLOCKSIZE 512 REUSE;
+ALTER DATABASE ADD STANDBY LOGFILE THREAD 1 '+STAGEDATA/SPDB04/stby_log27.ora'
+ SIZE 1024M BLOCKSIZE 512 REUSE;
+ALTER DATABASE ADD STANDBY LOGFILE THREAD 1 '+STAGEDATA/SPDB04/stby_log28.ora'
+ SIZE 1024M BLOCKSIZE 512 REUSE;
+ALTER DATABASE ADD STANDBY LOGFILE THREAD 1 '+STAGEDATA/SPDB04/stby_log29.ora'
+ SIZE 1024M BLOCKSIZE 512 REUSE;
+ALTER DATABASE ADD STANDBY LOGFILE THREAD 1 '+STAGEDATA/SPDB04/stby_log30.ora'
+ SIZE 1024M BLOCKSIZE 512 REUSE;
+ALTER DATABASE ADD STANDBY LOGFILE THREAD 1 '+STAGEDATA/SPDB04/stby_log31.ora'
+ SIZE 1024M BLOCKSIZE 512 REUSE;
+-- Registering these archivelog entries will help rebuild 
+-- information displayed by the V$ARCHIVED_LOG fixed view 
+--     Set #2. RESETLOGS case
+--
+-- The following commands will create a new control file and use it
+-- to open the database.
+-- Data used by Recovery Manager will be lost.
+-- The contents of online logs will be lost and all backups will
+-- be invalidated. Use this only if online logs are damaged.
+-- WARNING! The current control file needs to be checked against
+-- the datafiles to insure it contains the correct files. The
+-- commands printed here may be missing log and/or data files.
+-- Another report should be made after the database has been
+-- successfully opened.
+-- After mounting the created controlfile, the following SQL
+-- statement will place the database in the appropriate
+-- protection mode:
+--  ALTER DATABASE SET STANDBY DATABASE TO MAXIMIZE PERFORMANCE
+STARTUP NOMOUNT
+CREATE CONTROLFILE REUSE DATABASE "SPDB04" RESETLOGS FORCE LOGGING ARCHIVELOG
+    MAXLOGFILES 40
+    MAXLOGMEMBERS 3
+    MAXDATAFILES 100
+    MAXINSTANCES 8
+    MAXLOGHISTORY 1168
+LOGFILE
+  GROUP 1 '+STAGEDATA/SPDB04/log01.ora'  SIZE 1024M BLOCKSIZE 512,
+  GROUP 2 '+STAGEDATA/SPDB04/log02.ora'  SIZE 1024M BLOCKSIZE 512,
+  GROUP 3 '+STAGEDATA/SPDB04/log03.ora'  SIZE 1024M BLOCKSIZE 512,
+  GROUP 4 '+STAGEDATA/SPDB04/log04.ora'  SIZE 1024M BLOCKSIZE 512,
+  GROUP 5 '+STAGEDATA/SPDB04/log05.ora'  SIZE 1024M BLOCKSIZE 512,
+  GROUP 6 '+STAGEDATA/SPDB04/log06.ora'  SIZE 1024M BLOCKSIZE 512,
+  GROUP 7 '+STAGEDATA/SPDB04/log07.ora'  SIZE 1024M BLOCKSIZE 512,
+  GROUP 8 '+STAGEDATA/SPDB04/log08.ora'  SIZE 1024M BLOCKSIZE 512,
+  GROUP 9 '+STAGEDATA/SPDB04/log09.ora'  SIZE 1024M BLOCKSIZE 512,
+  GROUP 10 '+STAGEDATA/SPDB04/log10.ora'  SIZE 1024M BLOCKSIZE 512
+-- STANDBY LOGFILE
+--   GROUP 21 '+STAGEDATA/SPDB04/stby_log21.ora'  SIZE 1024M BLOCKSIZE 512,
+--   GROUP 22 '+STAGEDATA/SPDB04/stby_log22.ora'  SIZE 1024M BLOCKSIZE 512,
+--   GROUP 23 '+STAGEDATA/SPDB04/stby_log23.ora'  SIZE 1024M BLOCKSIZE 512,
+--   GROUP 24 '+STAGEDATA/SPDB04/stby_log24.ora'  SIZE 1024M BLOCKSIZE 512,
+--   GROUP 25 '+STAGEDATA/SPDB04/stby_log25.ora'  SIZE 1024M BLOCKSIZE 512,
+--   GROUP 26 '+STAGEDATA/SPDB04/stby_log26.ora'  SIZE 1024M BLOCKSIZE 512,
+--   GROUP 27 '+STAGEDATA/SPDB04/stby_log27.ora'  SIZE 1024M BLOCKSIZE 512,
+--   GROUP 28 '+STAGEDATA/SPDB04/stby_log28.ora'  SIZE 1024M BLOCKSIZE 512,
+--   GROUP 29 '+STAGEDATA/SPDB04/stby_log29.ora'  SIZE 1024M BLOCKSIZE 512,
+--   GROUP 30 '+STAGEDATA/SPDB04/stby_log30.ora'  SIZE 1024M BLOCKSIZE 512,
+--   GROUP 31 '+STAGEDATA/SPDB04/stby_log31.ora'  SIZE 1024M BLOCKSIZE 512
+DATAFILE
+  '+STAGEDATA/SPDB04A/DATAFILE/system.665.906643055',
+  '+STAGEDATA/SPDB04A/DATAFILE/undotbs1.681.906642937',
+  '+STAGEDATA/SPDB04A/DATAFILE/sysaux.1052.906647225',
+  '+STAGEDATA/SPDB04A/DATAFILE/users.1031.906647323',
+  '+STAGEDATA/SPDB04A/DATAFILE/datatbs1.645.906642929',
+  '+STAGEDATA/SPDB04A/DATAFILE/datatbs1.1053.906647229',
+  '+STAGEDATA/SPDB04A/DATAFILE/indxtbs1.612.906642931',
+  '+STAGEDATA/SPDB04A/DATAFILE/datatbs1.1054.906647231',
+  '+STAGEDATA/SPDB04A/DATAFILE/indxtbs1.1055.906647235',
+  '+STAGEDATA/SPDB04A/DATAFILE/datatbs1.676.906642937',
+  '+STAGEDATA/SPDB04A/DATAFILE/p48tbs.1035.906647285',
+  '+STAGEDATA/SPDB04A/DATAFILE/p49tbs.608.906647235',
+  '+STAGEDATA/SPDB04A/DATAFILE/p50tbs.646.906642939',
+  '+STAGEDATA/SPDB04A/DATAFILE/p51tbs.1737.906643019',
+  '+STAGEDATA/SPDB04A/DATAFILE/p52tbs.607.906647237',
+  '+STAGEDATA/SPDB04A/DATAFILE/p53tbs.1036.906647283',
+  '+STAGEDATA/SPDB04A/DATAFILE/p54tbs.323.906642939',
+  '+STAGEDATA/SPDB04A/DATAFILE/p55tbs.606.906647247',
+  '+STAGEDATA/SPDB04A/DATAFILE/p56tbs.1040.906642933',
+  '+STAGEDATA/SPDB04A/DATAFILE/p57tbs.609.906647235',
+  '+STAGEDATA/SPDB04A/DATAFILE/p58tbs.394.906642983',
+  '+STAGEDATA/SPDB04A/DATAFILE/p59tbs.664.906643025',
+  '+STAGEDATA/SPDB04A/DATAFILE/p60tbs.597.906647281',
+  '+STAGEDATA/SPDB04A/DATAFILE/p61tbs.370.906643017',
+  '+STAGEDATA/SPDB04A/DATAFILE/p62tbs.1037.906647283',
+  '+STAGEDATA/SPDB04A/DATAFILE/p63tbs.1042.906642937'
+CHARACTER SET WE8MSWIN1252
+;
+-- Configure RMAN configuration record 1
+VARIABLE RECNO NUMBER;
+EXECUTE :RECNO := SYS.DBMS_BACKUP_RESTORE.SETCONFIG('RETENTION POLICY','TO REDUNDANCY 1');
+-- Configure RMAN configuration record 2
+VARIABLE RECNO NUMBER;
+EXECUTE :RECNO := SYS.DBMS_BACKUP_RESTORE.SETCONFIG('CONTROLFILE AUTOBACKUP FORMAT FOR DEVICE TYPE','DISK TO ''/mnt/db_transfer/SPDB04/rman_backup/%F''');
+-- Configure RMAN configuration record 3
+VARIABLE RECNO NUMBER;
+EXECUTE :RECNO := SYS.DBMS_BACKUP_RESTORE.SETCONFIG('MAXSETSIZE TO','128 G');
+-- Configure RMAN configuration record 4
+VARIABLE RECNO NUMBER;
+EXECUTE :RECNO := SYS.DBMS_BACKUP_RESTORE.SETCONFIG('SNAPSHOT CONTROLFILE NAME','TO ''/mnt/db_transfer/SPDB04/rman_backup/ctl/snapcf_SPDB04.f''');
+-- Configure RMAN configuration record 5
+VARIABLE RECNO NUMBER;
+EXECUTE :RECNO := SYS.DBMS_BACKUP_RESTORE.SETCONFIG('ARCHIVELOG DELETION POLICY','TO APPLIED ON ALL STANDBY');
+-- Commands to re-create incarnation table
+-- Below log names MUST be changed to existing filenames on
+-- disk. Any one log file from each branch can be used to
+-- re-create incarnation records.
+-- ALTER DATABASE REGISTER LOGFILE '+STAGELOG';
+-- ALTER DATABASE REGISTER LOGFILE '+STAGELOG';
+-- ALTER DATABASE REGISTER LOGFILE '+STAGELOG';
+-- ALTER DATABASE REGISTER LOGFILE '+STAGELOG';
+-- Recovery is required if any of the datafiles are restored backups,
+-- or if the last shutdown was not normal or immediate.
+RECOVER DATABASE USING BACKUP CONTROLFILE
+-- Database can now be opened zeroing the online logs.
+ALTER DATABASE OPEN RESETLOGS;
+-- Files in read-only tablespaces are now named.
+ALTER DATABASE RENAME FILE 'MISSING00027'
+  TO '+STAGEDATA/SPDB04A/DATAFILE/readtbs.614.906647235';
+-- Online the files in read-only tablespaces.
+ALTER TABLESPACE "READTBS" ONLINE;
+-- Commands to add tempfiles to temporary tablespaces.
+-- Online tempfiles have complete space information.
+-- Other tempfiles may require adjustment.
+ALTER TABLESPACE TEMP ADD TEMPFILE '+STAGEDATA' REUSE;
+-- End of tempfile additions.
+--
+--
+--
+----------------------------------------------------------
+-- The following script can be used on the standby database
+-- to re-populate entries for a standby controlfile created
+-- on the primary and copied to the standby site.
+----------------------------------------------------------
+ALTER DATABASE ADD STANDBY LOGFILE THREAD 1 '+STAGEDATA/SPDB04/stby_log21.ora'
+ SIZE 1024M BLOCKSIZE 512 REUSE;
+ALTER DATABASE ADD STANDBY LOGFILE THREAD 1 '+STAGEDATA/SPDB04/stby_log22.ora'
+ SIZE 1024M BLOCKSIZE 512 REUSE;
+ALTER DATABASE ADD STANDBY LOGFILE THREAD 1 '+STAGEDATA/SPDB04/stby_log23.ora'
+ SIZE 1024M BLOCKSIZE 512 REUSE;
+ALTER DATABASE ADD STANDBY LOGFILE THREAD 1 '+STAGEDATA/SPDB04/stby_log24.ora'
+ SIZE 1024M BLOCKSIZE 512 REUSE;
+ALTER DATABASE ADD STANDBY LOGFILE THREAD 1 '+STAGEDATA/SPDB04/stby_log25.ora'
+ SIZE 1024M BLOCKSIZE 512 REUSE;
+ALTER DATABASE ADD STANDBY LOGFILE THREAD 1 '+STAGEDATA/SPDB04/stby_log26.ora'
+ SIZE 1024M BLOCKSIZE 512 REUSE;
+ALTER DATABASE ADD STANDBY LOGFILE THREAD 1 '+STAGEDATA/SPDB04/stby_log27.ora'
+ SIZE 1024M BLOCKSIZE 512 REUSE;
+ALTER DATABASE ADD STANDBY LOGFILE THREAD 1 '+STAGEDATA/SPDB04/stby_log28.ora'
+ SIZE 1024M BLOCKSIZE 512 REUSE;
+ALTER DATABASE ADD STANDBY LOGFILE THREAD 1 '+STAGEDATA/SPDB04/stby_log29.ora'
+ SIZE 1024M BLOCKSIZE 512 REUSE;
+ALTER DATABASE ADD STANDBY LOGFILE THREAD 1 '+STAGEDATA/SPDB04/stby_log30.ora'
+ SIZE 1024M BLOCKSIZE 512 REUSE;
+ALTER DATABASE ADD STANDBY LOGFILE THREAD 1 '+STAGEDATA/SPDB04/stby_log31.ora'
+ SIZE 1024M BLOCKSIZE 512 REUSE;
+-- Registering these archivelog entries will help rebuild 
+-- information displayed by the V$ARCHIVED_LOG fixed view 

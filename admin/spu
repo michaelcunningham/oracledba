@@ -1,0 +1,21 @@
+#!/bin/sh
+
+. /mnt/dba/admin/dba.lib
+
+if [ "$1" = "" ]
+then
+  echo
+  echo "   Usage: $0 <tns> <username>"
+  echo
+  echo "   Example: $0 devpdb01 tag"
+  echo
+  exit
+fi
+
+tns=$1
+username=$2
+userpwd=`get_user_pwd $tns $username`
+
+# echo $userpwd
+
+sqlplus $username/$userpwd@$tns @show_db_info

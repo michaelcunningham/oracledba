@@ -1,0 +1,82 @@
+Trace file /u01/app/oracle/diag/rdbms/fmda/fmd/trace/fmd_ora_11944_s580_trace_run_3.trc
+Oracle Database 12c Enterprise Edition Release 12.1.0.1.0 - 64bit Production
+With the Partitioning, Automatic Storage Management, OLAP, Advanced Analytics
+and Real Application Testing options
+ORACLE_HOME = /u01/app/oracle/product/12.1.0/dbhome_1
+System name:	Linux
+Node name:	ora10.localdomain
+Release:	3.8.13-16.2.1.el6uek.x86_64
+Version:	#1 SMP Thu Nov 7 17:01:44 PST 2013
+Machine:	x86_64
+Instance name: fmd
+Redo thread mounted by this instance: 1
+Oracle process number: 60
+Unix process pid: 11944, image: oracle@ora10.localdomain (TNS V1-V3)
+
+
+*** 2016-02-18 10:00:05.041
+*** SESSION ID:(69.5) 2016-02-18 10:00:05.041
+*** CLIENT ID:() 2016-02-18 10:00:05.041
+*** SERVICE NAME:(SYS$USERS) 2016-02-18 10:00:05.041
+*** MODULE NAME:(SQL*Plus) 2016-02-18 10:00:05.041
+*** ACTION NAME:() 2016-02-18 10:00:05.041
+ 
+------------------------------------------------------------------------------------------------------------------------
+CUR#3 XSC 0x7fdcce74f7c8 CHILD#-1 CI (nil) CTX (nil)
+ PARSING SQLTEXT=select	object_id, owner, object_name, object_type
+from	tt
+where	object_name = :s_object_name
+ SQLHASH=eef41818                                                       = decimal 4008974360
+ Checking for already pinned child. fbcflg 108
+ No valid child pinned
+ Parent 0xa3dd4430(0xa54a29d0) ready for search
+ kksSearchChildList: no suitable child found (hash_match=0)
+ SearchChildList failed ctx=(nil) xscflg=28 ctxflg=0 flg=108
+ allocated new child slot bi=0xa5455638 flg=1 cld=0 hsh=eef41818
+kkshinins insert child into incomplete list bi=0xa5455638 cld=0 flg=25
+ Created new child obj #0 dsfl=2002011 8003c00 xsc=0x7fdcce74f7c8 chd=0xa54a2760 clk=0xa3dd4100
+ Pin new child obj #0 dsfl=2002011 xsc=0x7fdcce74f7c8 chd=0xa54a2760 clk=0xa3dd4100 cpn=(nil)
+ kksLoadChild: reload 0 path 2
+ kksLoadChild: reload 0 path 3
+ Compilation environment difference Failed sharing : 0
+ Change in cursor environment
+ SQL pgadep:0 pgapls:0 user
+ Child creation successful xsc=0x7fdcce74f7c8 chd=0xa54a2760 cpn=0xa3e2e8e0 sta=0 bi=0xa5455638 cld=0
+ Add new child to parent list pi=0xa5455168 psn=0 bi=0xa5455638 cld=0 flg=35
+------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+ Checking for already pinned child. fbcflg 102
+ kkssbt: setting types
+ kkssbt: opitca 0xa5454168 0xa2e7e838
+ Compilation environment difference Failed sharing : 0
+ Change in cursor environment
+ SQL pgadep:0 pgapls:0 user
+ Cursor#3 mapped
+------------------------------------------------------------------------------------------------------------------------
+
+ Compilation environment difference Failed sharing : 0
+ Change in cursor environment
+ SQL pgadep:0 pgapls:0 user
+ Compilation environment difference Failed sharing : 0
+ Change in cursor environment
+ SQL pgadep:0 pgapls:0 user
+
+ Cursor#3 mapped
+
+ kkssbt: opitca complete 0xa5454168 0xa2e7e838 Cursor#3 mapped
+kkshindel remove child from incomplete list bi=0xa5455638 cld=0 flg=30
+ kkshhcins insert child into hash table bi=0xa5455638 cld=0 flg=38
+ Cursor about get executed
+ Checking for already pinned child. fbcflg 1
+ Cursor#3 mapped
+ Cursor unmapped
+CUR#3 XSC 0x7fdcce74f7c8 CHILD#0 CI 0xa5454168 CTX (nil)
+ Cursor#3 mapped
+ Closing cursor

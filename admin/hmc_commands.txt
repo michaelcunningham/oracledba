@@ -1,0 +1,43 @@
+############################################################################
+#
+#
+# The machine names of the P650 servers are:
+#   System #1 : 10379AA
+#   System #2 : 103867A
+#
+############################################################################
+
+# Check the amount of memory on LPAR1
+ssh tdccorp40 -l oracle lshwres -m 10379AA -r mem -p LPAR1
+
+# Check the amount of memory on LPAR5
+# Checking the amount of memory will show if there are free LMB's
+ssh tdccorp40 -l oracle lshwres -m 103867A -r mem -p LPAR5
+
+
+# Remove 1 memory LMB from LPAR8
+ssh tdccorp40 -l oracle chhwres -m 103867A -p LPAR8 -r mem -o r -q 1
+
+# Add 2 memory LMB's to LPAR5
+ssh tdccorp40 -l oracle chhwres -m 103867A -p LPAR5 -r mem -o a -q 2
+
+# Move 1 cpu LMB from LPAR8 to LPAR7
+ssh tdccorp40 -l oracle chhwres -m 103867A -p LPAR8 -t LPAR5 -r cpu -o m -q 1
+
+
+
+# Check the number of processors on LPAR1
+ssh tdccorp40 -l oracle lshwres -m 10379AA -r cpu -p LPAR1
+
+# Check the number of processors on LPAR8
+ssh tdccorp40 -l oracle lshwres -m 103867A -r cpu -p LPAR8
+
+# Remove 1 cpu from LPAR8
+ssh tdccorp40 -l oracle chhwres -m 103867A -p LPAR8 -r cpu -o r -q 1
+
+# Add 1 cpu to LPAR7
+ssh tdccorp40 -l oracle chhwres -m 103867A -p LPAR7 -r cpu -o a -q 1
+
+# Move 1 cpu LMB from LPAR7 to LPAR8
+ssh tdccorp40 -l oracle chhwres -m 103867A -p LPAR7 -t LPAR8 -r cpu -o m -q 1
+

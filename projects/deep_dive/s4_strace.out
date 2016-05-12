@@ -1,0 +1,62 @@
+     0.000000 read(10, "\0\0\1\215\6\0\0\0\0\0\21i\34\376\377\377\377\377\377\377\377\1\0\0\0\0\0\0\0\1\0\0"..., 8208) = 397
+     2.892307 getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 49000}, ru_stime={0, 34000}, ...}) = 0
+     0.000716 times(NULL)               = 431696402
+     0.000628 getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 50000}, ru_stime={0, 34000}, ...}) = 0
+     0.000606 getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 50000}, ru_stime={0, 34000}, ...}) = 0
+     0.000661 times(NULL)               = 431696402
+     0.000687 getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 50000}, ru_stime={0, 34000}, ...}) = 0
+     0.000634 times(NULL)               = 431696402
+     0.000650 getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 50000}, ru_stime={0, 34000}, ...}) = 0
+     0.000674 times(NULL)               = 431696403
+     0.003061 getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 50000}, ru_stime={0, 34000}, ...}) = 0
+     0.001571 getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 50000}, ru_stime={0, 34000}, ...}) = 0
+     0.000432 times(NULL)               = 431696403
+     0.000655 getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 50000}, ru_stime={0, 34000}, ...}) = 0
+     0.000637 getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 50000}, ru_stime={0, 34000}, ...}) = 0
+     0.000647 getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 50000}, ru_stime={0, 34000}, ...}) = 0
+     0.000677 getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 50000}, ru_stime={0, 34000}, ...}) = 0
+     0.000716 times(NULL)               = 431696403
+     0.000611 times(NULL)               = 431696403
+     0.000582 times(NULL)               = 431696404
+     0.001215 times(NULL)               = 431696404
+     0.000569 getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 51000}, ru_stime={0, 34000}, ...}) = 0
+     0.000726 getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 51000}, ru_stime={0, 34000}, ...}) = 0
+     0.000626 times(NULL)               = 431696404
+     0.000696 write(13, "\0\0\1\2\6\0\0\0\0\0\v\1\5\0\1\0\0\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 258) = 258
+     0.001230 read(10, "\0\0\1\306\6\0\0\0\0\0\21i\36\376\377\377\377\377\377\377\377\1\0\0\0\0\0\0\0\2\0\0"..., 8208) = 454
+     0.000598 getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 51000}, ru_stime={0, 34000}, ...}) = 0
+     0.006212 times(NULL)               = 431696405
+     0.001026 getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 51000}, ru_stime={0, 34000}, ...}) = 0
+     0.000507 getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 51000}, ru_stime={0, 34000}, ...}) = 0
+     0.000648 times(NULL)               = 431696405
+     0.000557 getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 51000}, ru_stime={0, 34000}, ...}) = 0
+     0.000555 times(NULL)               = 431696405
+     0.000640 getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 51000}, ru_stime={0, 34000}, ...}) = 0
+     0.000614 times(NULL)               = 431696405
+     0.000616 getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 51000}, ru_stime={0, 34000}, ...}) = 0
+     0.000807 getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 51000}, ru_stime={0, 34000}, ...}) = 0
+     0.000555 times(NULL)               = 431696405
+     0.000604 getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 51000}, ru_stime={0, 34000}, ...}) = 0
+     0.000718 getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 51000}, ru_stime={0, 35000}, ...}) = 0
+     0.000745 getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 51000}, ru_stime={0, 35000}, ...}) = 0
+     0.000731 getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 51000}, ru_stime={0, 35000}, ...}) = 0
+     0.000675 times(NULL)               = 431696406
+     0.000436 times(NULL)               = 431696406
+     0.000499 times(NULL)               = 431696406
+     0.000591 times(NULL)               = 431696406
+     0.001265 getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 51000}, ru_stime={0, 35000}, ...}) = 0
+     0.000855 getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 51000}, ru_stime={0, 35000}, ...}) = 0
+     0.000472 getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 51000}, ru_stime={0, 35000}, ...}) = 0
+     0.001159 getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 51000}, ru_stime={0, 35000}, ...}) = 0
+     0.000589 times(NULL)               = 431696406
+     0.000773 write(13, "\0\0\2q\6\0\0\0\0\0\20\27\0\0\0\225\32\3l\5s:\363*\332C/\30\30\364\356x"..., 625) = 625
+     0.000541 read(10, "\0\0\0\25\6\0\0\0\0\0\3\5 \4\0\0\0\17\0\0\0", 8208) = 21
+     0.000515 getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 52000}, ru_stime={0, 35000}, ...}) = 0
+     0.000468 times(NULL)               = 431696407
+     0.000477 getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 52000}, ru_stime={0, 35000}, ...}) = 0
+     0.000609 getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 52000}, ru_stime={0, 35000}, ...}) = 0
+     0.000410 getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 52000}, ru_stime={0, 35000}, ...}) = 0
+     0.000764 getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 52000}, ru_stime={0, 35000}, ...}) = 0
+     0.000520 times(NULL)               = 431696407
+     0.000567 write(13, "\0\0\0\264\6\0\0\0\0\0\4\1\0\0\0\36\0\1\1\0\0\0{\5\0\0\0\0\4\0\0\0"..., 180) = 180
+     0.001020 read(10,  <unfinished ...>

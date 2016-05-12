@@ -1,0 +1,1586 @@
+Trace file /u01/app/oracle/diag/rdbms/imdb01a/IMDB01/trace/IMDB01_ora_29123_pato_trace.trc
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, Automatic Storage Management, OLAP, Advanced Analytics
+and Real Application Testing options
+ORACLE_HOME = /u01/app/oracle/product/12.1.0.2/dbhome_1
+System name:	Linux
+Node name:	ora41.tagged.com
+Release:	2.6.32-431.23.3.el6.x86_64
+Version:	#1 SMP Wed Jul 16 06:12:23 EDT 2014
+Machine:	x86_64
+Instance name: IMDB01
+Redo thread mounted by this instance: 1
+Oracle process number: 823
+Unix process pid: 29123, image: oracle@ora41.tagged.com
+
+
+*** 2016-04-21 07:58:58.908
+*** SESSION ID:(2201.57936) 2016-04-21 07:58:58.908
+*** CLIENT ID:() 2016-04-21 07:58:58.908
+*** SERVICE NAME:(IMDB01) 2016-04-21 07:58:58.908
+*** MODULE NAME:(SQL*Plus) 2016-04-21 07:58:58.908
+*** CLIENT DRIVER:() 2016-04-21 07:58:58.908
+*** ACTION NAME:() 2016-04-21 07:58:58.908
+ 
+WAIT #140612715751200: nam='SQL*Net message to client' ela= 2 driver id=1413697536 #bytes=1 p3=0 obj#=-1 tim=6792074476907
+WAIT #140612715751200: nam='SQL*Net message from client' ela= 10950 driver id=1413697536 #bytes=1 p3=0 obj#=-1 tim=6792074488277
+CLOSE #140612715751200:c=0,e=3,dep=0,type=1,tim=6792074488322
+=====================
+PARSING IN CURSOR #140612715748664 len=40 dep=1 uid=0 oct=3 lid=0 tim=6792074490123 hv=2821867121 ad='120ca70b80' sqlid='47r1y8yn34jmj'
+select default$ from col$ where rowid=:1
+END OF STMT
+PARSE #140612715748664:c=999,e=960,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=0,tim=6792074490122
+BINDS #140612715748664:
+ Bind#0
+  oacdty=11 mxl=16(16) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=18 fl2=0001 frm=00 csi=00 siz=16 off=0
+  kxsbbbfp=7fe2f2f918f8  bln=16  avl=16  flg=05
+  value=0000AD3E.0018.0001
+EXEC #140612715748664:c=1000,e=1731,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=2191121161,tim=6792074491950
+FETCH #140612715748664:c=0,e=20,p=0,cr=2,cu=0,mis=0,r=1,dep=1,og=4,plh=2191121161,tim=6792074491985
+STAT #140612715748664 id=1 cnt=1 pid=0 pos=1 obj=21 op='TABLE ACCESS BY USER ROWID COL$ (cr=1 pr=0 pw=0 time=11 us cost=1 size=15 card=1)'
+CLOSE #140612715748664:c=0,e=34,dep=1,type=0,tim=6792074492089
+Registered qb: SEL$1 0xf79554b0 (PARSER)
+---------------------
+QUERY BLOCK SIGNATURE
+---------------------
+  signature (): qb_name=SEL$1 nbfros=2 flg=0
+    fro(0): flg=4 objn=80638 hint_alias="M"@"SEL$1"
+    fro(1): flg=4 objn=83305 hint_alias="MS"@"SEL$1"
+
+Registered qb: SEL$2 0xf795cf78 (PARSER)
+---------------------
+QUERY BLOCK SIGNATURE
+---------------------
+  signature (): qb_name=SEL$2 nbfros=1 flg=0
+    fro(0): flg=5 objn=0 hint_alias="from$_subquery$_003"@"SEL$2"
+
+SPM: statement not found in SMB
+SPM: capture of plan baseline is OFF
+
+**************************
+Automatic degree of parallelism (AUTODOP)
+**************************
+Automatic degree of parallelism is disabled: Parameter.
+kkopqSetForceParallelProperties: Hint:no
+Query: compute:yes forced:no forceDop:0
+kkopqSetDopReason: Reason why we chose this DOP is: table property.
+table property forces parallelism
+
+Global Manual DOP: 1 - Rounded?: no
+PM: Considering predicate move-around in query block SEL$2 (#0)
+**************************
+Predicate Move-Around (PM)
+**************************
+OPTIMIZER INFORMATION
+
+******************************************
+----- Current SQL Statement for this session (sql_id=9mkfj9cu6m20r) -----
+SELECT sender_user_id
+FROM MESSAGES_STATUS ms
+INNER JOIN MESSAGES m ON ms.thread_id = m.thread_id
+WHERE ms.user_id = 7280151987
+AND m.event_ts between 1461020482000 - 86400000 and 1461020482000
+*******************************************
+Legend
+The following abbreviations are used by optimizer trace.
+CBQT - cost-based query transformation
+JPPD - join predicate push-down
+OJPPD - old-style (non-cost-based) JPPD
+FPD - filter push-down
+PM - predicate move-around
+CVM - complex view merging
+SPJ - select-project-join
+SJC - set join conversion
+SU - subquery unnesting
+OBYE - order by elimination
+OST - old style star transformation
+ST - new (cbqt) star transformation
+CNT - count(col) to count(*) transformation
+JE - Join Elimination
+JF - join factorization
+CBY - connect by
+SLP - select list pruning
+DP - distinct placement
+VT - vector transformation
+qb - query block
+LB - leaf blocks
+DK - distinct keys
+LB/K - average number of leaf blocks per key
+DB/K - average number of data blocks per key
+CLUF - clustering factor
+NDV - number of distinct values
+Resp - response cost
+Card - cardinality
+Resc - resource cost
+NL - nested loops (join)
+SM - sort merge (join)
+HA - hash (join)
+CPUSPEED - CPU Speed 
+IOTFRSPEED - I/O transfer speed
+IOSEEKTIM - I/O seek time
+SREADTIM - average single block read time
+MREADTIM - average multiblock read time
+MBRC - average multiblock read count
+MAXTHR - maximum I/O system throughput
+SLAVETHR - average slave I/O throughput
+dmeth - distribution method
+  1: no partitioning required
+  2: value partitioned
+  4: right is random (round-robin)
+  128: left is random (round-robin)
+  8: broadcast right and partition left
+  16: broadcast left and partition right
+  32: partition left using partitioning of right
+  64: partition right using partitioning of left
+  256: run the join in serial
+  0: invalid distribution method
+sel - selectivity
+ptn - partition
+AP - adaptive plans
+***************************************
+PARAMETERS USED BY THE OPTIMIZER
+********************************
+  *************************************
+  PARAMETERS WITH ALTERED VALUES
+  ******************************
+Compilation Environment Dump
+_pga_max_size                       = 419420 KB
+sqlstat_enabled                     = true
+Bug Fix Control Environment
+
+
+***************************************
+Column Usage Monitoring is ON: tracking level = 1
+***************************************
+
+Considering Query Transformations on query block SEL$2 (#0)
+**************************
+Query transformations (QT)
+**************************
+JF: Checking validity of join factorization for query block SEL$1 (#0)
+JF: Bypassed: not a UNION or UNION-ALL query block.
+ST: not valid since star transformation parameter is FALSE
+TE: Checking validity of table expansion for query block SEL$1 (#0)
+TE: Bypassed: No relevant table found.
+VT: Initial VT validity check for query block SEL$1 (#0)
+VT: Bypassed: inmemory is disabled.
+Check Basic Validity for Non-Union View for query block SEL$1 (#0)
+JPPD:     JPPD bypassed: View has unsupported constructs.
+JF: Checking validity of join factorization for query block SEL$2 (#0)
+JF: Bypassed: not a UNION or UNION-ALL query block.
+ST: not valid since star transformation parameter is FALSE
+TE: Checking validity of table expansion for query block SEL$2 (#0)
+TE: Bypassed: No partitioned table in query block.
+VT: Initial VT validity check for query block SEL$2 (#0)
+VT: Bypassed: inmemory is disabled.
+CBQT bypassed for query block SEL$2 (#0): no complex view, sub-queries or UNION (ALL) queries.
+CBQT: Validity checks failed for 9mkfj9cu6m20r.
+CSE: Considering common sub-expression elimination in query block SEL$2 (#0)
+*************************
+Common Subexpression elimination (CSE)
+*************************
+CSE: Considering common sub-expression elimination in query block SEL$1 (#0)
+*************************
+Common Subexpression elimination (CSE)
+*************************
+CSE:     CSE not performed on query block SEL$1 (#0).
+CSE:     CSE not performed on query block SEL$2 (#0).
+OBYE:   Considering Order-by Elimination from view SEL$2 (#0)
+***************************
+Order-by elimination (OBYE)
+***************************
+OBYE:     OBYE bypassed: no order by to eliminate.
+JE:   Considering Join Elimination on query block SEL$1 (#0)
+*************************
+Join Elimination (JE)    
+*************************
+SQL:******* UNPARSED QUERY IS *******
+SELECT "MS"."USER_ID" "USER_ID","MS"."THREAD_ID" "QCSJ_C000000000300000","M"."THREAD_ID" "QCSJ_C000000000300001","M"."EVENT_TS" "EVENT_TS","M"."SENDER_USER_ID" "SENDER_USER_ID" FROM "TAG"."MESSAGES_STATUS" "MS","TAG"."MESSAGES" "M" WHERE "MS"."THREAD_ID"="M"."THREAD_ID"
+JE:   cfro: MESSAGES_STATUS objn:80638 col#:2 dfro:MESSAGES dcol#:2
+JE:   cfro: MESSAGES_STATUS objn:80638 col#:2 dfro:MESSAGES dcol#:2
+JE:   cfro: MESSAGES objn:83305 col#:2 dfro:MESSAGES_STATUS dcol#:2
+JE:   cfro: MESSAGES objn:83305 col#:2 dfro:MESSAGES_STATUS dcol#:2
+SQL:******* UNPARSED QUERY IS *******
+SELECT "MS"."USER_ID" "USER_ID","MS"."THREAD_ID" "QCSJ_C000000000300000","M"."THREAD_ID" "QCSJ_C000000000300001","M"."EVENT_TS" "EVENT_TS","M"."SENDER_USER_ID" "SENDER_USER_ID" FROM "TAG"."MESSAGES_STATUS" "MS","TAG"."MESSAGES" "M" WHERE "MS"."THREAD_ID"="M"."THREAD_ID"
+Query block SEL$1 (#0) unchanged
+CVM: Considering view merge in query block SEL$2 (#0)
+OJE: Begin: find best directive for query block SEL$2 (#0)
+OJE: End: finding best directive for query block SEL$2 (#0)
+CVM:   Checking validity of merging in query block SEL$1 (#0)
+CVM: Considering view merge in query block SEL$1 (#0)
+OJE: Begin: find best directive for query block SEL$1 (#0)
+OJE: End: finding best directive for query block SEL$1 (#0)
+CVM:   Merging SPJ view SEL$1 (#0) into SEL$2 (#0)
+Registered qb: SEL$58A6D7F6 0xf795cf78 (VIEW MERGE SEL$2; SEL$1)
+---------------------
+QUERY BLOCK SIGNATURE
+---------------------
+  signature (): qb_name=SEL$58A6D7F6 nbfros=2 flg=0
+    fro(0): flg=0 objn=80638 hint_alias="M"@"SEL$1"
+    fro(1): flg=0 objn=83305 hint_alias="MS"@"SEL$1"
+
+OJE: Begin: find best directive for query block SEL$58A6D7F6 (#0)
+OJE: End: finding best directive for query block SEL$58A6D7F6 (#0)
+JE:   Considering Join Elimination on query block SEL$58A6D7F6 (#0)
+*************************
+Join Elimination (JE)    
+*************************
+SQL:******* UNPARSED QUERY IS *******
+SELECT "M"."SENDER_USER_ID" "SENDER_USER_ID" FROM "TAG"."MESSAGES_STATUS" "MS","TAG"."MESSAGES" "M" WHERE "MS"."USER_ID"=7280151987 AND "M"."EVENT_TS">=1461020482000-86400000 AND "M"."EVENT_TS"<=1461020482000 AND "MS"."THREAD_ID"="M"."THREAD_ID"
+JE:   cfro: MESSAGES_STATUS objn:80638 col#:2 dfro:MESSAGES dcol#:2
+JE:   cfro: MESSAGES objn:83305 col#:2 dfro:MESSAGES_STATUS dcol#:2
+SQL:******* UNPARSED QUERY IS *******
+SELECT "M"."SENDER_USER_ID" "SENDER_USER_ID" FROM "TAG"."MESSAGES_STATUS" "MS","TAG"."MESSAGES" "M" WHERE "MS"."USER_ID"=7280151987 AND "M"."EVENT_TS">=1461020482000-86400000 AND "M"."EVENT_TS"<=1461020482000 AND "MS"."THREAD_ID"="M"."THREAD_ID"
+Query block SEL$58A6D7F6 (#0) unchanged
+query block SEL$2 transformed to SEL$58A6D7F6 (#0)
+Considering Query Transformations on query block SEL$58A6D7F6 (#0)
+**************************
+Query transformations (QT)
+**************************
+JF: Checking validity of join factorization for query block SEL$58A6D7F6 (#0)
+JF: Bypassed: not a UNION or UNION-ALL query block.
+ST: not valid since star transformation parameter is FALSE
+TE: Checking validity of table expansion for query block SEL$58A6D7F6 (#0)
+TE: Bypassed: No relevant table found.
+VT: Initial VT validity check for query block SEL$58A6D7F6 (#0)
+VT: Bypassed: inmemory is disabled.
+CBQT bypassed for query block SEL$58A6D7F6 (#0): no complex view, sub-queries or UNION (ALL) queries.
+CBQT: Validity checks failed for 9mkfj9cu6m20r.
+CSE: Considering common sub-expression elimination in query block SEL$58A6D7F6 (#0)
+*************************
+Common Subexpression elimination (CSE)
+*************************
+CSE:     CSE not performed on query block SEL$58A6D7F6 (#0).
+Query after View Removal
+******* UNPARSED QUERY IS *******
+SELECT "M"."SENDER_USER_ID" "SENDER_USER_ID" FROM "TAG"."MESSAGES_STATUS" "MS","TAG"."MESSAGES" "M" WHERE "MS"."USER_ID"=7280151987 AND "M"."EVENT_TS">=1461020482000-86400000 AND "M"."EVENT_TS"<=1461020482000 AND "MS"."THREAD_ID"="M"."THREAD_ID"
+SU: Considering subquery unnesting in query block SEL$58A6D7F6 (#0)
+********************
+Subquery Unnest (SU)
+********************
+SJC: Considering set-join conversion in query block SEL$58A6D7F6 (#0)
+*************************
+Set-Join Conversion (SJC)
+*************************
+SJC: not performed
+DCL: Checking validity of group-by elimination SEL$58A6D7F6 (#0)
+JE:   Considering Join Elimination on query block SEL$58A6D7F6 (#0)
+*************************
+Join Elimination (JE)    
+*************************
+SQL:******* UNPARSED QUERY IS *******
+SELECT "M"."SENDER_USER_ID" "SENDER_USER_ID" FROM "TAG"."MESSAGES_STATUS" "MS","TAG"."MESSAGES" "M" WHERE "MS"."USER_ID"=7280151987 AND "M"."EVENT_TS">=1461020482000-86400000 AND "M"."EVENT_TS"<=1461020482000 AND "MS"."THREAD_ID"="M"."THREAD_ID"
+JE:   cfro: MESSAGES_STATUS objn:80638 col#:2 dfro:MESSAGES dcol#:2
+JE:   cfro: MESSAGES objn:83305 col#:2 dfro:MESSAGES_STATUS dcol#:2
+SQL:******* UNPARSED QUERY IS *******
+SELECT "M"."SENDER_USER_ID" "SENDER_USER_ID" FROM "TAG"."MESSAGES_STATUS" "MS","TAG"."MESSAGES" "M" WHERE "MS"."USER_ID"=7280151987 AND "M"."EVENT_TS">=1461020482000-86400000 AND "M"."EVENT_TS"<=1461020482000 AND "MS"."THREAD_ID"="M"."THREAD_ID"
+Query block SEL$58A6D7F6 (#0) unchanged
+PM: Considering predicate move-around in query block SEL$58A6D7F6 (#0)
+**************************
+Predicate Move-Around (PM)
+**************************
+PM:     PM bypassed: Outer query contains no views.
+PM:     PM bypassed: Outer query contains no views.
+query block SEL$58A6D7F6 (#0) unchanged
+FPD: Considering simple filter push in query block SEL$58A6D7F6 (#0)
+"MS"."USER_ID"=7280151987 AND "M"."EVENT_TS">=1460934082000 AND "M"."EVENT_TS"<=1461020482000 AND "MS"."THREAD_ID"="M"."THREAD_ID"
+try to generate transitive predicate from check constraints for query block SEL$58A6D7F6 (#0)
+finally: "MS"."USER_ID"=7280151987 AND "M"."EVENT_TS">=1460934082000 AND "M"."EVENT_TS"<=1461020482000 AND "MS"."THREAD_ID"="M"."THREAD_ID" AND 1461020482000>=1460934082000
+
+FPD:   transitive predicates are generated in query block SEL$58A6D7F6 (#0)
+"MS"."USER_ID"=7280151987 AND "M"."EVENT_TS">=1460934082000 AND "M"."EVENT_TS"<=1461020482000 AND "MS"."THREAD_ID"="M"."THREAD_ID" AND 1461020482000>=1460934082000
+apadrv-start sqlid=11081618479053899799
+CSE: Considering common sub-expression elimination in query block SEL$58A6D7F6 (#0)
+*************************
+Common Subexpression elimination (CSE)
+*************************
+CSE:     CSE not performed on query block SEL$58A6D7F6 (#0).
+  :
+    call(in-use=11800, alloc=32712), compile(in-use=93344, alloc=95944), execution(in-use=5024, alloc=8088)
+
+*******************************************
+Peeked values of the binds in SQL statement
+*******************************************
+
+=====================================
+SPD: BEGIN context at statement level
+=====================================
+Stmt: ******* UNPARSED QUERY IS *******
+SELECT "M"."SENDER_USER_ID" "SENDER_USER_ID" FROM "TAG"."MESSAGES_STATUS" "MS","TAG"."MESSAGES" "M" WHERE "MS"."USER_ID"=7280151987 AND "M"."EVENT_TS">=1460934082000 AND "M"."EVENT_TS"<=1461020482000 AND "MS"."THREAD_ID"="M"."THREAD_ID" AND 1461020482000>=1460934082000
+Objects referenced in the statement
+  MESSAGES[M] 80638, type = 1
+  MESSAGES_STATUS[MS] 83305, type = 1
+Objects in the hash table
+  Hash table Object 83305, type = 1, ownerid = 15882345983164203775:
+    Dynamic Sampling Directives at location 1:
+       dirid = 2967660405386353406, state = 5, flags = 1, loc = 1 {C(83305)[1, 5, 7, 8]}
+       dirid = 7319644627035895205, state = 3, flags = 1, loc = 1 {C(83305)[1, 5, 8]}
+       dirid = 18271806003132853315, state = 5, flags = 1, loc = 1 {(83305)[1, 7, 8]}
+       dirid = 15045824139728402821, state = 2, flags = 1, loc = 1 {C(83305)[1, 13]}
+       dirid = 8966106107181059606, state = 5, flags = 1, loc = 1 {EC(83305)[1]}
+    Dynamic Sampling Directives at location 4:
+       dirid = 13588642072880228990, state = 1, flags = 1, loc = 4 {(83305)[1, 2, 4, 5]; (80638)[]; (80638)[]}
+       dirid = 5097825876161620669, state = 5, flags = 1, loc = 4 {(83305)[1, 2]}
+  Hash table Object 80638, type = 1, ownerid = 16939557713699972875:
+    Dynamic Sampling Directives at location 1:
+       dirid = 3294364207904304056, state = 2, flags = 1, loc = 1 {C(80638)[1, 2, 3]}
+       dirid = 4678424848150918423, state = 2, flags = 1, loc = 1 {C(80638)[2, 3]}
+       dirid = 5030633234507819428, state = 2, flags = 1, loc = 1 {CJ(80638)[1, 2]}
+       dirid = 12421805571730305201, state = 2, flags = 1, loc = 1 {(80638)[1, 2]}
+       dirid = 6178882956140305338, state = 5, flags = 1, loc = 1 {EC(80638)[2]}
+    Dynamic Sampling Directives at location 2:
+       dirid = 1836554401722428388, state = 3, flags = 1, loc = 2 {F(83305)[]; (80638)[]}
+       dirid = 6948080411374136032, state = 5, flags = 1, loc = 2 {F(83305)[]; F(80638)[]}
+    Dynamic Sampling Directives at location 4:
+       dirid = 7218892810598756521, state = 5, flags = 1, loc = 4 {(83305)[1, 2]; (80638)[]}
+       dirid = 3017482289593790294, state = 3, flags = 1, loc = 4 {(80638)[]}
+Return code in qosdInitDirCtx: ENBLD
+===================================
+SPD: END context at statement level
+===================================
+CLOSE #140612723099640:c=0,e=6,dep=1,type=1,tim=6792074552881
+=====================
+PARSING IN CURSOR #140612715743392 len=823 dep=1 uid=0 oct=3 lid=0 tim=6792074553275 hv=3156785590 ad='17c1520890' sqlid='frjd8zfy2jfdq'
+SELECT executions, end_of_fetch_count,              elapsed_time/px_servers elapsed_time,        cpu_time/px_servers     cpu_time,            buffer_gets/executions  buffer_gets   FROM (SELECT sum(executions)   as executions,                            sum(case when px_servers_executions > 0                              then px_servers_executions                                  else executions end) as px_servers,                sum(end_of_fetch_count) as end_of_fetch_count,              sum(elapsed_time) as elapsed_time,                 sum(cpu_time)     as cpu_time,                     sum(buffer_gets)  as buffer_gets            FROM   gv$sql                                      WHERE executions > 0                                 AND sql_id = :1                                    AND parsing_schema_name = :2)
+END OF STMT
+PARSE #140612715743392:c=1000,e=370,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=0,tim=6792074553275
+BINDS #140612715743392:
+ Bind#0
+  oacdty=01 mxl=32(13) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=21 fl2=0000 frm=01 csi=873 siz=64 off=0
+  kxsbbbfp=7fe2f2f90430  bln=32  avl=13  flg=05
+  value="9mkfj9cu6m20r"
+ Bind#1
+  oacdty=01 mxl=32(03) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=21 fl2=0000 frm=01 csi=873 siz=0 off=32
+  kxsbbbfp=7fe2f2f90450  bln=32  avl=03  flg=01
+  value="TAG"
+EXEC #140612715743392:c=999,e=1561,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=987782979,tim=6792074554906
+FETCH #140612715743392:c=0,e=84,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=987782979,tim=6792074555030
+STAT #140612715743392 id=1 cnt=1 pid=0 pos=1 obj=0 op='VIEW  (cr=0 pr=0 pw=0 time=93 us)'
+STAT #140612715743392 id=2 cnt=1 pid=1 pos=1 obj=0 op='SORT AGGREGATE (cr=0 pr=0 pw=0 time=91 us)'
+STAT #140612715743392 id=3 cnt=0 pid=2 pos=1 obj=0 op='FIXED TABLE FIXED INDEX X$KGLCURSOR_CHILD (ind:2) (cr=0 pr=0 pw=0 time=72 us)'
+CLOSE #140612715743392:c=0,e=3,dep=1,type=0,tim=6792074555197
+=====================
+PARSING IN CURSOR #140612715743392 len=1365 dep=1 uid=0 oct=3 lid=0 tim=6792074555779 hv=2430454208 ad='17d4969de8' sqlid='4b4wp0a8dvkf0'
+SELECT executions, end_of_fetch_count,              elapsed_time/px_servers elapsed_time,        cpu_time/px_servers     cpu_time,            buffer_gets/executions  buffer_gets   FROM (SELECT sum(executions_delta) as EXECUTIONS,                              sum(case when px_servers_execs_delta > 0                                   then px_servers_execs_delta                                       else executions_delta end) as px_servers,                sum(end_of_fetch_count_delta) as end_of_fetch_count,              sum(elapsed_time_delta) as ELAPSED_TIME,              sum(cpu_time_delta) as CPU_TIME,                      sum(buffer_gets_delta) as BUFFER_GETS          FROM   DBA_HIST_SQLSTAT s,                                   V$DATABASE d,                                         DBA_HIST_SNAPSHOT sn                           WHERE  s.dbid = d.dbid                                  AND  bitand(nvl(s.flag, 0), 1) = 0                    AND  sn.end_interval_time >                                   (select systimestamp at TIME ZONE dbtimezone                  from dual) - 7                               AND  s.sql_id = :1                                    AND  s.snap_id = sn.snap_id                           AND  s.instance_number = sn.instance_number           AND  s.dbid = sn.dbid                                 AND  parsing_schema_name = :2)
+END OF STMT
+PARSE #140612715743392:c=0,e=561,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=0,tim=6792074555778
+=====================
+PARSING IN CURSOR #140612715741248 len=37 dep=2 uid=0 oct=3 lid=0 tim=6792074556263 hv=1398610540 ad='17d4cc4f28' sqlid='grwydz59pu6mc'
+select text from view$ where rowid=:1
+END OF STMT
+PARSE #140612715741248:c=1000,e=352,p=0,cr=0,cu=0,mis=1,r=0,dep=2,og=4,plh=0,tim=6792074556262
+BINDS #140612715741248:
+ Bind#0
+  oacdty=11 mxl=16(16) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=18 fl2=0001 frm=00 csi=00 siz=16 off=0
+  kxsbbbfp=7fe2f2f8fc00  bln=16  avl=16  flg=05
+  value=00002D6B.0013.0001
+EXEC #140612715741248:c=1000,e=811,p=0,cr=0,cu=0,mis=1,r=0,dep=2,og=4,plh=3684871272,tim=6792074557146
+FETCH #140612715741248:c=0,e=23,p=0,cr=2,cu=0,mis=0,r=1,dep=2,og=4,plh=3684871272,tim=6792074557193
+STAT #140612715741248 id=1 cnt=1 pid=0 pos=1 obj=95 op='TABLE ACCESS BY USER ROWID VIEW$ (cr=1 pr=0 pw=0 time=16 us cost=1 size=15 card=1)'
+CLOSE #140612715741248:c=0,e=27,dep=2,type=0,tim=6792074557244
+=====================
+PARSING IN CURSOR #140612715741248 len=37 dep=2 uid=0 oct=3 lid=0 tim=6792074557357 hv=1398610540 ad='17d4cc4f28' sqlid='grwydz59pu6mc'
+select text from view$ where rowid=:1
+END OF STMT
+PARSE #140612715741248:c=0,e=16,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=3684871272,tim=6792074557356
+BINDS #140612715741248:
+ Bind#0
+  oacdty=11 mxl=16(16) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=18 fl2=0001 frm=00 csi=00 siz=16 off=0
+  kxsbbbfp=7fe2f2f8fc00  bln=16  avl=16  flg=05
+  value=00002D6B.0012.0001
+EXEC #140612715741248:c=0,e=72,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=3684871272,tim=6792074557496
+FETCH #140612715741248:c=0,e=10,p=0,cr=2,cu=0,mis=0,r=1,dep=2,og=4,plh=3684871272,tim=6792074557527
+STAT #140612715741248 id=1 cnt=1 pid=0 pos=1 obj=95 op='TABLE ACCESS BY USER ROWID VIEW$ (cr=1 pr=0 pw=0 time=5 us cost=1 size=15 card=1)'
+CLOSE #140612715741248:c=0,e=29,dep=2,type=0,tim=6792074557578
+=====================
+PARSING IN CURSOR #140612715741096 len=83 dep=2 uid=0 oct=3 lid=0 tim=6792074559124 hv=1709162946 ad='17c161da10' sqlid='g3wrkmxkxzhf2'
+select cols,audit$,textlength,intcols,property,flags,rowid from view$ where obj#=:1
+END OF STMT
+PARSE #140612715741096:c=1000,e=340,p=0,cr=0,cu=0,mis=1,r=0,dep=2,og=4,plh=0,tim=6792074559123
+BINDS #140612715741096:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7fe2f2f8ea10  bln=22  avl=03  flg=05
+  value=8783
+EXEC #140612715741096:c=0,e=830,p=0,cr=0,cu=0,mis=1,r=0,dep=2,og=4,plh=749386351,tim=6792074560021
+FETCH #140612715741096:c=0,e=35,p=0,cr=3,cu=0,mis=0,r=1,dep=2,og=4,plh=749386351,tim=6792074560078
+STAT #140612715741096 id=1 cnt=1 pid=0 pos=1 obj=95 op='TABLE ACCESS BY INDEX ROWID VIEW$ (cr=3 pr=0 pw=0 time=34 us cost=2 size=61 card=1)'
+STAT #140612715741096 id=2 cnt=1 pid=1 pos=1 obj=101 op='INDEX UNIQUE SCAN I_VIEW1 (cr=2 pr=0 pw=0 time=10 us cost=1 size=0 card=1)'
+CLOSE #140612715741096:c=0,e=1,dep=2,type=3,tim=6792074560132
+=====================
+PARSING IN CURSOR #140612715734520 len=191 dep=2 uid=0 oct=3 lid=0 tim=6792074560619 hv=1070240621 ad='120d2771c0' sqlid='3un99a0zwp4vd'
+select owner#,name,namespace,remoteowner,linkname,p_timestamp,p_obj#, nvl(property,0),subname,type#,flags,d_attrs from dependency$ d, obj$ o where d_obj#=:1 and p_obj#=obj#(+) order by order#
+END OF STMT
+PARSE #140612715734520:c=0,e=469,p=0,cr=0,cu=0,mis=1,r=0,dep=2,og=4,plh=0,tim=6792074560619
+BINDS #140612715734520:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=08 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7fe2f2f8e1b0  bln=22  avl=03  flg=05
+  value=8783
+EXEC #140612715734520:c=3000,e=3133,p=0,cr=0,cu=0,mis=1,r=0,dep=2,og=4,plh=1475428744,tim=6792074563808
+FETCH #140612715734520:c=0,e=87,p=0,cr=6,cu=0,mis=0,r=1,dep=2,og=4,plh=1475428744,tim=6792074563927
+FETCH #140612715734520:c=0,e=9,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=1475428744,tim=6792074563983
+STAT #140612715734520 id=1 cnt=1 pid=0 pos=1 obj=0 op='SORT ORDER BY (cr=6 pr=0 pw=0 time=175 us cost=10 size=234 card=3)'
+STAT #140612715734520 id=2 cnt=1 pid=1 pos=1 obj=0 op='HASH JOIN OUTER (cr=6 pr=0 pw=0 time=142 us cost=9 size=234 card=3)'
+STAT #140612715734520 id=3 cnt=1 pid=2 pos=1 obj=0 op='NESTED LOOPS OUTER (cr=6 pr=0 pw=0 time=138 us cost=9 size=234 card=3)'
+STAT #140612715734520 id=4 cnt=1 pid=3 pos=1 obj=0 op='STATISTICS COLLECTOR  (cr=3 pr=0 pw=0 time=115 us)'
+STAT #140612715734520 id=5 cnt=1 pid=4 pos=1 obj=83 op='TABLE ACCESS BY INDEX ROWID BATCHED DEPENDENCY$ (cr=3 pr=0 pw=0 time=21 us cost=3 size=90 card=3)'
+STAT #140612715734520 id=6 cnt=1 pid=5 pos=1 obj=85 op='INDEX RANGE SCAN I_DEPENDENCY1 (cr=2 pr=0 pw=0 time=16 us cost=2 size=0 card=3)'
+STAT #140612715734520 id=7 cnt=1 pid=3 pos=2 obj=18 op='TABLE ACCESS BY INDEX ROWID BATCHED OBJ$ (cr=3 pr=0 pw=0 time=19 us cost=2 size=48 card=1)'
+STAT #140612715734520 id=8 cnt=1 pid=7 pos=1 obj=36 op='INDEX RANGE SCAN I_OBJ1 (cr=2 pr=0 pw=0 time=13 us cost=1 size=0 card=1)'
+STAT #140612715734520 id=9 cnt=0 pid=2 pos=2 obj=18 op='TABLE ACCESS FULL OBJ$ (cr=0 pr=0 pw=0 time=0 us cost=2 size=48 card=1)'
+CLOSE #140612715734520:c=0,e=5,dep=2,type=0,tim=6792074564146
+=====================
+PARSING IN CURSOR #140612715734520 len=56 dep=2 uid=0 oct=3 lid=0 tim=6792074564399 hv=3993603298 ad='17c16c40c8' sqlid='8swypbbr0m372'
+select order#,columns,types from access$ where d_obj#=:1
+END OF STMT
+PARSE #140612715734520:c=0,e=232,p=0,cr=0,cu=0,mis=1,r=0,dep=2,og=4,plh=0,tim=6792074564398
+BINDS #140612715734520:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=08 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7fe2f2f8e1b0  bln=22  avl=03  flg=05
+  value=8783
+EXEC #140612715734520:c=1000,e=623,p=0,cr=0,cu=0,mis=1,r=0,dep=2,og=4,plh=570326988,tim=6792074565087
+FETCH #140612715734520:c=0,e=19,p=0,cr=3,cu=0,mis=0,r=1,dep=2,og=4,plh=570326988,tim=6792074565132
+FETCH #140612715734520:c=0,e=6,p=0,cr=1,cu=0,mis=0,r=0,dep=2,og=4,plh=570326988,tim=6792074565163
+STAT #140612715734520 id=1 cnt=1 pid=0 pos=1 obj=84 op='TABLE ACCESS BY INDEX ROWID BATCHED ACCESS$ (cr=4 pr=0 pw=0 time=18 us cost=3 size=172 card=4)'
+STAT #140612715734520 id=2 cnt=1 pid=1 pos=1 obj=87 op='INDEX RANGE SCAN I_ACCESS1 (cr=3 pr=0 pw=0 time=17 us cost=2 size=0 card=4)'
+CLOSE #140612715734520:c=0,e=3,dep=2,type=0,tim=6792074565230
+=====================
+PARSING IN CURSOR #140612715733936 len=418 dep=2 uid=0 oct=3 lid=0 tim=6792074565683 hv=3759961951 ad='149fe4f0b0' sqlid='14d7z6mh1sxuz'
+select name,intcol#,segcol#,type#,length,nvl(precision#,0),decode(type#,2,nvl(scale,-127/*MAXSB1MINAL*/),178,scale,179,scale,180,scale,181,scale,182,scale,183,scale,231,scale,0),null$,fixedstorage,nvl(deflength,0),default$,rowid,col#,property, nvl(charsetid,0),nvl(charsetform,0),spare1,spare2,nvl(spare3,0), nvl(evaledition#,1),nvl(unusablebefore#,0),nvl(unusablebeginning#,0) from col$ where obj#=:1 order by intcol#
+END OF STMT
+PARSE #140612715733936:c=0,e=391,p=0,cr=0,cu=0,mis=1,r=0,dep=2,og=4,plh=0,tim=6792074565683
+BINDS #140612715733936:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7fe2f2f8bd20  bln=22  avl=03  flg=05
+  value=8783
+EXEC #140612715733936:c=2000,e=1367,p=0,cr=0,cu=0,mis=1,r=0,dep=2,og=4,plh=3765558045,tim=6792074567131
+FETCH #140612715733936:c=0,e=138,p=0,cr=4,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074567279
+FETCH #140612715733936:c=0,e=4,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074567311
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074567338
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074567356
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074567371
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074567385
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074567421
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074567449
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074567477
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074567507
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074567548
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074567567
+FETCH #140612715733936:c=0,e=4,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074567583
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074567599
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074567614
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074567629
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074567643
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074567658
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074567672
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074567689
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074567704
+FETCH #140612715733936:c=0,e=2,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074567718
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074567739
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074567768
+FETCH #140612715733936:c=0,e=4,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074567794
+FETCH #140612715733936:c=0,e=4,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074567810
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074567824
+FETCH #140612715733936:c=0,e=4,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074567852
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074567880
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074567908
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074567936
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074567964
+FETCH #140612715733936:c=0,e=4,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074567992
+FETCH #140612715733936:c=0,e=4,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568014
+FETCH #140612715733936:c=0,e=4,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568041
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568062
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568090
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568117
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568145
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568174
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568203
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568232
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568264
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568295
+FETCH #140612715733936:c=0,e=8,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568326
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568355
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568382
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568423
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568450
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568477
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568504
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568538
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568567
+FETCH #140612715733936:c=0,e=4,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568585
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568599
+FETCH #140612715733936:c=0,e=4,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568630
+FETCH #140612715733936:c=0,e=4,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568649
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568664
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568679
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568697
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568712
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568734
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568764
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568783
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568802
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568834
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568864
+FETCH #140612715733936:c=0,e=7,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568894
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568936
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074568964
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074569007
+FETCH #140612715733936:c=1000,e=11,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074569042
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074569071
+FETCH #140612715733936:c=0,e=4,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074569097
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074569116
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074569131
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074569146
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074569161
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074569186
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074569214
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=3765558045,tim=6792074569242
+STAT #140612715733936 id=1 cnt=80 pid=0 pos=1 obj=0 op='SORT ORDER BY (cr=4 pr=0 pw=0 time=137 us cost=3 size=720 card=12)'
+STAT #140612715733936 id=2 cnt=80 pid=1 pos=1 obj=21 op='TABLE ACCESS CLUSTER COL$ (cr=4 pr=0 pw=0 time=101 us cost=2 size=720 card=12)'
+STAT #140612715733936 id=3 cnt=1 pid=2 pos=1 obj=3 op='INDEX UNIQUE SCAN I_OBJ# (cr=2 pr=0 pw=0 time=10 us cost=1 size=0 card=1)'
+CLOSE #140612715733936:c=0,e=1,dep=2,type=3,tim=6792074569337
+=====================
+PARSING IN CURSOR #140612715723016 len=37 dep=2 uid=0 oct=3 lid=0 tim=6792074569400 hv=1398610540 ad='17d4cc4f28' sqlid='grwydz59pu6mc'
+select text from view$ where rowid=:1
+END OF STMT
+PARSE #140612715723016:c=0,e=12,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=3684871272,tim=6792074569399
+BINDS #140612715723016:
+ Bind#0
+  oacdty=11 mxl=16(16) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=18 fl2=0001 frm=00 csi=00 siz=16 off=0
+  kxsbbbfp=7fe2f2f8b4c8  bln=16  avl=16  flg=05
+  value=00002D6D.0005.0001
+EXEC #140612715723016:c=0,e=39,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=3684871272,tim=6792074569493
+FETCH #140612715723016:c=0,e=8,p=0,cr=2,cu=0,mis=0,r=1,dep=2,og=4,plh=3684871272,tim=6792074569513
+STAT #140612715723016 id=1 cnt=1 pid=0 pos=1 obj=95 op='TABLE ACCESS BY USER ROWID VIEW$ (cr=1 pr=0 pw=0 time=6 us cost=1 size=15 card=1)'
+CLOSE #140612715723016:c=0,e=28,dep=2,type=1,tim=6792074569556
+BINDS #140612715741096:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7fe2f2f8b780  bln=22  avl=03  flg=05
+  value=8782
+EXEC #140612715741096:c=0,e=68,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=749386351,tim=6792074569810
+FETCH #140612715741096:c=0,e=10,p=0,cr=3,cu=0,mis=0,r=1,dep=2,og=4,plh=749386351,tim=6792074569835
+CLOSE #140612715741096:c=0,e=1,dep=2,type=3,tim=6792074569860
+=====================
+PARSING IN CURSOR #140612715721576 len=191 dep=2 uid=0 oct=3 lid=0 tim=6792074569886 hv=1070240621 ad='120d2771c0' sqlid='3un99a0zwp4vd'
+select owner#,name,namespace,remoteowner,linkname,p_timestamp,p_obj#, nvl(property,0),subname,type#,flags,d_attrs from dependency$ d, obj$ o where d_obj#=:1 and p_obj#=obj#(+) order by order#
+END OF STMT
+PARSE #140612715721576:c=0,e=12,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=1475428744,tim=6792074569886
+BINDS #140612715721576:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=08 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7fe2f2f8af20  bln=22  avl=03  flg=05
+  value=8782
+EXEC #140612715721576:c=0,e=70,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=1475428744,tim=6792074570028
+FETCH #140612715721576:c=0,e=69,p=0,cr=10,cu=0,mis=0,r=1,dep=2,og=4,plh=1475428744,tim=6792074570129
+FETCH #140612715721576:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=1475428744,tim=6792074570168
+FETCH #140612715721576:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=1475428744,tim=6792074570198
+FETCH #140612715721576:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=1475428744,tim=6792074570233
+STAT #140612715721576 id=1 cnt=3 pid=0 pos=1 obj=0 op='SORT ORDER BY (cr=10 pr=0 pw=0 time=70 us cost=10 size=234 card=3)'
+STAT #140612715721576 id=2 cnt=3 pid=1 pos=1 obj=0 op='HASH JOIN OUTER (cr=10 pr=0 pw=0 time=59 us cost=9 size=234 card=3)'
+STAT #140612715721576 id=3 cnt=3 pid=2 pos=1 obj=0 op='NESTED LOOPS OUTER (cr=10 pr=0 pw=0 time=54 us cost=9 size=234 card=3)'
+STAT #140612715721576 id=4 cnt=3 pid=3 pos=1 obj=0 op='STATISTICS COLLECTOR  (cr=3 pr=0 pw=0 time=17 us)'
+STAT #140612715721576 id=5 cnt=3 pid=4 pos=1 obj=83 op='TABLE ACCESS BY INDEX ROWID BATCHED DEPENDENCY$ (cr=3 pr=0 pw=0 time=12 us cost=3 size=90 card=3)'
+STAT #140612715721576 id=6 cnt=3 pid=5 pos=1 obj=85 op='INDEX RANGE SCAN I_DEPENDENCY1 (cr=2 pr=0 pw=0 time=9 us cost=2 size=0 card=3)'
+STAT #140612715721576 id=7 cnt=2 pid=3 pos=2 obj=18 op='TABLE ACCESS BY INDEX ROWID BATCHED OBJ$ (cr=7 pr=0 pw=0 time=31 us cost=2 size=48 card=1)'
+STAT #140612715721576 id=8 cnt=2 pid=7 pos=1 obj=36 op='INDEX RANGE SCAN I_OBJ1 (cr=5 pr=0 pw=0 time=22 us cost=1 size=0 card=1)'
+STAT #140612715721576 id=9 cnt=0 pid=2 pos=2 obj=18 op='TABLE ACCESS FULL OBJ$ (cr=0 pr=0 pw=0 time=0 us cost=2 size=48 card=1)'
+CLOSE #140612715721576:c=0,e=4,dep=2,type=0,tim=6792074570370
+=====================
+PARSING IN CURSOR #140612715721576 len=56 dep=2 uid=0 oct=3 lid=0 tim=6792074570406 hv=3993603298 ad='17c16c40c8' sqlid='8swypbbr0m372'
+select order#,columns,types from access$ where d_obj#=:1
+END OF STMT
+PARSE #140612715721576:c=0,e=14,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=570326988,tim=6792074570405
+BINDS #140612715721576:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=08 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7fe2f2f8af20  bln=22  avl=03  flg=05
+  value=8782
+EXEC #140612715721576:c=0,e=69,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=570326988,tim=6792074570551
+FETCH #140612715721576:c=0,e=12,p=0,cr=3,cu=0,mis=0,r=1,dep=2,og=4,plh=570326988,tim=6792074570595
+FETCH #140612715721576:c=0,e=9,p=0,cr=2,cu=0,mis=0,r=1,dep=2,og=4,plh=570326988,tim=6792074570629
+FETCH #140612715721576:c=0,e=9,p=0,cr=2,cu=0,mis=0,r=1,dep=2,og=4,plh=570326988,tim=6792074570661
+FETCH #140612715721576:c=0,e=4,p=0,cr=1,cu=0,mis=0,r=0,dep=2,og=4,plh=570326988,tim=6792074570688
+STAT #140612715721576 id=1 cnt=3 pid=0 pos=1 obj=84 op='TABLE ACCESS BY INDEX ROWID BATCHED ACCESS$ (cr=8 pr=0 pw=0 time=11 us cost=3 size=172 card=4)'
+STAT #140612715721576 id=2 cnt=3 pid=1 pos=1 obj=87 op='INDEX RANGE SCAN I_ACCESS1 (cr=5 pr=0 pw=0 time=14 us cost=2 size=0 card=4)'
+CLOSE #140612715721576:c=0,e=3,dep=2,type=0,tim=6792074570750
+BINDS #140612715733936:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7fe2f2f8b780  bln=22  avl=03  flg=05
+  value=8782
+EXEC #140612715733936:c=0,e=70,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=3765558045,tim=6792074570883
+FETCH #140612715733936:c=0,e=119,p=0,cr=3,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571019
+FETCH #140612715733936:c=0,e=4,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571048
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571067
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571090
+FETCH #140612715733936:c=0,e=7,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571119
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571144
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571171
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571212
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571241
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571270
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571299
+FETCH #140612715733936:c=0,e=4,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571319
+FETCH #140612715733936:c=0,e=4,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571338
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571353
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571367
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571385
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571399
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571414
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571428
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571448
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571483
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571506
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571522
+FETCH #140612715733936:c=0,e=4,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571544
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571566
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571583
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571619
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571646
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571685
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571714
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571761
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571804
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571834
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571866
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571897
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571926
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571954
+FETCH #140612715733936:c=0,e=4,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571979
+FETCH #140612715733936:c=0,e=4,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074571995
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572009
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572024
+FETCH #140612715733936:c=0,e=4,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572045
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572086
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572115
+FETCH #140612715733936:c=0,e=7,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572145
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572172
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572199
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572228
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572257
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572285
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572315
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572343
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572372
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572401
+FETCH #140612715733936:c=0,e=14,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572437
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572466
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572496
+FETCH #140612715733936:c=0,e=17,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572537
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572569
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572605
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572635
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572665
+FETCH #140612715733936:c=0,e=4,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572690
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572707
+FETCH #140612715733936:c=0,e=4,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572726
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572749
+FETCH #140612715733936:c=0,e=3,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572767
+FETCH #140612715733936:c=0,e=4,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572783
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572804
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572834
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572863
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572892
+FETCH #140612715733936:c=0,e=7,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572947
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074572988
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074573018
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074573053
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074573085
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074573127
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074573156
+FETCH #140612715733936:c=0,e=6,p=0,cr=0,cu=0,mis=0,r=1,dep=2,og=4,plh=3765558045,tim=6792074573198
+FETCH #140612715733936:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=3765558045,tim=6792074573227
+CLOSE #140612715733936:c=0,e=1,dep=2,type=3,tim=6792074573257
+PARSE #140612715723016:c=0,e=8,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=3684871272,tim=6792074573332
+BINDS #140612715723016:
+ Bind#0
+  oacdty=11 mxl=16(16) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=18 fl2=0001 frm=00 csi=00 siz=16 off=0
+  kxsbbbfp=7fe2f2f8b370  bln=16  avl=16  flg=05
+  value=00002D6D.0004.0001
+EXEC #140612715723016:c=0,e=73,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=3684871272,tim=6792074573440
+FETCH #140612715723016:c=0,e=9,p=0,cr=2,cu=0,mis=0,r=1,dep=2,og=4,plh=3684871272,tim=6792074573470
+CLOSE #140612715723016:c=0,e=7,dep=2,type=3,tim=6792074573492
+PARSE #140612715723016:c=0,e=8,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=3684871272,tim=6792074573956
+BINDS #140612715723016:
+ Bind#0
+  oacdty=11 mxl=16(16) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=18 fl2=0001 frm=00 csi=00 siz=16 off=0
+  kxsbbbfp=7fe2f2f8b370  bln=16  avl=16  flg=05
+  value=00002D6B.0013.0001
+EXEC #140612715723016:c=999,e=58,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=3684871272,tim=6792074574051
+FETCH #140612715723016:c=0,e=10,p=0,cr=2,cu=0,mis=0,r=1,dep=2,og=4,plh=3684871272,tim=6792074574080
+CLOSE #140612715723016:c=0,e=20,dep=2,type=3,tim=6792074574120
+PARSE #140612715723016:c=0,e=8,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=3684871272,tim=6792074574208
+BINDS #140612715723016:
+ Bind#0
+  oacdty=11 mxl=16(16) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=18 fl2=0001 frm=00 csi=00 siz=16 off=0
+  kxsbbbfp=7fe2f2f8b370  bln=16  avl=16  flg=05
+  value=00002D6B.0012.0001
+EXEC #140612715723016:c=0,e=60,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=3684871272,tim=6792074574302
+FETCH #140612715723016:c=0,e=12,p=0,cr=2,cu=0,mis=0,r=1,dep=2,og=4,plh=3684871272,tim=6792074574335
+CLOSE #140612715723016:c=0,e=7,dep=2,type=3,tim=6792074574366
+=====================
+PARSING IN CURSOR #140612715721576 len=53 dep=2 uid=0 oct=3 lid=0 tim=6792074575069 hv=2195068792 ad='17d4b88458' sqlid='asvzxj61dc5vs'
+select timestamp, flags from fixed_obj$ where obj#=:1
+END OF STMT
+PARSE #140612715721576:c=1000,e=322,p=0,cr=0,cu=0,mis=1,r=0,dep=2,og=4,plh=0,tim=6792074575068
+BINDS #140612715721576:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7fe2f2f8a6f0  bln=22  avl=06  flg=05
+  value=4294953218
+EXEC #140612715721576:c=0,e=686,p=0,cr=0,cu=0,mis=1,r=0,dep=2,og=4,plh=3028786551,tim=6792074575838
+FETCH #140612715721576:c=0,e=11,p=0,cr=3,cu=0,mis=0,r=1,dep=2,og=4,plh=3028786551,tim=6792074575860
+STAT #140612715721576 id=1 cnt=1 pid=0 pos=1 obj=71 op='TABLE ACCESS BY INDEX ROWID FIXED_OBJ$ (cr=3 pr=0 pw=0 time=12 us cost=2 size=18 card=1)'
+STAT #140612715721576 id=2 cnt=1 pid=1 pos=1 obj=72 op='INDEX UNIQUE SCAN I_FIXED_OBJ$_OBJ# (cr=2 pr=0 pw=0 time=9 us cost=1 size=0 card=1)'
+CLOSE #140612715721576:c=0,e=2,dep=2,type=0,tim=6792074575916
+=====================
+PARSING IN CURSOR #140612715721576 len=135 dep=2 uid=0 oct=3 lid=0 tim=6792074576287 hv=1376444543 ad='149fc23b10' sqlid='afx304d90ps3z'
+select rowcnt, blkcnt, empcnt, avgspc, chncnt, avgrln, analyzetime, samplesize, avgspc_flb, flbcnt, flags from tab_stats$ where obj#=:1
+END OF STMT
+PARSE #140612715721576:c=1000,e=347,p=0,cr=0,cu=0,mis=1,r=0,dep=2,og=4,plh=0,tim=6792074576287
+BINDS #140612715721576:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7fe2f2f8a208  bln=22  avl=06  flg=05
+  value=4294953218
+EXEC #140612715721576:c=0,e=654,p=0,cr=0,cu=0,mis=1,r=0,dep=2,og=4,plh=2144485289,tim=6792074577029
+FETCH #140612715721576:c=0,e=17,p=0,cr=3,cu=0,mis=0,r=1,dep=2,og=4,plh=2144485289,tim=6792074577067
+STAT #140612715721576 id=1 cnt=1 pid=0 pos=1 obj=73 op='TABLE ACCESS BY INDEX ROWID TAB_STATS$ (cr=3 pr=0 pw=0 time=16 us cost=2 size=38 card=1)'
+STAT #140612715721576 id=2 cnt=1 pid=1 pos=1 obj=74 op='INDEX UNIQUE SCAN I_TAB_STATS$_OBJ# (cr=2 pr=0 pw=0 time=11 us cost=1 size=0 card=1)'
+CLOSE #140612715721576:c=0,e=3,dep=2,type=0,tim=6792074577140
+=====================
+PARSING IN CURSOR #140612715720992 len=90 dep=2 uid=0 oct=3 lid=0 tim=6792074577757 hv=3433193208 ad='17d4cb0338' sqlid='cn6hhn36a4rrs'
+select con#,obj#,rcon#,enabled,nvl(defer,0),spare2,spare3,refact from cdef$ where robj#=:1
+END OF STMT
+PARSE #140612715720992:c=0,e=251,p=0,cr=0,cu=0,mis=1,r=0,dep=2,og=4,plh=0,tim=6792074577757
+BINDS #140612715720992:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7fe2f2f896a8  bln=22  avl=03  flg=05
+  value=8783
+EXEC #140612715720992:c=1000,e=766,p=0,cr=0,cu=0,mis=1,r=0,dep=2,og=4,plh=3845132125,tim=6792074578598
+FETCH #140612715720992:c=0,e=6,p=0,cr=1,cu=0,mis=0,r=0,dep=2,og=4,plh=3845132125,tim=6792074578616
+STAT #140612715720992 id=1 cnt=0 pid=0 pos=1 obj=31 op='TABLE ACCESS BY INDEX ROWID BATCHED CDEF$ (cr=1 pr=0 pw=0 time=7 us cost=2 size=60 card=2)'
+STAT #140612715720992 id=2 cnt=0 pid=1 pos=1 obj=55 op='INDEX RANGE SCAN I_CDEF3 (cr=1 pr=0 pw=0 time=6 us cost=1 size=0 card=2)'
+CLOSE #140612715720992:c=0,e=1,dep=2,type=3,tim=6792074578659
+=====================
+PARSING IN CURSOR #140612715713016 len=160 dep=2 uid=0 oct=3 lid=0 tim=6792074579015 hv=2880999359 ad='149fe36fc0' sqlid='gx4mv66pvj3xz'
+select con#,type#,condlength,intcols,robj#,rcon#,match#,refact,nvl(enabled,0),rowid,cols,nvl(defer,0),mtime,nvl(spare1,0),spare2,spare3 from cdef$ where obj#=:1
+END OF STMT
+PARSE #140612715713016:c=0,e=326,p=0,cr=0,cu=0,mis=1,r=0,dep=2,og=4,plh=0,tim=6792074579014
+BINDS #140612715713016:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7fe2f2f86cf8  bln=22  avl=03  flg=05
+  value=8783
+EXEC #140612715713016:c=0,e=794,p=0,cr=0,cu=0,mis=1,r=0,dep=2,og=4,plh=2570921597,tim=6792074579886
+FETCH #140612715713016:c=0,e=7,p=0,cr=2,cu=0,mis=0,r=0,dep=2,og=4,plh=2570921597,tim=6792074579903
+STAT #140612715713016 id=1 cnt=0 pid=0 pos=1 obj=31 op='TABLE ACCESS CLUSTER CDEF$ (cr=2 pr=0 pw=0 time=8 us cost=2 size=192 card=4)'
+STAT #140612715713016 id=2 cnt=0 pid=1 pos=1 obj=30 op='INDEX UNIQUE SCAN I_COBJ# (cr=2 pr=0 pw=0 time=8 us cost=1 size=0 card=1)'
+CLOSE #140612715713016:c=0,e=1,dep=2,type=3,tim=6792074579944
+=====================
+PARSING IN CURSOR #140612715697792 len=151 dep=2 uid=0 oct=3 lid=0 tim=6792074581188 hv=2507062328 ad='17d4cdeee8' sqlid='7u49y06aqxg1s'
+select /*+ rule */ bucket, endpoint, col#, epvalue, epvalue_raw, ep_repeat_count from histgrm$ where obj#=:1 and intcol#=:2 and row#=:3 order by bucket
+END OF STMT
+PARSE #140612715697792:c=1000,e=270,p=0,cr=0,cu=0,mis=1,r=0,dep=2,og=3,plh=0,tim=6792074581188
+BINDS #140612715697792:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=72 off=0
+  kxsbbbfp=7fe2f2f84018  bln=22  avl=03  flg=05
+  value=8294
+ Bind#1
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=24
+  kxsbbbfp=7fe2f2f84030  bln=22  avl=02  flg=01
+  value=17
+ Bind#2
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=48
+  kxsbbbfp=7fe2f2f84048  bln=22  avl=01  flg=01
+  value=0
+EXEC #140612715697792:c=0,e=495,p=0,cr=0,cu=0,mis=1,r=0,dep=2,og=3,plh=3312420081,tim=6792074581731
+FETCH #140612715697792:c=0,e=27,p=0,cr=3,cu=0,mis=0,r=6,dep=2,og=3,plh=3312420081,tim=6792074581776
+STAT #140612715697792 id=1 cnt=6 pid=0 pos=1 obj=0 op='SORT ORDER BY (cr=3 pr=0 pw=0 time=23 us cost=0 size=0 card=0)'
+STAT #140612715697792 id=2 cnt=6 pid=1 pos=1 obj=66 op='TABLE ACCESS CLUSTER HISTGRM$ (cr=3 pr=0 pw=0 time=11 us)'
+STAT #140612715697792 id=3 cnt=1 pid=2 pos=1 obj=65 op='INDEX UNIQUE SCAN I_OBJ#_INTCOL# (cr=2 pr=0 pw=0 time=7 us)'
+CLOSE #140612715697792:c=0,e=1,dep=2,type=3,tim=6792074581825
+BINDS #140612715743392:
+ Bind#0
+  oacdty=01 mxl=32(13) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=21 fl2=0000 frm=01 csi=873 siz=64 off=0
+  kxsbbbfp=7fe2f2f86cd0  bln=32  avl=13  flg=05
+  value="9mkfj9cu6m20r"
+ Bind#1
+  oacdty=01 mxl=32(03) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=21 fl2=0000 frm=01 csi=873 siz=0 off=32
+  kxsbbbfp=7fe2f2f86cf0  bln=32  avl=03  flg=01
+  value="TAG"
+EXEC #140612715743392:c=40993,e=40979,p=0,cr=65,cu=0,mis=1,r=0,dep=1,og=4,plh=4033942373,tim=6792074596830
+WAIT #140612715743392: nam='Disk file operations I/O' ela= 254 FileOperation=2 fileno=0 filetype=1 obj#=-1 tim=6792074597152
+WAIT #140612715743392: nam='Disk file operations I/O' ela= 4 FileOperation=2 fileno=1 filetype=1 obj#=-1 tim=6792074597172
+WAIT #140612715743392: nam='Disk file operations I/O' ela= 3 FileOperation=2 fileno=2 filetype=1 obj#=-1 tim=6792074597182
+WAIT #140612715743392: nam='Disk file operations I/O' ela= 210 FileOperation=2 fileno=0 filetype=15 obj#=-1 tim=6792074597612
+WAIT #140612715743392: nam='control file sequential read' ela= 1085 file#=0 block#=1 blocks=1 obj#=-1 tim=6792074598651
+WAIT #140612715743392: nam='Disk file operations I/O' ela= 20 FileOperation=2 fileno=0 filetype=15 obj#=-1 tim=6792074598729
+WAIT #140612715743392: nam='control file sequential read' ela= 301 file#=0 block#=15 blocks=1 obj#=-1 tim=6792074599022
+WAIT #140612715743392: nam='Disk file operations I/O' ela= 24 FileOperation=2 fileno=0 filetype=15 obj#=-1 tim=6792074599084
+WAIT #140612715743392: nam='control file sequential read' ela= 248 file#=0 block#=17 blocks=1 obj#=-1 tim=6792074599323
+WAIT #140612715743392: nam='control file sequential read' ela= 197 file#=0 block#=1 blocks=1 obj#=-1 tim=6792074599733
+WAIT #140612715743392: nam='control file sequential read' ela= 154 file#=0 block#=15 blocks=1 obj#=-1 tim=6792074599908
+WAIT #140612715743392: nam='control file sequential read' ela= 426 file#=0 block#=17 blocks=1 obj#=-1 tim=6792074600352
+WAIT #140612715743392: nam='Disk file operations I/O' ela= 17 FileOperation=2 fileno=0 filetype=15 obj#=-1 tim=6792074600414
+WAIT #140612715743392: nam='control file sequential read' ela= 214 file#=0 block#=283 blocks=1 obj#=-1 tim=6792074600622
+FETCH #140612715743392:c=3000,e=3977,p=0,cr=23,cu=0,mis=0,r=0,dep=1,og=4,plh=4033942373,tim=6792074600854
+STAT #140612715743392 id=1 cnt=1 pid=0 pos=1 obj=0 op='VIEW  (cr=23 pr=0 pw=0 time=3970 us cost=19 size=78 card=1)'
+STAT #140612715743392 id=2 cnt=1 pid=1 pos=1 obj=0 op='SORT AGGREGATE (cr=23 pr=0 pw=0 time=3968 us)'
+STAT #140612715743392 id=3 cnt=1 pid=2 pos=1 obj=0 op='NESTED LOOPS  (cr=23 pr=0 pw=0 time=3960 us cost=17 size=125 card=1)'
+STAT #140612715743392 id=4 cnt=1 pid=3 pos=1 obj=0 op='NESTED LOOPS  (cr=22 pr=0 pw=0 time=3944 us cost=17 size=125 card=1)'
+STAT #140612715743392 id=5 cnt=1 pid=4 pos=1 obj=0 op='HASH JOIN  (cr=21 pr=0 pw=0 time=3932 us cost=16 size=98 card=1)'
+STAT #140612715743392 id=6 cnt=1 pid=5 pos=1 obj=0 op='NESTED LOOPS  (cr=21 pr=0 pw=0 time=3925 us cost=16 size=98 card=1)'
+STAT #140612715743392 id=7 cnt=1 pid=6 pos=1 obj=0 op='STATISTICS COLLECTOR  (cr=19 pr=0 pw=0 time=3914 us)'
+STAT #140612715743392 id=8 cnt=1 pid=7 pos=1 obj=0 op='HASH JOIN  (cr=19 pr=0 pw=0 time=3905 us cost=15 size=82 card=1)'
+STAT #140612715743392 id=9 cnt=1 pid=8 pos=1 obj=0 op='NESTED LOOPS  (cr=19 pr=0 pw=0 time=3903 us cost=15 size=82 card=1)'
+STAT #140612715743392 id=10 cnt=1 pid=9 pos=1 obj=0 op='STATISTICS COLLECTOR  (cr=0 pr=0 pw=0 time=3816 us)'
+STAT #140612715743392 id=11 cnt=1 pid=10 pos=1 obj=0 op='MERGE JOIN CARTESIAN (cr=0 pr=0 pw=0 time=3808 us cost=0 size=10 card=1)'
+STAT #140612715743392 id=12 cnt=1 pid=11 pos=1 obj=0 op='FIXED TABLE FULL X$KCCDI (cr=0 pr=0 pw=0 time=2495 us cost=0 size=10 card=1)'
+STAT #140612715743392 id=13 cnt=1 pid=11 pos=2 obj=0 op='BUFFER SORT (cr=0 pr=0 pw=0 time=1310 us cost=0 size=0 card=1)'
+STAT #140612715743392 id=14 cnt=1 pid=13 pos=1 obj=0 op='FIXED TABLE FULL X$KCCDI2 (cr=0 pr=0 pw=0 time=1294 us cost=0 size=0 card=1)'
+STAT #140612715743392 id=15 cnt=1 pid=9 pos=2 obj=0 op='PARTITION RANGE ITERATOR PARTITION: KEY KEY (cr=19 pr=0 pw=0 time=85 us cost=15 size=72 card=1)'
+STAT #140612715743392 id=16 cnt=1 pid=15 pos=1 obj=8294 op='TABLE ACCESS BY LOCAL INDEX ROWID BATCHED WRH$_SQLSTAT PARTITION: KEY KEY (cr=19 pr=0 pw=0 time=67 us cost=15 size=72 card=1)'
+STAT #140612715743392 id=17 cnt=1 pid=16 pos=1 obj=8298 op='INDEX RANGE SCAN WRH$_SQLSTAT_INDEX PARTITION: KEY KEY (cr=18 pr=0 pw=0 time=51 us cost=11 size=0 card=4)'
+STAT #140612715743392 id=18 cnt=0 pid=8 pos=2 obj=0 op='PARTITION RANGE ALL PARTITION: 1 11 (cr=0 pr=0 pw=0 time=0 us cost=15 size=72 card=1)'
+STAT #140612715743392 id=19 cnt=0 pid=18 pos=1 obj=8294 op='TABLE ACCESS BY LOCAL INDEX ROWID BATCHED WRH$_SQLSTAT PARTITION: 1 11 (cr=0 pr=0 pw=0 time=0 us cost=15 size=72 card=1)'
+STAT #140612715743392 id=20 cnt=0 pid=19 pos=1 obj=8298 op='INDEX RANGE SCAN WRH$_SQLSTAT_INDEX PARTITION: 1 11 (cr=0 pr=0 pw=0 time=0 us cost=11 size=0 card=4)'
+STAT #140612715743392 id=21 cnt=1 pid=6 pos=2 obj=8693 op='TABLE ACCESS BY INDEX ROWID WRM$_SNAPSHOT (cr=2 pr=0 pw=0 time=9 us cost=1 size=16 card=1)'
+STAT #140612715743392 id=22 cnt=1 pid=21 pos=1 obj=8694 op='INDEX UNIQUE SCAN WRM$_SNAPSHOT_PK (cr=1 pr=0 pw=0 time=5 us cost=0 size=0 card=1)'
+STAT #140612715743392 id=23 cnt=0 pid=5 pos=2 obj=8693 op='TABLE ACCESS FULL WRM$_SNAPSHOT (cr=0 pr=0 pw=0 time=0 us cost=1 size=16 card=1)'
+STAT #140612715743392 id=24 cnt=1 pid=4 pos=2 obj=8694 op='INDEX UNIQUE SCAN WRM$_SNAPSHOT_PK (cr=1 pr=0 pw=0 time=2 us cost=0 size=0 card=1)'
+STAT #140612715743392 id=25 cnt=1 pid=3 pos=2 obj=8693 op='TABLE ACCESS BY INDEX ROWID WRM$_SNAPSHOT (cr=1 pr=0 pw=0 time=14 us cost=1 size=27 card=1)'
+STAT #140612715743392 id=26 cnt=1 pid=25 pos=1 obj=0 op='FAST DUAL  (cr=0 pr=0 pw=0 time=0 us cost=2 size=0 card=1)'
+Final query after transformations:******* UNPARSED QUERY IS *******
+SELECT "M"."SENDER_USER_ID" "SENDER_USER_ID" FROM "TAG"."MESSAGES_STATUS" "MS","TAG"."MESSAGES" "M" WHERE "MS"."USER_ID"=7280151987 AND "M"."EVENT_TS">=1460934082000 AND "M"."EVENT_TS"<=1461020482000 AND "MS"."THREAD_ID"="M"."THREAD_ID" AND 1461020482000>=1460934082000
+kkoqbc: optimizing query block SEL$58A6D7F6 (#0)
+        
+        :
+    call(in-use=45800, alloc=65696), compile(in-use=108112, alloc=110496), execution(in-use=5024, alloc=8088)
+
+kkoqbc-subheap (create addr=0x7fe2f3637f18)
+****************
+QUERY BLOCK TEXT
+****************
+SELECT sender_user_id
+FROM MESSAGES_STATUS ms
+INNER JOIN MESSAGES m ON ms.thread_id = m.thread_id
+WHERE ms.user_id = 7280151987
+AND m.event_ts between 1461020482000 - 86400000 and 1461020482000
+---------------------
+QUERY BLOCK SIGNATURE
+---------------------
+signature (optimizer): qb_name=SEL$58A6D7F6 nbfros=2 flg=0
+  fro(0): flg=0 objn=80638 hint_alias="M"@"SEL$1"
+  fro(1): flg=0 objn=83305 hint_alias="MS"@"SEL$1"
+
+-----------------------------
+SYSTEM STATISTICS INFORMATION
+-----------------------------
+Using dictionary system stats.
+  Using WORKLOAD Stats
+  CPUSPEED: 2912 millions instructions/sec
+  SREADTIM: 0.548000 milliseconds
+  MREADTIM: 1.693000 millisecons
+  MBRC:     10 blocks
+  MAXTHR:   -1 bytes/sec
+  SLAVETHR: -1 bytes/sec
+
+***************************************
+BASE STATISTICAL INFORMATION
+***********************
+Table Stats::
+  Table: MESSAGES  Alias:  M  (Using composite stats)
+  #Rows: 40533922570  SSZ: 0  LGR: 0  #Blks:  630500484  AvgRowLen:  30.00  NEB: 0  ChainCnt:  0.00  SPC: 0  RFL: 0  RNF: 0  CBK: 0  CHR: 0  KQDFLG: 1
+  #IMCUs: 0  IMCRowCnt: 0  IMCJournalRowCnt: 0  #IMCBlocks: 0  IMCQuotient: 0.000000
+Index Stats::
+  Index: MESSAGES_IX1  Col#: 2 1
+    USING COMPOSITE STATS
+  LVLS: 3  #LB: 174537137  #DK: 39764599964  LB/K: 1.00  DB/K: 1.00  CLUF: 39569062369.00  NRW: 39764599964.00 SSZ: 0.00 LGR: 0.00 CBK: 0.00 GQL: 0.00 CHR: 0.00 KQDFLG: 1 BSZ: 1
+  KKEISFLG: 1 
+    ALL PARTITIONS USABLE
+  Index: MESSAGES_IX2  Col#: 2 3 1
+    USING COMPOSITE STATS
+  LVLS: 3  #LB: 222963625  #DK: 39953777051  LB/K: 1.00  DB/K: 1.00  CLUF: 39735557333.00  NRW: 39953777051.00 SSZ: 0.00 LGR: 0.00 CBK: 0.00 GQL: 0.00 CHR: 0.00 KQDFLG: 1 BSZ: 1
+  KKEISFLG: 1 
+    ALL PARTITIONS USABLE
+  Index: MESSAGES_PK  Col#: 1
+    USING COMPOSITE STATS
+  LVLS: 3  #LB: 97109935  #DK: 39199138805  LB/K: 1.00  DB/K: 1.00  CLUF: 3506465488.00  NRW: 39199138805.00 SSZ: 0.00 LGR: 0.00 CBK: 0.00 GQL: 0.00 CHR: 0.00 KQDFLG: 1 BSZ: 1
+  KKEISFLG: 1 
+    ALL PARTITIONS USABLE
+***********************
+Table Stats::
+  Table: MESSAGES_STATUS  Alias: MS
+  #Rows: 12047743555  SSZ: 0  LGR: 0  #Blks:  169109047  AvgRowLen:  88.00  NEB: 0  ChainCnt:  0.00  SPC: 0  RFL: 0  RNF: 0  CBK: 0  CHR: 0  KQDFLG: 1
+  #IMCUs: 0  IMCRowCnt: 0  IMCJournalRowCnt: 0  #IMCBlocks: 0  IMCQuotient: 0.000000
+  Column (#2): THREAD_ID(NUMBER)
+    AvgLen: 13 NDV: 5986844672 Nulls: 0 Density: 0.000000
+Index Stats::
+  Index: MESSAGES_STATUS_IX1  Col#: 2
+  LVLS: 4  #LB: 50291978  #DK: 5986844672  LB/K: 1.00  DB/K: 2.00  CLUF: 12011893042.00  NRW: 12011981196.00 SSZ: 0.00 LGR: 0.00 CBK: 0.00 GQL: 100.00 CHR: 0.00 KQDFLG: 1 BSZ: 1
+  KKEISFLG: 1 
+  Index: MESSAGES_STATUS_PK  Col#: 1 2
+  LVLS: 4  #LB: 169109047  #DK: 12241471476  LB/K: 1.00  DB/K: 1.00  CLUF: 0.00  NRW: 12047743555.00 SSZ: 0.00 LGR: 0.00 CBK: 0.00 GQL: 0.00 CHR: 0.00 KQDFLG: 1 BSZ: 1
+  KKEISFLG: 1 
+=======================================
+SPD: BEGIN context at query block level
+=======================================
+Query Block SEL$58A6D7F6 (#0)
+Applicable DS directives:
+   dirid = 2967660405386353406, state = 5, flags = 1, loc = 1 {C(83305)[1, 5, 7, 8]}
+   dirid = 7319644627035895205, state = 3, flags = 1, loc = 1 {C(83305)[1, 5, 8]}
+   dirid = 18271806003132853315, state = 5, flags = 1, loc = 1 {(83305)[1, 7, 8]}
+   dirid = 15045824139728402821, state = 2, flags = 1, loc = 1 {C(83305)[1, 13]}
+   dirid = 8966106107181059606, state = 5, flags = 1, loc = 1 {EC(83305)[1]}
+   dirid = 13588642072880228990, state = 1, flags = 1, loc = 4 {(83305)[1, 2, 4, 5]; (80638)[]; (80638)[]}
+   dirid = 5097825876161620669, state = 5, flags = 1, loc = 4 {(83305)[1, 2]}
+   dirid = 3294364207904304056, state = 2, flags = 1, loc = 1 {C(80638)[1, 2, 3]}
+   dirid = 4678424848150918423, state = 2, flags = 1, loc = 1 {C(80638)[2, 3]}
+   dirid = 5030633234507819428, state = 2, flags = 1, loc = 1 {CJ(80638)[1, 2]}
+   dirid = 12421805571730305201, state = 2, flags = 1, loc = 1 {(80638)[1, 2]}
+   dirid = 6178882956140305338, state = 5, flags = 1, loc = 1 {EC(80638)[2]}
+   dirid = 1836554401722428388, state = 3, flags = 1, loc = 2 {F(83305)[]; (80638)[]}
+   dirid = 6948080411374136032, state = 5, flags = 1, loc = 2 {F(83305)[]; F(80638)[]}
+   dirid = 7218892810598756521, state = 5, flags = 1, loc = 4 {(83305)[1, 2]; (80638)[]}
+   dirid = 3017482289593790294, state = 3, flags = 1, loc = 4 {(80638)[]}
+Checking valid directives for the query block
+  SPD: Return code in qosdDSDirSetup: NODIR, estType = QUERY_BLOCK
+Return code in qosdSetupDirCtx4QB: EXISTS
+=====================================
+SPD: END context at query block level
+=====================================
+Access path analysis for MESSAGES_STATUS
+***************************************
+SINGLE TABLE ACCESS PATH 
+  Single Table Cardinality Estimation for MESSAGES_STATUS[MS] 
+  SPD: Directive valid: dirid = 8966106107181059606, state = 5, flags = 1, loc = 1 {EC(83305)[1]}
+  SPD: Return code in qosdDSDirSetup: EXISTS, estType = TABLE
+  Column (#1): 
+    NewDensity:0.000000, OldDensity:0.000000 BktCnt:5534.000000, PopBktCnt:0.000000, PopValCnt:0, NDV:85270528
+  Column (#1): USER_ID(NUMBER)
+    AvgLen: 7 NDV: 85270528 Nulls: 0 Density: 0.000000 Min: 1.000000 Max: 54571209898.000000
+    Histogram: Hybrid  #Bkts: 254  UncompBkts: 5534  EndPtVals: 254  ActualVal: yes
+  Table: MESSAGES_STATUS  Alias: MS
+    Card: Original: 12047743555.000000=====================
+PARSING IN CURSOR #140612715702496 len=318 dep=1 uid=64 oct=3 lid=64 tim=6792074605128 hv=2057989342 ad='10b2d8018' sqlid='7036up1xanv6y'
+SELECT /* DS_SVC */ /*+ dynamic_sampling(0) no_sql_tune no_monitoring optimizer_features_enable(default) no_parallel result_cache(snapshot=3600) */ SUM(C1) FROM (SELECT /*+ qb_name("innerQuery")  */ 1 AS C1 FROM "MESSAGES_STATUS" SAMPLE BLOCK(0.000480327, 8) SEED(1)  "MS" WHERE ("MS"."USER_ID"=7280151987)) innerQuery
+END OF STMT
+PARSE #140612715702496:c=2000,e=1614,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=1,plh=3717179427,tim=6792074605127
+EXEC #140612715702496:c=0,e=19,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=1,plh=3717179427,tim=6792074605195
+FETCH #140612715702496:c=0,e=39,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=1,plh=3717179427,tim=6792074605246
+STAT #140612715702496 id=1 cnt=1 pid=0 pos=1 obj=0 op='RESULT CACHE  0ac4nwdad15wj6knwdq7pdjgtu (cr=0 pr=0 pw=0 time=41 us)'
+STAT #140612715702496 id=2 cnt=0 pid=1 pos=1 obj=0 op='SORT AGGREGATE (cr=0 pr=0 pw=0 time=0 us)'
+STAT #140612715702496 id=3 cnt=0 pid=2 pos=1 obj=83306 op='INDEX RANGE SCAN MESSAGES_STATUS_PK (cr=0 pr=0 pw=0 time=0 us cost=6 size=63 card=1)'
+CLOSE #140612715702496:c=0,e=7,dep=1,type=0,tim=6792074605365
+=====================
+PARSING IN CURSOR #140612715702496 len=318 dep=1 uid=64 oct=3 lid=64 tim=6792074606736 hv=3023740451 ad='14946ba140' sqlid='a8h0njku3p7j3'
+SELECT /* DS_SVC */ /*+ dynamic_sampling(0) no_sql_tune no_monitoring optimizer_features_enable(default) no_parallel result_cache(snapshot=3600) */ SUM(C1) FROM (SELECT /*+ qb_name("innerQuery")  */ 1 AS C1 FROM "MESSAGES_STATUS" SAMPLE BLOCK(0.000960654, 8) SEED(2)  "MS" WHERE ("MS"."USER_ID"=7280151987)) innerQuery
+END OF STMT
+PARSE #140612715702496:c=1000,e=1311,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=1,plh=3717179427,tim=6792074606735
+EXEC #140612715702496:c=0,e=11,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=1,plh=3717179427,tim=6792074606789
+FETCH #140612715702496:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=1,plh=3717179427,tim=6792074606804
+STAT #140612715702496 id=1 cnt=1 pid=0 pos=1 obj=0 op='RESULT CACHE  8nh7pjq7g9c4zf5vdt0qsx0848 (cr=0 pr=0 pw=0 time=3 us)'
+STAT #140612715702496 id=2 cnt=0 pid=1 pos=1 obj=0 op='SORT AGGREGATE (cr=0 pr=0 pw=0 time=0 us)'
+STAT #140612715702496 id=3 cnt=0 pid=2 pos=1 obj=83306 op='INDEX RANGE SCAN MESSAGES_STATUS_PK (cr=0 pr=0 pw=0 time=0 us cost=6 size=63 card=1)'
+CLOSE #140612715702496:c=0,e=1,dep=1,type=0,tim=6792074606865
+    >> Single Tab Card adjusted from 141.288483 to 104095.757500 due to adaptive dynamic sampling
+  Rounded: 104096  Computed: 104095.757500  Non Adjusted: 141.288483
+  Access Path: index (index (FFS))
+    Index: MESSAGES_STATUS_IX1
+    resc_io: 15537286.000000  resc_cpu: 2400188107128
+    ix_sel: 0.000000  ix_sel_with_filters: 1.000000 
+  Access Path: index (FFS)
+    Cost:  17041374.360226  Resp: 17041374.360226  Degree: 1
+      Cost_io: 15537286.000000  Cost_cpu: 2400188107128
+      Resp_io: 15537286.000000  Resp_cpu: 2400188107128
+  Access Path: index (index (FFS))
+    Index: MESSAGES_STATUS_PK
+    resc_io: 52244822.000000  resc_cpu: 3252416336018
+    ix_sel: 0.000000  ix_sel_with_filters: 1.000000 
+  Access Path: index (FFS)
+    Cost:  54282962.901992  Resp: 54282962.901992  Degree: 1
+      Cost_io: 52244822.000000  Cost_cpu: 3252416336018
+      Resp_io: 52244822.000000  Resp_cpu: 3252416336018
+ ****** Costing Index MESSAGES_STATUS_IX1
+OPTIMIZER PERCENT INDEX CACHING = 0
+  Access Path: index (FullScan)
+    Index: MESSAGES_STATUS_IX1
+    resc_io: 50291982.000000  resc_cpu: 2760547571494
+    ix_sel: 1.000000  ix_sel_with_filters: 1.000000 
+    Cost: 52021891.192452  Resp: 52021891.192452  Degree: 1
+ ****** Costing Index MESSAGES_STATUS_PK
+OPTIMIZER PERCENT INDEX CACHING = 0
+  SPD: Directive valid: dirid = 8966106107181059606, state = 5, flags = 1, loc = 1 {EC(83305)[1]}
+  SPD: Return code in qosdDSDirSetup: EXISTS, estType = INDEX_SCAN
+
+  SPD: Directive valid: dirid = 8966106107181059606, state = 5, flags = 1, loc = 1 {EC(83305)[1]}
+  SPD: Return code in qosdDSDirSetup: EXISTS, estType = INDEX_FILTER
+
+=====================
+PARSING IN CURSOR #140612715702496 len=418 dep=1 uid=64 oct=3 lid=64 tim=6792074608649 hv=426595382 ad='10e881b18' sqlid='6p0w76ncqup1q'
+SELECT /* DS_SVC */ /*+ dynamic_sampling(0) no_sql_tune no_monitoring optimizer_features_enable(default) no_parallel result_cache(snapshot=3600) OPT_ESTIMATE(@"innerQuery", TABLE, "MS", ROWS=104095.7575) */ C1, C2, C3 FROM (SELECT /*+ qb_name("innerQuery") INDEX( "MS" "MESSAGES_STATUS_PK")  */ COUNT(*) AS C1, 4294967295 AS C2, COUNT(*) AS C3  FROM "MESSAGES_STATUS" "MS" WHERE ("MS"."USER_ID"=7280151987)) innerQuery
+END OF STMT
+PARSE #140612715702496:c=1000,e=1237,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=1,plh=1693346701,tim=6792074608648
+EXEC #140612715702496:c=0,e=10,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=1,plh=1693346701,tim=6792074608695
+FETCH #140612715702496:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=1,plh=1693346701,tim=6792074608711
+STAT #140612715702496 id=1 cnt=1 pid=0 pos=1 obj=0 op='RESULT CACHE  5hya8rdanapbr5gvs45snj47bq (cr=0 pr=0 pw=0 time=4 us)'
+STAT #140612715702496 id=2 cnt=0 pid=1 pos=1 obj=0 op='VIEW  (cr=0 pr=0 pw=0 time=0 us cost=6 size=31 card=1)'
+STAT #140612715702496 id=3 cnt=0 pid=2 pos=1 obj=0 op='SORT AGGREGATE (cr=0 pr=0 pw=0 time=0 us)'
+STAT #140612715702496 id=4 cnt=0 pid=3 pos=1 obj=83306 op='INDEX RANGE SCAN MESSAGES_STATUS_PK (cr=0 pr=0 pw=0 time=0 us cost=6 size=728672 card=104096)'
+CLOSE #140612715702496:c=0,e=3,dep=1,type=0,tim=6792074608845
+    >> Index Card adjusted from 141.288483 to 77638.000000 due to adaptive dynamic sampling
+=====================
+PARSING IN CURSOR #140612715702496 len=498 dep=1 uid=64 oct=3 lid=64 tim=6792074610582 hv=3273270145 ad='120db54fb0' sqlid='03dckp71jn8w1'
+SELECT /* DS_SVC */ /*+ dynamic_sampling(0) no_sql_tune no_monitoring optimizer_features_enable(default) no_parallel result_cache(snapshot=3600) OPT_ESTIMATE(@"innerQuery", INDEX_SCAN, "MS", "MESSAGES_STATUS_PK", ROWS=77638) OPT_ESTIMATE(@"innerQuery", TABLE, "MS", ROWS=104095.7575) */ C1, C2, C3 FROM (SELECT /*+ qb_name("innerQuery") INDEX( "MS" "MESSAGES_STATUS_PK")  */ COUNT(*) AS C1, 4294967295 AS C2, COUNT(*) AS C3  FROM "MESSAGES_STATUS" "MS" WHERE ("MS"."USER_ID"=7280151987)) innerQuery
+END OF STMT
+PARSE #140612715702496:c=1000,e=1605,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=1,plh=1693346701,tim=6792074610581
+EXEC #140612715702496:c=0,e=17,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=1,plh=1693346701,tim=6792074610663
+FETCH #140612715702496:c=0,e=7,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=1,plh=1693346701,tim=6792074610688
+STAT #140612715702496 id=1 cnt=1 pid=0 pos=1 obj=0 op='RESULT CACHE  5hya8rdanapbr5gvs45snj47bq (cr=0 pr=0 pw=0 time=4 us)'
+STAT #140612715702496 id=2 cnt=0 pid=1 pos=1 obj=0 op='VIEW  (cr=0 pr=0 pw=0 time=0 us cost=1109 size=31 card=1)'
+STAT #140612715702496 id=3 cnt=0 pid=2 pos=1 obj=0 op='SORT AGGREGATE (cr=0 pr=0 pw=0 time=0 us)'
+STAT #140612715702496 id=4 cnt=0 pid=3 pos=1 obj=83306 op='INDEX RANGE SCAN MESSAGES_STATUS_PK (cr=0 pr=0 pw=0 time=0 us cost=1109 size=728672 card=104096)'
+CLOSE #140612715702496:c=0,e=2,dep=1,type=0,tim=6792074610768
+    >> Index Card adjusted from 141.288483 to 77638.000000 due to adaptive dynamic sampling
+  Access Path: index (IndexOnly)
+    Index: MESSAGES_STATUS_PK
+    resc_io: 1094.000000  resc_cpu: 23318455
+    ix_sel: 6.4442e-06  ix_sel_with_filters: 6.4442e-06 
+    Cost: 1108.612612  Resp: 1108.612612  Degree: 1
+  ****** trying bitmap/domain indexes ******
+  ****** finished trying bitmap/domain indexes ******
+  Best:: AccessPath: IndexRange
+  Index: MESSAGES_STATUS_PK
+         Cost: 1108.612612  Degree: 1  Resp: 1108.612612  Card: 104095.757500  Bytes: 0.000000
+
+Access path analysis for MESSAGES
+***************************************
+SINGLE TABLE ACCESS PATH 
+  Single Table Cardinality Estimation for MESSAGES[M] 
+  SPD: Return code in qosdDSDirSetup: NODIR, estType = TABLE
+
+  #Rows: 40533922570  SSZ: 0  LGR: 0  #Blks:  630500484  AvgRowLen:  30.00  NEB: 0  ChainCnt:  0.00  SPC: 0  RFL: 0  RNF: 0  CBK: 0  CHR: 0  KQDFLG: 1
+  #IMCUs: 0  IMCRowCnt: 0  IMCJournalRowCnt: 0  #IMCBlocks: 0  IMCQuotient: 0.000000
+  Column (#3): EVENT_TS(NUMBER)  Part#: 0
+    AvgLen: 9 NDV: 30009851904 Nulls: 0 Density: 0.000000 Min: 0.000000 Max: 0.000000
+    Histogram: HtBal  #Bkts: 5605  UncompBkts: 5605  EndPtVals: 0  ActualVal: yes
+NOTE: ignoring histogram of column (MESSAGES.EVENT_TS)
+      used only for incremental stats maintenance
+  Column (#3): EVENT_TS(NUMBER)
+    AvgLen: 9 NDV: 30009851904 Nulls: 0 Density: 0.000000
+  Table: MESSAGES  Alias: M
+    Card: Original: 40533922570.000000  Rounded: 22699204  Computed: 22699204.417602  Non Adjusted: 22699204.417602
+  Scan IO  Cost (Disk) =   194787834.000000
+  Scan CPU Cost (Disk) =   12192424623236.960938
+  Total Scan IO  Cost  =   194787834.000000 (scan (Disk))
+                         + 0.000000 (io filter eval) (= 0.000000 (per row) * 40533922570.000000 (#rows))
+                       =   194787834.000000
+  Total Scan CPU  Cost =   12192424623236.960938 (scan (Disk))
+                         + 2030135666932.967285 (cpu filter eval) (= 50.084856 (per row) * 40533922570.000000 (#rows))
+                       =   14222560290169.927734
+  Access Path: TableScan
+    Cost:  203700463.523298  Resp: 203700463.523298  Degree: 0
+      Cost_io: 194787834.000000  Cost_cpu: 14222560290170
+      Resp_io: 194787834.000000  Resp_cpu: 14222560290170
+kkofmx: index filter:"M"."EVENT_TS">=1460934082000
+
+kkofmx: index filter:"M"."EVENT_TS"<=1461020482000
+
+ ****** Costing Index MESSAGES_IX2
+  SPD: Return code in qosdDSDirSetup: NODIR, estType = INDEX_SKIP_SCAN
+  Access Path: index (skip-scan)
+    SS scan sel: 5.6001e-04  SS filter sel: 5.6001e-04  ANDV (#skips): 6590431232.000000
+    SS io: 222963625.000000 vs. table scan io: 194787834.000000
+    Skip Scan rejected
+  SPD: Return code in qosdDSDirSetup: NODIR, estType = INDEX_FILTER
+  Access Path: index (FullScan)
+    Index: MESSAGES_IX2
+    resc_io: 245215816.000000  resc_cpu: 9742191224495
+    ix_sel: 1.000000  ix_sel_with_filters: 5.6001e-04 
+    Cost: 252592996.062508  Resp: 252592996.062508  Degree: 1
+  Best:: AccessPath: TableScan
+         Cost: 203700463.523298  Degree: 1  Resp: 203700463.523298  Card: 22699204.417602  Bytes: 0.000000
+
+***************************************
+
+
+OPTIMIZER STATISTICS AND COMPUTATIONS
+***************************************
+GENERAL PLANS
+***************************************
+Considering cardinality-based initial join order.
+Permutations for Starting Table :0
+Join order[1]:  MESSAGES_STATUS[MS]#0  MESSAGES[M]#1
+
+***************
+Now joining: MESSAGES[M]#1
+***************
+NL Join
+  Outer table: Card: 104095.757500  Cost: 1108.612612  Resp: 1108.612612  Degree: 1  Bytes: 
+Access path analysis for MESSAGES
+  Scan IO  Cost (Disk) =   194787832.009501
+  Scan CPU Cost (Disk) =   12192424623236.960938
+  Total Scan IO  Cost  =   194787832.009501 (scan (Disk))
+                         + 0.000000 (io filter eval) (= 0.000000 (per row) * 40533922570.000000 (#rows))
+                       =   194787832.009501
+  Total Scan CPU  Cost =   12192424623236.960938 (scan (Disk))
+                         + 2026696218065.487061 (cpu filter eval) (= 50.000002 (per row) * 40533922570.000000 (#rows))
+                       =   14219120841302.447266
+  Inner table: MESSAGES  Alias: M
+  Access Path: TableScan
+    NL Join:  Cost: 21204178881965.539062  Resp: 21204178881965.539062  Degree: 1
+      Cost_io: 20276634161955.000000  Cost_cpu: 1480153603119538176
+      Resp_io: 20276634161955.000000  Resp_cpu: 1480153603119538176
+ ****** Costing Index MESSAGES_IX1
+  SPD: Return code in qosdDSDirSetup: NODIR, estType = INDEX_SCAN
+
+  SPD: Return code in qosdDSDirSetup: NODIR, estType = INDEX_FILTER
+
+  Access Path: index (RangeScan)
+    Index: MESSAGES_IX1
+    resc_io: 82.000000  resc_cpu: 588120
+    ix_sel: 1.5174e-10  ix_sel_with_filters: 1.5174e-10 
+    NL Join (ordered): Cost: 8575344.999773  Resp: 8575344.999773  Degree: 1
+      Cost_io: 8536966.000000  Cost_cpu: 61244286742
+      Resp_io: 8536966.000000  Resp_cpu: 61244286742
+ ****** Costing Index MESSAGES_IX2
+  SPD: Return code in qosdDSDirSetup: NODIR, estType = INDEX_SCAN
+
+  SPD: Return code in qosdDSDirSetup: NODIR, estType = INDEX_FILTER
+
+  SPD: Return code in qosdDSDirSetup: NODIR, estType = INDEX_SKIP_SCAN
+
+  Access Path: index (RangeScan)
+    Index: MESSAGES_IX2
+    resc_io: 76.000000  resc_cpu: 542509
+    ix_sel: 8.4972e-14  ix_sel_with_filters: 8.4972e-14 
+    NL Join (ordered): Cost: 7947793.703980  Resp: 7947793.703980  Degree: 1
+      Cost_io: 7912390.000000  Cost_cpu: 56496381122
+      Resp_io: 7912390.000000  Resp_cpu: 56496381122
+  ****** trying bitmap/domain indexes ******
+  ****** finished trying bitmap/domain indexes ******
+
+  Best NL cost: 7947793.703980
+          resc: 7947793.703980  resc_io: 7912390.000000  resc_cpu: 56496381122
+          resp: 7947793.703980  resp_io: 7912390.000000  resc_cpu: 56496381122
+  SPD: Directive valid: dirid = 6948080411374136032, state = 5, flags = 1, loc = 2 {F(83305)[]; F(80638)[]}
+  SPD: Return code in qosdDSDirSetup: EXISTS, estType = JOIN
+Join Card:  104245.975326 = outer (104095.757500) * inner (22699204.417602) * sel (4.4118e-08)
+=====================
+PARSING IN CURSOR #140612715701400 len=40 dep=2 uid=0 oct=3 lid=0 tim=6792074627060 hv=2821867121 ad='120ca70b80' sqlid='47r1y8yn34jmj'
+select default$ from col$ where rowid=:1
+END OF STMT
+PARSE #140612715701400:c=0,e=31,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=2191121161,tim=6792074627059
+BINDS #140612715701400:
+ Bind#0
+  oacdty=11 mxl=16(16) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=18 fl2=0001 frm=00 csi=00 siz=16 off=0
+  kxsbbbfp=7fe2f2f7e708  bln=16  avl=16  flg=05
+  value=0000AD3E.0018.0001
+EXEC #140612715701400:c=0,e=66,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=2191121161,tim=6792074627204
+FETCH #140612715701400:c=0,e=16,p=0,cr=2,cu=0,mis=0,r=1,dep=2,og=4,plh=2191121161,tim=6792074627240
+STAT #140612715701400 id=1 cnt=1 pid=0 pos=1 obj=21 op='TABLE ACCESS BY USER ROWID COL$ (cr=1 pr=0 pw=0 time=12 us cost=1 size=15 card=1)'
+CLOSE #140612715701400:c=0,e=24,dep=2,type=0,tim=6792074627312
+=====================
+PARSING IN CURSOR #140612715702496 len=624 dep=1 uid=64 oct=3 lid=64 tim=6792074660307 hv=2286845892 ad='f2875500' sqlid='8rr88cf44wzy4'
+SELECT /* DS_SVC */ /*+ dynamic_sampling(0) no_sql_tune no_monitoring optimizer_features_enable(default) no_parallel result_cache(snapshot=3600) OPT_ESTIMATE(@"innerQuery", TABLE, "MS#1", ROWS=104095.7575) OPT_ESTIMATE(@"innerQuery", INDEX_FILTER, "MS#1", "MESSAGES_STATUS_PK", ROWS=77638) */ SUM(C1) FROM (SELECT /*+ qb_name("innerQuery") NO_INDEX_FFS( "M#0")  */ 1 AS C1 FROM "MESSAGES" SAMPLE BLOCK(0.00012686, 8) SEED(1)  "M#0", "MESSAGES_STATUS" "MS#1" WHERE ("MS#1"."USER_ID"=7280151987) AND ("MS#1"."THREAD_ID"="M#0"."THREAD_ID") AND ("M#0"."EVENT_TS">=1460934082000) AND ("M#0"."EVENT_TS"<=1461020482000)) innerQuery
+END OF STMT
+PARSE #140612715702496:c=32995,e=33694,p=0,cr=2,cu=0,mis=1,r=0,dep=1,og=1,plh=267882909,tim=6792074660306
+EXEC #140612715702496:c=0,e=20,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=1,plh=267882909,tim=6792074660407
+
+*** 2016-04-21 07:59:00.752
+FETCH #140612715702496:c=1661747,e=1660677,p=0,cr=1836,cu=0,mis=0,r=0,dep=1,og=1,plh=267882909,tim=6792076321111
+STAT #140612715702496 id=1 cnt=0 pid=0 pos=1 obj=0 op='RESULT CACHE  6773txv17uqwvgbg9p0pzbk4tj (cr=0 pr=0 pw=0 time=1 us)'
+STAT #140612715702496 id=2 cnt=0 pid=1 pos=1 obj=0 op='SORT AGGREGATE (cr=0 pr=0 pw=0 time=10 us)'
+STAT #140612715702496 id=3 cnt=0 pid=2 pos=1 obj=0 op='MERGE JOIN  (cr=0 pr=0 pw=0 time=4 us cost=267 size=1450 card=29)'
+STAT #140612715702496 id=4 cnt=1 pid=3 pos=1 obj=83306 op='INDEX RANGE SCAN MESSAGES_STATUS_PK (cr=5 pr=0 pw=0 time=41 us cost=6 size=2081920 card=104096)'
+STAT #140612715702496 id=5 cnt=0 pid=3 pos=2 obj=0 op='SORT JOIN (cr=0 pr=0 pw=0 time=11 us cost=261 size=870 card=29)'
+STAT #140612715702496 id=6 cnt=0 pid=5 pos=1 obj=0 op='PARTITION RANGE ALL PARTITION: 1 1048575 (cr=0 pr=0 pw=0 time=8 us cost=260 size=870 card=29)'
+STAT #140612715702496 id=7 cnt=0 pid=6 pos=1 obj=80638 op='TABLE ACCESS SAMPLE MESSAGES PARTITION: 1 1048575 (cr=1301 pr=0 pw=0 time=1192032 us cost=260 size=870 card=29)'
+CLOSE #140612715702496:c=0,e=5,dep=1,type=0,tim=6792076321376
+Join Card - Rounded: 104246 Computed: 104245.975326
+  Outer table:  MESSAGES_STATUS  Alias: MS
+    resc: 1108.612612  card 104095.757500  bytes:   deg: 1  resp: 1108.612612
+  Inner table:  MESSAGES  Alias: M
+    resc: 203700463.523298  card: 22699204.417602  bytes:   deg: 1  resp: 203700463.523298
+    using dmeth: 2  #groups: 1
+    SORT ressource         Sort statistics
+      Sort width:        1227 Area size:     1048576 Max Area size:   214743040
+      Degree:               1
+      Blocks to Sort: 119499 Row size:     43 Total Rows:       22699204
+      Initial runs:   5 Merge passes:  1 IO Cost / pass:      78426
+      Total IO sort cost: 197925.000000      Total CPU sort cost: 27935285320
+      Total Temp space used: 1823073000
+  SM join: Resc: 203917002.904463  Resp: 203917002.904463  [multiMatchCost=0.000000]
+SM Join
+  SM cost: 203917002.904463 
+     resc: 203917002.904463 resc_io: 194986853.000000 resc_cpu: 14250518893945
+     resp: 203917002.904463 resp_io: 194986853.000000 resp_cpu: 14250518893945
+  Outer table:  MESSAGES_STATUS  Alias: MS
+    resc: 1108.612612  card 104095.757500  bytes:   deg: 1  resp: 1108.612612
+  Inner table:  MESSAGES  Alias: M
+    resc: 203700463.523298  card: 22699204.417602  bytes:   deg: 1  resp: 203700463.523298
+    using dmeth: 2  #groups: 1
+    Cost per ptn: 63166.305012  #ptns: 1
+    hash_area: 256 (max=52428) buildfrag: 407  probefrag: 116378  ppasses: 1
+  Hash join: Resc: 203764738.440922  Resp: 203764738.440922  [multiMatchCost=0.000000]
+HA Join
+  HA cost: 203764738.440922  
+     resc: 203764738.440922 resc_io: 194848939.000000 resc_cpu: 14227618768637
+     resp: 203764738.440922 resp_io: 194848939.000000 resp_cpu: 14227618768637
+Best:: JoinMethod: NestedLoop
+       Cost: 7947793.703980  Degree: 1  Resp: 7947793.703980  Card: 104245.975326 Bytes: 
+***********************
+Best so far:  Table#: 0  cost: 1108.612612  card: 104095.757500  bytes: 2081920.000000
+              Table#: 1  cost: 7947793.703980  card: 104245.975326  bytes: 5212300.000000
+***********************
+Join order[2]:  MESSAGES[M]#1  MESSAGES_STATUS[MS]#0
+Join order aborted: cost > best plan cost
+***********************
+(newjo-stop-1) k:0, spcnt:0, perm:2, maxperm:2000
+
+*********************************
+Number of join permutations tried: 2
+*********************************
+Consider using bloom filter between MS[MESSAGES_STATUS] and M[MESSAGES] with ??
+kkoBloomFilter: join ndv:0 reduction:1.000000 (limit:0.500000)  rejected because not a hash join
+Enumerating distribution method (advanced)
+--- Distribution method for 
+join between MS[MESSAGES_STATUS](serial) and M[MESSAGES](serial); jm = 14; right side access path = IndexRange
+kkopqIsSerialJoin: serial NLJ: both inputs serial
+---- serial NL-Join -> SERIAL
+
+(newjo-save)    [1 0 ]
+Trying or-Expansion on query block SEL$58A6D7F6 (#0)
+Transfer Optimizer annotations for query block SEL$58A6D7F6 (#0)
+AP: Checking validity for query block SEL$58A6D7F6, sqlid=9mkfj9cu6m20r.
+kkopqIsSerialJoin: serial NLJ: both inputs serial
+Searching for inflection point (join #1) between 104095.76 and 209715.20
+AP: Computing costs for inflection point at min value 104095.76
+AP: Using binary search for inflection point search
+AP: Costing Nested Loops Join for inflection point at card 104095.76
+Access path analysis for MESSAGES
+ ****** Costing Index MESSAGES_IX1
+  SPD: Return code in qosdDSDirSetup: NODIR, estType = INDEX_SCAN
+
+  SPD: Return code in qosdDSDirSetup: NODIR, estType = INDEX_FILTER
+
+  Access Path: index (RangeScan)
+    Index: MESSAGES_IX1
+    resc_io: 82.000000  resc_cpu: 588120
+    ix_sel: 1.5174e-10  ix_sel_with_filters: 1.5174e-10 
+    NL Join (ordered): Cost: 8575344.999773  Resp: 8575344.999773  Degree: 1
+      Cost_io: 8536966.000000  Cost_cpu: 61244286742
+      Resp_io: 8536966.000000  Resp_cpu: 61244286742
+ ****** Costing Index MESSAGES_IX2
+  SPD: Return code in qosdDSDirSetup: NODIR, estType = INDEX_SCAN
+
+  SPD: Return code in qosdDSDirSetup: NODIR, estType = INDEX_FILTER
+
+  SPD: Return code in qosdDSDirSetup: NODIR, estType = INDEX_SKIP_SCAN
+
+  Access Path: index (RangeScan)
+    Index: MESSAGES_IX2
+    resc_io: 76.000000  resc_cpu: 542509
+    ix_sel: 8.4972e-14  ix_sel_with_filters: 8.4972e-14 
+    NL Join (ordered): Cost: 7947793.703980  Resp: 7947793.703980  Degree: 1
+      Cost_io: 7912390.000000  Cost_cpu: 56496381122
+      Resp_io: 7912390.000000  Resp_cpu: 56496381122
+
+AP: Costing Hash Join for inflection point at card 104095.76
+  Outer table:  MESSAGES_STATUS  Alias: MS
+    resc: 1108.612612  card 104095.757500  bytes:   deg: 1  resp: 1108.612612
+  Inner table:  MESSAGES  Alias: M
+    resc: 203700463.523298  card: 22699204.417602  bytes:   deg: 1  resp: 203700463.523298
+    using dmeth: 2  #groups: 1
+    Cost per ptn: 63166.305012  #ptns: 1
+    hash_area: 256 (max=52428) buildfrag: 407  probefrag: 116378  ppasses: 1
+  Hash join: Resc: 203764738.440922  Resp: 203764738.440922  [multiMatchCost=0.000000]
+AP: lcost=7947793.70, rcost=203764738.44
+AP: Computing costs for inflection point at max value 209715.20
+AP: Costing Nested Loops Join for inflection point at card 209715.20
+Access path analysis for MESSAGES
+ ****** Costing Index MESSAGES_IX1
+  SPD: Return code in qosdDSDirSetup: NODIR, estType = INDEX_SCAN
+
+  SPD: Return code in qosdDSDirSetup: NODIR, estType = INDEX_FILTER
+
+  Access Path: index (RangeScan)
+    Index: MESSAGES_IX1
+    resc_io: 82.000000  resc_cpu: 588120
+    ix_sel: 1.5174e-10  ix_sel_with_filters: 1.5174e-10 
+    NL Join (ordered): Cost: 17275028.685752  Resp: 17275028.685752  Degree: 1
+      Cost_io: 17197724.000000  Cost_cpu: 123360962210
+      Resp_io: 17197724.000000  Resp_cpu: 123360962210
+ ****** Costing Index MESSAGES_IX2
+  SPD: Return code in qosdDSDirSetup: NODIR, estType = INDEX_SCAN
+
+  SPD: Return code in qosdDSDirSetup: NODIR, estType = INDEX_FILTER
+
+  SPD: Return code in qosdDSDirSetup: NODIR, estType = INDEX_SKIP_SCAN
+
+  Access Path: index (RangeScan)
+    Index: MESSAGES_IX2
+    resc_io: 76.000000  resc_cpu: 542509
+    ix_sel: 8.4972e-14  ix_sel_with_filters: 8.4972e-14 
+    NL Join (ordered): Cost: 16010744.563428  Resp: 16010744.563428  Degree: 1
+      Cost_io: 15939434.000000  Cost_cpu: 113795685665
+      Resp_io: 15939434.000000  Resp_cpu: 113795685665
+
+AP: Costing Hash Join for inflection point at card 209715.20
+  Outer table:  MESSAGES_STATUS  Alias: MS
+    resc: 1108.612612  card 209715.200000  bytes:   deg: 1  resp: 1108.612612
+  Inner table:  MESSAGES  Alias: M
+    resc: 203700463.523298  card: 22699204.417602  bytes:   deg: 1  resp: 203700463.523298
+    using dmeth: 2  #groups: 1
+    Cost per ptn: 63389.294752  #ptns: 1
+    hash_area: 256 (max=52428) buildfrag: 820  probefrag: 116378  ppasses: 1
+  Hash join: Resc: 203764961.430662  Resp: 203764961.430662  [multiMatchCost=0.000000]
+AP: lcost=16010744.56, rcost=203764961.43
+AP: Costing Hash Join for inflection point at card 209715.20
+  Outer table:  MESSAGES_STATUS  Alias: MS
+    resc: 1108.612612  card 209715.200000  bytes:   deg: 1  resp: 1108.612612
+  Inner table:  MESSAGES  Alias: M
+    resc: 203700463.523298  card: 22699204.417602  bytes:   deg: 1  resp: 203700463.523298
+    using dmeth: 2  #groups: 1
+    Cost per ptn: 63389.294752  #ptns: 1
+    hash_area: 256 (max=52428) buildfrag: 820  probefrag: 116378  ppasses: 1
+  Hash join: Resc: 203764961.430662  Resp: 203764961.430662  [multiMatchCost=0.000000]
+DP: Found point of inflection for NLJ vs. HJ: card = -1.00
+AutoDOP: Consider caching for MS[MESSAGES_STATUS](obj#-1) 
+cost:1108.612612 blkSize:8192 objSize:169109047.00 marObjSize:160653594.65 bufSize:11468912.00 affPercent:80 smallTab:NO affinitized:NO
+kkecComputeAPDop: IO Dop: 0.000000 - CPU Dop: 0.000000
+id=0 frofkks[i] (index start key) predicate="MS"."USER_ID"=7280151987
+id=0 frofkke[i] (index stop key) predicate="MS"."USER_ID"=7280151987
+Transfer optimizer annotations for MESSAGES_STATUS[MS]
+AutoDOP: Consider caching for M[MESSAGES](obj#80638) 
+cost:7947793.703980 blkSize:8192 objSize:630500484.00 marObjSize:598975459.80 bufSize:11468912.00 affPercent:80 smallTab:NO affinitized:NO
+kkecComputeAPDop: IO Dop: 0.000000 - CPU Dop: 0.000000
+Replication not feasible based on distribution
+id=0 frofkks[i] (index start key) predicate="MS"."THREAD_ID"="M"."THREAD_ID"
+id=0 frofkks[i] (index start key) predicate="M"."EVENT_TS">=1460934082000
+id=0 frofkke[i] (index stop key) predicate="MS"."THREAD_ID"="M"."THREAD_ID"
+id=0 frofkke[i] (index stop key) predicate="M"."EVENT_TS"<=1461020482000
+Transfer optimizer annotations for MESSAGES[M]
+Final cost for query block SEL$58A6D7F6 (#0) - All Rows Plan:
+  Best join order: 1
+  Cost: 7947793.703980  Degree: 1  Card: 104246.000000  Bytes: 5212300.000000
+  Resc: 7947793.703980  Resc_io: 7912390.000000  Resc_cpu: 56496381122
+  Resp: 7947793.703980  Resp_io: 7912390.000000  Resc_cpu: 56496381122
+kkoqbc-subheap (delete addr=0x7fe2f3637f18, in-use=80256, alloc=82136)
+kkoqbc-end:
+        :
+    call(in-use=97168, alloc=197160), compile(in-use=138632, alloc=141104), execution(in-use=5024, alloc=8088)
+
+kkoqbc: finish optimizing query block SEL$58A6D7F6 (#0)
+CBRID: MS @ SEL$58A6D7F6 - no blocking operation found
+CBRID: M @ SEL$58A6D7F6 - no blocking operation found
+apadrv-end
+          :
+    call(in-use=64000, alloc=197160), compile(in-use=139904, alloc=141104), execution(in-use=5024, alloc=8088)
+
+
+CBRID: M @ SEL$58A6D7F6 NLJBatching allocation - Failure - not a columnar organized table
+CBRID: M @ SEL$58A6D7F6 TableLookup allocation - Failure - bug-fix control
+kkeCostToTime: using io calibrate stats maxpmbps=200(MB/s) 
+ block_size=8192 mb_io_count=1 mb_io_size=8192 (bytes) 
+ tot_io_size=62092(MB) time=310461(ms)
+kkeCostToTime: using io calibrate stats maxpmbps=200(MB/s) 
+ block_size=8192 mb_io_count=1 mb_io_size=8192 (bytes) 
+ tot_io_size=62092(MB) time=310461(ms)
+SPD: qosdRecDSDirChange dirid = 2967660405386353406, retCode = NODIR
+SPD: qosdRecDSDirChange dirid = 7319644627035895205, retCode = NODIR
+SPD: qosdRecDSDirChange dirid = 18271806003132853315, retCode = NODIR
+SPD: qosdRecDSDirChange dirid = 15045824139728402821, retCode = NODIR
+    SPD: Modified felem, fid=18326196491346561593, ftype = 0, freason = 0, dtype = 1, dstate = 0, dflag = 1, ver = YES, keep = YES
+SPD: qosdRecDSDirChange dirid = 8966106107181059606, retCode = UPDATED
+SPD: qosdRecDSDirChange dirid = 13588642072880228990, retCode = NODIR
+SPD: qosdRecDSDirChange dirid = 5097825876161620669, retCode = NODIR
+SPD: qosdRecDSDirChange dirid = 3294364207904304056, retCode = NODIR
+SPD: qosdRecDSDirChange dirid = 4678424848150918423, retCode = NODIR
+SPD: qosdRecDSDirChange dirid = 5030633234507819428, retCode = NODIR
+SPD: qosdRecDSDirChange dirid = 12421805571730305201, retCode = NODIR
+SPD: qosdRecDSDirChange dirid = 6178882956140305338, retCode = NODIR
+SPD: qosdRecDSDirChange dirid = 1836554401722428388, retCode = NODIR
+SPD: qosdRecDSDirChange dirid = 6948080411374136032, retCode = EXISTS
+SPD: qosdRecDSDirChange dirid = 7218892810598756521, retCode = NODIR
+SPD: qosdRecDSDirChange dirid = 3017482289593790294, retCode = NODIR
+kkeCostToTime: using io calibrate stats maxpmbps=200(MB/s) 
+ block_size=8192 mb_io_count=1 mb_io_size=8192 (bytes) 
+ tot_io_size=62092(MB) time=310461(ms)
+kkeCostToTime: using io calibrate stats maxpmbps=200(MB/s) 
+ block_size=8192 mb_io_count=1 mb_io_size=8192 (bytes) 
+ tot_io_size=62092(MB) time=310461(ms)
+kkeCostToTime: using io calibrate stats maxpmbps=200(MB/s) 
+ block_size=8192 mb_io_count=1 mb_io_size=8192 (bytes) 
+ tot_io_size=9(MB) time=43(ms)
+kkeCostToTime: using io calibrate stats maxpmbps=200(MB/s) 
+ block_size=8192 mb_io_count=1 mb_io_size=8192 (bytes) 
+ tot_io_size=9(MB) time=43(ms)
+kkeCostToTime: using io calibrate stats maxpmbps=200(MB/s) 
+ block_size=8192 mb_io_count=1 mb_io_size=8192 (bytes) 
+ tot_io_size=1(MB) time=3(ms)
+kkeCostToTime: using io calibrate stats maxpmbps=200(MB/s) 
+ block_size=8192 mb_io_count=1 mb_io_size=8192 (bytes) 
+ tot_io_size=1(MB) time=3(ms)
+kkeCostToTime: using io calibrate stats maxpmbps=200(MB/s) 
+ block_size=8192 mb_io_count=1 mb_io_size=8192 (bytes) 
+ tot_io_size=1(MB) time=3(ms)
+kkeCostToTime: using io calibrate stats maxpmbps=200(MB/s) 
+ block_size=8192 mb_io_count=1 mb_io_size=8192 (bytes) 
+ tot_io_size=1(MB) time=3(ms)
+kkeCostToTime: using io calibrate stats maxpmbps=200(MB/s) 
+ block_size=8192 mb_io_count=1 mb_io_size=8192 (bytes) 
+ tot_io_size=1(MB) time=3(ms)
+kkeCostToTime: using io calibrate stats maxpmbps=200(MB/s) 
+ block_size=8192 mb_io_count=1 mb_io_size=8192 (bytes) 
+ tot_io_size=1(MB) time=3(ms)
+Starting SQL statement dump
+
+user_id=64 user_name=TAG module=SQL*Plus action=
+sql_id=9mkfj9cu6m20r plan_hash_value=1478828435 problem_type=3
+----- Current SQL Statement for this session (sql_id=9mkfj9cu6m20r) -----
+SELECT sender_user_id
+FROM MESSAGES_STATUS ms
+INNER JOIN MESSAGES m ON ms.thread_id = m.thread_id
+WHERE ms.user_id = 7280151987
+AND m.event_ts between 1461020482000 - 86400000 and 1461020482000
+sql_text_length=194
+sql=SELECT sender_user_id
+FROM MESSAGES_STATUS ms
+INNER JOIN MESSAGES m ON ms.thread_id = m.thread_id
+WHERE ms.user_id = 7280151987
+AND m.event_ts between 1461020482000 - 86400000 and 1461020482000
+----- Explain Plan Dump -----
+----- Plan Table -----
+ 
+============
+Plan Table
+============
+----------------------------------------------------------------+-----------------------------------+---------------+
+| Id  | Operation                           | Name              | Rows  | Bytes | Cost  | Time      | Pstart| Pstop |
+----------------------------------------------------------------+-----------------------------------+---------------+
+| 0   | SELECT STATEMENT                    |                   |       |       | 7762K |           |       |       |
+| 1   |  NESTED LOOPS                       |                   |  102K | 5090K | 7762K |  01:13:36 |       |       |
+| 2   |   NESTED LOOPS                      |                   |  102K | 5090K | 7762K |  01:13:36 |       |       |
+| 3   |    INDEX RANGE SCAN                 | MESSAGES_STATUS_PK|  102K | 2033K |  1109 |  00:00:01 |       |       |
+| 4   |    PARTITION RANGE ALL              |                   |     1 |       |    75 |  00:00:01 | 1     | 1048575|
+| 5   |     INDEX RANGE SCAN                | MESSAGES_IX2      |     1 |       |    75 |  00:00:01 | 1     | 1048575|
+| 6   |   TABLE ACCESS BY LOCAL INDEX ROWID | MESSAGES          |     1 |    30 |    76 |  00:00:01 | 1     | 1     |
+----------------------------------------------------------------+-----------------------------------+---------------+
+Predicate Information:
+----------------------
+3 - access("MS"."USER_ID"=7280151987)
+5 - access("MS"."THREAD_ID"="M"."THREAD_ID" AND "M"."EVENT_TS">=1460934082000 AND "M"."EVENT_TS"<=1461020482000)
+ 
+Content of other_xml column
+===========================
+nodeid/pflags: 6 1nodeid/pflags: 5 17nodeid/pflags: 4 17  db_version     : 12.1.0.2
+  parse_schema   : TAG
+  dynamic_sampling: 2
+  plan_hash_full : 3084491573
+  plan_hash      : 1478828435
+  plan_hash_2    : 3084491573
+<spd>
+<cv>1</cv>
+<cu>1</cu>
+</spd>
+  Outline Data:
+  /*+
+    BEGIN_OUTLINE_DATA
+      IGNORE_OPTIM_EMBEDDED_HINTS
+      OPTIMIZER_FEATURES_ENABLE('12.1.0.2')
+      DB_VERSION('12.1.0.2')
+      ALL_ROWS
+      OUTLINE_LEAF(@"SEL$58A6D7F6")
+      MERGE(@"SEL$1")
+      OUTLINE(@"SEL$2")
+      OUTLINE(@"SEL$1")
+      INDEX(@"SEL$58A6D7F6" "MS"@"SEL$1" ("MESSAGES_STATUS"."USER_ID" "MESSAGES_STATUS"."THREAD_ID"))
+      INDEX(@"SEL$58A6D7F6" "M"@"SEL$1" ("MESSAGES"."THREAD_ID" "MESSAGES"."EVENT_TS" "MESSAGES"."MESSAGE_ID"))
+      LEADING(@"SEL$58A6D7F6" "MS"@"SEL$1" "M"@"SEL$1")
+      USE_NL(@"SEL$58A6D7F6" "M"@"SEL$1")
+      NLJ_BATCHING(@"SEL$58A6D7F6" "M"@"SEL$1")
+    END_OUTLINE_DATA
+  */
+ 
+
+. . . 
+
+
+Query Block Registry:
+SEL$2 0xf795cf78 (PARSER)
+  SEL$58A6D7F6 0xf795cf78 (VIEW MERGE SEL$2; SEL$1) [FINAL]
+SEL$1 0xf79554b0 (PARSER)
+  SEL$58A6D7F6 0xf795cf78 (VIEW MERGE SEL$2; SEL$1) [FINAL]
+
+:
+    call(in-use=70456, alloc=197160), compile(in-use=181936, alloc=247280), execution(in-use=18792, alloc=20256)
+
+End of Optimizer State Dump
+Dumping Hints
+=============
+====================== END SQL Statement Dump ======================
+=====================
+PARSING IN CURSOR #140612715749760 len=193 dep=0 uid=64 oct=3 lid=64 tim=6792076389392 hv=879331351 ad='1491a940a0' sqlid='9mkfj9cu6m20r'
+SELECT sender_user_id
+FROM MESSAGES_STATUS ms
+INNER JOIN MESSAGES m ON ms.thread_id = m.thread_id
+WHERE ms.user_id = 7280151987
+AND m.event_ts between 1461020482000 - 86400000 and 1461020482000
+END OF STMT
+PARSE #140612715749760:c=1843719,e=1901045,p=0,cr=1954,cu=0,mis=1,r=0,dep=0,og=1,plh=1478828435,tim=6792076389392
+EXEC #140612715749760:c=0,e=31,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=1,plh=1478828435,tim=6792076389518
+WAIT #140612715749760: nam='SQL*Net message to client' ela= 3 driver id=1413697536 #bytes=1 p3=0 obj#=-1 tim=6792076389540
+WAIT #140612715749760: nam='Disk file operations I/O' ela= 6 FileOperation=2 fileno=381 filetype=2 obj#=101011 tim=6792076389651
+WAIT #140612715749760: nam='Disk file operations I/O' ela= 53 FileOperation=2 fileno=0 filetype=15 obj#=101011 tim=6792076389736
+WAIT #140612715749760: nam='db file sequential read' ela= 489 file#=381 block#=1310907 blocks=1 obj#=101011 tim=6792076390211
+WAIT #140612715749760: nam='db file sequential read' ela= 630 file#=381 block#=1310915 blocks=1 obj#=101012 tim=6792076390929
+WAIT #140612715749760: nam='Disk file operations I/O' ela= 3 FileOperation=2 fileno=270 filetype=2 obj#=101012 tim=6792076390967
+WAIT #140612715749760: nam='db file sequential read' ela= 645 file#=270 block#=1541119 blocks=1 obj#=101012 tim=6792076391643
+WAIT #140612715749760: nam='Disk file operations I/O' ela= 3 FileOperation=2 fileno=320 filetype=2 obj#=101012 tim=6792076391709
+WAIT #140612715749760: nam='Disk file operations I/O' ela= 34 FileOperation=2 fileno=0 filetype=15 obj#=101012 tim=6792076391771
+WAIT #140612715749760: nam='db file sequential read' ela= 2346 file#=320 block#=982886 blocks=1 obj#=101012 tim=6792076394107
+WAIT #140612715749760: nam='db file sequential read' ela= 1410 file#=320 block#=982834 blocks=1 obj#=101012 tim=6792076395568
+WAIT #140612715749760: nam='Disk file operations I/O' ela= 4 FileOperation=2 fileno=107 filetype=2 obj#=101013 tim=6792076395633
+WAIT #140612715749760: nam='Disk file operations I/O' ela= 49 FileOperation=2 fileno=0 filetype=15 obj#=101013 tim=6792076395726
+WAIT #140612715749760: nam='db file sequential read' ela= 773 file#=107 block#=1967515 blocks=1 obj#=101013 tim=6792076396489
+WAIT #140612715749760: nam='Disk file operations I/O' ela= 3 FileOperation=2 fileno=286 filetype=2 obj#=101013 tim=6792076396730
+WAIT #140612715749760: nam='Disk file operations I/O' ela= 22 FileOperation=2 fileno=0 filetype=15 obj#=101013 tim=6792076396776
+WAIT #140612715749760: nam='db file sequential read' ela= 572 file#=286 block#=1541856 blocks=1 obj#=101013 tim=6792076397340
+WAIT #140612715749760: nam='Disk file operations I/O' ela= 3 FileOperation=2 fileno=354 filetype=2 obj#=101013 tim=6792076397387
+WAIT #140612715749760: nam='Disk file operations I/O' ela= 35 FileOperation=2 fileno=0 filetype=15 obj#=101013 tim=6792076397450
+WAIT #140612715749760: nam='db file sequential read' ela= 432 file#=354 block#=1425766 blocks=1 obj#=101013 tim=6792076397873

@@ -1,0 +1,36 @@
+;;; 
+Import: Release 12.1.0.1.0 - Production on Wed May 11 10:27:50 2016
+
+Copyright (c) 1982, 2013, Oracle and/or its affiliates.  All rights reserved.
+;;; 
+Connected to: Oracle Database 12c Enterprise Edition Release 12.1.0.1.0 - 64bit Production
+With the Partitioning, Automatic Storage Management, OLAP, Advanced Analytics
+and Real Application Testing options
+Master table "TAG"."SYS_IMPORT_TABLE_01" successfully loaded/unloaded
+import done in AL32UTF8 character set and AL16UTF16 NCHAR character set
+export done in WE8MSWIN1252 character set and AL16UTF16 NCHAR character set
+WARNING: possible data loss in character set conversions
+Starting "TAG"."SYS_IMPORT_TABLE_01":  tag/******** directory=external_dir tables=APP_MEETME_MATCHES_P0, APP_MEETME_MATCHES_SUGG_P0, APP_MEETME_RATINGS_P0, APP_MEETME_RESP2_P0, APP_MEETME_RESP_P0, APP_MEETME_SPOTLIGHT_P0, APP_MEETME_SUGGESTIONS_P0, APP_MEETME_T0_P0, APP_MEETME_T1_P0, APP_MEETME_T2_P0, APP_MEETME_T3_P0, APP_MEETME_T4_P0, APP_MEETME_T5_P0, PDB_LAYOUT, TTABLE_AUDIT dumpfile=SMMDB01_tag_p0_tables_20160510_1851PM.dmp logfile=SMMDB01_tag_p0_tables_20160510_1851PM.imp 
+Processing object type TABLE_EXPORT/TABLE/TABLE
+Processing object type TABLE_EXPORT/TABLE/TABLE_DATA
+. . imported "TAG"."APP_MEETME_RESP_P0"                  391.1 KB   17194 rows
+. . imported "TAG"."APP_MEETME_MATCHES_P0"               23.11 MB  858233 rows
+. . imported "TAG"."APP_MEETME_SUGGESTIONS_P0"           1.554 MB  102681 rows
+. . imported "TAG"."TTABLE_AUDIT"                        627.4 KB   13018 rows
+. . imported "TAG"."APP_MEETME_RESP2_P0"                 420.4 KB   17193 rows
+. . imported "TAG"."APP_MEETME_RATINGS_P0"               123.0 KB    5115 rows
+. . imported "TAG"."APP_MEETME_T2_P0"                    44.12 KB    1248 rows
+. . imported "TAG"."APP_MEETME_T3_P0"                    64.64 KB    1925 rows
+. . imported "TAG"."APP_MEETME_MATCHES_SUGG_P0"          29.51 KB     790 rows
+. . imported "TAG"."APP_MEETME_SPOTLIGHT_P0"             5.601 KB       2 rows
+. . imported "TAG"."APP_MEETME_T0_P0"                    10.60 KB     138 rows
+. . imported "TAG"."APP_MEETME_T4_P0"                    30.91 KB     810 rows
+. . imported "TAG"."APP_MEETME_T5_P0"                    32.55 KB     866 rows
+. . imported "TAG"."PDB_LAYOUT"                          9.898 KB     128 rows
+. . imported "TAG"."APP_MEETME_T1_P0"                        0 KB       0 rows
+Processing object type TABLE_EXPORT/TABLE/INDEX/INDEX
+Processing object type TABLE_EXPORT/TABLE/CONSTRAINT/CONSTRAINT
+Processing object type TABLE_EXPORT/TABLE/INDEX/STATISTICS/INDEX_STATISTICS
+Processing object type TABLE_EXPORT/TABLE/STATISTICS/TABLE_STATISTICS
+Processing object type TABLE_EXPORT/TABLE/STATISTICS/MARKER
+Job "TAG"."SYS_IMPORT_TABLE_01" successfully completed at Wed May 11 10:29:52 2016 elapsed 0 00:02:01

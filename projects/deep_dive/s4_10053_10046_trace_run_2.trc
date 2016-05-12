@@ -1,0 +1,84 @@
+Trace file /u01/app/oracle/diag/rdbms/fmda/fmd/trace/fmd_ora_10519_s4_10053_10046_trace_run_2.trc
+Oracle Database 12c Enterprise Edition Release 12.1.0.1.0 - 64bit Production
+With the Partitioning, Automatic Storage Management, OLAP, Advanced Analytics
+and Real Application Testing options
+ORACLE_HOME = /u01/app/oracle/product/12.1.0/dbhome_1
+System name:	Linux
+Node name:	ora10.localdomain
+Release:	3.8.13-16.2.1.el6uek.x86_64
+Version:	#1 SMP Thu Nov 7 17:01:44 PST 2013
+Machine:	x86_64
+Instance name: fmd
+Redo thread mounted by this instance: 1
+Oracle process number: 45
+Unix process pid: 10519, image: oracle@ora10.localdomain (TNS V1-V3)
+
+
+*** 2016-02-16 19:22:21.893
+*** SESSION ID:(64.13) 2016-02-16 19:22:21.893
+*** CLIENT ID:() 2016-02-16 19:22:21.893
+*** SERVICE NAME:(SYS$USERS) 2016-02-16 19:22:21.893
+*** MODULE NAME:(SQL*Plus) 2016-02-16 19:22:21.893
+*** ACTION NAME:() 2016-02-16 19:22:21.893
+ 
+WAIT #140329292489912: nam='SQL*Net message to client' ela= 4 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=26474882302
+WAIT #140329292489912: nam='SQL*Net message from client' ela= 469 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=26474883476
+CLOSE #140329292489912:c=0,e=10,dep=0,type=1,tim=26474883565
+=====================
+PARSING IN CURSOR #140329292488488 len=48 dep=0 uid=67 oct=47 lid=67 tim=26474883757 hv=1080929281 ad='a31307f0' sqlid='f2n5bn906vb01'
+BEGIN :s_object_name := 'DBMS_TRACE_LIB'; END;
+END OF STMT
+PARSE #140329292488488:c=0,e=139,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=1,plh=0,tim=26474883755
+BINDS #140329292488488:
+ Bind#0
+  oacdty=01 mxl=128(96) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=03 fl2=1000000 frm=01 csi=873 siz=128 off=0
+  kxsbbbfp=7fa0f5a15a78  bln=128  avl=00  flg=05
+WAIT #140329292488488: nam='SQL*Net message to client' ela= 2 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=26474884045
+EXEC #140329292488488:c=0,e=214,p=0,cr=0,cu=0,mis=0,r=1,dep=0,og=1,plh=0,tim=26474884079
+WAIT #140329292488488: nam='SQL*Net message from client' ela= 776 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=26474884945
+CLOSE #140329292488488:c=0,e=267,dep=0,type=0,tim=26474885280
+=====================
+PARSING IN CURSOR #140329292488488 len=92 dep=0 uid=67 oct=3 lid=67 tim=26474885461 hv=4008974360 ad='a312cce0' sqlid='2yhyu5brg860s'
+select	object_id, owner, object_name, object_type
+from	tt
+where	object_name = :s_object_name
+END OF STMT
+PARSE #140329292488488:c=0,e=104,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=1,plh=2946248754,tim=26474885460
+BINDS #140329292488488:
+ Bind#0
+  oacdty=01 mxl=128(96) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=03 fl2=1000000 frm=01 csi=873 siz=128 off=0
+  kxsbbbfp=7fa0f5a15a78  bln=128  avl=14  flg=05
+  value="DBMS_TRACE_LIB"
+EXEC #140329292488488:c=0,e=136,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=1,plh=2946248754,tim=26474885695
+WAIT #140329292488488: nam='SQL*Net message to client' ela= 1 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=26474885795
+FETCH #140329292488488:c=0,e=89,p=0,cr=3,cu=0,mis=0,r=1,dep=0,og=1,plh=2946248754,tim=26474885931
+WAIT #140329292488488: nam='SQL*Net message from client' ela= 243 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=26474886226
+FETCH #140329292488488:c=0,e=15,p=0,cr=1,cu=0,mis=0,r=0,dep=0,og=1,plh=2946248754,tim=26474886269
+kkeCostToTime: using io calibrate stats maxpmbps=200(MB/s) 
+ block_size=8192 mb_io_count=1 mb_io_size=8192 (bytes) 
+ tot_io_size=0(MB) time=0(ms)
+STAT #140329292488488 id=1 cnt=1 pid=0 pos=1 obj=20677 op='TABLE ACCESS BY INDEX ROWID BATCHED TT (cr=4 pr=0 pw=0 time=85 us cost=2 size=37 card=1)'
+kkeCostToTime: using io calibrate stats maxpmbps=200(MB/s) 
+ block_size=8192 mb_io_count=1 mb_io_size=8192 (bytes) 
+ tot_io_size=0(MB) time=0(ms)
+STAT #140329292488488 id=2 cnt=1 pid=1 pos=1 obj=20679 op='INDEX RANGE SCAN TT_IE1 (cr=3 pr=0 pw=0 time=66 us cost=1 size=0 card=1)'
+WAIT #140329292488488: nam='SQL*Net message to client' ela= 1 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=26474886604
+WAIT #140329292488488: nam='SQL*Net message from client' ela= 451 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=26474887080
+CLOSE #140329292488488:c=0,e=8,dep=0,type=0,tim=26474887135
+=====================
+PARSING IN CURSOR #140329292488488 len=55 dep=0 uid=67 oct=42 lid=67 tim=26474887229 hv=4153801004 ad='0' sqlid='d9u7st7vtby9c'
+alter session set events '10053 trace name context off'
+END OF STMT
+PARSE #140329292488488:c=0,e=32,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=0,plh=0,tim=26474887229
+EXEC #140329292488488:c=0,e=571,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=0,plh=0,tim=26474887875
+WAIT #140329292488488: nam='SQL*Net message to client' ela= 2 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=26474887932
+WAIT #140329292488488: nam='SQL*Net message from client' ela= 254 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=26474888223
+CLOSE #140329292488488:c=0,e=7,dep=0,type=1,tim=26474888274
+=====================
+PARSING IN CURSOR #140329292487064 len=55 dep=0 uid=67 oct=42 lid=67 tim=26474888342 hv=2217940283 ad='0' sqlid='06nvwn223659v'
+alter session set events '10046 trace name context off'
+END OF STMT
+PARSE #140329292487064:c=0,e=30,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=0,plh=0,tim=26474888341
+EXEC #140329292487064:c=1000,e=354,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=0,plh=0,tim=26474889126

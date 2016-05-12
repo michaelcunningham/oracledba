@@ -1,0 +1,381 @@
+#!/bin/bash
+export ORACLE_BASE=/u01/app/oracle;
+export EDITOR=vi;
+export ORACLE_HOME=/u01/app/oracle/product/10.2
+export LD_LIBRARY_PATH=/u01/app/oracle/product/10.2/lib
+export TERM=vt100;
+export PATH=/bin:/usr/bin:/opt/bin:/usr/ccs/bin:/usr/openwin/bin:/etc:$ORACLE_HOME/bin:
+export LOG_LOC=/u01/app/oracle/admin/logs
+export DATE=`date +%Y%m%d%k%M%S`
+export BASE=/mnt/dba/admin/BASE
+INPUT_SCRIPTNAME=$1
+SCRIPTNAME=$(echo $INPUT_SCRIPTNAME|sed "s/pxx/xx/")
+
+rm result.log
+
+echo "Is this a single script against one db, one script against each partition(xx script) or one script per pdb?"
+
+select sm in one xx_script eachpdb; do
+	if [[ -n $sm ]]; then
+		execution=$sm
+		break
+	else
+		echo "enter 1, 2 or 3"
+	fi
+	done
+
+if [ $execution = "one" ]; then
+	echo "Enter database SERVICENAME"
+	read -p "SERVICENAME: " servicename
+	$BASE/runscript.sh $servicename $INPUT_SCRIPTNAME > result.log 2>&1 
+else	
+echo "Environment: dev, stage or prod?"
+select dsp in DEV STAGE PROD; do
+	if  [[ -n $dsp ]]; then
+		env=$dsp
+		break
+	else
+		echo "enter 1=dev, 2=stage, 3=prod"
+	fi
+	done
+
+if [ $execution != "eachpdb" ]; then
+	echo "What type of database?"
+	select dbtype in pdbs tdbs meetme; do
+	 if  [[ -n $dbtype ]]; then
+		db=$dbtype
+		break
+	 else
+		echo "enter 1=pdb 2=tdb 3=tagdb 4=meetmedb"
+	 fi
+	done
+fi
+
+
+if [ "$db" = "tdbs" ]; then
+	if [  $execution = "xx_script" ]; then
+		# generate 64 scripts from the xx file
+		$BASE/j64.py $INPUT_SCRIPTNAME $env $dbtype 
+ 	fi	
+	echo "Do you want to execute the scripts now?"
+	select run in yes no; do
+	if [[ -n $run ]]; then
+		break
+	else
+		echo "enter 1=yes 2=no"
+	fi
+	done
+	if [ "$run" = "no" ]; then
+		exit
+	fi 
+	echo "Serial, parallel_4 (one script per ora host)  or parallel_64 execution? Caution - parallel/64 execution is more expensive"
+	select sp in serial parallel_4 parallel_64; do
+		if [[ -n $sp ]]; then
+			break
+		else
+			echo "enter 1=serial 2=parallel_4 3=parallel_64"
+		fi
+	done
+	if [ $sp = "serial" ]; then
+		$BASE/exec_tdbs_serial.sh $SCRIPTNAME $env > result.log 2>&1
+	else
+	if [ $sp = "parallel_4" ]; then
+		array=(  0 16 32 48)
+		for startseq in "${array[@]}"
+		do
+			echo $startseq
+			echo $SCRIPTNAME
+			echo $dsp
+        		$BASE/exec_tdbs_parallel_4.sh $startseq $SCRIPTNAME $dsp >> result.log 2>&1 &
+		done
+		wait
+	else
+	if [ $sp = "parallel_64" ]; then
+                $BASE/exec_tdbs_parallel.sh $SCRIPTNAME $env > result.log 2>&1
+	fi
+	fi
+	fi
+fi
+
+if [ "$db" = "pdbs" ] && [ $execution = "xx_script" ] ; then
+	echo "Choose parallelism level - 1 at a time, 8 at a time, 64 at a time"
+	echo "Please note parallel execution can overwhelm the databases; use with caution"
+        select sp in 1 8 64; do
+                if [[ -n $sp ]]; then
+                        break
+                else
+                        echo "enter 1 for 1 2 for 8 or 3 for 64"
+                fi
+        done
+	echo "here1"
+        if [ $sp = "1" ]; then
+
+                # generate 64 scripts from the xx file
+                $BASE/j64.py $INPUT_SCRIPTNAME $env $dbtype
+		echo "Do you want to execute the scripts now?"
+        	select run in yes no; do
+        	if [[ -n $run ]]; then
+                	break
+        	else
+                	echo "enter 1=yes 2=no"
+        	fi
+        	done
+        	if [ "$run" = "no" ]; then
+                	exit
+        	fi
+
+		$BASE/exec_pdbs_serial.sh $SCRIPTNAME $env  > result.log 2>&1
+	else
+	if [ "$sp" = "8" ]; then
+		# generate 8 scripts(one per PDB) from the xx file
+                $BASE/j8.py $INPUT_SCRIPTNAME $env $dbtype
+		echo "Do you want to execute the scripts now?"
+                select run in yes no; do
+                if [[ -n $run ]]; then
+                        break
+                else
+                        echo "enter 1=yes 2=no"
+                fi
+                done
+                if [ "$run" = "no" ]; then
+                        exit
+                fi
+
+
+		$BASE/exec_pdbs_parallel8.sh $SCRIPTNAME $env  > result.log 2>&1
+		else
+	if [ $sp = "64" ]; then
+		#generate 64 scripts for the xx file
+                $BASE/j64.py $INPUT_SCRIPTNAME $env  $dbtype
+		echo "Do you want to execute the scripts now?"
+                select run in yes no; do
+                if [[ -n $run ]]; then
+                        break
+                else
+                        echo "enter 1=yes 2=no"
+                fi
+                done
+                if [ "$run" = "no" ]; then
+                        exit
+                fi
+
+
+		$BASE/exec_pdbs_parallel64.sh $SCRIPTNAME $env > result.log 2>&1
+        fi
+        fi
+	fi
+fi
+
+if [ $execution = "eachpdb" ] ; then
+	echo "Choose parallelism level - 1 at a time or 8 at a time"
+	 select sp in 1 8; do
+                if [[ -n $sp ]]; then
+                        break
+                else
+                        echo "enter 1 for 1 2 for 8"
+                fi
+        done
+	echo "Do you want to execute the scripts now?"
+                select run in yes no; do
+                if [[ -n $run ]]; then
+                        break
+                else
+                        echo "enter 1=yes 2=no"
+                fi
+                done
+        if [ "$run" = "no" ]; then
+               exit
+        fi
+
+
+        if [ $sp = "1" ]; then
+		$BASE/exec_each_pdb_serial.sh $INPUT_SCRIPTNAME $env > result.log 2>&1
+	else
+		$BASE/exec_each_pdb_parallel.sh $INPUT_SCRIPTNAME $env > result.log 2>&1
+	fi
+fi
+
+if [ "$db" = "meetme" ]; then
+echo "Choose parallelism level - 1 at a time, 2 at a time (one on each MMDB), 64 at a time"
+echo "Please note parallel execution can overwhelm the databases; use with caution"
+        select sp in 1 2 64; do
+                if [[ -n $sp ]]; then
+                        break
+                else
+                        echo "enter 1 for 1 2 for 2 or 3 for 64"
+                fi
+        done
+	if [ $sp = "1" ]; then
+                if [ $env = "DEV" ]; then
+                	$BASE/j64.py $INPUT_SCRIPTNAME $env $dbtype
+			echo "Do you want to execute the scripts now?"
+                	select run in yes no; do
+                	if [[ -n $run ]]; then
+                        	break
+                	else
+                        	echo "enter 1=yes 2=no"
+                	fi
+                	done
+                	if [ "$run" = "no" ]; then
+                        	exit
+                	fi
+
+
+			$BASE/exec_all_dev_pdbs_serial.sh $SCRIPTNAME > result.log 2>&1
+                else
+                if [ $env = "STAGE" ]; then
+                	$BASE/j64.py $INPUT_SCRIPTNAME $env $dbtype
+			echo "Do you want to execute the scripts now?"
+                        select run in yes no; do
+                        if [[ -n $run ]]; then
+                                break
+                        else
+                                echo "enter 1=yes 2=no"
+                        fi
+                        done
+                        if [ "$run" = "no" ]; then
+                                exit
+                        fi
+			
+                        $BASE/exec_stage_meetme_serial.sh $SCRIPTNAME > result.log 2>&1
+                else
+                if [ $env = "PROD" ]; then
+                	$BASE/j64.py $INPUT_SCRIPTNAME $env $dbtype
+			echo "Do you want to execute the scripts now?"
+                        select run in yes no; do
+                        if [[ -n $run ]]; then
+                                break
+                        else
+                                echo "enter 1=yes 2=no"
+                        fi
+                        done
+                        if [ "$run" = "no" ]; then
+                                exit
+                        fi
+
+                        $BASE/exec_prod_meetme_serial.sh $SCRIPTNAME > result.log 2>&1
+                fi
+                fi
+                fi
+        else
+	if [ $sp = "2" ]; then
+                if [ $env = "DEV" ]; then
+			# since meetme partitions are distributed among 8 dev pdbs parallel2 is not used
+			$BASE/j64.py $INPUT_SCRIPTNAME $env $dbtype
+			echo "Do you want to execute the scripts now?"
+                        select run in yes no; do
+                        if [[ -n $run ]]; then
+                                break
+                        else
+                                echo "enter 1=yes 2=no"
+                        fi
+                        done
+                        if [ "$run" = "no" ]; then
+                                exit
+                        fi
+
+                        $BASE/exec_all_dev_pdbs_serial.sh $SCRIPTNAME > result.log 2>&1
+                else
+                if [ $env = "STAGE" ]; then
+			$BASE/j2.py $INPUT_SCRIPTNAME $env $dbtype
+			echo "Do you want to execute the scripts now?"
+                        select run in yes no; do
+                        if [[ -n $run ]]; then
+                                break
+                        else
+                                echo "enter 1=yes 2=no"
+                        fi
+                        done
+                        if [ "$run" = "no" ]; then
+                                exit
+                        fi
+
+
+                        $BASE/exec_stage_meetme_parallel2.sh $SCRIPTNAME > result.log 2>&1
+                else
+                if [ $env = "PROD" ]; then
+			$BASE/j2.py $INPUT_SCRIPTNAME $env $dbtype
+			echo "Do you want to execute the scripts now?"
+                        select run in yes no; do
+                        if [[ -n $run ]]; then
+                                break
+                        else
+                                echo "enter 1=yes 2=no"
+                        fi
+                        done
+                        if [ "$run" = "no" ]; then
+                                exit
+                        fi
+
+                        $BASE/exec_prod_meetme_parallel2.sh $SCRIPTNAME > result.log 2>&1
+                fi
+                fi
+                fi
+        else
+	if [ $sp = "64" ]; then
+		if [ $env = "DEV" ]; then
+			$BASE/j64.py $INPUT_SCRIPTNAME $env $dbtype
+			echo "Do you want to execute the scripts now?"
+                        select run in yes no; do
+                        if [[ -n $run ]]; then
+                                break
+                        else
+                                echo "enter 1=yes 2=no"
+                        fi
+                        done
+                        if [ "$run" = "no" ]; then
+                                exit
+                        fi
+
+			$BASE/exec_all_dev_pdbs_parallel.sh $SCRIPTNAME > result.log 2>&1
+                else
+                if [ $env = "STAGE" ]; then
+			$BASE/j64.py $INPUT_SCRIPTNAME $env $dbtype
+			echo "Do you want to execute the scripts now?"
+                        select run in yes no; do
+                        if [[ -n $run ]]; then
+                                break
+                        else
+                                echo "enter 1=yes 2=no"
+                        fi
+                        done
+                        if [ "$run" = "no" ]; then
+                                exit
+                        fi
+
+                        $BASE/exec_stage_meetme_parallel.sh $SCRIPTNAME > result.log 2>&1
+                else
+                if [ $env = "PROD" ]; then
+			$BASE/j64.py $INPUT_SCRIPTNAME $env $dbtype
+			echo "Do you want to execute the scripts now?"
+                        select run in yes no; do
+                        if [[ -n $run ]]; then
+                                break
+                        else
+                                echo "enter 1=yes 2=no"
+                        fi
+                        done
+                        if [ "$run" = "no" ]; then
+                                exit
+                        fi
+
+                        $BASE/exec_prod_meetme_parallel.sh $SCRIPTNAME > result.log 2>&1
+                fi
+                fi
+                fi
+	fi
+	fi
+	fi
+fi
+fi
+
+cat result.log | grep -i "ORA\-" > check.log
+cat result.log | grep -i "SP2\-" >> check.log
+if [[ -s check.log ]] ; then
+	echo "###### ERROR MESSAGES BELOW ######"
+	echo "##################################"
+	grep -i "ORA\-" result.log
+	grep -i "SP2\-" result.log
+else
+	echo "no errors reported"
+fi

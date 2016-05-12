@@ -1,0 +1,233 @@
+
+PM: Considering predicate move-around in query block MISC$1 (#0)
+**************************
+Predicate Move-Around (PM)
+**************************
+OPTIMIZER INFORMATION
+
+ ***************************************
+  PARAMETERS IN OPT_PARAM HINT
+  ****************************
+***************************************
+Column Usage Monitoring is ON: tracking level = 1
+***************************************
+
+Considering Query Transformations on query block MISC$1 (#0)
+**************************
+Query transformations (QT)
+**************************
+CBQT bypassed for query block MISC$1 (#0): statement type.
+CBQT: Validity checks failed for f2n5bn906vb01.
+CSE: Considering common sub-expression elimination in query block MISC$1 (#0)
+*************************
+Common Subexpression elimination (CSE)
+*************************
+CSE:     CSE not performed on query block MISC$1 (#0).
+OBYE:   Considering Order-by Elimination from view MISC$1 (#0)
+***************************
+Order-by elimination (OBYE)
+***************************
+OBYE:     OBYE bypassed: no order by to eliminate.
+CVM: Considering view merge in query block MISC$1 (#0)
+OJE: Begin: find best directive for query block MISC$1 (#0)
+OJE: End: finding best directive for query block MISC$1 (#0)
+query block MISC$1 (#0) unchanged
+Considering Query Transformations on query block MISC$1 (#0)
+**************************
+Query transformations (QT)
+**************************
+CBQT bypassed for query block MISC$1 (#0): statement type.
+CBQT: Validity checks failed for f2n5bn906vb01.
+CSE: Considering common sub-expression elimination in query block MISC$1 (#0)
+*************************
+Common Subexpression elimination (CSE)
+*************************
+CSE:     CSE not performed on query block MISC$1 (#0).
+SU: Considering subquery unnesting in query block MISC$1 (#0)
+********************
+Subquery Unnest (SU)
+********************
+SJC: Considering set-join conversion in query block MISC$1 (#0)
+*************************
+Set-Join Conversion (SJC)
+*************************
+SJC: not performed
+PM: Considering predicate move-around in query block MISC$1 (#0)
+**************************
+Predicate Move-Around (PM)
+**************************
+PM:     PM bypassed: Outer query contains no views.
+PM:     PM bypassed: Outer query contains no views.
+query block MISC$1 (#0) unchanged
+Registered qb: SEL$1 0x31ac6cd0 (PARSER)
+---------------------
+QUERY BLOCK SIGNATURE
+---------------------
+  signature (): qb_name=SEL$1 nbfros=1 flg=0
+    fro(0): flg=4 objn=20677 hint_alias="TT"@"SEL$1"
+
+SPM: statement not found in SMB
+SPM: capture of plan baseline is OFF
+
+**************************
+Automatic degree of parallelism (AUTODOP)
+**************************
+Automatic degree of parallelism is disabled: Parameter.
+
+PM: Considering predicate move-around in query block SEL$1 (#0)
+**************************
+Predicate Move-Around (PM)
+**************************
+OPTIMIZER INFORMATION
+
+******************************************
+----- Current SQL Statement for this session (sql_id=2yhyu5brg860s) -----
+select	object_id, owner, object_name, object_type
+from	tt
+where	object_name = :s_object_name
+*******************************************
+
+Considering Query Transformations on query block SEL$1 (#0)
+**************************
+Query transformations (QT)
+**************************
+
+*** 2015-11-18 08:16:11.881
+JF: Checking validity of join factorization for query block SEL$1 (#0)
+JF: Bypassed: not a UNION or UNION-ALL query block.
+ST: not valid since star transformation parameter is FALSE
+TE: Checking validity of table expansion for query block SEL$1 (#0)
+TE: Bypassed: No partitioned table in query block.
+CBQT bypassed for query block SEL$1 (#0): no complex view, sub-queries or UNION (ALL) queries.
+CBQT: Validity checks failed for 2yhyu5brg860s.
+CSE: Considering common sub-expression elimination in query block SEL$1 (#0)
+*************************
+Common Subexpression elimination (CSE)
+*************************
+CSE:     CSE not performed on query block SEL$1 (#0).
+OBYE:   Considering Order-by Elimination from view SEL$1 (#0)
+***************************
+Order-by elimination (OBYE)
+***************************
+OBYE:     OBYE bypassed: no order by to eliminate.
+CVM: Considering view merge in query block SEL$1 (#0)
+OJE: Begin: find best directive for query block SEL$1 (#0)
+OJE: End: finding best directive for query block SEL$1 (#0)
+query block SEL$1 (#0) unchanged
+Considering Query Transformations on query block SEL$1 (#0)
+**************************
+Query transformations (QT)
+**************************
+
+*******************************************
+Peeked values of the binds in SQL statement
+*******************************************
+----- Bind Info (kkscoacd) -----
+ Bind#0
+  oacdty=01 mxl=128(96) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=03 fl2=1000000 frm=01 csi=873 siz=128 off=0
+  kxsbbbfp=7f6a31977330  bln=128  avl=14  flg=05
+  value="DBMS_TRACE_LIB"
+
+=====================================
+SPD: BEGIN context at statement level
+=====================================
+Stmt: ******* UNPARSED QUERY IS *******
+SELECT "TT"."OBJECT_ID" "OBJECT_ID","TT"."OWNER" "OWNER","TT"."OBJECT_NAME" "OBJECT_NAME","TT"."OBJECT_TYPE" "OBJECT_TYPE" FROM "MICHAEL"."TT" "TT" WHERE "TT"."OBJECT_NAME"=:B1
+Objects referenced in the statement
+  TT[TT] 20677, type = 1
+Objects in the hash table
+  Hash table Object 20677, type = 1, ownerid = 17608007097663829578:
+    Dynamic Sampling Directives at location 1:
+       dirid = 586526229928658492, state = 3, flags = 1, loc = 1 {C(20677)[1, 2]}
+       dirid = 9612659649520591497, state = 1, flags = 1, loc = 1 {(20677)[2]}
+       dirid = 1843398046279065297, state = 1, flags = 1, loc = 1 {(20677)[]}
+    Dynamic Sampling Directives at location 4:
+       dirid = 6746156473480418925, state = 3, flags = 1, loc = 4 {(20677)[2]}
+Return code in qosdInitDirCtx: ENBLD
+===================================
+SPD: END context at statement level
+===================================
+
+***************************************
+BASE STATISTICAL INFORMATION
+***************************************
+Table Stats::
+  Table: TT  Alias: TT
+  #Rows: 19463  #Blks:  297  AvgRowLen:  98.00  ChainCnt:  0.00
+Index Stats::
+  Index: TT_IE1  Col#: 2
+    LVLS: 1  #LB: 83  #DK: 14508  LB/K: 1.00  DB/K: 1.00  CLUF: 7707.00
+  Index: TT_IE2  Col#: 2 1
+    LVLS: 1  #LB: 96  #DK: 18124  LB/K: 1.00  DB/K: 1.00  CLUF: 7745.00
+  Index: TT_PK  Col#: 4
+    LVLS: 1  #LB: 40  #DK: 19463  LB/K: 1.00  DB/K: 1.00  CLUF: 343.00
+
+
+
+=====================================
+Access path analysis for TT
+***************************************
+SINGLE TABLE ACCESS PATH 
+  Single Table Cardinality Estimation for TT[TT] 
+SPD: Return code in qosdDSDirSetup: NODIR, estType = TABLE
+  Column (#2): 
+    NewDensity:0.000069, OldDensity:0.000069 BktCnt:19463.000000, PopBktCnt:101.000000, PopValCnt:1, NDV:14508
+  Column (#2): OBJECT_NAME(VARCHAR2)
+    AvgLen: 20 NDV: 14508 Nulls: 0 Density: 0.000069
+    Histogram: Hybrid  #Bkts: 254  UncompBkts: 19463  EndPtVals: 254  ActualVal: yes
+  Table: TT  Alias: TT
+    Card: Original: 19463.000000  Rounded: 1  Computed: 1.33  Non Adjusted: 1.33
+  Access Path: TableScan
+    Cost:  82.14  Resp: 82.14  Degree: 0
+      Cost_io: 82.00  Cost_cpu: 6397008
+      Resp_io: 82.00  Resp_cpu: 6397008
+
+
+  Access Path: index (AllEqRange)
+    Index: TT_IE1
+    resc_io: 2.00  resc_cpu: 15993
+    ix_sel: 0.000069  ix_sel_with_filters: 0.000069 
+    Cost: 2.00  Resp: 2.00  Degree: 1
+
+
+  Access Path: index (RangeScan)
+    Index: TT_IE2
+    resc_io: 3.00  resc_cpu: 22264
+    ix_sel: 0.000069  ix_sel_with_filters: 0.000069 
+    Cost: 3.00  Resp: 3.00  Degree: 1
+
+
+
+  Best:: AccessPath: IndexRange
+  Index: TT_IE1
+         Cost: 2.00  Degree: 1  Resp: 2.00  Card: 1.33  Bytes: 0
+
+
+
+***********************
+Best so far:  Table#: 0  cost: 2.0003  card: 1.3347  bytes: 37
+***********************
+
+Final cost for query block SEL$1 (#0) - All Rows Plan:
+  Best join order: 1
+  Cost: 2.0003  Degree: 1  Card: 1.0000  Bytes: 37
+  Resc: 2.0003  Resc_io: 2.0000  Resc_cpu: 15993
+  Resp: 2.0003  Resp_io: 2.0000  Resc_cpu: 15993
+kkoqbc-subheap (delete addr=0x7f6a31a6fb60, in-use=24704, alloc=32840)
+
+
+============
+Plan Table
+============
+-------------------------------------------------------+-----------------------------------+
+| Id  | Operation                            | Name    | Rows  | Bytes | Cost  | Time      |
+-------------------------------------------------------+-----------------------------------+
+| 0   | SELECT STATEMENT                     |         |       |       |     2 |           |
+| 1   |  TABLE ACCESS BY INDEX ROWID BATCHED | TT      |     1 |    37 |     2 |  00:00:01 |
+| 2   |   INDEX RANGE SCAN                   | TT_IE1  |     1 |       |     1 |  00:00:01 |
+-------------------------------------------------------+-----------------------------------+
+Predicate Information:
+----------------------
+2 - access("OBJECT_NAME"=:S_OBJECT_NAME)
+ 

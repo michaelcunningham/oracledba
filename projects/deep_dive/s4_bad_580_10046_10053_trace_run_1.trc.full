@@ -1,0 +1,231 @@
+Trace file /u01/app/oracle/diag/rdbms/fmda/fmd/trace/fmd_ora_24174_s4_bad_580_10046_10053_trace_run_1.trc
+Oracle Database 12c Enterprise Edition Release 12.1.0.1.0 - 64bit Production
+With the Partitioning, Automatic Storage Management, OLAP, Advanced Analytics
+and Real Application Testing options
+ORACLE_HOME = /u01/app/oracle/product/12.1.0/dbhome_1
+System name:	Linux
+Node name:	ora10.localdomain
+Release:	3.8.13-16.2.1.el6uek.x86_64
+Version:	#1 SMP Thu Nov 7 17:01:44 PST 2013
+Machine:	x86_64
+Instance name: fmd
+Redo thread mounted by this instance: 1
+Oracle process number: 49
+Unix process pid: 24174, image: oracle@ora10.localdomain (TNS V1-V3)
+
+
+*** 2016-02-27 13:50:43.824
+*** SESSION ID:(69.3) 2016-02-27 13:50:43.824
+*** CLIENT ID:() 2016-02-27 13:50:43.824
+*** SERVICE NAME:(SYS$USERS) 2016-02-27 13:50:43.824
+*** MODULE NAME:(SQL*Plus) 2016-02-27 13:50:43.824
+*** ACTION NAME:() 2016-02-27 13:50:43.824
+ 
+WAIT #139990800208320: nam='SQL*Net message to client' ela= 2 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=84905765625
+WAIT #139990800208320: nam='SQL*Net message from client' ela= 171 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=84905766168
+CLOSE #139990800208320:c=0,e=4,dep=0,type=1,tim=84905766198
+=====================
+PARSING IN CURSOR #139990800206896 len=48 dep=0 uid=67 oct=47 lid=67 tim=84905766700 hv=1080929281 ad='a3eb6758' sqlid='f2n5bn906vb01'
+BEGIN :s_object_name := 'DBMS_TRACE_LIB'; END;
+END OF STMT
+PARSE #139990800206896:c=0,e=479,p=0,cr=0,cu=0,mis=1,r=0,dep=0,og=1,plh=0,tim=84905766700
+Registered qb: MISC$1 0x25e62868 (PARSER)
+---------------------
+QUERY BLOCK SIGNATURE
+---------------------
+  signature(): NULL
+SPM: disallowed: statement type not supported
+
+**************************
+Automatic degree of parallelism (AUTODOP)
+**************************
+Automatic degree of parallelism is disabled: SQL property restriction (bootstrap, stmt type, remote cursor).
+
+PM: Considering predicate move-around in query block MISC$1 (#0)
+**************************
+Predicate Move-Around (PM)
+**************************
+OPTIMIZER INFORMATION
+
+******************************************
+----- Current SQL Statement for this session (sql_id=f2n5bn906vb01) -----
+BEGIN :s_object_name := 'DBMS_TRACE_LIB'; END;
+*******************************************
+
+Considering Query Transformations on query block MISC$1 (#0)
+**************************
+Query transformations (QT)
+**************************
+CBQT bypassed for query block MISC$1 (#0): statement type.
+CBQT: Validity checks failed for f2n5bn906vb01.
+CSE: Considering common sub-expression elimination in query block MISC$1 (#0)
+*************************
+Common Subexpression elimination (CSE)
+*************************
+CSE:     CSE not performed on query block MISC$1 (#0).
+OBYE:   Considering Order-by Elimination from view MISC$1 (#0)
+***************************
+Order-by elimination (OBYE)
+***************************
+OBYE:     OBYE bypassed: no order by to eliminate.
+CVM: Considering view merge in query block MISC$1 (#0)
+OJE: Begin: find best directive for query block MISC$1 (#0)
+OJE: End: finding best directive for query block MISC$1 (#0)
+query block MISC$1 (#0) unchanged
+Considering Query Transformations on query block MISC$1 (#0)
+**************************
+Query transformations (QT)
+**************************
+CBQT bypassed for query block MISC$1 (#0): statement type.
+CBQT: Validity checks failed for f2n5bn906vb01.
+CSE: Considering common sub-expression elimination in query block MISC$1 (#0)
+*************************
+Common Subexpression elimination (CSE)
+*************************
+CSE:     CSE not performed on query block MISC$1 (#0).
+SU: Considering subquery unnesting in query block MISC$1 (#0)
+********************
+Subquery Unnest (SU)
+********************
+SJC: Considering set-join conversion in query block MISC$1 (#0)
+*************************
+Set-Join Conversion (SJC)
+*************************
+SJC: not performed
+PM: Considering predicate move-around in query block MISC$1 (#0)
+**************************
+Predicate Move-Around (PM)
+**************************
+PM:     PM bypassed: Outer query contains no views.
+PM:     PM bypassed: Outer query contains no views.
+query block MISC$1 (#0) unchanged
+BINDS #139990800206896:
+ Bind#0
+  oacdty=01 mxl=128(96) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=03 fl2=1000000 frm=01 csi=873 siz=128 off=0
+  kxsbbbfp=7f5225dfaf80  bln=128  avl=00  flg=05
+WAIT #139990800206896: nam='SQL*Net message to client' ela= 55 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=84905789073
+EXEC #139990800206896:c=20000,e=22351,p=0,cr=0,cu=0,mis=1,r=1,dep=0,og=1,plh=0,tim=84905789103
+WAIT #139990800206896: nam='SQL*Net message from client' ela= 304 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=84905789472
+CLOSE #139990800206896:c=0,e=14,dep=0,type=0,tim=84905789529
+CUR#1 XSC 0x7f5225eb0c30 CHILD#-1 CI (nil) CTX (nil)
+ PARSING SQLTEXT=select	object_id, owner, object_name, object_type
+from	tt_no_exist
+where	object_name = :s_object_name
+ SQLHASH=b5eb5a94
+ Checking for already pinned child. fbcflg 108
+ No valid child pinned
+ Parent 0xa54ee980(0xa3eb2c48) ready for search
+ kksSearchChildList: no suitable child found (hash_match=0)
+ SearchChildList failed ctx=(nil) xscflg=28 ctxflg=0 flg=108
+ allocated new child slot bi=0xa3eb2180 flg=1 cld=0 hsh=b5eb5a94
+kkshinins insert child into incomplete list bi=0xa3eb2180 cld=0 flg=25
+ Created new child obj #0 dsfl=2002011 8003c00 xsc=0x7f5225eb0c30 chd=0xa3eb17a8 clk=0xa3eb7e58
+ Pin new child obj #0 dsfl=2002011 xsc=0x7f5225eb0c30 chd=0xa3eb17a8 clk=0xa3eb7e58 cpn=(nil)
+ kksLoadChild: reload 0 path 2
+ kksLoadChild: reload 0 path 3
+ Compilation environment difference Failed sharing : 0
+ Change in cursor environment
+ SQL pgadep:0 pgapls:0 user
+ Child creation successful xsc=0x7f5225eb0c30 chd=0xa3eb17a8 cpn=0xa54f2a00 sta=0 bi=0xa3eb2180 cld=0
+ Add new child to parent list pi=0xa3eb1cb0 psn=0 bi=0xa3eb2180 cld=0 flg=35
+------------------------------------------------------------------------------------------------------------------------
+=====================
+PARSING IN CURSOR #139990800206896 len=101 dep=0 uid=67 oct=3 lid=67 tim=84905790485 hv=3052100244 ad='a3eb2c48' sqlid='ampxmj6uyqqnn'
+select	object_id, owner, object_name, object_type
+from	tt_no_exist
+where	object_name = :s_object_name
+END OF STMT
+PARSE #139990800206896:c=1000,e=923,p=0,cr=0,cu=0,mis=1,r=0,dep=0,og=1,plh=0,tim=84905790485
+ Checking for already pinned child. fbcflg 102
+ kkssbt: setting types
+ kkssbt: opitca 0xa3eb0810 0xa450dec0
+ Compilation environment difference Failed sharing : 0
+    sqlstat_enabled                     = false                true                
+ Change in cursor environment
+ SQL pgadep:0 pgapls:0 user
+ Cursor#1 mapped
+=====================
+PARSING IN CURSOR #139990800204184 len=245 dep=1 uid=0 oct=3 lid=0 tim=84905792543 hv=1602468406 ad='a78133d8' sqlid='1p5grz1gs7fjq'
+select obj#,type#,ctime,mtime,stime, status, dataobj#, flags, oid$, spare1, spare2, spare3, signature, spare7, spare8, spare9 from obj$ where owner#=:1 and name=:2 and namespace=:3 and remoteowner is null and linkname is null and subname is null
+END OF STMT
+PARSE #139990800204184:c=0,e=898,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=0,tim=84905792542
+ Cursor#1 mapped
+BINDS #139990800204184:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=80 off=0
+  kxsbbbfp=7f5225df8df8  bln=22  avl=02  flg=05
+  value=67
+ Bind#1
+  oacdty=01 mxl=32(11) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=10 fl2=0001 frm=01 csi=873 siz=0 off=24
+  kxsbbbfp=7f5225df8e10  bln=32  avl=11  flg=01
+  value="TT_NO_EXIST"
+ Bind#2
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=56
+  kxsbbbfp=7f5225df8e30  bln=22  avl=02  flg=01
+  value=1
+EXEC #139990800204184:c=1000,e=1323,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=813480514,tim=84905793945
+FETCH #139990800204184:c=0,e=25,p=0,cr=2,cu=0,mis=0,r=0,dep=1,og=4,plh=813480514,tim=84905793983
+STAT #139990800204184 id=1 cnt=0 pid=0 pos=1 obj=18 op='TABLE ACCESS BY INDEX ROWID BATCHED OBJ$ (cr=2 pr=0 pw=0 time=28 us cost=3 size=101 card=1)'
+STAT #139990800204184 id=2 cnt=0 pid=1 pos=1 obj=37 op='INDEX RANGE SCAN I_OBJ2 (cr=2 pr=0 pw=0 time=27 us cost=2 size=0 card=1)'
+ Cursor#1 mapped
+CLOSE #139990800204184:c=0,e=1,dep=1,type=3,tim=84905794047
+ Cursor#1 mapped
+BINDS #139990800204184:
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=80 off=0
+  kxsbbbfp=7f5225df8df8  bln=22  avl=02  flg=05
+  value=1
+ Bind#1
+  oacdty=01 mxl=32(11) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=10 fl2=0001 frm=01 csi=873 siz=0 off=24
+  kxsbbbfp=7f5225df8e10  bln=32  avl=11  flg=01
+  value="TT_NO_EXIST"
+ Bind#2
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1000001 frm=00 csi=00 siz=0 off=56
+  kxsbbbfp=7f5225df8e30  bln=22  avl=02  flg=01
+  value=1
+EXEC #139990800204184:c=0,e=67,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=4,plh=813480514,tim=84905794182
+FETCH #139990800204184:c=0,e=15,p=0,cr=3,cu=0,mis=0,r=0,dep=1,og=4,plh=813480514,tim=84905794206
+ Cursor#1 mapped
+CLOSE #139990800204184:c=0,e=1,dep=1,type=3,tim=84905794228
+ Cursor#1 mapped
+=====================
+PARSE ERROR #139990800206896:len=102 dep=0 uid=67 oct=3 lid=67 tim=84905794831 err=942
+select	object_id, owner, object_name, object_type
+from	tt_no_exist
+where	object_name = :s_object_name
+ Cursor#1 mapped
+ kkssbt: error #942
+kkshindel remove child from incomplete list bi=0xa3eb2180 cld=0 flg=30
+ Cursor unmapped
+CUR#1 XSC 0x7f5225eb0c30 CHILD#0 CI (nil) CTX (nil)
+ Cursor unmapped
+WAIT #139990800206896: nam='SQL*Net break/reset to client' ela= 16 driver id=1650815232 break?=1 p3=0 obj#=-1 tim=84905795028
+WAIT #139990800206896: nam='SQL*Net break/reset to client' ela= 114 driver id=1650815232 break?=0 p3=0 obj#=-1 tim=84905795181
+WAIT #139990800206896: nam='SQL*Net message to client' ela= 1 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=84905795197
+WAIT #139990800206896: nam='SQL*Net message from client' ela= 235 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=84905795453
+CUR#1 XSC 0x7f5225eb0c30 CHILD#0 CI (nil) CTX (nil)
+ Cursor#1 mapped
+ Closing cursor
+CLOSE #139990800206896:c=0,e=6,dep=0,type=0,tim=84905795486
+=====================
+PARSING IN CURSOR #139990800206896 len=55 dep=0 uid=67 oct=42 lid=67 tim=84905795573 hv=4153801004 ad='0' sqlid='d9u7st7vtby9c'
+alter session set events '10053 trace name context off'
+END OF STMT
+PARSE #139990800206896:c=0,e=66,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=0,plh=0,tim=84905795572
+EXEC #139990800206896:c=0,e=293,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=0,plh=0,tim=84905795893
+WAIT #139990800206896: nam='SQL*Net message to client' ela= 2 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=84905795914
+WAIT #139990800206896: nam='SQL*Net message from client' ela= 122 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=84905796048
+CLOSE #139990800206896:c=0,e=3,dep=0,type=1,tim=84905796068
+=====================
+PARSING IN CURSOR #139990799452712 len=55 dep=0 uid=67 oct=42 lid=67 tim=84905796112 hv=2217940283 ad='0' sqlid='06nvwn223659v'
+alter session set events '10046 trace name context off'
+END OF STMT
+PARSE #139990799452712:c=0,e=30,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=0,plh=0,tim=84905796112
+EXEC #139990799452712:c=0,e=126,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=0,plh=0,tim=84905796259

@@ -1,0 +1,93 @@
+#! /bin/sh
+
+if [ "$1" = "" ]
+then
+  echo
+  echo "   Usage: $0 <ORACLE_SID>"
+  echo
+  echo "   Example: $0 orcl"
+  echo
+  exit
+fi
+
+unset SQLPATH
+export ORACLE_SID=$1
+export PATH=/usr/local/bin:$PATH
+export ORAENV_ASK=NO
+. /usr/local/bin/oraenv -s
+
+log_file=/mnt/dba/logs/${ORACLE_SID}/restore_standby_db_from_primary_backup_dev_to_non_asm.log
+backup_dir=/mnt/db_transfer/${ORACLE_SID}/rman_backup
+ctl_dir=/mnt/db_transfer/${ORACLE_SID}/ctl
+standby_ctl_file=$ctl_dir/standby_control.ctl
+ctl_rcv_file=/mnt/db_transfer/${ORACLE_SID}/restore_standby_controlfile.rcv
+alter_system_file=/mnt/db_transfer/${ORACLE_SID}/alter_system_set_control_files.sql
+
+db_running=`ps x | grep -v grep | grep ora_pmon_${ORACLE_SID} | awk '{print $5}'`
+db_running=`echo $db_running`
+
+if [ "$db_running" = "ora_pmon_"${ORACLE_SID} ]
+then
+  echo
+  echo "        ################################################################################"
+  echo
+  echo "        The ${ORACLE_SID} is already running."
+  echo "        The ${ORACLE_SID} should be shutdown before proceeding."
+  echo "        You may be running this on the wrong server."
+  echo
+  echo "        ################################################################################"
+  echo
+  exit
+fi
+
+#
+# Make a rcv file to recover the standby control file to the correct location.
+#
+echo "run" > $ctl_rcv_file
+echo "{" >> $ctl_rcv_file
+echo "restore controlfile to '/u02/oradata/${ORACLE_SID}/ctl/control01.ctl' from '$standby_ctl_file';" >> $ctl_rcv_file
+echo "restore controlfile to '/u02/oradata/${ORACLE_SID}/ctl/control02.ctl' from '$standby_ctl_file';" >> $ctl_rcv_file
+echo "restore controlfile to '/u02/oradata/${ORACLE_SID}/ctl/control03.ctl' from '$standby_ctl_file';" >> $ctl_rcv_file
+echo "}" >> $ctl_rcv_file
+
+echo "alter system set control_files='/u02/oradata/${ORACLE_SID}/ctl/control01.ctl','/u02/oradata/${ORACLE_SID}/ctl/control02.ctl','/u02/oradata/${ORACLE_SID}/ctl/control03.ctl' scope=spfile;" > $alter_system_file
+echo "create pfile from spfile;" >> $alter_system_file
+
+echo $ctl_rcv_file
+echo $alter_system_file
+cat $ctl_rcv_file
+cat $alter_system_file
+
+# sqlplus /nolog << EOF
+# connect / as sysdba
+# startup nomount
+# alter system set dg_broker_start=FALSE;
+# @$alter_system_file
+# exit;
+# EOF
+
+rman target / << EOF | tee $log_file
+startup nomount
+alter system set dg_broker_start=FALSE;
+alter system set standby_file_management=MANUAL;
+@$alter_system_file
+shutdown immediate
+startup nomount
+@$ctl_rcv_file
+alter database mount standby database;
+
+catalog start with '/mnt/db_transfer/${ORACLE_SID}/rman_backup/' noprompt;
+
+run
+{
+  set newname for database to '/u02/oradata/${ORACLE_SID}/data/%U' ;
+  restore database;
+  switch datafile all;
+  switch tempfile all;
+}
+
+quit
+EOF
+
+exit
+

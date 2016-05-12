@@ -1,0 +1,148 @@
+
+COLUMN_NAME                    NULLABLE DATA_TYPE  LENGTH                                                                    
+------------------------------ -------- ---------- ----------                                                                
+TDC_OFFICE_ID                  NOT NULL VARCHAR2   10                                                                        
+ADDRESS1                       NOT NULL VARCHAR2   60                                                                        
+ADDRESS2                                VARCHAR2   60                                                                        
+CITY                           NOT NULL VARCHAR2   20                                                                        
+STATE_ID                       NOT NULL VARCHAR2   2                                                                         
+ZIP5                           NOT NULL VARCHAR2   13                                                                        
+ZIP4                                    VARCHAR2   4                                                                         
+COUNTY_ID                      NOT NULL VARCHAR2   5                                                                         
+PHONE_NUM                               VARCHAR2   14                                                                        
+TOLL_FREE_PHONE_NUM                     VARCHAR2   14                                                                        
+FAX_NUM                                 VARCHAR2   14                                                                        
+OPERATING_COMPANY_ID           NOT NULL VARCHAR2   2                                                                         
+MAIL_PROC_CNTR_NAME                     VARCHAR2   60                                                                        
+MAIL_PROC_CNTR_ADDRESS1                 VARCHAR2   60                                                                        
+MAIL_PROC_CNTR_ADDRESS2                 VARCHAR2   60                                                                        
+MAIL_PROC_CNTR_CITY                     VARCHAR2   20                                                                        
+MAIL_PROC_CNTR_STATE_ID                 VARCHAR2   2                                                                         
+MAIL_PROC_CNTR_ZIP5                     VARCHAR2   13                                                                        
+MAIL_PROC_CNTR_ZIP4                     VARCHAR2   4                                                                         
+DESCRIPTION                    NOT NULL VARCHAR2   50                                                                        
+LONG_DESCRIPTION               NOT NULL VARCHAR2   255                                                                       
+ORDER_NUM                      NOT NULL NUMBER     5,0                                                                       
+BEGIN_DATE                     NOT NULL DATE                                                                                 
+END_DATE                                DATE                                                                                 
+CREATED_BY                     NOT NULL VARCHAR2   40                                                                        
+CREATED_DATE                   NOT NULL DATE                                                                                 
+LAST_UPDATED_BY                         VARCHAR2   40                                                                        
+LAST_UPDATED_DATE                       DATE                                                                                 
+IS_A_CLAIM_BRANCH_FLAG         NOT NULL NUMBER     1,0                                                                       
+
+29 rows selected.
+
+
+TABLE_NAME                     TABLESPACE_NAME                DEPENDEN                                                       
+------------------------------ ------------------------------ --------                                                       
+LU_TDC_OFFICE                  NOVA                           ENABLED                                                        
+
+1 row selected.
+
+
+SYNONYM_NAME                                                                                                                 
+-------------------------------------------------------------                                                                
+NOVA_SELECT.LU_TDC_OFFICE                                                                                                    
+NOVA_USERPRD.LU_TDC_OFFICE                                                                                                   
+
+2 rows selected.
+
+
+CONSTRAINT_NAME                R_CONSTRAINT_NAME              INDEX_NAME                     SEARCH_CONDITION                
+------------------------------ ------------------------------ ------------------------------ ------------------------------  
+SYS_C0013983                                                                                 "TDC_OFFICE_ID" IS NOT NULL     
+SYS_C0013985                                                                                 "ADDRESS1" IS NOT NULL          
+SYS_C0013986                                                                                 "CITY" IS NOT NULL              
+SYS_C0013987                                                                                 "STATE_ID" IS NOT NULL          
+SYS_C0013988                                                                                 "ZIP5" IS NOT NULL              
+SYS_C0013989                                                                                 "COUNTY_ID" IS NOT NULL         
+SYS_C0013990                                                                                 "OPERATING_COMPANY_ID" IS NOT   
+SYS_C0013991                                                                                 "DESCRIPTION" IS NOT NULL       
+SYS_C0013992                                                                                 "LONG_DESCRIPTION" IS NOT NULL  
+SYS_C0013993                                                                                 "ORDER_NUM" IS NOT NULL         
+SYS_C0013994                                                                                 "BEGIN_DATE" IS NOT NULL        
+SYS_C0013995                                                                                 "CREATED_BY" IS NOT NULL        
+SYS_C0013996                                                                                 "CREATED_DATE" IS NOT NULL      
+SYS_C0013997                                                                                 "IS_A_CLAIM_BRANCH_FLAG" IS NO  
+XAK2LU_TDC_OFFICE                                             XAK2LU_TDC_OFFICE                                              
+XIF2_LU_TDC_OFFICE             XPKLU_STATE                                                                                   
+XIF3_LU_TDC_OFFICE             XPKLU_ZIP_ASSOC                                                                               
+XIF4_LU_TDC_OFFICE             XPKLU_CITY                                                                                    
+XIF5_LU_TDC_OFFICE             XPKLU_SW_OPERATING_COMPANY                                                                    
+XIF6_LU_TDC_OFFICE             XPKLU_CITY                                                                                    
+XIF7_LU_TDC_OFFICE             XPKLU_STATE                                                                                   
+XIF8_LU_TDC_OFFICE             XPKLU_ZIP                                                                                     
+XIF9_LU_TDC_OFFICE             XPKLU_FLAG                                                                                    
+XPKLU_TDC_OFFICE                                              XPKLU_TDC_OFFICE                                               
+
+24 rows selected.
+
+
+Constraint Name:                                   References:                                                               
+ Table.Column                                       Table.Column                                                             
+-------------------------------------------------- --------------------------------------------------                        
+XIF2_LU_TDC_OFFICE                                 REFERENCES                                                                
+(LU_TDC_OFFICE.STATE_ID)                           (LU_STATE.STATE_ID)                                                       
+                                                                                                                             
+XIF3_LU_TDC_OFFICE                                 REFERENCES                                                                
+(LU_TDC_OFFICE.COUNTY_ID)                          (LU_ZIP_ASSOC.COUNTY_ID)                                                  
+                                                                                                                             
+XIF3_LU_TDC_OFFICE                                 REFERENCES                                                                
+(LU_TDC_OFFICE.ZIP5)                               (LU_ZIP_ASSOC.ZIP)                                                        
+                                                                                                                             
+XIF3_LU_TDC_OFFICE                                 REFERENCES                                                                
+(LU_TDC_OFFICE.CITY)                               (LU_ZIP_ASSOC.CITY)                                                       
+                                                                                                                             
+XIF4_LU_TDC_OFFICE                                 REFERENCES                                                                
+(LU_TDC_OFFICE.CITY)                               (LU_CITY.CITY)                                                            
+                                                                                                                             
+XIF4_LU_TDC_OFFICE                                 REFERENCES                                                                
+(LU_TDC_OFFICE.CITY)                               (LU_CITY.CITY_CODE)                                                       
+                                                                                                                             
+XIF5_LU_TDC_OFFICE                                 REFERENCES                                                                
+(LU_TDC_OFFICE.OPERATING_COMPANY_ID)               (LU_SW_OPERATING_COMPANY.OPERATING_COMPANY_ID)                            
+                                                                                                                             
+XIF6_LU_TDC_OFFICE                                 REFERENCES                                                                
+(LU_TDC_OFFICE.MAIL_PROC_CNTR_CITY)                (LU_CITY.CITY_CODE)                                                       
+                                                                                                                             
+XIF6_LU_TDC_OFFICE                                 REFERENCES                                                                
+(LU_TDC_OFFICE.MAIL_PROC_CNTR_CITY)                (LU_CITY.CITY)                                                            
+                                                                                                                             
+XIF7_LU_TDC_OFFICE                                 REFERENCES                                                                
+(LU_TDC_OFFICE.MAIL_PROC_CNTR_STATE_ID)            (LU_STATE.STATE_ID)                                                       
+                                                                                                                             
+XIF8_LU_TDC_OFFICE                                 REFERENCES                                                                
+(LU_TDC_OFFICE.MAIL_PROC_CNTR_ZIP5)                (LU_ZIP.ZIP)                                                              
+                                                                                                                             
+XIF9_LU_TDC_OFFICE                                 REFERENCES                                                                
+(LU_TDC_OFFICE.IS_A_CLAIM_BRANCH_FLAG)             (LU_FLAG.FLAG_ID)                                                         
+                                                                                                                             
+
+12 rows selected.
+
+
+INDEX_NAME                     TABLESPACE_N UNIQUENES COLUMN_NAME                    COLUMN_POSITION                         
+------------------------------ ------------ --------- ------------------------------ ---------------                         
+XAK2LU_TDC_OFFICE              NOVAIX       UNIQUE    ORDER_NUM                                    1                         
+XPKLU_TDC_OFFICE               NOVAIX       UNIQUE    TDC_OFFICE_ID                                1                         
+
+2 rows selected.
+
+
+GRANTEE                        PRIVILEGE                                                                                     
+------------------------------ ----------------------------------------                                                      
+NOVA_SELECT                    SELECT                                                                                        
+NOVA_SELECT_ROLE               SELECT                                                                                        
+NOVA_UPDATE_ROLE               SELECT                                                                                        
+                               INSERT                                                                                        
+                               UPDATE                                                                                        
+                               DELETE                                                                                        
+NOVA_USERPRD                   SELECT                                                                                        
+                               INSERT                                                                                        
+                               UPDATE                                                                                        
+                               DELETE                                                                                        
+OPCO                           SELECT                                                                                        
+
+11 rows selected.
+

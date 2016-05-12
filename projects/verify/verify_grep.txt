@@ -1,0 +1,2 @@
+grep -i "ORA-" /mnt/dba/projects/DBA-333/logs/import_create_sequence_script_TDB*.txt
+grep -i "PHOTO_IDS_TO_APPROVE_SEQ" /mnt/dba/projects/DBA-333/work/TDB*create_sequences.sql

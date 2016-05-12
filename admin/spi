@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# . /mnt/oracle_downloads/ora/admin/setenv.sh
+. /mnt/dba/admin/dba.lib
+
+if [ "$1" = "" ]
+then
+  echo
+  echo "   Usage: $0 <tns>"
+  echo
+  echo "   Example: $0 devpdb01"
+  echo
+  exit
+fi
+
+tns=$1
+sysname=system
+#syspwd=`get_sys_pwd $tns`
+syspwd=`get_sys_pwd master`
+
+#echo $sysname
+#echo $syspwd
+
+#sqlplus $sysname/$syspwd@$tns @show_db_info
+export ORACLE_SID=$tns
+sqlplus "sys/$syspwd@$tns as sysdba" @show_db_info

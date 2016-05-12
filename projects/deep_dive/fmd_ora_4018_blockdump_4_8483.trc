@@ -1,0 +1,193 @@
+Trace file /u01/app/oracle/diag/rdbms/fmda/fmd/trace/fmd_ora_4018_blockdump_4_8483.trc
+Oracle Database 12c Enterprise Edition Release 12.1.0.1.0 - 64bit Production
+With the Partitioning, Automatic Storage Management, OLAP, Advanced Analytics
+and Real Application Testing options
+ORACLE_HOME = /u01/app/oracle/product/12.1.0/dbhome_1
+System name:	Linux
+Node name:	ora10.localdomain
+Release:	3.8.13-16.2.1.el6uek.x86_64
+Version:	#1 SMP Thu Nov 7 17:01:44 PST 2013
+Machine:	x86_64
+Instance name: fmd
+Redo thread mounted by this instance: 1
+Oracle process number: 52
+Unix process pid: 4018, image: oracle@ora10.localdomain
+
+
+*** 2016-02-22 21:11:13.146
+*** SESSION ID:(74.3) 2016-02-22 21:11:13.146
+*** CLIENT ID:() 2016-02-22 21:11:13.146
+*** SERVICE NAME:(fmd) 2016-02-22 21:11:13.146
+*** MODULE NAME:(TOAD 12.5.0.99) 2016-02-22 21:11:13.146
+*** ACTION NAME:() 2016-02-22 21:11:13.146
+ 
+
+*** TRACE CONTINUED FROM FILE /u01/app/oracle/diag/rdbms/fmda/fmd/trace/fmd_ora_4018_blockdump_4_8482.trc ***
+
+Start dump data blocks tsn: 4 file#:4 minblk 8483 maxblk 8483
+Block dump from cache:
+Dump of buffer cache at level 4 for pdb=0 tsn=4 rdba=16785699
+BH (0x9bfb9118) file#: 4 rdba: 0x01002123 (4/8483) class: 1 ba: 0x9b8ea000
+  set: 3 pool: 3 bsz: 8192 bsi: 0 sflg: 2 pwc: 91,28
+  dbwrid: 0 obj: 20678 objn: 20678 tsn: [0/4] afn: 4 hint: f
+  hash: [0xad785f08,0xad785f08] lru: [0x9bfb90c8,0x9bfb8d08]
+  ckptq: [NULL] fileq: [NULL]
+  objq: [0xa30ed348,0x9bfb90f0] objaq: [0xa30ed338,0x9bfb9100]
+  st: XCURRENT md: NULL fpin: 'kdxwh40: kdxdtree' fscn: 0x0.2774e5 tch: 1
+  flags:
+  LRBA: [0x0.0.0] LSCN: [0x0.0] HSCN: [0xffff.ffffffff] HSUB: [65535]
+Block dump from disk:
+buffer tsn: 4 rdba: 0x01002123 (4/8483)
+scn: 0x0.23d017 seq: 0x01 flg: 0x04 tail: 0xd0170601
+frmt: 0x02 chkval: 0x215a type: 0x06=trans data
+Hex dump of block: st=0, typ_found=1
+Dump of memory from 0x00007F5C7ECCF000 to 0x00007F5C7ECD1000
+7F5C7ECCF000 0000A206 01002123 0023D017 04010000  [....#!....#.....]
+7F5C7ECCF010 0000215A 00000002 000050C6 0023D00A  [Z!.......P....#.]
+7F5C7ECCF020 00000000 00320001 01002120 0000FFFF  [......2. !......]
+7F5C7ECCF030 00000000 00000000 00000000 00008000  [................]
+7F5C7ECCF040 0023D00A 00000000 00000000 01800001  [..#.............]
+7F5C7ECCF050 00000000 006A0027 1DC21E2C 01002124  [....'.j.,...$!..]
+7F5C7ECCF060 00000000 00001F78 1F681F70 1F581F60  [....x...p.h.`.X.]
+7F5C7ECCF070 1F481F50 1F381F40 1F281F30 1F181F20  [P.H.@.8.0.(. ...]
+7F5C7ECCF080 1F081F10 1EF81F00 1EE81EF0 1ED71EE0  [................]
+7F5C7ECCF090 1EC51ECE 1EB31EBC 1EA11EAA 1E8F1E98  [................]
+7F5C7ECCF0A0 1E7D1E86 1E6B1E74 1E591E62 1E471E50  [..}.t.k.b.Y.P.G.]
+7F5C7ECCF0B0 1E351E3E 00001E2C 00000000 00000000  [>.5.,...........]
+7F5C7ECCF0C0 00000000 00000000 00000000 00000000  [................]
+        Repeat 474 times
+7F5C7ECD0E70 00000000 00000000 0100214D 6202C304  [........M!.....b]
+7F5C7ECD0E80 00214C0A 02C30401 214B575B C3040100  [.L!.....[WK!....]
+7F5C7ECD0E90 4A545602 04010021 645102C3 01002149  [.VTJ!.....QdI!..]
+7F5C7ECD0EA0 4D02C304 00214811 02C30401 21475B46  [...M.H!.....F[G!]
+7F5C7ECD0EB0 C3040100 460D4202 04010021 223D02C3  [.....B.F!.....="]
+7F5C7ECD0EC0 01002145 3802C304 00214437 02C30401  [E!.....87D!.....]
+7F5C7ECD0ED0 21434C33 C3040100 42612E02 04010021  [3LC!......aB!...]
+7F5C7ECD0EE0 132A02C3 01002141 2502C304 00213F28  [..*.A!.....%(?!.]
+7F5C7ECD0EF0 02C30401 213E3D20 C3040100 3D521B02  [.... =>!......R=]
+7F5C7ECD0F00 04010021 041702C3 0100213C 1202C304  [!.......<!......]
+7F5C7ECD0F10 00213B19 02C30401 213A2E0D C3040100  [.;!.......:!....]
+7F5C7ECD0F20 39430802 04010021 580302C3 01002138  [..C9!......X8!..]
+7F5C7ECD0F30 6062C203 01002137 535DC203 01002136  [..b`7!....]S6!..]
+7F5C7ECD0F40 4658C203 01002135 3953C203 01002134  [..XF5!....S94!..]
+7F5C7ECD0F50 244EC203 01002133 6148C203 01002132  [..N$3!....Ha2!..]
+7F5C7ECD0F60 5243C203 01002131 433EC203 0100212F  [..CR1!....>C/!..]
+7F5C7ECD0F70 3639C203 0100212E 2934C203 0100212D  [..96.!....4)-!..]
+7F5C7ECD0F80 1C2FC203 0100212C 0F2AC203 0100212B  [../.,!....*.+!..]
+7F5C7ECD0F90 0225C203 0100212A 591FC203 01002129  [..%.*!.....Y)!..]
+7F5C7ECD0FA0 4C1AC203 01002128 3F15C203 01002127  [...L(!.....?'!..]
+7F5C7ECD0FB0 3210C203 01002126 250BC203 01002125  [...2&!.....%%!..]
+7F5C7ECD0FC0 1806C203 00000000 00000000 00000000  [................]
+7F5C7ECD0FD0 00000000 00000000 00000000 00000000  [................]
+        Repeat 1 times
+7F5C7ECD0FF0 00000000 00000000 00000000 D0170601  [................]
+Block header dump:  0x01002123
+ Object id on Block? Y
+ seg/obj: 0x50c6  csc: 0x00.23d00a  itc: 1  flg: E  typ: 2 - INDEX
+     brn: 0  bdba: 0x1002120 ver: 0x01 opc: 0
+     inc: 0  exflg: 0
+ 
+ Itl           Xid                  Uba         Flag  Lck        Scn/Fsc
+0x01   0xffff.000.00000000  0x00000000.0000.00  C---    0  scn 0x0000.0023d00a
+Branch block dump
+=================
+header address 140035241078860=0x7f5c7eccf04c
+kdxcolev 1
+KDXCOLEV Flags = - - -
+kdxcolok 0
+kdxcoopc 0x80: opcode=0: iot flags=--- is converted=Y
+kdxconco 1
+kdxcosdc 0
+kdxconro 39
+kdxcofbo 106=0x6a
+kdxcofeo 7724=0x1e2c
+kdxcoavs 7618
+kdxbrlmc 16785700=0x1002124
+kdxbrsno 0
+kdxbrbksz 8056 
+kdxbr2urrc 0
+row#0[8048] dba: 16785701=0x1002125
+col 0; len 3; (3):  c2 06 18
+row#1[8040] dba: 16785702=0x1002126
+col 0; len 3; (3):  c2 0b 25
+row#2[8032] dba: 16785703=0x1002127
+col 0; len 3; (3):  c2 10 32
+row#3[8024] dba: 16785704=0x1002128
+col 0; len 3; (3):  c2 15 3f
+row#4[8016] dba: 16785705=0x1002129
+col 0; len 3; (3):  c2 1a 4c
+row#5[8008] dba: 16785706=0x100212a
+col 0; len 3; (3):  c2 1f 59
+row#6[8000] dba: 16785707=0x100212b
+col 0; len 3; (3):  c2 25 02
+row#7[7992] dba: 16785708=0x100212c
+col 0; len 3; (3):  c2 2a 0f
+row#8[7984] dba: 16785709=0x100212d
+col 0; len 3; (3):  c2 2f 1c
+row#9[7976] dba: 16785710=0x100212e
+col 0; len 3; (3):  c2 34 29
+row#10[7968] dba: 16785711=0x100212f
+col 0; len 3; (3):  c2 39 36
+row#11[7960] dba: 16785713=0x1002131
+col 0; len 3; (3):  c2 3e 43
+row#12[7952] dba: 16785714=0x1002132
+col 0; len 3; (3):  c2 43 52
+row#13[7944] dba: 16785715=0x1002133
+col 0; len 3; (3):  c2 48 61
+row#14[7936] dba: 16785716=0x1002134
+col 0; len 3; (3):  c2 4e 24
+row#15[7928] dba: 16785717=0x1002135
+col 0; len 3; (3):  c2 53 39
+row#16[7920] dba: 16785718=0x1002136
+col 0; len 3; (3):  c2 58 46
+row#17[7912] dba: 16785719=0x1002137
+col 0; len 3; (3):  c2 5d 53
+row#18[7904] dba: 16785720=0x1002138
+col 0; len 3; (3):  c2 62 60
+row#19[7895] dba: 16785721=0x1002139
+col 0; len 4; (4):  c3 02 03 58
+row#20[7886] dba: 16785722=0x100213a
+col 0; len 4; (4):  c3 02 08 43
+row#21[7877] dba: 16785723=0x100213b
+col 0; len 4; (4):  c3 02 0d 2e
+row#22[7868] dba: 16785724=0x100213c
+col 0; len 4; (4):  c3 02 12 19
+row#23[7859] dba: 16785725=0x100213d
+col 0; len 4; (4):  c3 02 17 04
+row#24[7850] dba: 16785726=0x100213e
+col 0; len 4; (4):  c3 02 1b 52
+row#25[7841] dba: 16785727=0x100213f
+col 0; len 4; (4):  c3 02 20 3d
+row#26[7832] dba: 16785729=0x1002141
+col 0; len 4; (4):  c3 02 25 28
+row#27[7823] dba: 16785730=0x1002142
+col 0; len 4; (4):  c3 02 2a 13
+row#28[7814] dba: 16785731=0x1002143
+col 0; len 4; (4):  c3 02 2e 61
+row#29[7805] dba: 16785732=0x1002144
+col 0; len 4; (4):  c3 02 33 4c
+row#30[7796] dba: 16785733=0x1002145
+col 0; len 4; (4):  c3 02 38 37
+row#31[7787] dba: 16785734=0x1002146
+col 0; len 4; (4):  c3 02 3d 22
+row#32[7778] dba: 16785735=0x1002147
+col 0; len 4; (4):  c3 02 42 0d
+row#33[7769] dba: 16785736=0x1002148
+col 0; len 4; (4):  c3 02 46 5b
+row#34[7760] dba: 16785737=0x1002149
+col 0; len 4; (4):  c3 02 4d 11
+row#35[7751] dba: 16785738=0x100214a
+col 0; len 4; (4):  c3 02 51 64
+row#36[7742] dba: 16785739=0x100214b
+col 0; len 4; (4):  c3 02 56 54
+row#37[7733] dba: 16785740=0x100214c
+col 0; len 4; (4):  c3 02 5b 57
+row#38[7724] dba: 16785741=0x100214d
+col 0; len 4; (4):  c3 02 62 0a
+----- end of branch block dump -----
+End dump data blocks tsn: 4 file#: 4 minblk 8483 maxblk 8483
+
+*** 2016-02-22 21:12:10.824
+
+*** TRACE CONTINUES IN FILE /u01/app/oracle/diag/rdbms/fmda/fmd/trace/fmd_ora_4018_blockdump_4_8484.trc ***
+

@@ -1,0 +1,79 @@
+#!/bin/sh
+
+if [ "$1" = "" ]
+then
+  echo
+  echo "   Usage: $0 <oracle sid>"
+  echo
+  echo "   Example: $0 orcl"
+  echo
+  exit
+fi
+
+unset SQLPATH
+export ORACLE_SID=$1
+export PATH=/usr/local/bin:$PATH
+ORAENV_ASK=NO . /usr/local/bin/oraenv -s
+HOST=`hostname -s`
+
+log_date=`date +%a`
+log_dir=/mnt/dba/logs/$ORACLE_SID
+log_file=${log_dir}/${ORACLE_SID}_${HOST}_chk_dg_status.log
+email_body_file=${log_dir}/${ORACLE_SID}_${HOST}_chk_dg_status.email
+
+EMAILDBA=dba@tagged.com
+
+database_role=`sqlplus -s /nolog << EOF
+set heading off
+set feedback off
+set verify off
+set echo off
+connect / as sysdba
+select database_role from v\\$database;
+exit;
+EOF`
+
+database_role=`echo $database_role`
+
+if [ "$database_role" != "PRIMARY" ]
+then
+  # This script is only intended to be run on PRIMARY databases.
+  # This is not a PRIMARY, so exit.
+  exit
+fi
+
+/mnt/dba/admin/dg_show_configuration.sh $ORACLE_SID > $log_file
+dg_status=`cat $log_file | grep "Configuration Status" -A1 | tail -1`
+
+# Testing
+# dg_status=WARNING
+
+if [ -z "$dg_status" ]
+then
+  # If nothing was returned then the database is not cofigured for data guard.
+  # Just exit.
+  exit
+fi
+
+if [ "$dg_status" = "SUCCESS" ]
+then
+  # All is good. exit
+  exit
+fi
+
+echo "The data guard configuration is not in a status of SUCCESS." > $email_body_file
+echo "Output from \"show configuration\" is below." >> $email_body_file
+echo "" >> $email_body_file
+echo "" >> $email_body_file
+cat $log_file >> $email_body_file
+echo "" >> $email_body_file
+echo "" >> $email_body_file
+echo "################################################################################" >> $email_body_file
+echo "" >> $email_body_file
+echo 'This report created by : '$0 >> $email_body_file
+echo "" >> $email_body_file
+echo "################################################################################" >> $email_body_file
+echo "" >> $email_body_file
+
+mail_subj="WARNING: $HOST/$ORACLE_SID data guard status = $dg_status"
+mail -s "$mail_subj" $EMAILDBA < $email_body_file

@@ -1,0 +1,98 @@
+#!/bin/bash
+
+if [ "$1" = "" ]
+then
+  echo
+  echo "   Usage: $0 <ORACLE_SID>"
+  echo
+  echo "   Example: $0 orcl"
+  echo
+  exit
+fi
+
+unset SQLPATH
+export PATH=/usr/local/bin:$PATH
+export ORACLE_SID=$1
+ORAENV_ASK=NO . /usr/local/bin/oraenv -s
+
+open_mode=`sqlplus -s /nolog << EOF
+set heading off
+set feedback off
+set verify off
+set echo off
+connect / as sysdba
+select open_mode from v\\$database;
+exit;
+EOF`
+
+open_mode=`echo $open_mode`
+
+if [ "$open_mode" != "READ WRITE" ]
+then
+  # We can only log feature usage for primary databases.  This is probably a standby database.  Just exit.
+  exit
+fi
+
+/mnt/dba/admin/create_to_dba_data_link.sh $ORACLE_SID
+
+sqlplus -s /nolog << EOF
+connect / as sysdba
+
+set feedback off
+set serveroutput on
+
+declare
+	s_db_unique_name	v\$database.db_unique_name%type;
+	s_feature_info		varchar2(4000);
+begin
+	select	upper( db_unique_name )
+	into	s_db_unique_name
+	from	v\$database;
+
+	for r in (
+		select	s_db_unique_name db_unique_name, name, version,
+			detected_usages, total_samples, currently_used,
+			first_usage_date, last_usage_date, aux_count,
+			feature_info, last_sample_date, last_sample_period,
+			sample_interval, description
+		from	dba_feature_usage_statistics )
+	loop
+		s_feature_info := substr( r.feature_info, 1, 4000 );
+
+		update	db_feature_usage_statistics@to_dba_data
+		set	detected_usages = r.detected_usages,
+			total_samples = r.total_samples,
+			currently_used = r.currently_used,
+			first_usage_date = r.first_usage_date,
+			last_usage_date = r.last_usage_date,
+			aux_count = r.aux_count,
+			feature_info = s_feature_info,
+			last_sample_date = r.last_sample_date,
+			last_sample_period = r.last_sample_period,
+			sample_interval = r.sample_interval,
+			description = r.description
+		where	db_unique_name = r.db_unique_name
+		and	name = r.name
+		and	version = r.version;
+
+		if sql%notfound then
+			insert into db_feature_usage_statistics@to_dba_data(
+				db_unique_name, name, version,
+				detected_usages, total_samples, currently_used,
+				first_usage_date, last_usage_date, aux_count,
+				feature_info, last_sample_date, last_sample_period,
+				sample_interval, description )
+			values(
+				r.db_unique_name, r.name, r.version,
+				r.detected_usages, r.total_samples, r.currently_used,
+				r.first_usage_date, r.last_usage_date, r.aux_count,
+				s_feature_info, r.last_sample_date, r.last_sample_period,
+				r.sample_interval, r.description );
+		end if;
+	end loop;
+	commit;
+end;
+/
+
+exit;
+EOF

@@ -1,0 +1,112 @@
+#!/bin/sh
+
+page_dir=/dba/admin
+page_file=${page_dir}/page_list
+page_log=${page_dir}/page.log
+
+if [ "$1" = "" ]
+then
+  echo "Usage: $0 <stuff>"
+  exit
+fi
+
+mail_str=$@
+#echo $mail_str
+mail_id=`echo $mail_str | cut -d/ -f1`
+#echo $mail_id
+
+if [ ! -n "$mail_id" ]  #If mail_id is NULL (not null is what it says)
+then
+  echo "Cannot determine who to email to - command: $0 $@" >> $page_log
+  exit
+fi
+
+char_cnt=`echo $mail_id | wc -c`
+#echo $char_cnt
+
+mail_txt=`echo $mail_str | cut -d/ -f2`
+
+if [ $char_cnt -le 3 ]
+then
+  mail_to=`grep ^$mail_id $page_file | awk '{print $4}'`
+  if [ $mail_id -lt 50 ]
+  then
+    #
+    # This is the section that will mail to a single recipient
+    #
+    #echo $mail_to
+    #echo $mail_txt
+    # The following 2 lines are for testing and logging
+    if [ "$mail_to" = "" ]
+    then
+      echo ERROR
+      exit
+    fi
+    mail_cmd="echo $mail_txt | mail $mail_to"
+    #echo "mail_cmd="$mail_cmd `date`
+    echo $mail_cmd `date` >> $page_log
+    `echo $mail_txt | mail $mail_to`
+    exit
+  else
+    #
+    # This is the section that will mail to multiple recipients
+    #
+    mail_group=`echo $mail_to | sed s/,/" "/g`
+    #echo $mail_group
+    for mail_id in $mail_group
+    do
+      mail_to=`grep ^$mail_id $page_file | awk '{print $4}'`
+      if [ "$mail_to" = "" ]
+      then
+        echo ERROR
+        exit
+      fi
+      #echo $mail_to
+      # The following 2 lines are for testing and logging
+      mail_cmd="echo $mail_txt | mail $mail_to"
+      #echo $mail_cmd
+      echo $mail_cmd `date` >> $page_log
+      `echo $mail_txt | mail $mail_to`
+    done
+    exit
+  fi
+    #
+    # This is the section that will mail to multiple recipients
+    #
+    mail_group=`echo $mail_to | sed s/,/" "/g`
+    #echo $mail_group
+    for mail_id in $mail_group
+    do
+      mail_to=`grep ^$mail_id $page_file | awk '{print $4}'`
+      if [ "$mail_to" = "" ]
+      then
+        echo ERROR
+        exit
+      fi
+      #echo $mail_to
+      # The following 2 lines are for testing and logging
+      mail_cmd="echo $mail_txt | mail $mail_to"
+      #echo $mail_cmd
+      echo $mail_cmd `date` >> $page_log
+      `echo $mail_txt | mail $mail_to`
+    done
+    exit
+  fi
+else
+  #
+  # This is the section used when a 2 word name is used as the mail_id
+  # instead of a numeric mail_id
+  #
+  mail_id_1=`echo $mail_id | awk '{print $1}'`
+  mail_id_2=`echo $mail_id | awk '{print $2}'`
+  mail_to=`grep $mail_id_1 $page_file | grep $mail_id_2 | awk '{print $4}'`
+  if [ "$mail_to" = "" ]
+  then
+    echo ERROR
+    exit
+  fi
+  # The following 2 lines are for testing and logging
+  mail_cmd="echo $mail_txt | mail $mail_to"
+  echo $mail_cmd `date` >> $page_log
+  `echo $mail_txt | mail $mail_to`
+fi

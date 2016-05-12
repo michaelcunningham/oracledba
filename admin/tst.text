@@ -1,0 +1,1 @@
+alter database add standby logfile thread 1 group 21 ( '/u02/oradata/DTDB01/redo/stby_log21.ora' ) size 1g reuse;

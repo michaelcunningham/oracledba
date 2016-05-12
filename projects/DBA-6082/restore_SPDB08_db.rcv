@@ -1,0 +1,46 @@
+run
+{
+set newname for database to '/u02/oradata/SPDB08/data/%U' ;
+SET NEWNAME FOR DATAFILE 1 TO  '/u02/oradata/SPDB08/data/data_D-SPDB08_TS-SYSTEM_FNO-1';
+SET NEWNAME FOR DATAFILE 2 TO  '/u02/oradata/SPDB08/data/data_D-SPDB08_TS-UNDOTBS1_FNO-2';
+SET NEWNAME FOR DATAFILE 3 TO  '/u02/oradata/SPDB08/data/data_D-SPDB08_TS-SYSAUX_FNO-3';
+SET NEWNAME FOR DATAFILE 4 TO  '/u02/oradata/SPDB08/data/data_D-SPDB08_TS-USERS_FNO-4';
+SET NEWNAME FOR DATAFILE 5 TO  '/u02/oradata/SPDB08/data/data_D-SPDB08_TS-DATATBS1_FNO-5';
+SET NEWNAME FOR DATAFILE 6 TO  '/u02/oradata/SPDB08/data/data_D-SPDB08_TS-DATATBS1_FNO-6';
+SET NEWNAME FOR DATAFILE 7 TO  '/u02/oradata/SPDB08/data/data_D-SPDB08_TS-INDXTBS1_FNO-7';
+SET NEWNAME FOR DATAFILE 8 TO  '/u02/oradata/SPDB08/data/data_D-SPDB08_TS-DATATBS1_FNO-8';
+SET NEWNAME FOR DATAFILE 9 TO  '/u02/oradata/SPDB08/data/data_D-SPDB08_TS-INDXTBS1_FNO-9';
+SET NEWNAME FOR DATAFILE 10 TO  '/u02/oradata/SPDB08/data/data_D-SPDB08_TS-DATATBS1_FNO-10';
+SET NEWNAME FOR DATAFILE 11 TO  '/u02/oradata/SPDB08/data/data_D-SPDB08_TS-P48TBS_FNO-11';
+SET NEWNAME FOR DATAFILE 12 TO  '/u02/oradata/SPDB08/data/data_D-SPDB08_TS-P49TBS_FNO-12';
+SET NEWNAME FOR DATAFILE 13 TO  '/u02/oradata/SPDB08/data/data_D-SPDB08_TS-P50TBS_FNO-13';
+SET NEWNAME FOR DATAFILE 14 TO  '/u02/oradata/SPDB08/data/data_D-SPDB08_TS-P51TBS_FNO-14';
+SET NEWNAME FOR DATAFILE 15 TO  '/u02/oradata/SPDB08/data/data_D-SPDB08_TS-P52TBS_FNO-15';
+SET NEWNAME FOR DATAFILE 16 TO  '/u02/oradata/SPDB08/data/data_D-SPDB08_TS-P53TBS_FNO-16';
+SET NEWNAME FOR DATAFILE 17 TO  '/u02/oradata/SPDB08/data/data_D-SPDB08_TS-P54TBS_FNO-17';
+SET NEWNAME FOR DATAFILE 18 TO  '/u02/oradata/SPDB08/data/data_D-SPDB08_TS-P55TBS_FNO-18';
+SET NEWNAME FOR DATAFILE 19 TO  '/u02/oradata/SPDB08/data/data_D-SPDB08_TS-P56TBS_FNO-19';
+SET NEWNAME FOR DATAFILE 20 TO  '/u02/oradata/SPDB08/data/data_D-SPDB08_TS-P57TBS_FNO-20';
+SET NEWNAME FOR DATAFILE 21 TO  '/u02/oradata/SPDB08/data/data_D-SPDB08_TS-P58TBS_FNO-21';
+SET NEWNAME FOR DATAFILE 22 TO  '/u02/oradata/SPDB08/data/data_D-SPDB08_TS-P59TBS_FNO-22';
+SET NEWNAME FOR DATAFILE 23 TO  '/u02/oradata/SPDB08/data/data_D-SPDB08_TS-P60TBS_FNO-23';
+SET NEWNAME FOR DATAFILE 24 TO  '/u02/oradata/SPDB08/data/data_D-SPDB08_TS-P61TBS_FNO-24';
+SET NEWNAME FOR DATAFILE 25 TO  '/u02/oradata/SPDB08/data/data_D-SPDB08_TS-P62TBS_FNO-25';
+SET NEWNAME FOR DATAFILE 26 TO  '/u02/oradata/SPDB08/data/data_D-SPDB08_TS-P63TBS_FNO-26';
+SET NEWNAME FOR DATAFILE 27 TO  '/u02/oradata/SPDB08/data/data_D-SPDB08_TS-READTBS_FNO-27';
+
+alter database rename file '/u02/oradata/STGPRT04/redo/log03.ora' TO '/u02/oradata/SPDB08/redo/log03.ora';
+alter database rename file '/u02/oradata/STGPRT04/redo/log01.ora' TO '/u02/oradata/SPDB08/redo/log01.ora';
+alter database rename file '/u02/oradata/STGPRT04/redo/log02.ora' TO '/u02/oradata/SPDB08/redo/log02.ora';
+alter database rename file '/u02/oradata/STGPRT04/redo/log04.ora' TO '/u02/oradata/SPDB08/redo/log04.ora';
+alter database rename file '/u02/oradata/STGPRT04/redo/log05.ora' TO '/u02/oradata/SPDB08/redo/log05.ora';
+alter database rename file '/u02/oradata/STGPRT04/redo/log06.ora' TO '/u02/oradata/SPDB08/redo/log06.ora';
+alter database rename file '/u02/oradata/STGPRT04/redo/log07.ora' TO '/u02/oradata/SPDB08/redo/log07.ora';
+alter database rename file '/u02/oradata/STGPRT04/redo/log08.ora' TO '/u02/oradata/SPDB08/redo/log08.ora';
+alter database rename file '/u02/oradata/STGPRT04/redo/log09.ora' TO '/u02/oradata/SPDB08/redo/log09.ora';
+alter database rename file '/u02/oradata/STGPRT04/redo/log10.ora' TO '/u02/oradata/SPDB08/redo/log10.ora';
+
+restore database ;
+switch datafile all;
+switch tempfile all;
+}

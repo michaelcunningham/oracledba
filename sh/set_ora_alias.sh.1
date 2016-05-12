@@ -1,0 +1,32 @@
+#!/bin/sh
+
+result=`echo $ORACLE_HOME | awk '{print match($0,"12.1.0")}'`
+if [ $result -gt 0 ]
+then
+  alias alert='cd $ORACLE_BASE/diag/rdbms/$ORACLE_SID*/$ORACLE_SID/trace;tail -30 alert_$ORACLE_SID.log'
+  alias alertt='tail -f $ORACLE_BASE/diag/rdbms/$ORACLE_SID*/$ORACLE_SID/trace/alert_$ORACLE_SID.log'
+  alias bdump='cd $ORACLE_BASE/diag/rdbms/$ORACLE_SID*/$ORACLE_SID/trace;pwd'
+  alias udump='cd $ORACLE_BASE/diag/rdbms/$ORACLE_SID*/$ORACLE_SID/trace;pwd'
+  return
+fi
+
+result=`echo $ORACLE_HOME | awk '{print match($0,"11.2.0")}'`
+if [ $result -gt 0 ]
+then
+  alias alert='cd $ORACLE_BASE/diag/rdbms/$ORACLE_SID/$ORACLE_SID/trace;tail -30 alert_$ORACLE_SID.log'
+  alias alertt='tail -f $ORACLE_BASE/diag/rdbms/$ORACLE_SID/$ORACLE_SID/trace/alert_$ORACLE_SID.log'
+  alias bdump='cd $ORACLE_BASE/diag/rdbms/$ORACLE_SID/$ORACLE_SID/trace;pwd'
+  alias udump='cd $ORACLE_BASE/diag/rdbms/$ORACLE_SID/$ORACLE_SID/trace;pwd'
+  return
+fi
+
+result=`echo $ORACLE_HOME | awk '{print match($0,"10.2.0")}'`
+if [ $result -gt 0 ]
+then
+  alias alert='cd $ORACLE_BASE/admin/$ORACLE_SID/bdump;tail -30 alert_$ORACLE_SID.log'
+  alias alertt='tail -f $ORACLE_BASE/admin/$ORACLE_SID/bdump/alert_$ORACLE_SID.log'
+  alias bdump='cd $ORACLE_BASE/admin/$ORACLE_SID/bdump;pwd'
+  alias udump='cd $ORACLE_BASE/admin/$ORACLE_SID/udump;pwd'
+  return
+fi
+

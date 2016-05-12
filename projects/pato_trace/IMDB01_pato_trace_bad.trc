@@ -1,0 +1,777 @@
+Trace file /u01/app/oracle/diag/rdbms/imdb01a/IMDB01/trace/IMDB01_ora_107336_pato_trace.trc
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, Automatic Storage Management, OLAP, Advanced Analytics
+and Real Application Testing options
+ORACLE_HOME = /u01/app/oracle/product/12.1.0.2/dbhome_1
+System name:	Linux
+Node name:	ora41.tagged.com
+Release:	2.6.32-431.23.3.el6.x86_64
+Version:	#1 SMP Wed Jul 16 06:12:23 EDT 2014
+Machine:	x86_64
+Instance name: IMDB01
+Redo thread mounted by this instance: 1
+Oracle process number: 343
+Unix process pid: 107336, image: oracle@ora41.tagged.com
+
+
+*** 2016-04-20 14:01:45.747
+*** SESSION ID:(2201.39102) 2016-04-20 14:01:45.747
+*** CLIENT ID:() 2016-04-20 14:01:45.747
+*** SERVICE NAME:(IMDB01) 2016-04-20 14:01:45.747
+*** MODULE NAME:(SQL*Plus) 2016-04-20 14:01:45.747
+*** CLIENT DRIVER:() 2016-04-20 14:01:45.747
+*** ACTION NAME:() 2016-04-20 14:01:45.747
+ 
+WAIT #139720140877168: nam='SQL*Net message to client' ela= 2 driver id=1413697536 #bytes=1 p3=0 obj#=-1 tim=6727441316644
+WAIT #139720140877168: nam='SQL*Net message from client' ela= 5124 driver id=1413697536 #bytes=1 p3=0 obj#=-1 tim=6727441322081
+CLOSE #139720140877168:c=0,e=3,dep=0,type=1,tim=6727441322107
+=====================
+PARSING IN CURSOR #139720140874632 len=40 dep=1 uid=0 oct=3 lid=0 tim=6727441323277 hv=2821867121 ad='120ca70b80' sqlid='47r1y8yn34jmj'
+select default$ from col$ where rowid=:1
+END OF STMT
+PARSE #139720140874632:c=1000,e=561,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=0,tim=6727441323276
+BINDS #139720140874632:
+ Bind#0
+  oacdty=11 mxl=16(16) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=18 fl2=0001 frm=00 csi=00 siz=16 off=0
+  kxsbbbfp=7f13215d5f48  bln=16  avl=16  flg=05
+  value=0000AD3E.0018.0001
+EXEC #139720140874632:c=1000,e=1255,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=4,plh=2191121161,tim=6727441324590
+FETCH #139720140874632:c=0,e=30,p=0,cr=2,cu=0,mis=0,r=1,dep=1,og=4,plh=2191121161,tim=6727441324650
+STAT #139720140874632 id=1 cnt=1 pid=0 pos=1 obj=21 op='TABLE ACCESS BY USER ROWID COL$ (cr=1 pr=0 pw=0 time=19 us cost=1 size=15 card=1)'
+CLOSE #139720140874632:c=0,e=34,dep=1,type=0,tim=6727441324765
+Registered qb: SEL$1 0x25f9e4b0 (PARSER)
+---------------------
+QUERY BLOCK SIGNATURE
+---------------------
+  signature (): qb_name=SEL$1 nbfros=2 flg=0
+    fro(0): flg=4 objn=80638 hint_alias="M"@"SEL$1"
+    fro(1): flg=4 objn=83305 hint_alias="MS"@"SEL$1"
+
+Registered qb: SEL$2 0x25fa5f78 (PARSER)
+---------------------
+QUERY BLOCK SIGNATURE
+---------------------
+  signature (): qb_name=SEL$2 nbfros=1 flg=0
+    fro(0): flg=5 objn=0 hint_alias="from$_subquery$_003"@"SEL$2"
+
+SPM: statement not found in SMB
+SPM: capture of plan baseline is OFF
+
+**************************
+Automatic degree of parallelism (AUTODOP)
+**************************
+Automatic degree of parallelism is disabled: Parameter.
+kkopqSetForceParallelProperties: Hint:no
+Query: compute:yes forced:no forceDop:0
+kkopqSetDopReason: Reason why we chose this DOP is: table property.
+table property forces parallelism
+
+Global Manual DOP: 1 - Rounded?: no
+PM: Considering predicate move-around in query block SEL$2 (#0)
+**************************
+Predicate Move-Around (PM)
+**************************
+OPTIMIZER INFORMATION
+
+******************************************
+----- Current SQL Statement for this session (sql_id=9mkfj9cu6m20r) -----
+SELECT sender_user_id
+FROM MESSAGES_STATUS ms
+INNER JOIN MESSAGES m ON ms.thread_id = m.thread_id
+WHERE ms.user_id = 7280151987
+AND m.event_ts between 1461020482000 - 86400000 and 1461020482000
+*******************************************
+Legend
+The following abbreviations are used by optimizer trace.
+CBQT - cost-based query transformation
+JPPD - join predicate push-down
+OJPPD - old-style (non-cost-based) JPPD
+FPD - filter push-down
+PM - predicate move-around
+CVM - complex view merging
+SPJ - select-project-join
+SJC - set join conversion
+SU - subquery unnesting
+OBYE - order by elimination
+OST - old style star transformation
+ST - new (cbqt) star transformation
+CNT - count(col) to count(*) transformation
+JE - Join Elimination
+JF - join factorization
+CBY - connect by
+SLP - select list pruning
+DP - distinct placement
+VT - vector transformation
+qb - query block
+LB - leaf blocks
+DK - distinct keys
+LB/K - average number of leaf blocks per key
+DB/K - average number of data blocks per key
+CLUF - clustering factor
+NDV - number of distinct values
+Resp - response cost
+Card - cardinality
+Resc - resource cost
+NL - nested loops (join)
+SM - sort merge (join)
+HA - hash (join)
+CPUSPEED - CPU Speed 
+IOTFRSPEED - I/O transfer speed
+IOSEEKTIM - I/O seek time
+SREADTIM - average single block read time
+MREADTIM - average multiblock read time
+MBRC - average multiblock read count
+MAXTHR - maximum I/O system throughput
+SLAVETHR - average slave I/O throughput
+dmeth - distribution method
+  1: no partitioning required
+  2: value partitioned
+  4: right is random (round-robin)
+  128: left is random (round-robin)
+  8: broadcast right and partition left
+  16: broadcast left and partition right
+  32: partition left using partitioning of right
+  64: partition right using partitioning of left
+  256: run the join in serial
+  0: invalid distribution method
+sel - selectivity
+ptn - partition
+AP - adaptive plans
+***************************************
+PARAMETERS USED BY THE OPTIMIZER
+********************************
+  *************************************
+  PARAMETERS WITH ALTERED VALUES
+  ******************************
+Compilation Environment Dump
+_pga_max_size                       = 419420 KB
+sqlstat_enabled                     = true
+Bug Fix Control Environment
+
+
+***************************************
+Column Usage Monitoring is ON: tracking level = 1
+***************************************
+
+Considering Query Transformations on query block SEL$2 (#0)
+**************************
+Query transformations (QT)
+**************************
+JF: Checking validity of join factorization for query block SEL$1 (#0)
+JF: Bypassed: not a UNION or UNION-ALL query block.
+ST: not valid since star transformation parameter is FALSE
+TE: Checking validity of table expansion for query block SEL$1 (#0)
+TE: Bypassed: No relevant table found.
+VT: Initial VT validity check for query block SEL$1 (#0)
+VT: Bypassed: inmemory is disabled.
+Check Basic Validity for Non-Union View for query block SEL$1 (#0)
+JPPD:     JPPD bypassed: View has unsupported constructs.
+JF: Checking validity of join factorization for query block SEL$2 (#0)
+JF: Bypassed: not a UNION or UNION-ALL query block.
+ST: not valid since star transformation parameter is FALSE
+TE: Checking validity of table expansion for query block SEL$2 (#0)
+TE: Bypassed: No partitioned table in query block.
+VT: Initial VT validity check for query block SEL$2 (#0)
+VT: Bypassed: inmemory is disabled.
+CBQT bypassed for query block SEL$2 (#0): no complex view, sub-queries or UNION (ALL) queries.
+CBQT: Validity checks failed for 9mkfj9cu6m20r.
+CSE: Considering common sub-expression elimination in query block SEL$2 (#0)
+*************************
+Common Subexpression elimination (CSE)
+*************************
+CSE: Considering common sub-expression elimination in query block SEL$1 (#0)
+*************************
+Common Subexpression elimination (CSE)
+*************************
+CSE:     CSE not performed on query block SEL$1 (#0).
+CSE:     CSE not performed on query block SEL$2 (#0).
+OBYE:   Considering Order-by Elimination from view SEL$2 (#0)
+***************************
+Order-by elimination (OBYE)
+***************************
+OBYE:     OBYE bypassed: no order by to eliminate.
+JE:   Considering Join Elimination on query block SEL$1 (#0)
+*************************
+Join Elimination (JE)    
+*************************
+SQL:******* UNPARSED QUERY IS *******
+SELECT "MS"."USER_ID" "USER_ID","MS"."THREAD_ID" "QCSJ_C000000000300000","M"."THREAD_ID" "QCSJ_C000000000300001","M"."EVENT_TS" "EVENT_TS","M"."SENDER_USER_ID" "SENDER_USER_ID" FROM "TAG"."MESSAGES_STATUS" "MS","TAG"."MESSAGES" "M" WHERE "MS"."THREAD_ID"="M"."THREAD_ID"
+JE:   cfro: MESSAGES_STATUS objn:80638 col#:2 dfro:MESSAGES dcol#:2
+JE:   cfro: MESSAGES_STATUS objn:80638 col#:2 dfro:MESSAGES dcol#:2
+JE:   cfro: MESSAGES objn:83305 col#:2 dfro:MESSAGES_STATUS dcol#:2
+JE:   cfro: MESSAGES objn:83305 col#:2 dfro:MESSAGES_STATUS dcol#:2
+SQL:******* UNPARSED QUERY IS *******
+SELECT "MS"."USER_ID" "USER_ID","MS"."THREAD_ID" "QCSJ_C000000000300000","M"."THREAD_ID" "QCSJ_C000000000300001","M"."EVENT_TS" "EVENT_TS","M"."SENDER_USER_ID" "SENDER_USER_ID" FROM "TAG"."MESSAGES_STATUS" "MS","TAG"."MESSAGES" "M" WHERE "MS"."THREAD_ID"="M"."THREAD_ID"
+Query block SEL$1 (#0) unchanged
+CVM: Considering view merge in query block SEL$2 (#0)
+OJE: Begin: find best directive for query block SEL$2 (#0)
+OJE: End: finding best directive for query block SEL$2 (#0)
+CVM:   Checking validity of merging in query block SEL$1 (#0)
+CVM: Considering view merge in query block SEL$1 (#0)
+OJE: Begin: find best directive for query block SEL$1 (#0)
+OJE: End: finding best directive for query block SEL$1 (#0)
+CVM:   Merging SPJ view SEL$1 (#0) into SEL$2 (#0)
+Registered qb: SEL$58A6D7F6 0x25fa5f78 (VIEW MERGE SEL$2; SEL$1)
+---------------------
+QUERY BLOCK SIGNATURE
+---------------------
+  signature (): qb_name=SEL$58A6D7F6 nbfros=2 flg=0
+    fro(0): flg=0 objn=80638 hint_alias="M"@"SEL$1"
+    fro(1): flg=0 objn=83305 hint_alias="MS"@"SEL$1"
+
+OJE: Begin: find best directive for query block SEL$58A6D7F6 (#0)
+OJE: End: finding best directive for query block SEL$58A6D7F6 (#0)
+JE:   Considering Join Elimination on query block SEL$58A6D7F6 (#0)
+*************************
+Join Elimination (JE)    
+*************************
+SQL:******* UNPARSED QUERY IS *******
+SELECT "M"."SENDER_USER_ID" "SENDER_USER_ID" FROM "TAG"."MESSAGES_STATUS" "MS","TAG"."MESSAGES" "M" WHERE "MS"."USER_ID"=7280151987 AND "M"."EVENT_TS">=1461020482000-86400000 AND "M"."EVENT_TS"<=1461020482000 AND "MS"."THREAD_ID"="M"."THREAD_ID"
+JE:   cfro: MESSAGES_STATUS objn:80638 col#:2 dfro:MESSAGES dcol#:2
+JE:   cfro: MESSAGES objn:83305 col#:2 dfro:MESSAGES_STATUS dcol#:2
+SQL:******* UNPARSED QUERY IS *******
+SELECT "M"."SENDER_USER_ID" "SENDER_USER_ID" FROM "TAG"."MESSAGES_STATUS" "MS","TAG"."MESSAGES" "M" WHERE "MS"."USER_ID"=7280151987 AND "M"."EVENT_TS">=1461020482000-86400000 AND "M"."EVENT_TS"<=1461020482000 AND "MS"."THREAD_ID"="M"."THREAD_ID"
+Query block SEL$58A6D7F6 (#0) unchanged
+query block SEL$2 transformed to SEL$58A6D7F6 (#0)
+Considering Query Transformations on query block SEL$58A6D7F6 (#0)
+**************************
+Query transformations (QT)
+**************************
+JF: Checking validity of join factorization for query block SEL$58A6D7F6 (#0)
+JF: Bypassed: not a UNION or UNION-ALL query block.
+ST: not valid since star transformation parameter is FALSE
+TE: Checking validity of table expansion for query block SEL$58A6D7F6 (#0)
+TE: Bypassed: No relevant table found.
+VT: Initial VT validity check for query block SEL$58A6D7F6 (#0)
+VT: Bypassed: inmemory is disabled.
+CBQT bypassed for query block SEL$58A6D7F6 (#0): no complex view, sub-queries or UNION (ALL) queries.
+CBQT: Validity checks failed for 9mkfj9cu6m20r.
+CSE: Considering common sub-expression elimination in query block SEL$58A6D7F6 (#0)
+*************************
+Common Subexpression elimination (CSE)
+*************************
+CSE:     CSE not performed on query block SEL$58A6D7F6 (#0).
+Query after View Removal
+******* UNPARSED QUERY IS *******
+SELECT "M"."SENDER_USER_ID" "SENDER_USER_ID" FROM "TAG"."MESSAGES_STATUS" "MS","TAG"."MESSAGES" "M" WHERE "MS"."USER_ID"=7280151987 AND "M"."EVENT_TS">=1461020482000-86400000 AND "M"."EVENT_TS"<=1461020482000 AND "MS"."THREAD_ID"="M"."THREAD_ID"
+SU: Considering subquery unnesting in query block SEL$58A6D7F6 (#0)
+********************
+Subquery Unnest (SU)
+********************
+SJC: Considering set-join conversion in query block SEL$58A6D7F6 (#0)
+*************************
+Set-Join Conversion (SJC)
+*************************
+SJC: not performed
+DCL: Checking validity of group-by elimination SEL$58A6D7F6 (#0)
+JE:   Considering Join Elimination on query block SEL$58A6D7F6 (#0)
+*************************
+Join Elimination (JE)    
+*************************
+SQL:******* UNPARSED QUERY IS *******
+SELECT "M"."SENDER_USER_ID" "SENDER_USER_ID" FROM "TAG"."MESSAGES_STATUS" "MS","TAG"."MESSAGES" "M" WHERE "MS"."USER_ID"=7280151987 AND "M"."EVENT_TS">=1461020482000-86400000 AND "M"."EVENT_TS"<=1461020482000 AND "MS"."THREAD_ID"="M"."THREAD_ID"
+JE:   cfro: MESSAGES_STATUS objn:80638 col#:2 dfro:MESSAGES dcol#:2
+JE:   cfro: MESSAGES objn:83305 col#:2 dfro:MESSAGES_STATUS dcol#:2
+SQL:******* UNPARSED QUERY IS *******
+SELECT "M"."SENDER_USER_ID" "SENDER_USER_ID" FROM "TAG"."MESSAGES_STATUS" "MS","TAG"."MESSAGES" "M" WHERE "MS"."USER_ID"=7280151987 AND "M"."EVENT_TS">=1461020482000-86400000 AND "M"."EVENT_TS"<=1461020482000 AND "MS"."THREAD_ID"="M"."THREAD_ID"
+Query block SEL$58A6D7F6 (#0) unchanged
+PM: Considering predicate move-around in query block SEL$58A6D7F6 (#0)
+**************************
+Predicate Move-Around (PM)
+**************************
+PM:     PM bypassed: Outer query contains no views.
+PM:     PM bypassed: Outer query contains no views.
+query block SEL$58A6D7F6 (#0) unchanged
+FPD: Considering simple filter push in query block SEL$58A6D7F6 (#0)
+"MS"."USER_ID"=7280151987 AND "M"."EVENT_TS">=1460934082000 AND "M"."EVENT_TS"<=1461020482000 AND "MS"."THREAD_ID"="M"."THREAD_ID"
+try to generate transitive predicate from check constraints for query block SEL$58A6D7F6 (#0)
+finally: "MS"."USER_ID"=7280151987 AND "M"."EVENT_TS">=1460934082000 AND "M"."EVENT_TS"<=1461020482000 AND "MS"."THREAD_ID"="M"."THREAD_ID" AND 1461020482000>=1460934082000
+
+FPD:   transitive predicates are generated in query block SEL$58A6D7F6 (#0)
+"MS"."USER_ID"=7280151987 AND "M"."EVENT_TS">=1460934082000 AND "M"."EVENT_TS"<=1461020482000 AND "MS"."THREAD_ID"="M"."THREAD_ID" AND 1461020482000>=1460934082000
+apadrv-start sqlid=11081618479053899799
+CSE: Considering common sub-expression elimination in query block SEL$58A6D7F6 (#0)
+*************************
+Common Subexpression elimination (CSE)
+*************************
+CSE:     CSE not performed on query block SEL$58A6D7F6 (#0).
+  :
+    call(in-use=11800, alloc=32712), compile(in-use=93344, alloc=95944), execution(in-use=5024, alloc=8088)
+
+*******************************************
+Peeked values of the binds in SQL statement
+*******************************************
+
+=====================================
+SPD: BEGIN context at statement level
+=====================================
+Stmt: ******* UNPARSED QUERY IS *******
+SELECT "M"."SENDER_USER_ID" "SENDER_USER_ID" FROM "TAG"."MESSAGES_STATUS" "MS","TAG"."MESSAGES" "M" WHERE "MS"."USER_ID"=7280151987 AND "M"."EVENT_TS">=1460934082000 AND "M"."EVENT_TS"<=1461020482000 AND "MS"."THREAD_ID"="M"."THREAD_ID" AND 1461020482000>=1460934082000
+Objects referenced in the statement
+  MESSAGES[M] 80638, type = 1
+  MESSAGES_STATUS[MS] 83305, type = 1
+Objects in the hash table
+  Hash table Object 83305, type = 1, ownerid = 15882345983164203775:
+    Dynamic Sampling Directives at location 1:
+       dirid = 2967660405386353406, state = 5, flags = 1, loc = 1 {C(83305)[1, 5, 7, 8]}
+       dirid = 7319644627035895205, state = 3, flags = 1, loc = 1 {C(83305)[1, 5, 8]}
+       dirid = 18271806003132853315, state = 5, flags = 1, loc = 1 {(83305)[1, 7, 8]}
+       dirid = 15045824139728402821, state = 2, flags = 1, loc = 1 {C(83305)[1, 13]}
+       dirid = 8966106107181059606, state = 5, flags = 1, loc = 1 {EC(83305)[1]}
+    Dynamic Sampling Directives at location 4:
+       dirid = 13588642072880228990, state = 1, flags = 1, loc = 4 {(83305)[1, 2, 4, 5]; (80638)[]; (80638)[]}
+       dirid = 5097825876161620669, state = 5, flags = 1, loc = 4 {(83305)[1, 2]}
+  Hash table Object 80638, type = 1, ownerid = 16939557713699972875:
+    Dynamic Sampling Directives at location 1:
+       dirid = 3294364207904304056, state = 2, flags = 1, loc = 1 {C(80638)[1, 2, 3]}
+       dirid = 4678424848150918423, state = 2, flags = 1, loc = 1 {C(80638)[2, 3]}
+       dirid = 5030633234507819428, state = 2, flags = 1, loc = 1 {CJ(80638)[1, 2]}
+       dirid = 12421805571730305201, state = 2, flags = 1, loc = 1 {(80638)[1, 2]}
+       dirid = 6178882956140305338, state = 5, flags = 1, loc = 1 {EC(80638)[2]}
+    Dynamic Sampling Directives at location 2:
+       dirid = 1836554401722428388, state = 3, flags = 1, loc = 2 {F(83305)[]; (80638)[]}
+       dirid = 6948080411374136032, state = 5, flags = 1, loc = 2 {F(83305)[]; F(80638)[]}
+    Dynamic Sampling Directives at location 4:
+       dirid = 7218892810598756521, state = 5, flags = 1, loc = 4 {(83305)[1, 2]; (80638)[]}
+       dirid = 3017482289593790294, state = 3, flags = 1, loc = 4 {(80638)[]}
+Return code in qosdInitDirCtx: ENBLD
+===================================
+SPD: END context at statement level
+===================================
+CLOSE #139720218171384:c=0,e=4,dep=1,type=1,tim=6727441373940
+=====================
+PARSING IN CURSOR #139720218161112 len=823 dep=1 uid=0 oct=3 lid=0 tim=6727441373999 hv=3156785590 ad='17c1520890' sqlid='frjd8zfy2jfdq'
+SELECT executions, end_of_fetch_count,              elapsed_time/px_servers elapsed_time,        cpu_time/px_servers     cpu_time,            buffer_gets/executions  buffer_gets   FROM (SELECT sum(executions)   as executions,                            sum(case when px_servers_executions > 0                              then px_servers_executions                                  else executions end) as px_servers,                sum(end_of_fetch_count) as end_of_fetch_count,              sum(elapsed_time) as elapsed_time,                 sum(cpu_time)     as cpu_time,                     sum(buffer_gets)  as buffer_gets            FROM   gv$sql                                      WHERE executions > 0                                 AND sql_id = :1                                    AND parsing_schema_name = :2)
+END OF STMT
+PARSE #139720218161112:c=0,e=42,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=4,plh=987782979,tim=6727441373998
+BINDS #139720218161112:
+ Bind#0
+  oacdty=01 mxl=32(13) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=21 fl2=0000 frm=01 csi=873 siz=64 off=0
+  kxsbbbfp=7f13215d4698  bln=32  avl=13  flg=05
+  value="9mkfj9cu6m20r"
+ Bind#1
+  oacdty=01 mxl=32(03) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=21 fl2=0000 frm=01 csi=873 siz=0 off=32
+  kxsbbbfp=7f13215d46b8  bln=32  avl=03  flg=01
+  value="TAG"
+EXEC #139720218161112:c=0,e=88,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=4,plh=987782979,tim=6727441374154
+FETCH #139720218161112:c=0,e=79,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=4,plh=987782979,tim=6727441374260
+STAT #139720218161112 id=1 cnt=1 pid=0 pos=1 obj=0 op='VIEW  (cr=0 pr=0 pw=0 time=93 us)'
+STAT #139720218161112 id=2 cnt=1 pid=1 pos=1 obj=0 op='SORT AGGREGATE (cr=0 pr=0 pw=0 time=89 us)'
+STAT #139720218161112 id=3 cnt=0 pid=2 pos=1 obj=0 op='FIXED TABLE FIXED INDEX X$KGLCURSOR_CHILD (ind:2) (cr=0 pr=0 pw=0 time=73 us)'
+CLOSE #139720218161112:c=0,e=3,dep=1,type=0,tim=6727441374414
+=====================
+PARSING IN CURSOR #139720218161112 len=1365 dep=1 uid=0 oct=3 lid=0 tim=6727441374502 hv=2430454208 ad='17d4969de8' sqlid='4b4wp0a8dvkf0'
+SELECT executions, end_of_fetch_count,              elapsed_time/px_servers elapsed_time,        cpu_time/px_servers     cpu_time,            buffer_gets/executions  buffer_gets   FROM (SELECT sum(executions_delta) as EXECUTIONS,                              sum(case when px_servers_execs_delta > 0                                   then px_servers_execs_delta                                       else executions_delta end) as px_servers,                sum(end_of_fetch_count_delta) as end_of_fetch_count,              sum(elapsed_time_delta) as ELAPSED_TIME,              sum(cpu_time_delta) as CPU_TIME,                      sum(buffer_gets_delta) as BUFFER_GETS          FROM   DBA_HIST_SQLSTAT s,                                   V$DATABASE d,                                         DBA_HIST_SNAPSHOT sn                           WHERE  s.dbid = d.dbid                                  AND  bitand(nvl(s.flag, 0), 1) = 0                    AND  sn.end_interval_time >                                   (select systimestamp at TIME ZONE dbtimezone                  from dual) - 7                               AND  s.sql_id = :1                                    AND  s.snap_id = sn.snap_id                           AND  s.instance_number = sn.instance_number           AND  s.dbid = sn.dbid                                 AND  parsing_schema_name = :2)
+END OF STMT
+PARSE #139720218161112:c=0,e=71,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=4,plh=4033942373,tim=6727441374502
+BINDS #139720218161112:
+ Bind#0
+  oacdty=01 mxl=32(13) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=21 fl2=0000 frm=01 csi=873 siz=64 off=0
+  kxsbbbfp=7f13215cef70  bln=32  avl=13  flg=05
+  value="9mkfj9cu6m20r"
+ Bind#1
+  oacdty=01 mxl=32(03) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=21 fl2=0000 frm=01 csi=873 siz=0 off=32
+  kxsbbbfp=7f13215cef90  bln=32  avl=03  flg=01
+  value="TAG"
+EXEC #139720218161112:c=0,e=117,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=4,plh=4033942373,tim=6727441374678
+WAIT #139720218161112: nam='Disk file operations I/O' ela= 92 FileOperation=2 fileno=0 filetype=1 obj#=-1 tim=6727441374804
+WAIT #139720218161112: nam='Disk file operations I/O' ela= 3 FileOperation=2 fileno=1 filetype=1 obj#=-1 tim=6727441374820
+WAIT #139720218161112: nam='Disk file operations I/O' ela= 2 FileOperation=2 fileno=2 filetype=1 obj#=-1 tim=6727441374829
+WAIT #139720218161112: nam='Disk file operations I/O' ela= 144 FileOperation=2 fileno=0 filetype=15 obj#=-1 tim=6727441375216
+WAIT #139720218161112: nam='control file sequential read' ela= 1111 file#=0 block#=1 blocks=1 obj#=-1 tim=6727441376262
+WAIT #139720218161112: nam='Disk file operations I/O' ela= 19 FileOperation=2 fileno=0 filetype=15 obj#=-1 tim=6727441376354
+WAIT #139720218161112: nam='control file sequential read' ela= 224 file#=0 block#=15 blocks=1 obj#=-1 tim=6727441376559
+WAIT #139720218161112: nam='Disk file operations I/O' ela= 16 FileOperation=2 fileno=0 filetype=15 obj#=-1 tim=6727441376602
+WAIT #139720218161112: nam='control file sequential read' ela= 164 file#=0 block#=17 blocks=1 obj#=-1 tim=6727441376759
+WAIT #139720218161112: nam='control file sequential read' ela= 172 file#=0 block#=1 blocks=1 obj#=-1 tim=6727441377180
+WAIT #139720218161112: nam='control file sequential read' ela= 153 file#=0 block#=15 blocks=1 obj#=-1 tim=6727441377351
+WAIT #139720218161112: nam='control file sequential read' ela= 143 file#=0 block#=17 blocks=1 obj#=-1 tim=6727441377515
+WAIT #139720218161112: nam='Disk file operations I/O' ela= 17 FileOperation=2 fileno=0 filetype=15 obj#=-1 tim=6727441377572
+WAIT #139720218161112: nam='control file sequential read' ela= 214 file#=0 block#=284 blocks=1 obj#=-1 tim=6727441377767
+FETCH #139720218161112:c=3000,e=3210,p=0,cr=18,cu=0,mis=0,r=1,dep=1,og=4,plh=4033942373,tim=6727441377907
+STAT #139720218161112 id=1 cnt=1 pid=0 pos=1 obj=0 op='VIEW  (cr=18 pr=0 pw=0 time=3221 us cost=19 size=78 card=1)'
+STAT #139720218161112 id=2 cnt=1 pid=1 pos=1 obj=0 op='SORT AGGREGATE (cr=18 pr=0 pw=0 time=3221 us)'
+STAT #139720218161112 id=3 cnt=0 pid=2 pos=1 obj=0 op='NESTED LOOPS  (cr=18 pr=0 pw=0 time=3216 us cost=17 size=125 card=1)'
+STAT #139720218161112 id=4 cnt=0 pid=3 pos=1 obj=0 op='NESTED LOOPS  (cr=18 pr=0 pw=0 time=3215 us cost=17 size=125 card=1)'
+STAT #139720218161112 id=5 cnt=0 pid=4 pos=1 obj=0 op='HASH JOIN  (cr=18 pr=0 pw=0 time=3214 us cost=16 size=98 card=1)'
+STAT #139720218161112 id=6 cnt=0 pid=5 pos=1 obj=0 op='NESTED LOOPS  (cr=18 pr=0 pw=0 time=3210 us cost=16 size=98 card=1)'
+STAT #139720218161112 id=7 cnt=0 pid=6 pos=1 obj=0 op='STATISTICS COLLECTOR  (cr=18 pr=0 pw=0 time=3209 us)'
+STAT #139720218161112 id=8 cnt=0 pid=7 pos=1 obj=0 op='HASH JOIN  (cr=18 pr=0 pw=0 time=3206 us cost=15 size=82 card=1)'
+STAT #139720218161112 id=9 cnt=0 pid=8 pos=1 obj=0 op='NESTED LOOPS  (cr=18 pr=0 pw=0 time=3206 us cost=15 size=82 card=1)'
+STAT #139720218161112 id=10 cnt=1 pid=9 pos=1 obj=0 op='STATISTICS COLLECTOR  (cr=0 pr=0 pw=0 time=3108 us)'
+STAT #139720218161112 id=11 cnt=1 pid=10 pos=1 obj=0 op='MERGE JOIN CARTESIAN (cr=0 pr=0 pw=0 time=3103 us cost=0 size=10 card=1)'
+STAT #139720218161112 id=12 cnt=1 pid=11 pos=1 obj=0 op='FIXED TABLE FULL X$KCCDI (cr=0 pr=0 pw=0 time=2107 us cost=0 size=10 card=1)'
+STAT #139720218161112 id=13 cnt=1 pid=11 pos=2 obj=0 op='BUFFER SORT (cr=0 pr=0 pw=0 time=997 us cost=0 size=0 card=1)'
+STAT #139720218161112 id=14 cnt=1 pid=13 pos=1 obj=0 op='FIXED TABLE FULL X$KCCDI2 (cr=0 pr=0 pw=0 time=980 us cost=0 size=0 card=1)'
+STAT #139720218161112 id=15 cnt=0 pid=9 pos=2 obj=0 op='PARTITION RANGE ITERATOR PARTITION: KEY KEY (cr=18 pr=0 pw=0 time=94 us cost=15 size=72 card=1)'
+STAT #139720218161112 id=16 cnt=0 pid=15 pos=1 obj=8294 op='TABLE ACCESS BY LOCAL INDEX ROWID BATCHED WRH$_SQLSTAT PARTITION: KEY KEY (cr=18 pr=0 pw=0 time=77 us cost=15 size=72 card=1)'
+STAT #139720218161112 id=17 cnt=0 pid=16 pos=1 obj=8298 op='INDEX RANGE SCAN WRH$_SQLSTAT_INDEX PARTITION: KEY KEY (cr=18 pr=0 pw=0 time=69 us cost=11 size=0 card=5)'
+STAT #139720218161112 id=18 cnt=0 pid=8 pos=2 obj=0 op='PARTITION RANGE ALL PARTITION: 1 11 (cr=0 pr=0 pw=0 time=0 us cost=15 size=72 card=1)'
+STAT #139720218161112 id=19 cnt=0 pid=18 pos=1 obj=8294 op='TABLE ACCESS BY LOCAL INDEX ROWID BATCHED WRH$_SQLSTAT PARTITION: 1 11 (cr=0 pr=0 pw=0 time=0 us cost=15 size=72 card=1)'
+STAT #139720218161112 id=20 cnt=0 pid=19 pos=1 obj=8298 op='INDEX RANGE SCAN WRH$_SQLSTAT_INDEX PARTITION: 1 11 (cr=0 pr=0 pw=0 time=0 us cost=11 size=0 card=5)'
+STAT #139720218161112 id=21 cnt=0 pid=6 pos=2 obj=8693 op='TABLE ACCESS BY INDEX ROWID WRM$_SNAPSHOT (cr=0 pr=0 pw=0 time=0 us cost=1 size=16 card=1)'
+STAT #139720218161112 id=22 cnt=0 pid=21 pos=1 obj=8694 op='INDEX UNIQUE SCAN WRM$_SNAPSHOT_PK (cr=0 pr=0 pw=0 time=0 us cost=0 size=0 card=1)'
+STAT #139720218161112 id=23 cnt=0 pid=5 pos=2 obj=8693 op='TABLE ACCESS FULL WRM$_SNAPSHOT (cr=0 pr=0 pw=0 time=0 us cost=1 size=16 card=1)'
+STAT #139720218161112 id=24 cnt=0 pid=4 pos=2 obj=8694 op='INDEX UNIQUE SCAN WRM$_SNAPSHOT_PK (cr=0 pr=0 pw=0 time=0 us cost=0 size=0 card=1)'
+STAT #139720218161112 id=25 cnt=0 pid=3 pos=2 obj=8693 op='TABLE ACCESS BY INDEX ROWID WRM$_SNAPSHOT (cr=0 pr=0 pw=0 time=0 us cost=1 size=27 card=1)'
+STAT #139720218161112 id=26 cnt=0 pid=25 pos=1 obj=0 op='FAST DUAL  (cr=0 pr=0 pw=0 time=0 us cost=2 size=0 card=1)'
+Final query after transformations:******* UNPARSED QUERY IS *******
+SELECT "M"."SENDER_USER_ID" "SENDER_USER_ID" FROM "TAG"."MESSAGES_STATUS" "MS","TAG"."MESSAGES" "M" WHERE "MS"."USER_ID"=7280151987 AND "M"."EVENT_TS">=1460934082000 AND "M"."EVENT_TS"<=1461020482000 AND "MS"."THREAD_ID"="M"."THREAD_ID" AND 1461020482000>=1460934082000
+kkoqbc: optimizing query block SEL$58A6D7F6 (#0)
+        
+        :
+    call(in-use=45800, alloc=65696), compile(in-use=108112, alloc=110496), execution(in-use=5024, alloc=8088)
+
+kkoqbc-subheap (create addr=0x7f1321c77f18)
+****************
+QUERY BLOCK TEXT
+****************
+SELECT sender_user_id
+FROM MESSAGES_STATUS ms
+INNER JOIN MESSAGES m ON ms.thread_id = m.thread_id
+WHERE ms.user_id = 7280151987
+AND m.event_ts between 1461020482000 - 86400000 and 1461020482000
+---------------------
+QUERY BLOCK SIGNATURE
+---------------------
+signature (optimizer): qb_name=SEL$58A6D7F6 nbfros=2 flg=0
+  fro(0): flg=0 objn=80638 hint_alias="M"@"SEL$1"
+  fro(1): flg=0 objn=83305 hint_alias="MS"@"SEL$1"
+
+-----------------------------
+SYSTEM STATISTICS INFORMATION
+-----------------------------
+Using dictionary system stats.
+  Using WORKLOAD Stats
+  CPUSPEED: 2912 millions instructions/sec
+  SREADTIM: 0.548000 milliseconds
+  MREADTIM: 1.693000 millisecons
+  MBRC:     10 blocks
+  MAXTHR:   -1 bytes/sec
+  SLAVETHR: -1 bytes/sec
+
+***************************************
+BASE STATISTICAL INFORMATION
+***********************
+Table Stats::
+  Table: MESSAGES  Alias:  M  (Using composite stats)
+  #Rows: 40524024715  SSZ: 0  LGR: 0  #Blks:  630344988  AvgRowLen:  104.00  NEB: 0  ChainCnt:  0.00  SPC: 0  RFL: 0  RNF: 0  CBK: 0  CHR: 0  KQDFLG: 1
+  #IMCUs: 0  IMCRowCnt: 0  IMCJournalRowCnt: 0  #IMCBlocks: 0  IMCQuotient: 0.000000
+Index Stats::
+  Index: MESSAGES_IX1  Col#: 2 1
+    USING COMPOSITE STATS
+  LVLS: 3  #LB: 179107167  #DK: 40771713367  LB/K: 1.00  DB/K: 1.00  CLUF: 40522142896.00  NRW: 40771713367.00 SSZ: 0.00 LGR: 0.00 CBK: 0.00 GQL: 0.00 CHR: 0.00 KQDFLG: 1 BSZ: 1
+  KKEISFLG: 1 
+    ALL PARTITIONS USABLE
+  Index: MESSAGES_IX2  Col#: 2 3 1
+    USING COMPOSITE STATS
+  LVLS: 0  #LB: 0  #DK: 0  LB/K: 0.00  DB/K: 0.00  CLUF: 0.00  NRW: 0.00 SSZ: 0.00 LGR: 0.00 CBK: 0.00 GQL: 0.00 CHR: 0.00 KQDFLG: 1 BSZ: 1
+  KKEISFLG: 1 
+    ALL PARTITIONS USABLE
+  Index: MESSAGES_PK  Col#: 1
+    USING COMPOSITE STATS
+  LVLS: 3  #LB: 95108289  #DK: 38378205101  LB/K: 1.00  DB/K: 1.00  CLUF: 3148451506.00  NRW: 38378205101.00 SSZ: 0.00 LGR: 0.00 CBK: 0.00 GQL: 0.00 CHR: 0.00 KQDFLG: 1 BSZ: 1
+  KKEISFLG: 1 
+    ALL PARTITIONS USABLE
+***********************
+Table Stats::
+  Table: MESSAGES_STATUS  Alias: MS
+  #Rows: 12047743555  SSZ: 0  LGR: 0  #Blks:  169109047  AvgRowLen:  88.00  NEB: 0  ChainCnt:  0.00  SPC: 0  RFL: 0  RNF: 0  CBK: 0  CHR: 0  KQDFLG: 1
+  #IMCUs: 0  IMCRowCnt: 0  IMCJournalRowCnt: 0  #IMCBlocks: 0  IMCQuotient: 0.000000
+  Column (#2): THREAD_ID(NUMBER)
+    AvgLen: 13 NDV: 5986844672 Nulls: 0 Density: 0.000000
+Index Stats::
+  Index: MESSAGES_STATUS_IX1  Col#: 2
+  LVLS: 4  #LB: 50291978  #DK: 5986844672  LB/K: 1.00  DB/K: 2.00  CLUF: 12011893042.00  NRW: 12011981196.00 SSZ: 0.00 LGR: 0.00 CBK: 0.00 GQL: 100.00 CHR: 0.00 KQDFLG: 1 BSZ: 1
+  KKEISFLG: 1 
+  Index: MESSAGES_STATUS_PK  Col#: 1 2
+  LVLS: 4  #LB: 169109047  #DK: 12241471476  LB/K: 1.00  DB/K: 1.00  CLUF: 0.00  NRW: 12047743555.00 SSZ: 0.00 LGR: 0.00 CBK: 0.00 GQL: 0.00 CHR: 0.00 KQDFLG: 1 BSZ: 1
+  KKEISFLG: 1 
+=======================================
+SPD: BEGIN context at query block level
+=======================================
+Query Block SEL$58A6D7F6 (#0)
+Applicable DS directives:
+   dirid = 2967660405386353406, state = 5, flags = 1, loc = 1 {C(83305)[1, 5, 7, 8]}
+   dirid = 7319644627035895205, state = 3, flags = 1, loc = 1 {C(83305)[1, 5, 8]}
+   dirid = 18271806003132853315, state = 5, flags = 1, loc = 1 {(83305)[1, 7, 8]}
+   dirid = 15045824139728402821, state = 2, flags = 1, loc = 1 {C(83305)[1, 13]}
+   dirid = 8966106107181059606, state = 5, flags = 1, loc = 1 {EC(83305)[1]}
+   dirid = 13588642072880228990, state = 1, flags = 1, loc = 4 {(83305)[1, 2, 4, 5]; (80638)[]; (80638)[]}
+   dirid = 5097825876161620669, state = 5, flags = 1, loc = 4 {(83305)[1, 2]}
+   dirid = 3294364207904304056, state = 2, flags = 1, loc = 1 {C(80638)[1, 2, 3]}
+   dirid = 4678424848150918423, state = 2, flags = 1, loc = 1 {C(80638)[2, 3]}
+   dirid = 5030633234507819428, state = 2, flags = 1, loc = 1 {CJ(80638)[1, 2]}
+   dirid = 12421805571730305201, state = 2, flags = 1, loc = 1 {(80638)[1, 2]}
+   dirid = 6178882956140305338, state = 5, flags = 1, loc = 1 {EC(80638)[2]}
+   dirid = 1836554401722428388, state = 3, flags = 1, loc = 2 {F(83305)[]; (80638)[]}
+   dirid = 6948080411374136032, state = 5, flags = 1, loc = 2 {F(83305)[]; F(80638)[]}
+   dirid = 7218892810598756521, state = 5, flags = 1, loc = 4 {(83305)[1, 2]; (80638)[]}
+   dirid = 3017482289593790294, state = 3, flags = 1, loc = 4 {(80638)[]}
+Checking valid directives for the query block
+  SPD: Return code in qosdDSDirSetup: NODIR, estType = QUERY_BLOCK
+Return code in qosdSetupDirCtx4QB: EXISTS
+=====================================
+SPD: END context at query block level
+=====================================
+Access path analysis for MESSAGES_STATUS
+***************************************
+SINGLE TABLE ACCESS PATH 
+  Single Table Cardinality Estimation for MESSAGES_STATUS[MS] 
+  SPD: Directive valid: dirid = 8966106107181059606, state = 5, flags = 1, loc = 1 {EC(83305)[1]}
+  SPD: Return code in qosdDSDirSetup: EXISTS, estType = TABLE
+  Column (#1): 
+    NewDensity:0.000000, OldDensity:0.000000 BktCnt:5534.000000, PopBktCnt:0.000000, PopValCnt:0, NDV:85270528
+  Column (#1): USER_ID(NUMBER)
+    AvgLen: 7 NDV: 85270528 Nulls: 0 Density: 0.000000 Min: 1.000000 Max: 54571209898.000000
+    Histogram: Hybrid  #Bkts: 254  UncompBkts: 5534  EndPtVals: 254  ActualVal: yes
+  Table: MESSAGES_STATUS  Alias: MS
+    Card: Original: 12047743555.000000=====================
+PARSING IN CURSOR #139720140843904 len=318 dep=1 uid=64 oct=3 lid=64 tim=6727441381438 hv=2288727170 ad='17c1769ff8' sqlid='gxkx6gk46qd42'
+SELECT /* DS_SVC */ /*+ dynamic_sampling(0) no_sql_tune no_monitoring optimizer_features_enable(default) no_parallel result_cache(snapshot=3600) */ SUM(C1) FROM (SELECT /*+ qb_name("innerQuery")  */ 1 AS C1 FROM "MESSAGES_STATUS" SAMPLE BLOCK(0.000480658, 8) SEED(1)  "MS" WHERE ("MS"."USER_ID"=7280151987)) innerQuery
+END OF STMT
+PARSE #139720140843904:c=2000,e=1454,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=1,plh=3717179427,tim=6727441381438
+EXEC #139720140843904:c=0,e=13,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=1,plh=3717179427,tim=6727441381498
+FETCH #139720140843904:c=0,e=22,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=1,plh=3717179427,tim=6727441381531
+STAT #139720140843904 id=1 cnt=1 pid=0 pos=1 obj=0 op='RESULT CACHE  9r7d8xnvfwb99g0cuzydsn6y2b (cr=0 pr=0 pw=0 time=22 us)'
+STAT #139720140843904 id=2 cnt=0 pid=1 pos=1 obj=0 op='SORT AGGREGATE (cr=0 pr=0 pw=0 time=0 us)'
+STAT #139720140843904 id=3 cnt=0 pid=2 pos=1 obj=83306 op='INDEX RANGE SCAN MESSAGES_STATUS_PK (cr=0 pr=0 pw=0 time=0 us cost=6 size=63 card=1)'
+CLOSE #139720140843904:c=0,e=3,dep=1,type=0,tim=6727441381600
+    >> Single Tab Card adjusted from 141.288483 to 208048.295000 due to adaptive dynamic sampling
+  Rounded: 208048  Computed: 208048.295000  Non Adjusted: 141.288483
+  Access Path: index (index (FFS))
+    Index: MESSAGES_STATUS_IX1
+    resc_io: 15537286.000000  resc_cpu: 2400188107128
+    ix_sel: 0.000000  ix_sel_with_filters: 1.000000 
+  Access Path: index (FFS)
+    Cost:  17041374.360226  Resp: 17041374.360226  Degree: 1
+      Cost_io: 15537286.000000  Cost_cpu: 2400188107128
+      Resp_io: 15537286.000000  Resp_cpu: 2400188107128
+  Access Path: index (index (FFS))
+    Index: MESSAGES_STATUS_PK
+    resc_io: 52244822.000000  resc_cpu: 3252416336018
+    ix_sel: 0.000000  ix_sel_with_filters: 1.000000 
+  Access Path: index (FFS)
+    Cost:  54282962.901992  Resp: 54282962.901992  Degree: 1
+      Cost_io: 52244822.000000  Cost_cpu: 3252416336018
+      Resp_io: 52244822.000000  Resp_cpu: 3252416336018
+ ****** Costing Index MESSAGES_STATUS_IX1
+OPTIMIZER PERCENT INDEX CACHING = 0
+  Access Path: index (FullScan)
+    Index: MESSAGES_STATUS_IX1
+    resc_io: 50291982.000000  resc_cpu: 2760547571494
+    ix_sel: 1.000000  ix_sel_with_filters: 1.000000 
+    Cost: 52021891.192452  Resp: 52021891.192452  Degree: 1
+ ****** Costing Index MESSAGES_STATUS_PK
+OPTIMIZER PERCENT INDEX CACHING = 0
+  SPD: Directive valid: dirid = 8966106107181059606, state = 5, flags = 1, loc = 1 {EC(83305)[1]}
+  SPD: Return code in qosdDSDirSetup: EXISTS, estType = INDEX_SCAN
+
+  SPD: Directive valid: dirid = 8966106107181059606, state = 5, flags = 1, loc = 1 {EC(83305)[1]}
+  SPD: Return code in qosdDSDirSetup: EXISTS, estType = INDEX_FILTER
+
+=====================
+PARSING IN CURSOR #139720140843904 len=417 dep=1 uid=64 oct=3 lid=64 tim=6727441383070 hv=2404123437 ad='12060b16e0' sqlid='4dwcv8y7ns0td'
+SELECT /* DS_SVC */ /*+ dynamic_sampling(0) no_sql_tune no_monitoring optimizer_features_enable(default) no_parallel result_cache(snapshot=3600) OPT_ESTIMATE(@"innerQuery", TABLE, "MS", ROWS=208048.295) */ C1, C2, C3 FROM (SELECT /*+ qb_name("innerQuery") INDEX( "MS" "MESSAGES_STATUS_PK")  */ COUNT(*) AS C1, 4294967295 AS C2, COUNT(*) AS C3  FROM "MESSAGES_STATUS" "MS" WHERE ("MS"."USER_ID"=7280151987)) innerQuery
+END OF STMT
+PARSE #139720140843904:c=1999,e=1099,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=1,plh=1693346701,tim=6727441383069
+EXEC #139720140843904:c=0,e=11,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=1,plh=1693346701,tim=6727441383117
+FETCH #139720140843904:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=1,plh=1693346701,tim=6727441383132
+STAT #139720140843904 id=1 cnt=1 pid=0 pos=1 obj=0 op='RESULT CACHE  5hya8rdanapbr5gvs45snj47bq (cr=0 pr=0 pw=0 time=3 us)'
+STAT #139720140843904 id=2 cnt=0 pid=1 pos=1 obj=0 op='VIEW  (cr=0 pr=0 pw=0 time=0 us cost=6 size=31 card=1)'
+STAT #139720140843904 id=3 cnt=0 pid=2 pos=1 obj=0 op='SORT AGGREGATE (cr=0 pr=0 pw=0 time=0 us)'
+STAT #139720140843904 id=4 cnt=0 pid=3 pos=1 obj=83306 op='INDEX RANGE SCAN MESSAGES_STATUS_PK (cr=0 pr=0 pw=0 time=0 us cost=6 size=1456336 card=208048)'
+CLOSE #139720140843904:c=0,e=3,dep=1,type=0,tim=6727441383202
+    >> Index Card adjusted from 141.288483 to 77632.000000 due to adaptive dynamic sampling
+=====================
+PARSING IN CURSOR #139720140843904 len=497 dep=1 uid=64 oct=3 lid=64 tim=6727441384336 hv=1750990371 ad='1499c323a0' sqlid='6dr7yxpn5vzj3'
+SELECT /* DS_SVC */ /*+ dynamic_sampling(0) no_sql_tune no_monitoring optimizer_features_enable(default) no_parallel result_cache(snapshot=3600) OPT_ESTIMATE(@"innerQuery", INDEX_SCAN, "MS", "MESSAGES_STATUS_PK", ROWS=77632) OPT_ESTIMATE(@"innerQuery", TABLE, "MS", ROWS=208048.295) */ C1, C2, C3 FROM (SELECT /*+ qb_name("innerQuery") INDEX( "MS" "MESSAGES_STATUS_PK")  */ COUNT(*) AS C1, 4294967295 AS C2, COUNT(*) AS C3  FROM "MESSAGES_STATUS" "MS" WHERE ("MS"."USER_ID"=7280151987)) innerQuery
+END OF STMT
+PARSE #139720140843904:c=1000,e=1052,p=0,cr=0,cu=0,mis=1,r=0,dep=1,og=1,plh=1693346701,tim=6727441384336
+EXEC #139720140843904:c=0,e=11,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=1,plh=1693346701,tim=6727441384398
+FETCH #139720140843904:c=0,e=5,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=1,plh=1693346701,tim=6727441384414
+STAT #139720140843904 id=1 cnt=1 pid=0 pos=1 obj=0 op='RESULT CACHE  5hya8rdanapbr5gvs45snj47bq (cr=0 pr=0 pw=0 time=4 us)'
+STAT #139720140843904 id=2 cnt=0 pid=1 pos=1 obj=0 op='VIEW  (cr=0 pr=0 pw=0 time=0 us cost=1109 size=31 card=1)'
+STAT #139720140843904 id=3 cnt=0 pid=2 pos=1 obj=0 op='SORT AGGREGATE (cr=0 pr=0 pw=0 time=0 us)'
+STAT #139720140843904 id=4 cnt=0 pid=3 pos=1 obj=83306 op='INDEX RANGE SCAN MESSAGES_STATUS_PK (cr=0 pr=0 pw=0 time=0 us cost=1109 size=1456336 card=208048)'
+CLOSE #139720140843904:c=0,e=2,dep=1,type=0,tim=6727441384477
+    >> Index Card adjusted from 141.288483 to 77632.000000 due to adaptive dynamic sampling
+  Access Path: index (IndexOnly)
+    Index: MESSAGES_STATUS_PK
+    resc_io: 1094.000000  resc_cpu: 23317255
+    ix_sel: 6.4437e-06  ix_sel_with_filters: 6.4437e-06 
+    Cost: 1108.611860  Resp: 1108.611860  Degree: 1
+  ****** trying bitmap/domain indexes ******
+  ****** finished trying bitmap/domain indexes ******
+  Best:: AccessPath: IndexRange
+  Index: MESSAGES_STATUS_PK
+         Cost: 1108.611860  Degree: 1  Resp: 1108.611860  Card: 208048.295000  Bytes: 0.000000
+
+Access path analysis for MESSAGES
+***************************************
+SINGLE TABLE ACCESS PATH 
+  Single Table Cardinality Estimation for MESSAGES[M] 
+  SPD: Return code in qosdDSDirSetup: NODIR, estType = TABLE
+
+  #Rows: 40524024715  SSZ: 0  LGR: 0  #Blks:  630344988  AvgRowLen:  104.00  NEB: 0  ChainCnt:  0.00  SPC: 0  RFL: 0  RNF: 0  CBK: 0  CHR: 0  KQDFLG: 1
+  #IMCUs: 0  IMCRowCnt: 0  IMCJournalRowCnt: 0  #IMCBlocks: 0  IMCQuotient: 0.000000
+  Column (#3): EVENT_TS(NUMBER)  Part#: 0
+    AvgLen: 9 NDV: 29986390016 Nulls: 0 Density: 0.000000 Min: 0.000000 Max: 0.000000
+    Histogram: HtBal  #Bkts: -2048  UncompBkts: -2048  EndPtVals: 0  ActualVal: yes
+NOTE: ignoring histogram of column (MESSAGES.EVENT_TS)
+      used only for incremental stats maintenance
+  Column (#3): EVENT_TS(NUMBER)
+    AvgLen: 9 NDV: 29986390016 Nulls: 0 Density: 0.000000
+  Table: MESSAGES  Alias: M
+    Card: Original: 40524024715.000000  Rounded: 22711569  Computed: 22711568.844785  Non Adjusted: 22711568.844785
+  Scan IO  Cost (Disk) =   194739795.000000
+  Scan CPU Cost (Disk) =   12189437169952.720703
+  Total Scan IO  Cost  =   194739795.000000 (scan (Disk))
+                         + 0.000000 (io filter eval) (= 0.000000 (per row) * 40524024715.000000 (#rows))
+                       =   194739795.000000
+  Total Scan CPU  Cost =   12189437169952.720703 (scan (Disk))
+                         + 2028043798366.402100 (cpu filter eval) (= 50.045468 (per row) * 40524024715.000000 (#rows))
+                       =   14217480968319.123047
+  Access Path: TableScan
+    Cost:  203649241.544076  Resp: 203649241.544076  Degree: 0
+      Cost_io: 194739795.000000  Cost_cpu: 14217480968319
+      Resp_io: 194739795.000000  Resp_cpu: 14217480968319
+kkofmx: index filter:"M"."EVENT_TS">=1460934082000
+
+kkofmx: index filter:"M"."EVENT_TS"<=1461020482000
+
+ ****** Costing Index MESSAGES_IX2
+  SPD: Return code in qosdDSDirSetup: NODIR, estType = INDEX_SKIP_SCAN
+  Access Path: index (skip-scan)
+    SS scan sel: 5.6045e-04  SS filter sel: 5.6045e-04  ANDV (#skips): 6571655168.000000
+    SS io: 1.000000 vs. table scan io: 194739795.000000
+    Skip Scan chosen
+  Access Path: index (SkipScan)
+    Index: MESSAGES_IX2
+    resc_io: 1.000000  resc_cpu: 7321
+    ix_sel: 5.6045e-04  ix_sel_with_filters: 5.6045e-04 
+    Cost: 1.004588  Resp: 1.004588  Degree: 1
+  Best:: AccessPath: IndexRange
+  Index: MESSAGES_IX2
+         Cost: 1.004588  Degree: 1  Resp: 1.004588  Card: 22711568.844785  Bytes: 0.000000
+
+***************************************
+
+
+OPTIMIZER STATISTICS AND COMPUTATIONS
+***************************************
+GENERAL PLANS
+***************************************
+Considering cardinality-based initial join order.
+Permutations for Starting Table :0
+Join order[1]:  MESSAGES_STATUS[MS]#0  MESSAGES[M]#1
+
+***************
+Now joining: MESSAGES[M]#1
+***************
+NL Join
+  Outer table: Card: 208048.295000  Cost: 1108.611860  Resp: 1108.611860  Degree: 1  Bytes: 
+Access path analysis for MESSAGES
+  Scan IO  Cost (Disk) =   194739792.825555
+  Scan CPU Cost (Disk) =   12189437169952.720703
+  Total Scan IO  Cost  =   194739792.825555 (scan (Disk))
+                         + 0.000000 (io filter eval) (= 0.000000 (per row) * 40524024715.000000 (#rows))
+                       =   194739792.825555
+  Total Scan CPU  Cost =   12189437169952.720703 (scan (Disk))
+                         + 2026201325174.991211 (cpu filter eval) (= 50.000002 (per row) * 40524024715.000000 (#rows))
+                       =   14215638495127.710938
+  Inner table: MESSAGES  Alias: M
+  Access Path: TableScan
+    NL Join:  Cost: 42368576742535.523438  Resp: 42368576742535.523438  Degree: 1
+      Cost_io: 40515224418865.000000  Cost_cpu: 2957535157657647616
+      Resp_io: 40515224418865.000000  Resp_cpu: 2957535157657647616
+ ****** Costing Index MESSAGES_IX1
+  SPD: Return code in qosdDSDirSetup: NODIR, estType = INDEX_SCAN
+
+  SPD: Return code in qosdDSDirSetup: NODIR, estType = INDEX_FILTER
+
+  Access Path: index (RangeScan)
+    Index: MESSAGES_IX1
+    resc_io: 82.000000  resc_cpu: 588129
+    ix_sel: 1.5217e-10  ix_sel_with_filters: 1.5217e-10 
+    NL Join (ordered): Cost: 17137721.396653  Resp: 17137721.396653  Degree: 1
+      Cost_io: 17061030.000000  Cost_cpu: 122382290186
+      Resp_io: 17061030.000000  Resp_cpu: 122382290186
+ ****** Costing Index MESSAGES_IX2
+  SPD: Return code in qosdDSDirSetup: NODIR, estType = INDEX_SCAN
+
+  SPD: Return code in qosdDSDirSetup: NODIR, estType = INDEX_FILTER
+
+  SPD: Return code in qosdDSDirSetup: NODIR, estType = INDEX_SKIP_SCAN
+
+  Access Path: index (RangeScan)
+    Index: MESSAGES_IX2
+    resc_io: 0.000000  resc_cpu: 200
+    ix_sel: 8.5282e-14  ix_sel_with_filters: 8.5282e-14 
+    NL Join (ordered): Cost: 1134.686697  Resp: 1134.686697  Degree: 1
+      Cost_io: 1094.000000  Cost_cpu: 64926855
+      Resp_io: 1094.000000  Resp_cpu: 64926855
+  ****** trying bitmap/domain indexes ******
+  ****** finished trying bitmap/domain indexes ******
+
+  Best NL cost: 1134.686697
+          resc: 1134.686697  resc_io: 1094.000000  resc_cpu: 64926855
+          resp: 1134.686697  resp_io: 1094.000000  resc_cpu: 64926855
+  SPD: Directive valid: dirid = 6948080411374136032, state = 5, flags = 1, loc = 2 {F(83305)[]; F(80638)[]}
+  SPD: Return code in qosdDSDirSetup: EXISTS, estType = JOIN
+Join Card:  208349.696325 = outer (208048.295000) * inner (22711568.844785) * sel (4.4094e-08)
+=====================
+PARSING IN CURSOR #139720140842808 len=40 dep=2 uid=0 oct=3 lid=0 tim=6727441396818 hv=2821867121 ad='120ca70b80' sqlid='47r1y8yn34jmj'
+select default$ from col$ where rowid=:1
+END OF STMT
+PARSE #139720140842808:c=0,e=36,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=2191121161,tim=6727441396818
+BINDS #139720140842808:
+ Bind#0
+  oacdty=11 mxl=16(16) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=18 fl2=0001 frm=00 csi=00 siz=16 off=0
+  kxsbbbfp=7f13215ce2f8  bln=16  avl=16  flg=05
+  value=0000AD3E.0018.0001
+EXEC #139720140842808:c=0,e=48,p=0,cr=0,cu=0,mis=0,r=0,dep=2,og=4,plh=2191121161,tim=6727441396920
+FETCH #139720140842808:c=0,e=9,p=0,cr=2,cu=0,mis=0,r=1,dep=2,og=4,plh=2191121161,tim=6727441396941
+STAT #139720140842808 id=1 cnt=1 pid=0 pos=1 obj=21 op='TABLE ACCESS BY USER ROWID COL$ (cr=1 pr=0 pw=0 time=5 us cost=1 size=15 card=1)'
+CLOSE #139720140842808:c=0,e=32,dep=2,type=0,tim=6727441396999
+=====================
+PARSING IN CURSOR #139720140843904 len=624 dep=1 uid=64 oct=3 lid=64 tim=6727441426651 hv=3203272821 ad='12055dd020' sqlid='6dywnmazfw43p'
+SELECT /* DS_SVC */ /*+ dynamic_sampling(0) no_sql_tune no_monitoring optimizer_features_enable(default) no_parallel result_cache(snapshot=3600) OPT_ESTIMATE(@"innerQuery", TABLE, "MS#1", ROWS=208048.295) OPT_ESTIMATE(@"innerQuery", INDEX_FILTER, "MS#1", "MESSAGES_STATUS_PK", ROWS=77632) */ SUM(C1) FROM (SELECT /*+ qb_name("innerQuery") NO_INDEX_FFS( "M#0")  */ 1 AS C1 FROM "MESSAGES" SAMPLE BLOCK(0.000126893, 8) SEED(1)  "M#0", "MESSAGES_STATUS" "MS#1" WHERE ("MS#1"."USER_ID"=7280151987) AND ("MS#1"."THREAD_ID"="M#0"."THREAD_ID") AND ("M#0"."EVENT_TS">=1460934082000) AND ("M#0"."EVENT_TS"<=1461020482000)) innerQuery
+END OF STMT
+PARSE #139720140843904:c=29996,e=30168,p=0,cr=2,cu=0,mis=1,r=0,dep=1,og=1,plh=2187820421,tim=6727441426650
+EXEC #139720140843904:c=0,e=24,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=1,plh=2187820421,tim=6727441426713
+
+*** 2016-04-20 14:02:40.367
+kgskupdbalance:  time_used[54414728] greater than threshold[30000000] current_consumed_cpu_time[54524710] exec_start_consumed_time[109982]exec_start_elapsed_time[6727441424816]
+WAIT #139720140843904: nam='Disk file operations I/O' ela= 64 FileOperation=2 fileno=224 filetype=2 obj#=101012 tim=6727495936800
+WAIT #139720140843904: nam='db file sequential read' ela= 400 file#=224 block#=3927564 blocks=1 obj#=101012 tim=6727495937221
+WAIT #139720140843904: nam='db file sequential read' ela= 574 file#=224 block#=3927565 blocks=1 obj#=101012 tim=6727495937871
+WAIT #139720140843904: nam='db file sequential read' ela= 124 file#=224 block#=3927566 blocks=1 obj#=101012 tim=6727495938058
+WAIT #139720140843904: nam='db file sequential read' ela= 108 file#=224 block#=3927567 blocks=1 obj#=101012 tim=6727495938210
+WAIT #139720140843904: nam='db file sequential read' ela= 428 file#=224 block#=3927568 blocks=1 obj#=101012 tim=6727495938702
+WAIT #139720140843904: nam='db file sequential read' ela= 643 file#=224 block#=3927569 blocks=1 obj#=101012 tim=6727495939422
+WAIT #139720140843904: nam='db file sequential read' ela= 126 file#=224 block#=3927570 blocks=1 obj#=101012 tim=6727495939595
+WAIT #139720140843904: nam='db file sequential read' ela= 162 file#=224 block#=3927571 blocks=1 obj#=101012 tim=6727495939815
+WAIT #139720140843904: nam='db file sequential read' ela= 250 file#=224 block#=3927572 blocks=1 obj#=101012 tim=6727495940107
+WAIT #139720140843904: nam='db file sequential read' ela= 112 file#=224 block#=3927573 blocks=1 obj#=101012 tim=6727495940262
+WAIT #139720140843904: nam='db file sequential read' ela= 118 file#=224 block#=3927574 blocks=1 obj#=101012 tim=6727495940435
+WAIT #139720140843904: nam='db file sequential read' ela= 126 file#=224 block#=3927575 blocks=1 obj#=101012 tim=6727495940605
+WAIT #139720140843904: nam='db file sequential read' ela= 1390 file#=224 block#=3927576 blocks=1 obj#=101012 tim=6727495942045
+WAIT #139720140843904: nam='db file sequential read' ela= 127 file#=224 block#=3927577 blocks=1 obj#=101012 tim=6727495942227
+WAIT #139720140843904: nam='db file sequential read' ela= 135 file#=224 block#=3927578 blocks=1 obj#=101012 tim=6727495942417
+WAIT #139720140843904: nam='db file sequential read' ela= 155 file#=224 block#=3927579 blocks=1 obj#=101012 tim=6727495942619
+WAIT #139720140843904: nam='db file sequential read' ela= 104 file#=224 block#=3927580 blocks=1 obj#=101012 tim=6727495942765
+WAIT #139720140843904: nam='db file sequential read' ela= 107 file#=224 block#=3927581 blocks=1 obj#=101012 tim=6727495942927
+WAIT #139720140843904: nam='db file sequential read' ela= 104 file#=224 block#=3927582 blocks=1 obj#=101012 tim=6727495943069
+WAIT #139720140843904: nam='db file sequential read' ela= 106 file#=224 block#=3927583 blocks=1 obj#=101012 tim=6727495943233
+WAIT #139720140843904: nam='db file sequential read' ela= 629 file#=224 block#=3927584 blocks=1 obj#=101012 tim=6727495943902
+WAIT #139720140843904: nam='db file sequential read' ela= 135 file#=224 block#=3927585 blocks=1 obj#=101012 tim=6727495944080
+WAIT #139720140843904: nam='db file sequential read' ela= 109 file#=224 block#=3927586 blocks=1 obj#=101012 tim=6727495944231
+WAIT #139720140843904: nam='db file sequential read' ela= 110 file#=224 block#=3927587 blocks=1 obj#=101012 tim=6727495944382
+WAIT #139720140843904: nam='db file sequential read' ela= 146 file#=224 block#=3927588 blocks=1 obj#=101012 tim=6727495944581

@@ -1,0 +1,7 @@
+run
+{
+  set dbid 2027701287;
+  set until time sysdate-15/1440;
+  restore controlfile;
+  alter database mount;
+}

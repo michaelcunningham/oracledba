@@ -1,0 +1,73 @@
+
+COLUMN_NAME                    NULLABLE DATA_TYPE  LENGTH                                                                    
+------------------------------ -------- ---------- ----------                                                                
+TDC_DEPT_CODE                  NOT NULL VARCHAR2   10                                                                        
+UNIT_OF_WORK_ID                NOT NULL NUMBER     20,0                                                                      
+TYPE_DESC                      NOT NULL VARCHAR2   40                                                                        
+TYPE_LONG_DESC                 NOT NULL VARCHAR2   255                                                                       
+TYPE_ORDER_NUM                 NOT NULL NUMBER     5,0                                                                       
+TYPE_BEGIN_DATE                NOT NULL DATE                                                                                 
+TYPE_END_DATE                           DATE                                                                                 
+CREATED_BY                     NOT NULL VARCHAR2   40                                                                        
+CREATED_DATE                   NOT NULL DATE                                                                                 
+ROW_VERSION                    NOT NULL NUMBER     20,0                                                                      
+
+10 rows selected.
+
+
+TABLE_NAME                     TABLESPACE_NAME                DEPENDEN                                                       
+------------------------------ ------------------------------ --------                                                       
+LU_TDC_DEPT                    VISTA_DAT                      DISABLED                                                       
+
+1 row selected.
+
+
+SYNONYM_NAME                                                                                                                 
+-------------------------------------------------------------                                                                
+VISTA_ASU.LU_TDC_DEPT                                                                                                        
+VISTA_USERPRD.LU_TDC_DEPT                                                                                                    
+
+2 rows selected.
+
+
+CONSTRAINT_NAME                R_CONSTRAINT_NAME              INDEX_NAME                     SEARCH_CONDITION                
+------------------------------ ------------------------------ ------------------------------ ------------------------------  
+SYS_C0010692                                                                                 "TDC_DEPT_CODE" IS NOT NULL     
+SYS_C0010693                                                                                 "UNIT_OF_WORK_ID" IS NOT NULL   
+SYS_C0010694                                                                                 "TYPE_DESC" IS NOT NULL         
+SYS_C0010695                                                                                 "TYPE_LONG_DESC" IS NOT NULL    
+SYS_C0010696                                                                                 "TYPE_ORDER_NUM" IS NOT NULL    
+SYS_C0010697                                                                                 "TYPE_BEGIN_DATE" IS NOT NULL   
+SYS_C0010698                                                                                 "CREATED_BY" IS NOT NULL        
+SYS_C0010699                                                                                 "CREATED_DATE" IS NOT NULL      
+SYS_C0010700                                                                                 "ROW_VERSION" IS NOT NULL       
+XIF1_LU_TDC_DEPT               XPK_UNIT_OF_WORK                                                                              
+XPKLU_TDC_DEPT                                                XPKLU_TDC_DEPT                                                 
+
+11 rows selected.
+
+
+Constraint Name:                                   References:                                                               
+ Table.Column                                       Table.Column                                                             
+-------------------------------------------------- --------------------------------------------------                        
+XIF1_LU_TDC_DEPT                                   REFERENCES                                                                
+(LU_TDC_DEPT.UNIT_OF_WORK_ID)                      (UNIT_OF_WORK.UNIT_OF_WORK_ID)                                            
+                                                                                                                             
+
+1 row selected.
+
+
+INDEX_NAME                     TABLESPACE_N UNIQUENES COLUMN_NAME                    COLUMN_POSITION                         
+------------------------------ ------------ --------- ------------------------------ ---------------                         
+XPKLU_TDC_DEPT                 VISTA_INDEX  UNIQUE    TDC_DEPT_CODE                                1                         
+
+1 row selected.
+
+
+GRANTEE                        PRIVILEGE                                                                                     
+------------------------------ ----------------------------------------                                                      
+SELECT_ROLE                    SELECT                                                                                        
+VISTA_USERPRD                  SELECT                                                                                        
+
+2 rows selected.
+

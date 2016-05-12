@@ -1,0 +1,139 @@
+Trace file /u01/app/oracle/diag/rdbms/fmda/fmd/trace/fmd_ora_4018_blockdump_4_8482.trc
+Oracle Database 12c Enterprise Edition Release 12.1.0.1.0 - 64bit Production
+With the Partitioning, Automatic Storage Management, OLAP, Advanced Analytics
+and Real Application Testing options
+ORACLE_HOME = /u01/app/oracle/product/12.1.0/dbhome_1
+System name:	Linux
+Node name:	ora10.localdomain
+Release:	3.8.13-16.2.1.el6uek.x86_64
+Version:	#1 SMP Thu Nov 7 17:01:44 PST 2013
+Machine:	x86_64
+Instance name: fmd
+Redo thread mounted by this instance: 1
+Oracle process number: 52
+Unix process pid: 4018, image: oracle@ora10.localdomain
+
+
+*** 2016-02-22 21:08:33.696
+*** SESSION ID:(74.3) 2016-02-22 21:08:33.696
+*** CLIENT ID:() 2016-02-22 21:08:33.696
+*** SERVICE NAME:(fmd) 2016-02-22 21:08:33.696
+*** MODULE NAME:(TOAD 12.5.0.99) 2016-02-22 21:08:33.696
+*** ACTION NAME:() 2016-02-22 21:08:33.696
+ 
+
+*** TRACE CONTINUED FROM FILE /u01/app/oracle/diag/rdbms/fmda/fmd/trace/fmd_ora_4018_treedump_level_20678.trc ***
+
+Start dump data blocks tsn: 4 file#:4 minblk 8482 maxblk 8482
+Block dump from cache:
+Dump of buffer cache at level 4 for pdb=0 tsn=4 rdba=16785698
+BH (0x9bfb5b58) file#: 4 rdba: 0x01002122 (4/8482) class: 4 ba: 0x9b894000
+  set: 3 pool: 3 bsz: 8192 bsi: 0 sflg: 2 pwc: 91,28
+  dbwrid: 0 obj: 20678 objn: -1 tsn: [0/4] afn: 4 hint: f
+  hash: [0x9bfb9950,0xad420148] lru: [0x9bfb5ec8,0xadb80ce0]
+  ckptq: [NULL] fileq: [NULL]
+  objq: [NULL] objaq: [NULL]
+  st: CR md: NULL tch: 1
+  cr: [scn: 0x0.2774ef],[xid: 0x0.0.0],[uba: 0x0.0.0],[cls: 0x0.2774ef],[sfl: 0x0],[lc: 0x0.0]
+  flags:
+BH (0x9bfb9898) file#: 4 rdba: 0x01002122 (4/8482) class: 4 ba: 0x9b8f6000
+  set: 3 pool: 3 bsz: 8192 bsi: 0 sflg: 2 pwc: 91,28
+  dbwrid: 0 obj: 20678 objn: 20678 tsn: [0/4] afn: 4 hint: f
+  hash: [0xad420148,0x9bfb5c10] lru: [0x9bfb9ac8,0x9bfb9848]
+  ckptq: [NULL] fileq: [NULL]
+  objq: [NULL] objaq: [NULL]
+  st: CR md: NULL tch: 1
+  cr: [scn: 0x0.2774cd],[xid: 0x0.0.0],[uba: 0x0.0.0],[cls: 0x0.2774cd],[sfl: 0x0],[lc: 0x0.0]
+  flags:
+Block dump from disk:
+buffer tsn: 4 rdba: 0x01002122 (4/8482)
+scn: 0x0.23d017 seq: 0x03 flg: 0x04 tail: 0xd0172303
+frmt: 0x02 chkval: 0xdb1d type: 0x23=PAGETABLE SEGMENT HEADER
+Hex dump of block: st=0, typ_found=1
+Dump of memory from 0x00007F5C7ECCF000 to 0x00007F5C7ECD1000
+7F5C7ECCF000 0000A223 01002122 0023D017 04030000  [#..."!....#.....]
+7F5C7ECCF010 0000DB1D 00000000 00000000 00000000  [................]
+7F5C7ECCF020 00000000 00000006 00000030 00000A9C  [........0.......]
+7F5C7ECCF030 00000005 00000006 00000008 0100214E  [............N!..]
+7F5C7ECCF040 00000000 00000005 00000000 0000002E  [................]
+7F5C7ECCF050 00000000 00000000 00000000 00000005  [................]
+7F5C7ECCF060 00000006 00000008 0100214E 00000000  [........N!......]
+7F5C7ECCF070 00000005 00000000 0000002E 01002140  [............@!..]
+7F5C7ECCF080 01002140 00000000 00000000 00000000  [@!..............]
+7F5C7ECCF090 00000000 00000000 00000000 00000000  [................]
+        Repeat 3 times
+7F5C7ECCF0D0 00000002 00002000 00000000 00001434  [..... ......4...]
+7F5C7ECCF0E0 00000000 01002121 00000001 01002140  [....!!......@!..]
+7F5C7ECCF0F0 01002121 00000000 00000000 00000000  [!!..............]
+7F5C7ECCF100 00000000 00000000 00000006 00000000  [................]
+7F5C7ECCF110 000050C6 10000000 01002120 00000008  [.P...... !......]
+7F5C7ECCF120 01002128 00000008 01002130 00000008  [(!......0!......]
+7F5C7ECCF130 01002138 00000008 01002140 00000008  [8!......@!......]
+7F5C7ECCF140 01002148 00000008 00000000 00000000  [H!..............]
+7F5C7ECCF150 00000000 00000000 00000000 00000000  [................]
+        Repeat 149 times
+7F5C7ECCFAB0 01002120 01002123 01002120 01002128  [ !..#!.. !..(!..]
+7F5C7ECCFAC0 01002130 01002131 01002130 01002138  [0!..1!..0!..8!..]
+7F5C7ECCFAD0 01002140 01002141 01002140 01002148  [@!..A!..@!..H!..]
+7F5C7ECCFAE0 00000000 00000000 00000000 00000000  [................]
+        Repeat 149 times
+7F5C7ECD0440 00000000 00000000 01002121 00000000  [........!!......]
+7F5C7ECD0450 00000000 00000000 00000000 00000000  [................]
+        Repeat 185 times
+7F5C7ECD0FF0 00000000 00000000 00000000 D0172303  [.............#..]
+  Extent Control Header
+  -----------------------------------------------------------------
+  Extent Header:: spare1: 0      spare2: 0      #extents: 6      #blocks: 48    
+                  last map  0x00000000  #maps: 0      offset: 2716  
+      Highwater::  0x0100214e  ext#: 5      blk#: 6      ext size: 8     
+  #blocks in seg. hdr's freelists: 0     
+  #blocks below: 46    
+  mapblk  0x00000000  offset: 5     
+                   Unlocked
+  --------------------------------------------------------
+  Low HighWater Mark : 
+      Highwater::  0x0100214e  ext#: 5      blk#: 6      ext size: 8     
+  #blocks in seg. hdr's freelists: 0     
+  #blocks below: 46    
+  mapblk  0x00000000  offset: 5     
+  Level 1 BMB for High HWM block: 0x01002140
+  Level 1 BMB for Low HWM block: 0x01002140
+  --------------------------------------------------------
+  Segment Type: 2 nl2: 1      blksz: 8192   fbsz: 0      
+  L2 Array start offset:  0x00001434
+  First Level 3 BMB:  0x00000000
+  L2 Hint for inserts:  0x01002121
+  Last Level 1 BMB:  0x01002140
+  Last Level II BMB:  0x01002121
+  Last Level III BMB:  0x00000000
+     Map Header:: next  0x00000000  #extents: 6    obj#: 20678  flag: 0x10000000
+  Inc # 0 
+  Extent Map
+  -----------------------------------------------------------------
+   0x01002120  length: 8     
+   0x01002128  length: 8     
+   0x01002130  length: 8     
+   0x01002138  length: 8     
+   0x01002140  length: 8     
+   0x01002148  length: 8     
+  
+  Auxillary Map
+  --------------------------------------------------------
+   Extent 0     :  L1 dba:  0x01002120 Data dba:  0x01002123
+   Extent 1     :  L1 dba:  0x01002120 Data dba:  0x01002128
+   Extent 2     :  L1 dba:  0x01002130 Data dba:  0x01002131
+   Extent 3     :  L1 dba:  0x01002130 Data dba:  0x01002138
+   Extent 4     :  L1 dba:  0x01002140 Data dba:  0x01002141
+   Extent 5     :  L1 dba:  0x01002140 Data dba:  0x01002148
+  --------------------------------------------------------
+  
+   Second Level Bitmap block DBAs 
+   --------------------------------------------------------
+   DBA 1:   0x01002121
+  
+End dump data blocks tsn: 4 file#: 4 minblk 8482 maxblk 8482
+
+*** 2016-02-22 21:11:13.145
+
+*** TRACE CONTINUES IN FILE /u01/app/oracle/diag/rdbms/fmda/fmd/trace/fmd_ora_4018_blockdump_4_8483.trc ***
+

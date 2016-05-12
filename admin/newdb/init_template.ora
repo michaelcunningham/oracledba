@@ -1,0 +1,80 @@
+##############################################################################
+# Copyright (c) 1991, 2013 by Oracle Corporation
+##############################################################################
+ 
+###########################################
+# Archive
+###########################################
+log_archive_dest_1='LOCATION=+LOG'
+log_archive_format=%t_%s_%r.dbf
+ 
+###########################################
+# Cache and I/O
+###########################################
+db_block_size=8192
+ 
+###########################################
+# Cursors and Library Cache
+###########################################
+open_cursors=300
+ 
+###########################################
+# Database Identification
+###########################################
+db_domain=""
+db_name="db_name_template"
+db_unique_name="db_name_templatea"
+ 
+###########################################
+# File Configuration
+###########################################
+db_create_file_dest="+DATA"
+db_create_online_log_dest_1=+DATA
+db_create_online_log_dest_2=+LOG
+db_recovery_file_dest="/u01/app/oracle/db_name_templatefast_recovery_area"
+db_recovery_file_dest_size=5g
+ 
+###########################################
+# Miscellaneous
+###########################################
+compatible=12.1.0.0.0
+diagnostic_dest=/u01/app/oracle
+ 
+###########################################
+# Network Registration
+###########################################
+#local_listener=LISTENER_FMD
+ 
+###########################################
+# Processes and Sessions
+###########################################
+processes=300
+ 
+###########################################
+# SGA Memory
+###########################################
+sga_target=1260m
+ 
+###########################################
+# Security and Auditing
+###########################################
+audit_file_dest="/u01/app/oracle/admin/db_name_template/adump"
+audit_trail=db
+remote_login_passwordfile=EXCLUSIVE
+ 
+###########################################
+# Shared Server
+###########################################
+dispatchers="(PROTOCOL=TCP) (SERVICE=db_name_templateXDB)"
+ 
+###########################################
+# Sort, Hash Joins, Bitmap Indexes
+###########################################
+pga_aggregate_target=420m
+ 
+###########################################
+# System Managed Undo and Rollback Segments
+###########################################
+undo_tablespace=UNDOTBS1
+ 
+ 

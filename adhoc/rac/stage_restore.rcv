@@ -1,0 +1,17 @@
+RUN
+{
+  ALLOCATE CHANNEL ch1 DEVICE TYPE DISK FORMAT '/mnt/stagebackup/db_%d_df_t%t_s%s_p%p_level0';
+  ALLOCATE CHANNEL ch2 DEVICE TYPE DISK FORMAT '/mnt/stagebackup/db_%d_df_t%t_s%s_p%p_level0';
+  ALLOCATE CHANNEL ch3 DEVICE TYPE DISK FORMAT '/mnt/stagebackup/db_%d_df_t%t_s%s_p%p_level0';
+  ALLOCATE CHANNEL ch4 DEVICE TYPE DISK FORMAT '/mnt/stagebackup/db_%d_df_t%t_s%s_p%p_level0';
+  ALLOCATE CHANNEL ch5 DEVICE TYPE DISK FORMAT '/mnt/stagebackup/db_%d_df_t%t_s%s_p%p_level0';
+  ALLOCATE CHANNEL ch6 DEVICE TYPE DISK FORMAT '/mnt/stagebackup/db_%d_df_t%t_s%s_p%p_level0';
+  ALLOCATE CHANNEL ch7 DEVICE TYPE DISK FORMAT '/mnt/stagebackup/db_%d_df_t%t_s%s_p%p_level0';
+  ALLOCATE CHANNEL ch8 DEVICE TYPE DISK FORMAT '/mnt/stagebackup/db_%d_df_t%t_s%s_p%p_level0';
+  ALLOCATE CHANNEL ch9 DEVICE TYPE DISK FORMAT '/mnt/stagebackup/db_%d_df_t%t_s%s_p%p_level0';
+  ALLOCATE CHANNEL ch10 DEVICE TYPE DISK FORMAT '/mnt/stagebackup/db_%d_df_t%t_s%s_p%p_level0';
+  ALLOCATE CHANNEL ch11 DEVICE TYPE DISK FORMAT '/mnt/stagebackup/db_%d_df_t%t_s%s_p%p_level0';
+  ALLOCATE CHANNEL ch12 DEVICE TYPE DISK FORMAT '/mnt/stagebackup/db_%d_df_t%t_s%s_p%p_level0';
+  RESTORE DATABASE;
+  RECOVER DATABASE;
+}

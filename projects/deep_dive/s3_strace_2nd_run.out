@@ -1,0 +1,185 @@
+read(10, "\0\0\1Z\6\0\0\0\0\0\3^\25a\200\0\0\0\0\0\0\376\377\377\377\377\377\377\377\300\0\0"..., 8208) = 346
+getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 22000}, ru_stime={0, 13000}, ...}) = 0
+times(NULL)                             = 439945110
+getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 22000}, ru_stime={0, 14000}, ...}) = 0
+times(NULL)                             = 439945110
+getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 22000}, ru_stime={0, 14000}, ...}) = 0
+getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 22000}, ru_stime={0, 14000}, ...}) = 0
+times(NULL)                             = 439945111
+getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 22000}, ru_stime={0, 14000}, ...}) = 0
+getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 22000}, ru_stime={0, 14000}, ...}) = 0
+getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 22000}, ru_stime={0, 14000}, ...}) = 0
+getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 22000}, ru_stime={0, 14000}, ...}) = 0
+times(NULL)                             = 439945111
+times(NULL)                             = 439945111
+times(NULL)                             = 439945111
+times(NULL)                             = 439945112
+getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 23000}, ru_stime={0, 14000}, ...}) = 0
+mmap(0x7f092d188000, 65536, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED, 7, 0) = 0x7f092d188000
+mmap(0x7f092d198000, 262144, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED, 7, 0) = 0x7f092d198000
+mmap(NULL, 1048576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_NORESERVE, 7, 0xe8000) = 0x7f092d068000
+mmap(0x7f092d068000, 131072, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED, 7, 0) = 0x7f092d068000
+mmap(0x7f092d088000, 131072, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED, 7, 0) = 0x7f092d088000
+mmap(0x7f092d0a8000, 131072, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED, 7, 0) = 0x7f092d0a8000
+mmap(0x7f092d0c8000, 131072, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED, 7, 0) = 0x7f092d0c8000
+mmap(0x7f092d0e8000, 131072, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED, 7, 0) = 0x7f092d0e8000
+mmap(0x7f092d108000, 131072, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED, 7, 0) = 0x7f092d108000
+mmap(0x7f092d128000, 131072, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED, 7, 0) = 0x7f092d128000
+getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 29000}, ru_stime={0, 17000}, ...}) = 0
+getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 29000}, ru_stime={0, 17000}, ...}) = 0
+getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 29000}, ru_stime={0, 17000}, ...}) = 0
+times(NULL)                             = 439945114
+write(13, "\0\0\1\216\6\0\0\0\0\0\20\27\0\0\0\1779\214@\273\214l0\350C\33\327\211.e\266x"..., 398) = 398
+read(10, "\0\0\0\25\6\0\0\0\0\0\3\5\26\2\0\0\0\17\0\0\0", 8208) = 21
+getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 30000}, ru_stime={0, 17000}, ...}) = 0
+times(NULL)                             = 439945114
+getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 30000}, ru_stime={0, 17000}, ...}) = 0
+getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 30000}, ru_stime={0, 17000}, ...}) = 0
+mmap(0x7f092d108000, 262144, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_NORESERVE, 7, 0x188000) = 0x7f092d108000
+getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 30000}, ru_stime={0, 17000}, ...}) = 0
+getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 30000}, ru_stime={0, 17000}, ...}) = 0
+times(NULL)                             = 439945114
+write(13, "\0\0\1\230\6\0\0\0\0\0\6\1\2\275\1\0\0\0\0\0\17\0\0\0\0\0(n\0\0\0\0"..., 408) = 408
+read(10, "\0\0\0\r\6\0\0\0\0\0\3\t\27", 8208) = 13
+getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 30000}, ru_stime={0, 17000}, ...}) = 0
+times(NULL)                             = 439945729
+getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 30000}, ru_stime={0, 17000}, ...}) = 0
+getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 30000}, ru_stime={0, 17000}, ...}) = 0
+times(NULL)                             = 439945729
+getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 30000}, ru_stime={0, 17000}, ...}) = 0
+times(NULL)                             = 439945729
+getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 30000}, ru_stime={0, 17000}, ...}) = 0
+getrusage(0x1 /* RUSAGE_??? */, {ru_utime={0, 30000}, ru_stime={0, 17000}, ...}) = 0
+times(NULL)                             = 439945729
+times(NULL)                             = 439945729
+times(NULL)                             = 439945729
+times(NULL)                             = 439945729
+times(NULL)                             = 439945729
+times(NULL)                             = 439945729
+times(NULL)                             = 439945729
+times(NULL)                             = 439945729
+semctl(4456451, 16, SETVAL, 0x1)        = 0
+write(13, "\0\0\0\21\6\0\0\0\0\0\t\1\0\0\0\0\0", 17) = 17
+read(10, "\0\0\0\n\6 \0\0\0@", 8208)    = 10
+epoll_ctl(6, EPOLL_CTL_DEL, 10, {0, {u32=760811008, u64=139677392244224}}) = 0
+close(13)                               = 0
+close(10)                               = 0
+close(6)                                = 0
+close(4)                                = 0
+times(NULL)                             = 439945841
+open("/u01/app/oracle/product/12.1.0/dbhome_1/rdbms/mesg/diaus.msb", O_RDONLY) = 4
+fcntl(4, F_SETFD, FD_CLOEXEC)           = 0
+lseek(4, 0, SEEK_SET)                   = 0
+read(4, "\25\23\"\1\23\3\t\t\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 256) = 256
+lseek(4, 512, SEEK_SET)                 = 512
+read(4, "\371\311\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 512) = 512
+lseek(4, 1024, SEEK_SET)                = 1024
+read(4, "\210\273\353\273\363\273\373\273\4\274\16\274\26\274!\274)\2741\274<\274G\274T\274_\274k\274t\274"..., 206) = 206
+stat("/u01/app/oracle", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+gettid()                                = 9194
+getrlimit(RLIMIT_NOFILE, {rlim_cur=64*1024, rlim_max=64*1024}) = 0
+getrlimit(RLIMIT_FSIZE, {rlim_cur=RLIM_INFINITY, rlim_max=RLIM_INFINITY}) = 0
+rt_sigaction(SIGWINCH, NULL, {0x2e7fcb0, ~[ILL ABRT BUS FPE KILL SEGV USR2 TERM STOP XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_SIGINFO, 0x3437e0f710}, 8) = 0
+stat("/u01/app/oracle/diag", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+chmod("/u01/app/oracle/diag", 0775)     = 0
+stat("/u01/app/oracle/diag/rdbms", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+stat("/u01/app/oracle/diag/rdbms/fmda", {st_mode=S_IFDIR|0750, st_size=4096, ...}) = 0
+stat("/u01/app/oracle/diag/rdbms/fmda/fmd", {st_mode=S_IFDIR|0750, st_size=4096, ...}) = 0
+stat("/u01/app/oracle/diag/rdbms/fmda/fmd", {st_mode=S_IFDIR|0750, st_size=4096, ...}) = 0
+stat("/u01/app/oracle/diag/rdbms/fmda/fmd/trace", {st_mode=S_IFDIR|0750, st_size=180224, ...}) = 0
+stat("/u01/app/oracle/diag/rdbms/fmda/fmd/alert", {st_mode=S_IFDIR|0750, st_size=4096, ...}) = 0
+stat("/u01/app/oracle/diag/rdbms/fmda/fmd/incident", {st_mode=S_IFDIR|0750, st_size=4096, ...}) = 0
+stat("/u01/app/oracle/diag/rdbms/fmda/fmd/metadata", {st_mode=S_IFDIR|0750, st_size=4096, ...}) = 0
+stat("/u01/app/oracle/diag/rdbms/fmda/fmd/metadata_pv", {st_mode=S_IFDIR|0750, st_size=4096, ...}) = 0
+stat("/u01/app/oracle/diag/rdbms/fmda/fmd/metadata_dgif", {st_mode=S_IFDIR|0750, st_size=4096, ...}) = 0
+stat("/u01/app/oracle/diag/rdbms/fmda/fmd/hm", {st_mode=S_IFDIR|0750, st_size=4096, ...}) = 0
+stat("/u01/app/oracle/diag/rdbms/fmda/fmd/ir", {st_mode=S_IFDIR|0750, st_size=4096, ...}) = 0
+stat("/u01/app/oracle/diag/rdbms/fmda/fmd/incpkg", {st_mode=S_IFDIR|0750, st_size=4096, ...}) = 0
+stat("/u01/app/oracle/diag/rdbms/fmda/fmd/sweep", {st_mode=S_IFDIR|0750, st_size=4096, ...}) = 0
+stat("/u01/app/oracle/diag/rdbms/fmda/fmd/lck", {st_mode=S_IFDIR|0750, st_size=4096, ...}) = 0
+stat("/u01/app/oracle/diag/rdbms/fmda/fmd/cdump", {st_mode=S_IFDIR|0750, st_size=4096, ...}) = 0
+stat("/u01/app/oracle/diag/rdbms/fmda/fmd/stage", {st_mode=S_IFDIR|0750, st_size=4096, ...}) = 0
+stat("/u01/app/oracle/diag/rdbms/fmda/fmd/metadata", {st_mode=S_IFDIR|0750, st_size=4096, ...}) = 0
+stat("/u01/app/oracle/diag/rdbms/fmda/fmd/log", {st_mode=S_IFDIR|0750, st_size=4096, ...}) = 0
+stat("/u01/app/oracle/diag/rdbms/fmda/fmd/log/debug", {st_mode=S_IFDIR|0750, st_size=4096, ...}) = 0
+stat("/u01/app/oracle/diag/rdbms/fmda/fmd/log/test", {st_mode=S_IFDIR|0750, st_size=4096, ...}) = 0
+stat("/u01/app/oracle/diag/rdbms/fmda/fmd/log/ddl", {st_mode=S_IFDIR|0750, st_size=4096, ...}) = 0
+lstat("/u01/app/oracle/diag/rdbms/fmda/fmd/metadata/ADR_CONTROL.ams", {st_mode=S_IFREG|0640, st_size=65536, ...}) = 0
+stat("/u01/app/oracle/diag/rdbms/fmda/fmd/metadata/ADR_CONTROL.ams", {st_mode=S_IFREG|0640, st_size=65536, ...}) = 0
+lstat("/u01/app/oracle/diag/rdbms/fmda/fmd/metadata/ADR_INVALIDATION.ams", {st_mode=S_IFREG|0640, st_size=65536, ...}) = 0
+stat("/u01/app/oracle/diag/rdbms/fmda/fmd/metadata/ADR_INVALIDATION.ams", {st_mode=S_IFREG|0640, st_size=65536, ...}) = 0
+lstat("/u01/app/oracle/diag/rdbms/fmda/fmd/metadata/INC_METER_IMPT_DEF.ams", {st_mode=S_IFREG|0640, st_size=65536, ...}) = 0
+stat("/u01/app/oracle/diag/rdbms/fmda/fmd/metadata/INC_METER_IMPT_DEF.ams", {st_mode=S_IFREG|0640, st_size=65536, ...}) = 0
+lstat("/u01/app/oracle/diag/rdbms/fmda/fmd/metadata/INC_METER_PK_IMPTS.ams", {st_mode=S_IFREG|0640, st_size=65536, ...}) = 0
+stat("/u01/app/oracle/diag/rdbms/fmda/fmd/metadata/INC_METER_PK_IMPTS.ams", {st_mode=S_IFREG|0640, st_size=65536, ...}) = 0
+lstat("/u01/app/oracle/diag/rdbms/fmda/fmd/metadata/INCIDENT.ams", {st_mode=S_IFREG|0640, st_size=65536, ...}) = 0
+stat("/u01/app/oracle/diag/rdbms/fmda/fmd/metadata/INCIDENT.ams", {st_mode=S_IFREG|0640, st_size=65536, ...}) = 0
+shmdt(0x62000000)                       = 0
+shmdt(0x60000000)                       = 0
+close(4)                                = 0
+times(NULL)                             = 439945844
+open("/u01/app/oracle/product/12.1.0/dbhome_1/rdbms/mesg/diaus.msb", O_RDONLY) = 4
+fcntl(4, F_SETFD, FD_CLOEXEC)           = 0
+lseek(4, 0, SEEK_SET)                   = 0
+read(4, "\25\23\"\1\23\3\t\t\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 256) = 256
+lseek(4, 512, SEEK_SET)                 = 512
+read(4, "\371\311\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 512) = 512
+lseek(4, 1024, SEEK_SET)                = 1024
+read(4, "\210\273\353\273\363\273\373\273\4\274\16\274\26\274!\274)\2741\274<\274G\274T\274_\274k\274t\274"..., 206) = 206
+stat("/u01/app/oracle", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+gettid()                                = 9194
+getrlimit(RLIMIT_NOFILE, {rlim_cur=64*1024, rlim_max=64*1024}) = 0
+getrlimit(RLIMIT_FSIZE, {rlim_cur=RLIM_INFINITY, rlim_max=RLIM_INFINITY}) = 0
+rt_sigaction(SIGWINCH, NULL, {0x2e7fcb0, ~[ILL ABRT BUS FPE KILL SEGV USR2 TERM STOP XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_SIGINFO, 0x3437e0f710}, 8) = 0
+munmap(0x7f092d168000, 524288)          = 0
+munmap(0x7f092d068000, 1048576)         = 0
+munmap(0x7f092d1e8000, 524288)          = 0
+close(7)                                = 0
+rt_sigprocmask(SIG_BLOCK, [ALRM], NULL, 8) = 0
+rt_sigaction(SIGALRM, {SIG_DFL, ~[ILL ABRT BUS FPE SEGV USR2 TERM XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, {0x2e7fcb0, ~[ILL ABRT BUS FPE KILL SEGV USR2 TERM STOP XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, 8) = 0
+rt_sigprocmask(SIG_UNBLOCK, [ALRM], NULL, 8) = 0
+rt_sigprocmask(SIG_BLOCK, [ILL], NULL, 8) = 0
+rt_sigaction(SIGILL, {SIG_DFL, ~[ILL ABRT BUS FPE SEGV USR2 TERM XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, {0x2e7fcb0, ~[ILL ABRT BUS FPE KILL SEGV USR2 TERM STOP XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_STACK|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, 8) = 0
+rt_sigprocmask(SIG_UNBLOCK, [ILL], NULL, 8) = 0
+rt_sigprocmask(SIG_BLOCK, [TRAP], NULL, 8) = 0
+rt_sigaction(SIGTRAP, {SIG_DFL, ~[ILL ABRT BUS FPE SEGV USR2 TERM XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, {0x2e7fcb0, ~[ILL ABRT BUS FPE KILL SEGV USR2 TERM STOP XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_STACK|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, 8) = 0
+rt_sigprocmask(SIG_UNBLOCK, [TRAP], NULL, 8) = 0
+rt_sigprocmask(SIG_BLOCK, [ABRT], NULL, 8) = 0
+rt_sigaction(SIGABRT, {SIG_DFL, ~[ILL ABRT BUS FPE SEGV USR2 TERM XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, {0x2e7fcb0, ~[ILL ABRT BUS FPE KILL SEGV USR2 TERM STOP XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_STACK|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, 8) = 0
+rt_sigprocmask(SIG_UNBLOCK, [ABRT], NULL, 8) = 0
+rt_sigprocmask(SIG_BLOCK, [FPE], NULL, 8) = 0
+rt_sigaction(SIGFPE, {SIG_DFL, ~[ILL ABRT BUS FPE SEGV USR2 TERM XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, {0x2e7fcb0, ~[ILL ABRT BUS FPE KILL SEGV USR2 TERM STOP XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_STACK|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, 8) = 0
+rt_sigprocmask(SIG_UNBLOCK, [FPE], NULL, 8) = 0
+rt_sigprocmask(SIG_BLOCK, [BUS], NULL, 8) = 0
+rt_sigaction(SIGBUS, {SIG_DFL, ~[ILL ABRT BUS FPE SEGV USR2 TERM XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, {0x2e7fcb0, ~[ILL ABRT BUS FPE KILL SEGV USR2 TERM STOP XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_STACK|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, 8) = 0
+rt_sigprocmask(SIG_UNBLOCK, [BUS], NULL, 8) = 0
+rt_sigprocmask(SIG_BLOCK, [SEGV], NULL, 8) = 0
+rt_sigaction(SIGSEGV, {SIG_DFL, ~[ILL ABRT BUS FPE SEGV USR2 TERM XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, {0x2e7fcb0, ~[ILL ABRT BUS FPE KILL SEGV USR2 TERM STOP XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_STACK|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, 8) = 0
+rt_sigprocmask(SIG_UNBLOCK, [SEGV], NULL, 8) = 0
+rt_sigprocmask(SIG_BLOCK, [SYS], NULL, 8) = 0
+rt_sigaction(SIGSYS, {SIG_DFL, ~[ILL ABRT BUS FPE SEGV USR2 TERM XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, {0x2e7fcb0, ~[ILL ABRT BUS FPE KILL SEGV USR2 TERM STOP XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_STACK|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, 8) = 0
+rt_sigprocmask(SIG_UNBLOCK, [SYS], NULL, 8) = 0
+rt_sigprocmask(SIG_BLOCK, [XCPU], NULL, 8) = 0
+rt_sigaction(SIGXCPU, {SIG_DFL, ~[ILL ABRT BUS FPE SEGV USR2 TERM XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, {0x2e7fcb0, ~[ILL ABRT BUS FPE KILL SEGV USR2 TERM STOP XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_STACK|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, 8) = 0
+rt_sigprocmask(SIG_UNBLOCK, [XCPU], NULL, 8) = 0
+rt_sigprocmask(SIG_BLOCK, [XFSZ], NULL, 8) = 0
+rt_sigaction(SIGXFSZ, {SIG_DFL, ~[ILL ABRT BUS FPE SEGV USR2 TERM XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, {0x2e7fcb0, ~[ILL ABRT BUS FPE KILL SEGV USR2 TERM STOP XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_STACK|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, 8) = 0
+rt_sigprocmask(SIG_UNBLOCK, [XFSZ], NULL, 8) = 0
+rt_sigaction(SIGTERM, {SIG_DFL, ~[ILL ABRT BUS FPE SEGV USR2 TERM XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, {0x253fb80, ~[ILL ABRT BUS FPE KILL SEGV USR2 TERM STOP XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, 8) = 0
+rt_sigaction(SIGTERM, {0x253fb80, ~[ILL ABRT BUS FPE SEGV USR2 TERM XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, {SIG_DFL, ~[ILL ABRT BUS FPE KILL SEGV USR2 TERM STOP XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, 8) = 0
+rt_sigaction(SIGHUP, {SIG_DFL, ~[ILL ABRT BUS FPE SEGV USR2 TERM XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, {SIG_IGN, ~[ILL ABRT BUS FPE KILL SEGV USR2 TERM STOP XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, 8) = 0
+rt_sigaction(SIGPIPE, {SIG_DFL, ~[ILL ABRT BUS FPE SEGV USR2 TERM XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, {0x2e7fcb0, ~[ILL ABRT BUS FPE KILL SEGV USR2 TERM STOP XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, 8) = 0
+rt_sigaction(SIGPIPE, {0x2e7fcb0, ~[ILL ABRT BUS FPE SEGV USR2 TERM XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, {SIG_DFL, ~[ILL ABRT BUS FPE KILL SEGV USR2 TERM STOP XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, 8) = 0
+rt_sigaction(SIGVTALRM, {SIG_DFL, ~[ILL ABRT BUS FPE SEGV USR2 TERM XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, {SIG_IGN, ~[ILL ABRT BUS FPE KILL SEGV USR2 TERM STOP XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, 8) = 0
+rt_sigaction(SIGPROF, {SIG_DFL, ~[ILL ABRT BUS FPE SEGV USR2 TERM XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, {SIG_IGN, ~[ILL ABRT BUS FPE KILL SEGV USR2 TERM STOP XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, 8) = 0
+rt_sigaction(SIGUSR1, {SIG_DFL, ~[ILL ABRT BUS FPE SEGV USR2 TERM XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, {SIG_IGN, ~[ILL ABRT BUS FPE KILL SEGV USR2 TERM STOP XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, 8) = 0
+rt_sigaction(SIGUSR2, {SIG_DFL, ~[ILL ABRT BUS FPE SEGV USR2 TERM XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, {0x253fa10, ~[ILL ABRT BUS FPE KILL SEGV USR2 TERM STOP XCPU XFSZ SYS RTMIN RT_1], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x3437e0f710}, 8) = 0
+rt_sigaction(SIGRT_2, {SIG_DFL, [], SA_RESTORER, 0x3437e0f710}, NULL, 8) = 0
+rt_sigaction(SIGTERM, {SIG_DFL, [], SA_RESTORER, 0x3437e0f710}, NULL, 8) = 0
+close(8)                                = 0
+close(9)                                = 0
+munmap(0x7f092d807000, 262144)          = 0
+close(3)                                = 0
+close(4)                                = 0
+munmap(0x7f092d847000, 262144)          = 0
+exit_group(0)                           = ?

@@ -1,0 +1,71 @@
+Trace file /u01/app/oracle/diag/rdbms/fmda/fmd/trace/fmd_ora_4018_treedump_level_20678.trc
+Oracle Database 12c Enterprise Edition Release 12.1.0.1.0 - 64bit Production
+With the Partitioning, Automatic Storage Management, OLAP, Advanced Analytics
+and Real Application Testing options
+ORACLE_HOME = /u01/app/oracle/product/12.1.0/dbhome_1
+System name:	Linux
+Node name:	ora10.localdomain
+Release:	3.8.13-16.2.1.el6uek.x86_64
+Version:	#1 SMP Thu Nov 7 17:01:44 PST 2013
+Machine:	x86_64
+Instance name: fmd
+Redo thread mounted by this instance: 1
+Oracle process number: 52
+Unix process pid: 4018, image: oracle@ora10.localdomain
+
+
+*** 2016-02-22 21:07:43.727
+*** SESSION ID:(74.3) 2016-02-22 21:07:43.727
+*** CLIENT ID:() 2016-02-22 21:07:43.727
+*** SERVICE NAME:(fmd) 2016-02-22 21:07:43.727
+*** MODULE NAME:(TOAD 12.5.0.99) 2016-02-22 21:07:43.727
+*** ACTION NAME:() 2016-02-22 21:07:43.727
+ 
+----- begin tree dump
+branch: 0x1002123 16785699 (0: nrow: 40, level: 1)
+   leaf: 0x1002124 16785700 (-1: nrow: 520 rrow: 520)
+   leaf: 0x1002125 16785701 (0: nrow: 513 rrow: 513)
+   leaf: 0x1002126 16785702 (1: nrow: 513 rrow: 513)
+   leaf: 0x1002127 16785703 (2: nrow: 513 rrow: 513)
+   leaf: 0x1002128 16785704 (3: nrow: 513 rrow: 513)
+   leaf: 0x1002129 16785705 (4: nrow: 513 rrow: 513)
+   leaf: 0x100212a 16785706 (5: nrow: 513 rrow: 513)
+   leaf: 0x100212b 16785707 (6: nrow: 513 rrow: 513)
+   leaf: 0x100212c 16785708 (7: nrow: 513 rrow: 513)
+   leaf: 0x100212d 16785709 (8: nrow: 513 rrow: 513)
+   leaf: 0x100212e 16785710 (9: nrow: 513 rrow: 513)
+   leaf: 0x100212f 16785711 (10: nrow: 513 rrow: 513)
+   leaf: 0x1002131 16785713 (11: nrow: 513 rrow: 513)
+   leaf: 0x1002132 16785714 (12: nrow: 513 rrow: 513)
+   leaf: 0x1002133 16785715 (13: nrow: 513 rrow: 513)
+   leaf: 0x1002134 16785716 (14: nrow: 513 rrow: 513)
+   leaf: 0x1002135 16785717 (15: nrow: 513 rrow: 513)
+   leaf: 0x1002136 16785718 (16: nrow: 513 rrow: 513)
+   leaf: 0x1002137 16785719 (17: nrow: 513 rrow: 513)
+   leaf: 0x1002138 16785720 (18: nrow: 492 rrow: 492)
+   leaf: 0x1002139 16785721 (19: nrow: 479 rrow: 479)
+   leaf: 0x100213a 16785722 (20: nrow: 479 rrow: 479)
+   leaf: 0x100213b 16785723 (21: nrow: 479 rrow: 479)
+   leaf: 0x100213c 16785724 (22: nrow: 479 rrow: 479)
+   leaf: 0x100213d 16785725 (23: nrow: 478 rrow: 478)
+   leaf: 0x100213e 16785726 (24: nrow: 479 rrow: 479)
+   leaf: 0x100213f 16785727 (25: nrow: 479 rrow: 479)
+   leaf: 0x1002141 16785729 (26: nrow: 479 rrow: 479)
+   leaf: 0x1002142 16785730 (27: nrow: 478 rrow: 478)
+   leaf: 0x1002143 16785731 (28: nrow: 479 rrow: 479)
+   leaf: 0x1002144 16785732 (29: nrow: 479 rrow: 479)
+   leaf: 0x1002145 16785733 (30: nrow: 479 rrow: 479)
+   leaf: 0x1002146 16785734 (31: nrow: 479 rrow: 479)
+   leaf: 0x1002147 16785735 (32: nrow: 478 rrow: 478)
+   leaf: 0x1002148 16785736 (33: nrow: 479 rrow: 479)
+   leaf: 0x1002149 16785737 (34: nrow: 478 rrow: 478)
+   leaf: 0x100214a 16785738 (35: nrow: 479 rrow: 479)
+   leaf: 0x100214b 16785739 (36: nrow: 479 rrow: 479)
+   leaf: 0x100214c 16785740 (37: nrow: 478 rrow: 478)
+   leaf: 0x100214d 16785741 (38: nrow: 121 rrow: 121)
+----- end tree dump
+
+*** 2016-02-22 21:08:33.696
+
+*** TRACE CONTINUES IN FILE /u01/app/oracle/diag/rdbms/fmda/fmd/trace/fmd_ora_4018_blockdump_4_8482.trc ***
+

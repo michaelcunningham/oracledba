@@ -1,0 +1,75 @@
+#!/bin/sh
+#########################################################
+# name: alert_cnt.sh
+#
+# purpose: To check the alert logs for current DB
+# 	and counts deadlock messages.
+#
+#  usage: chkalert $1 [$2)
+#  parameters:$1 search string, defaults to ORA-00060
+#	$2 days to search back, defaults to 90
+#
+# HISTORY:
+# 	Date 	Name 	Comments
+# 08/03/12 	ddm 	Created
+#########################################################
+if [ $1 ]
+then 
+  stng=$1
+else
+  echo 'Error no string'
+  exit 1
+fi
+chh="*"
+dy=7
+
+LGFIL=./alert_cnt_$ORACLE_SID.lis
+UDIR=/oracle/app/oracle/admin
+ODIR=$UDIR/$ORACLE_SID/bdump
+echo $ORACLE_SID
+echo $UDIR
+echo $ODIR
+cmd="cat $ODIR/alert_${ORACLE_SID}.log"
+# The following are associated with other ORA-xxxx messages.
+# If the following variable has a blank it is intentional.
+explst="ORA-01110:|ORA-00472:|ORA-1106|ORA-07360:|ORA-1157 |ORA-00312:|ORA-00272:|ORA-00334:| ORA-00255:|ORA-01594:"
+
+# The following are too many to include in generic report. 
+spclst="ORA-1507|ORA-1640|ORA-1642|ORA-1644"
+
+# if not checking for specific, ignore it.
+if [[ ("${stng}" = "ORA-1507") || ("${stng}" = "ORA-1640") || ("${stng}" = "ORA-1642") || ("${stng}" = "ORA-1644") || ("${stng}" = "ORA-00060") ]]
+then 
+ cmder0='cat' 
+else
+ cmder0="egrep -v ${spclst}" 
+fi
+
+if [ -f ${LGFIL} ]
+then
+  rm ${LGFIL}
+fi
+
+echo "Alert messages for "${0RACLE_SID}" data base">>${LGFIL}
+echo $alrtlg
+alrtlg="$ODIR/alert_${ORACLE_SID}.log"
+      cat ${alrtlg} | egrep -n "${stng}" | ${cmder0} | egrep -v "${explst}" | awk -F: '{print $1,$2}' | read -p -r lnnum lntxt
+      case "${lntxt}" in
+        ORA-1119*|ORA-1543*) pntbck=6 ;;
+        ORA-279*) pntbck=4 ;; 
+        ORA-01578*|ORA-1185*)  pntbck=3 ;; 
+        ORA-00603*|ORA-3296*|ORA-1112*|ORA-308*|ORA-01595*|ORA-1580*|ORA-07445*|ORA-1146*|ORA-01575*|ORA-01157*|ORA-00600*|ORA-1109*|ORA-00604*|ORA-604*|ORA-1142*|ORA-1157*|ORA-1113*|ORA-00376*|ORA-164*|ORA-1539*) pntbck=2 ;;
+        *) pntbck=1 ;;
+      esac
+      let pntfwd=pntbck+1 
+      prevlin=$(( lnnum - ${pntbck} ))
+      outlin1=`tail  +${prevlin} ${alrtlg} | head -1 | awk '(print $2,$3,$5}'`
+      outlin2=""
+      cat ${alrtlg} | egrep -n "${stng}" | ${cmder0} | egrep -v "${explst}" | awk -F: ' {print $1,$2}' | while read -p -r lnnum lntxt
+      do
+      {
+        outlin2="${outlin2}${chh}"
+      } 
+      done
+      echo "${outlin1}\t${outlin2}"  >> ${LGFIL}
+exit 0

@@ -1,0 +1,27 @@
+#?/bin/sh
+
+. /mnt/dba/sh/std_alias
+
+if [ -f /etc/oratab ]
+then
+for DB in `cat /etc/oratab | egrep -v "^$|^#|^-" | grep -v \* | cut -d: -f1`
+do
+  alias $DB='ORAENV_ASK=NO ; export ORACLE_SID='$DB';. /usr/local/bin/oraenv -s;. /mnt/dba/sh/set_ora_alias.sh'
+done
+fi
+
+if [ "$ORACLE_SID" != "" ]
+then
+  # Set the environment to the current ORACLE_SID
+  ORAENV_ASK=NO ; . /usr/local/bin/oraenv -s ; . /mnt/dba/sh/set_ora_alias.sh
+fi
+
+export PS1='[\u@\h:$ORACLE_SID]$ '
+set -o vi
+export SQLPATH=/mnt/dba/scripts
+alias vi='/bin/vi'
+
+export LS_COLORS="no=00:fi=00:di=00;36:ln=00;36:pi=40;33:so=00;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:ex=00;32:*.cmd=00;32:*.exe=00;32:*.com=00;32:*.btm=00;32:*.bat=00;32:*.sh=00;32:*.csh=00;32:*.tar=00;31:*.tgz=00;31:*.arj=00;31:*.taz=00;31:*.lzh=00;31:*.zip=00;31:*.z=00;31:*.Z=00;31:*.gz=00;31:*.bz2=00;31:*.bz=00;31:*.tz=00;31:*.rpm=00;31:*.cpio=00;31:*.jpg=00;35:*.gif=00;35:*.bmp=00;35:*.xbm=00;35:*.xpm=00;35:*.png=00;35:*.tif=00;35:"
+
+MYHOST=`echo $HOSTNAME | cut -d. -f1`
+echo -e "\033]0;$MYHOST\007"

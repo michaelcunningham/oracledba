@@ -1,0 +1,119 @@
+
+*** 2016-02-23 09:58:24.459
+Start dump data blocks tsn: 1 file#:2 minblk 53234 maxblk 53234
+Block dump from cache:
+Dump of buffer cache at level 4 for pdb=0 tsn=1 rdba=8441842
+BH (0x9af842d8) file#: 2 rdba: 0x0080cff2 (2/53234) class: 4 ba: 0x9a3a0000
+  set: 3 pool: 3 bsz: 8192 bsi: 0 sflg: 0 pwc: 85,28
+  dbwrid: 0 obj: 21212 objn: 21212 tsn: [0/1] afn: 2 hint: f
+  hash: [0xad3bdbf8,0xad3bdbf8] lru: [0x9af84508,0x9af84288]
+  ckptq: [NULL] fileq: [NULL]
+  objq: [0x9af842b0,0x9af83ef0] objaq: [0xa00d9698,0x9af842c0]
+  st: XCURRENT md: NULL fpin: 'ktswh03: ktscts' fscn: 0x0.279667 tch: 2
+  flags: block_written_once
+  LRBA: [0x0.0.0] LSCN: [0x0.0] HSCN: [0xffff.ffffffff] HSUB: [1]
+Block dump from disk:
+buffer tsn: 1 rdba: 0x0080cff2 (2/53234)
+scn: 0x0.279683 seq: 0x03 flg: 0x04 tail: 0x96832303
+frmt: 0x02 chkval: 0x3dd2 type: 0x23=PAGETABLE SEGMENT HEADER
+Hex dump of block: st=0, typ_found=1
+Dump of memory from 0x00007F0D39065000 to 0x00007F0D39067000
+7F0D39065000 0000A223 0080CFF2 00279683 04030000  [#.........'.....]
+7F0D39065010 00003DD2 00000000 00000000 00000000  [.=..............]
+7F0D39065020 00000000 0000000C 00000060 00000A9C  [........`.......]
+7F0D39065030 0000000B 00000004 00000008 0080C44C  [............L...]
+7F0D39065040 00000000 0000000B 00000000 0000005C  [............\...]
+7F0D39065050 00000000 00000000 00000000 0000000B  [................]
+7F0D39065060 00000004 00000008 0080C44C 00000000  [........L.......]
+7F0D39065070 0000000B 00000000 0000005C 0080C440  [........\...@...]
+7F0D39065080 0080C440 00000000 00000000 00000000  [@...............]
+7F0D39065090 00000000 00000000 00000000 00000000  [................]
+        Repeat 3 times
+7F0D390650D0 00000002 00002000 00000000 00001434  [..... ......4...]
+7F0D390650E0 00000000 0080CFF1 00000001 0080C440  [............@...]
+7F0D390650F0 0080CFF1 00000000 00000000 00000000  [................]
+7F0D39065100 00000000 00000000 0000000C 00000000  [................]
+7F0D39065110 000052DC 10000000 0080CFF0 00000008  [.R..............]
+7F0D39065120 0080CFF8 00000008 0080C400 00000008  [................]
+7F0D39065130 0080C408 00000008 0080C410 00000008  [................]
+7F0D39065140 0080C418 00000008 0080C420 00000008  [........ .......]
+7F0D39065150 0080C428 00000008 0080C430 00000008  [(.......0.......]
+7F0D39065160 0080C438 00000008 0080C440 00000008  [8.......@.......]
+7F0D39065170 0080C448 00000008 00000000 00000000  [H...............]
+7F0D39065180 00000000 00000000 00000000 00000000  [................]
+        Repeat 146 times
+7F0D39065AB0 0080CFF0 0080CFF3 0080CFF0 0080CFF8  [................]
+7F0D39065AC0 0080C400 0080C401 0080C400 0080C408  [................]
+7F0D39065AD0 0080C410 0080C411 0080C410 0080C418  [................]
+7F0D39065AE0 0080C420 0080C421 0080C420 0080C428  [ ...!... ...(...]
+7F0D39065AF0 0080C430 0080C431 0080C430 0080C438  [0...1...0...8...]
+7F0D39065B00 0080C440 0080C441 0080C440 0080C448  [@...A...@...H...]
+7F0D39065B10 00000000 00000000 00000000 00000000  [................]
+        Repeat 146 times
+7F0D39066440 00000000 00000000 0080CFF1 00000000  [................]
+7F0D39066450 00000000 00000000 00000000 00000000  [................]
+        Repeat 185 times
+7F0D39066FF0 00000000 00000000 00000000 96832303  [.............#..]
+  Extent Control Header
+  -----------------------------------------------------------------
+  Extent Header:: spare1: 0      spare2: 0      #extents: 12     #blocks: 96    
+                  last map  0x00000000  #maps: 0      offset: 2716  
+      Highwater::  0x0080c44c  ext#: 11     blk#: 4      ext size: 8     
+  #blocks in seg. hdr's freelists: 0     
+  #blocks below: 92    
+  mapblk  0x00000000  offset: 11    
+                   Unlocked
+  --------------------------------------------------------
+  Low HighWater Mark : 
+      Highwater::  0x0080c44c  ext#: 11     blk#: 4      ext size: 8     
+  #blocks in seg. hdr's freelists: 0     
+  #blocks below: 92    
+  mapblk  0x00000000  offset: 11    
+  Level 1 BMB for High HWM block: 0x0080c440
+  Level 1 BMB for Low HWM block: 0x0080c440
+  --------------------------------------------------------
+  Segment Type: 2 nl2: 1      blksz: 8192   fbsz: 0      
+  L2 Array start offset:  0x00001434
+  First Level 3 BMB:  0x00000000
+  L2 Hint for inserts:  0x0080cff1
+  Last Level 1 BMB:  0x0080c440
+  Last Level II BMB:  0x0080cff1
+  Last Level III BMB:  0x00000000
+     Map Header:: next  0x00000000  #extents: 12   obj#: 21212  flag: 0x10000000
+  Inc # 0 
+  Extent Map
+  -----------------------------------------------------------------
+   0x0080cff0  length: 8     
+   0x0080cff8  length: 8     
+   0x0080c400  length: 8     
+   0x0080c408  length: 8     
+   0x0080c410  length: 8     
+   0x0080c418  length: 8     
+   0x0080c420  length: 8     
+   0x0080c428  length: 8     
+   0x0080c430  length: 8     
+   0x0080c438  length: 8     
+   0x0080c440  length: 8     
+   0x0080c448  length: 8     
+  
+  Auxillary Map
+  --------------------------------------------------------
+   Extent 0     :  L1 dba:  0x0080cff0 Data dba:  0x0080cff3
+   Extent 1     :  L1 dba:  0x0080cff0 Data dba:  0x0080cff8
+   Extent 2     :  L1 dba:  0x0080c400 Data dba:  0x0080c401
+   Extent 3     :  L1 dba:  0x0080c400 Data dba:  0x0080c408
+   Extent 4     :  L1 dba:  0x0080c410 Data dba:  0x0080c411
+   Extent 5     :  L1 dba:  0x0080c410 Data dba:  0x0080c418
+   Extent 6     :  L1 dba:  0x0080c420 Data dba:  0x0080c421
+   Extent 7     :  L1 dba:  0x0080c420 Data dba:  0x0080c428
+   Extent 8     :  L1 dba:  0x0080c430 Data dba:  0x0080c431
+   Extent 9     :  L1 dba:  0x0080c430 Data dba:  0x0080c438
+   Extent 10    :  L1 dba:  0x0080c440 Data dba:  0x0080c441
+   Extent 11    :  L1 dba:  0x0080c440 Data dba:  0x0080c448
+  --------------------------------------------------------
+  
+   Second Level Bitmap block DBAs 
+   --------------------------------------------------------
+   DBA 1:   0x0080cff1
+  
+End dump data blocks tsn: 1 file#: 2 minblk 53234 maxblk 53234

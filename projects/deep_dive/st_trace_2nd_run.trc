@@ -1,0 +1,41 @@
+Trace file /u01/app/oracle/diag/rdbms/fmda/fmd/trace/fmd_ora_9681.trc
+Oracle Database 12c Enterprise Edition Release 12.1.0.1.0 - 64bit Production
+With the Partitioning, Automatic Storage Management, OLAP, Advanced Analytics
+and Real Application Testing options
+ORACLE_HOME = /u01/app/oracle/product/12.1.0/dbhome_1
+System name:	Linux
+Node name:	ora10.localdomain
+Release:	3.8.13-16.2.1.el6uek.x86_64
+Version:	#1 SMP Thu Nov 7 17:01:44 PST 2013
+Machine:	x86_64
+Instance name: fmd
+Redo thread mounted by this instance: 1
+Oracle process number: 45
+Unix process pid: 9681, image: oracle@ora10.localdomain (TNS V1-V3)
+
+
+*** 2015-11-17 09:25:47.484
+*** SESSION ID:(69.39) 2015-11-17 09:25:47.484
+*** CLIENT ID:() 2015-11-17 09:25:47.484
+*** SERVICE NAME:(SYS$USERS) 2015-11-17 09:25:47.484
+*** MODULE NAME:(SQL*Plus) 2015-11-17 09:25:47.484
+*** ACTION NAME:() 2015-11-17 09:25:47.484
+ 
+=====================
+PARSING IN CURSOR #140060970576808 len=32 dep=0 uid=67 oct=42 lid=67 tim=105568537963 hv=1569151342 ad='7f627c60fdf0' sqlid='4tk6t8tfsfqbf'
+alter session set sql_trace=true
+END OF STMT
+EXEC #140060970576808:c=0,e=55,p=0,cr=0,cu=0,mis=1,r=0,dep=0,og=1,plh=0,tim=105568537961
+CLOSE #140060970576808:c=0,e=3,dep=0,type=0,tim=105568538436
+=====================
+PARSING IN CURSOR #140060970576808 len=64 dep=0 uid=67 oct=3 lid=67 tim=105568538526 hv=3060084361 ad='a3f07ff0' sqlid='df6u3x2v6abn9'
+select distinct object_type from tt where object_name like 'SY%'
+END OF STMT
+PARSE #140060970576808:c=0,e=67,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=1,plh=3008180766,tim=105568538526
+EXEC #140060970576808:c=0,e=79,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=1,plh=3008180766,tim=105568538633
+FETCH #140060970576808:c=3000,e=3867,p=0,cr=287,cu=0,mis=0,r=1,dep=0,og=1,plh=3008180766,tim=105568542534
+FETCH #140060970576808:c=0,e=71,p=0,cr=0,cu=0,mis=0,r=14,dep=0,og=1,plh=3008180766,tim=105568542827
+STAT #140060970576808 id=1 cnt=15 pid=0 pos=1 obj=0 op='HASH UNIQUE (cr=287 pr=0 pw=0 time=3915 us cost=82 size=1080 card=40)'
+STAT #140060970576808 id=2 cnt=1812 pid=1 pos=1 obj=20677 op='TABLE ACCESS FULL TT (cr=287 pr=0 pw=0 time=5389 us cost=82 size=47871 card=1773)'
+XCTEND rlbk=0, rd_only=1, tim=105568543230
+CLOSE #140060970576808:c=0,e=0,dep=0,type=0,tim=105568543274

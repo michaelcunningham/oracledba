@@ -1,0 +1,8 @@
+run
+{
+  startup nomount
+  set dbid 2027701287;
+  set until time "to_date('16-JUN-2015 09:00:00','DD-MON-YYYY HH24:MI:SS')";
+  restore controlfile;
+  alter database mount;
+}

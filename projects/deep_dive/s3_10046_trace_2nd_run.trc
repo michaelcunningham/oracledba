@@ -1,0 +1,41 @@
+Trace file /u01/app/oracle/diag/rdbms/fmda/fmd/trace/fmd_ora_4821.trc
+Oracle Database 12c Enterprise Edition Release 12.1.0.1.0 - 64bit Production
+With the Partitioning, Automatic Storage Management, OLAP, Advanced Analytics
+and Real Application Testing options
+ORACLE_HOME = /u01/app/oracle/product/12.1.0/dbhome_1
+System name:	Linux
+Node name:	ora10.localdomain
+Release:	3.8.13-16.2.1.el6uek.x86_64
+Version:	#1 SMP Thu Nov 7 17:01:44 PST 2013
+Machine:	x86_64
+Instance name: fmd
+Redo thread mounted by this instance: 1
+Oracle process number: 45
+Unix process pid: 4821, image: oracle@ora10.localdomain (TNS V1-V3)
+
+
+*** 2015-11-13 07:47:15.024
+*** SESSION ID:(49.11) 2015-11-13 07:47:15.024
+*** CLIENT ID:() 2015-11-13 07:47:15.024
+*** SERVICE NAME:(SYS$USERS) 2015-11-13 07:47:15.024
+*** MODULE NAME:(SQL*Plus) 2015-11-13 07:47:15.024
+*** ACTION NAME:() 2015-11-13 07:47:15.024
+ 
+=====================
+PARSING IN CURSOR #140435407527040 len=64 dep=0 uid=67 oct=3 lid=67 tim=84821183616 hv=3060084361 ad='a3d921a0' sqlid='df6u3x2v6abn9'
+select distinct object_type from tt where object_name like 'SY%'
+END OF STMT
+PARSE #140435407527040:c=5000,e=5350,p=0,cr=0,cu=0,mis=1,r=0,dep=0,og=1,plh=3008180766,tim=84821183611
+EXEC #140435407527040:c=0,e=251,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=1,plh=3008180766,tim=84821188724
+WAIT #140435407527040: nam='SQL*Net message to client' ela= 5 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=84821188856
+FETCH #140435407527040:c=11000,e=15441,p=0,cr=287,cu=0,mis=0,r=1,dep=0,og=1,plh=3008180766,tim=84821204349
+WAIT #140435407527040: nam='SQL*Net message from client' ela= 451 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=84821204960
+WAIT #140435407527040: nam='SQL*Net message to client' ela= 2 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=84821205037
+FETCH #140435407527040:c=1000,e=225,p=0,cr=0,cu=0,mis=0,r=14,dep=0,og=1,plh=3008180766,tim=84821205251
+STAT #140435407527040 id=1 cnt=15 pid=0 pos=1 obj=0 op='HASH UNIQUE (cr=287 pr=0 pw=0 time=15558 us cost=82 size=1080 card=40)'
+STAT #140435407527040 id=2 cnt=1812 pid=1 pos=1 obj=20677 op='TABLE ACCESS FULL TT (cr=287 pr=0 pw=0 time=6401 us cost=82 size=47871 card=1773)'
+
+*** 2015-11-13 07:47:16.335
+WAIT #140435407527040: nam='SQL*Net message from client' ela= 1293702 driver id=1650815232 #bytes=1 p3=0 obj#=-1 tim=84822499427
+XCTEND rlbk=0, rd_only=1, tim=84822499568
+CLOSE #140435407527040:c=0,e=15,dep=0,type=0,tim=84822499849

@@ -1,0 +1,245 @@
+################################################################################
+#
+# gpadmin@gp01.tagged.com / Styczen
+#
+# For the ESRS machine windows login - dba/dbabot
+#      then for the console ESESVE: root/emc123
+#      Wiki: https://wiki.ifwe.co/display/DATA/ESRS+Remote+Login+for+EMC
+#
+#
+################################################################################
+# sid		host		syspwd		user		userpwd
+#
+master		dbmon04		admin123	tag		zx6j1bft
+
+pdb01		ora02		admin123	tag		zx6j1bft
+pdb02		ora03		admin123	tag		zx6j1bft
+pdb03		ora01		admin123	tag		zx6j1bft
+pdb04		ora05		admin123	tag		zx6j1bft
+pdb04		ora05		admin123	spotlight	spotlight
+pdb05		ora06		admin123	tag		zx6j1bft
+pdb06		ora07		admin123	tag		zx6j1bft
+pdb07		ora08		admin123	tag		zx6j1bft
+pdb08		ora09		admin123	tag		zx6j1bft
+
+devtagdb	dora02		admin123	tag		zx6j1bft
+devtagdb	dora02		admin123	cbsec		cbsec123
+devtagdb	dora02		admin123	tagme		z9a9c8d4
+devtagdb	dora02		admin123	metrics		ZX6j1bft
+tagdb		ora27		admin123	cbsec		C6s3chide0ll
+tagdb		ora27		admin123	ignite		rman11
+tagdb		ora27		admin123	tag		zx6j1bft
+tagdb		ora27		admin123	tagme		z9a9c8d4
+
+
+devpdb01	dora02		admin123	tag		zx6j1bft
+devpdb02	dora02		admin123	tag		zx6j1bft
+devpdb03	dora02		admin123	tag		zx6j1bft
+devpdb04	dora02		admin123	tag		zx6j1bft
+devpdb05	dora02		admin123	tag		zx6j1bft
+devpdb06	dora02		admin123	tag		zx6j1bft
+devpdb07	dora02		admin123	tag		zx6j1bft
+devpdb08	dora02		admin123	tag		zx6j1bft
+devtabdb	dora02		admin123	tag		zx6j1bft
+mmm		dora02		admin123	tag		zx6j1bft
+
+dwhse		sora03		admin123	tag		zx6j1bft
+dwhse		sora03		admin123	taganalysis	GR3ASY
+swhse		sora03		admin123	tag		zx6j1bft
+swhse		sora03		admin123	taganalysis	GR3ASY
+swhse		sora03		admin123	taggedmeta	taggedmeta
+whse		ora39		admin123	ignite		rman11
+whse		ora39		admin123	tag		zx6j1bft
+whse		ora39		admin123	taganalysis	$taganalysis$
+whse		ora39		admin123	taggedmeta	taggedmeta123
+whse		ora39		admin123	stig		stig
+whse		ora39		admin123	security	security
+whse		ora39		admin123	ignite_repo	ignite123
+whse		ora39		admin123	stage		stage123
+
+mmdb01		ora25		admin123	tag		zx6j1bft
+mmdb02		ora14		admin123	tag		zx6j1bft
+
+tdb00		ora20		admin123	tag		zx6j1bft
+tdb01		ora20		admin123	tag		zx6j1bft
+tdb02		ora20		admin123	tag		zx6j1bft
+tdb03		ora20		admin123	tag		zx6j1bft
+tdb04		ora20		admin123	tag		zx6j1bft
+tdb05		ora20		admin123	tag		zx6j1bft
+tdb06		ora20		admin123	tag		zx6j1bft
+tdb07		ora20		admin123	tag		zx6j1bft
+tdb08		ora20		admin123	tag		zx6j1bft
+tdb09		ora20		admin123	tag		zx6j1bft
+tdb10		ora20		admin123	tag		zx6j1bft
+tdb11		ora20		admin123	tag		zx6j1bft
+tdb12		ora20		admin123	tag		zx6j1bft
+tdb13		ora20		admin123	tag		zx6j1bft
+tdb14		ora20		admin123	tag		zx6j1bft
+tdb15		ora20		admin123	tag		zx6j1bft
+
+tdb16		ora24		admin123	tag		zx6j1bft
+tdb17		ora24		admin123	tag		zx6j1bft
+tdb18		ora24		admin123	tag		zx6j1bft
+tdb19		ora24		admin123	tag		zx6j1bft
+tdb20		ora24		admin123	tag		zx6j1bft
+tdb21		ora24		admin123	tag		zx6j1bft
+tdb22		ora24		admin123	tag		zx6j1bft
+tdb23		ora24		admin123	tag		zx6j1bft
+tdb24		ora24		admin123	tag		zx6j1bft
+tdb25		ora24		admin123	tag		zx6j1bft
+tdb26		ora24		admin123	tag		zx6j1bft
+tdb27		ora24		admin123	tag		zx6j1bft
+tdb28		ora24		admin123	tag		zx6j1bft
+tdb29		ora24		admin123	tag		zx6j1bft
+tdb30		ora24		admin123	tag		zx6j1bft
+tdb31		ora24		admin123	tag		zx6j1bft
+
+tdb32		ora18		admin123	tag		zx6j1bft
+tdb33		ora18		admin123	tag		zx6j1bft
+tdb34		ora18		admin123	tag		zx6j1bft
+tdb35		ora18		admin123	tag		zx6j1bft
+tdb36		ora18		admin123	tag		zx6j1bft
+tdb37		ora18		admin123	tag		zx6j1bft
+tdb38		ora18		admin123	tag		zx6j1bft
+tdb39		ora18		admin123	tag		zx6j1bft
+tdb40		ora18		admin123	tag		zx6j1bft
+tdb41		ora18		admin123	tag		zx6j1bft
+tdb42		ora18		admin123	tag		zx6j1bft
+tdb43		ora18		admin123	tag		zx6j1bft
+tdb44		ora18		admin123	tag		zx6j1bft
+tdb45		ora18		admin123	tag		zx6j1bft
+tdb46		ora18		admin123	tag		zx6j1bft
+tdb47		ora18		admin123	tag		zx6j1bft
+
+tdb48		ora19		admin123	tag		zx6j1bft
+tdb49		ora19		admin123	tag		zx6j1bft
+tdb50		ora19		admin123	tag		zx6j1bft
+tdb51		ora19		admin123	tag		zx6j1bft
+tdb52		ora19		admin123	tag		zx6j1bft
+tdb53		ora19		admin123	tag		zx6j1bft
+tdb54		ora19		admin123	tag		zx6j1bft
+tdb55		ora19		admin123	tag		zx6j1bft
+tdb56		ora19		admin123	tag		zx6j1bft
+tdb57		ora19		admin123	tag		zx6j1bft
+tdb58		ora19		admin123	tag		zx6j1bft
+tdb59		ora19		admin123	tag		zx6j1bft
+tdb60		ora19		admin123	tag		zx6j1bft
+tdb61		ora19		admin123	tag		zx6j1bft
+tdb62		ora19		admin123	tag		zx6j1bft
+tdb63		ora19		admin123	tag		zx6j1bft
+
+rman11		rmandb02	admin123	rman		rman2
+rman12		rmandb02	admin123	rman		rman2
+
+stagdb		sora02		admin123	cbsec		cbsec123
+stagdb		sora02		admin123	dbastage	dbastage123
+stagdb		sora02		admin123	tag		zx6j1bft
+stagdb		sora02		admin123	tagme		z9a9c8d4
+
+spdb01		sora02		admin123	tag		zx6j1bft
+spdb02		sora02		admin123	tag		zx6j1bft
+spdb02		sora02		admin123	hi5load		hi5load
+spdb03		sora02		admin123	tag		zx6j1bft
+spdb04		sora02		admin123	tag		zx6j1bft
+spdb05		sora02		admin123	tag		zx6j1bft
+spdb06		sora02		admin123	tag		zx6j1bft
+spdb07		sora02		admin123	tag		zx6j1bft
+spdb08		sora02		admin123	tag		zx6j1bft
+stgmmm		sora02		admin123	tag		zx6j1bft
+
+stdb00		sora02		admin123	tag		zx6j1bft
+stdb01		sora02		admin123	tag		zx6j1bft
+stdb02		sora02		admin123	tag		zx6j1bft
+stdb03		sora02		admin123	tag		zx6j1bft
+stdb04		sora02		admin123	tag		zx6j1bft
+stdb05		sora02		admin123	tag		zx6j1bft
+stdb06		sora02		admin123	tag		zx6j1bft
+stdb07		sora02		admin123	tag		zx6j1bft
+stdb08		sora02		admin123	tag		zx6j1bft
+stdb09		sora02		admin123	tag		zx6j1bft
+stdb10		sora02		admin123	tag		zx6j1bft
+stdb11		sora02		admin123	tag		zx6j1bft
+stdb12		sora02		admin123	tag		zx6j1bft
+stdb13		sora02		admin123	tag		zx6j1bft
+stdb14		sora02		admin123	tag		zx6j1bft
+stdb15		sora02		admin123	tag		zx6j1bft
+stdb16		sora02		admin123	tag		zx6j1bft
+stdb17		sora02		admin123	tag		zx6j1bft
+stdb18		sora02		admin123	tag		zx6j1bft
+stdb19		sora02		admin123	tag		zx6j1bft
+stdb20		sora02		admin123	tag		zx6j1bft
+stdb21		sora02		admin123	tag		zx6j1bft
+stdb22		sora02		admin123	tag		zx6j1bft
+stdb23		sora02		admin123	tag		zx6j1bft
+stdb24		sora02		admin123	tag		zx6j1bft
+stdb25		sora02		admin123	tag		zx6j1bft
+stdb26		sora02		admin123	tag		zx6j1bft
+stdb27		sora02		admin123	tag		zx6j1bft
+stdb28		sora02		admin123	tag		zx6j1bft
+stdb29		sora02		admin123	tag		zx6j1bft
+stdb30		sora02		admin123	tag		zx6j1bft
+stdb31		sora02		admin123	tag		zx6j1bft
+stdb32		sora02		admin123	tag		zx6j1bft
+stdb33		sora02		admin123	tag		zx6j1bft
+stdb34		sora02		admin123	tag		zx6j1bft
+stdb35		sora02		admin123	tag		zx6j1bft
+stdb36		sora02		admin123	tag		zx6j1bft
+stdb37		sora02		admin123	tag		zx6j1bft
+stdb38		sora02		admin123	tag		zx6j1bft
+stdb39		sora02		admin123	tag		zx6j1bft
+stdb40		sora02		admin123	tag		zx6j1bft
+stdb41		sora02		admin123	tag		zx6j1bft
+stdb42		sora02		admin123	tag		zx6j1bft
+stdb43		sora02		admin123	tag		zx6j1bft
+stdb44		sora02		admin123	tag		zx6j1bft
+stdb45		sora02		admin123	tag		zx6j1bft
+stdb46		sora02		admin123	tag		zx6j1bft
+stdb47		sora02		admin123	tag		zx6j1bft
+stdb48		sora02		admin123	tag		zx6j1bft
+stdb49		sora02		admin123	tag		zx6j1bft
+stdb50		sora02		admin123	tag		zx6j1bft
+stdb51		sora02		admin123	tag		zx6j1bft
+stdb52		sora02		admin123	tag		zx6j1bft
+stdb53		sora02		admin123	tag		zx6j1bft
+stdb54		sora02		admin123	tag		zx6j1bft
+stdb55		sora02		admin123	tag		zx6j1bft
+stdb56		sora02		admin123	tag		zx6j1bft
+stdb57		sora02		admin123	tag		zx6j1bft
+stdb58		sora02		admin123	tag		zx6j1bft
+stdb59		sora02		admin123	tag		zx6j1bft
+stdb60		sora02		admin123	tag		zx6j1bft
+stdb61		sora02		admin123	tag		zx6j1bft
+stdb62		sora02		admin123	tag		zx6j1bft
+stdb63		sora02		admin123	tag		zx6j1bft
+
+dtdb01		dora02		admin123	tag		zx6j1bft
+dtdb02		dora02		admin123	tag		zx6j1bft
+dtdb03		dora02		admin123	tag		zx6j1bft
+dtdb04		dora02		admin123	tag		zx6j1bft
+
+sidewalk	sidewalk01	admin123	dummy		dummy
+
+imdb01		ora41		admin123	tag		zx6j1bft
+dimdb01		dora28		admin123	tag		zx6j1bft
+simdb01		sora03		admin123	tag		zx6j1bft
+simdb011	sora04		admin123	tag		zx6j1bft
+simdb012	sora05		admin123	tag		zx6j1bft
+taganalysis	testora01	admin123	metrics		metrics
+taganalysis	testora01	admin123	tag		zx6j1bft
+taganaly	testora01	admin123	metrics		zx6j1bft
+taganaly	testora01	admin123	tag		zx6j1bft
+
+grid		grid01		admin123	sysman		admin123
+grid		grid02		admin123	sysman		admin123
+
+dmmdb01		dora26		admin123	tag		zx6j1bft
+dmmdb02		dora27		admin123	tag		zx6j1bft
+smmdb01		sora24		admin123	tag		zx6j1bft
+smmdb02		sora25		admin123	tag		zx6j1bft
+detl		dora28		admin123	tag		zx6j1bft
+setl		sora20		admin123	tag		zx6j1bft
+etl		ora39		admin123	event		zx6j1bft
+etl		ora39		admin123	sandbox		zx6j1bft
+etl		ora43		admin123	tag		zx6j1bft
+
+utildb		dora24		admin123	tag		zx6j1bft

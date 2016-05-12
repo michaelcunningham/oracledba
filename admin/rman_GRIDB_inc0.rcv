@@ -1,0 +1,13 @@
+run
+{
+ALLOCATE CHANNEL ch1 DEVICE TYPE DISK FORMAT '/mnt/dbbackup/GRIDB/df_full_t%t_s%s_p%p';
+ALLOCATE CHANNEL ch2 DEVICE TYPE DISK FORMAT '/mnt/dbbackup/GRIDB/df_full_t%t_s%s_p%p';
+ALLOCATE CHANNEL ch3 DEVICE TYPE DISK FORMAT '/mnt/dbbackup/GRIDB/df_full_t%t_s%s_p%p';
+ALLOCATE CHANNEL ch4 DEVICE TYPE DISK FORMAT '/mnt/dbbackup/GRIDB/df_full_t%t_s%s_p%p';
+BACKUP INCREMENTAL LEVEL 0 as copy DATABASE TAG 'fullcopy';
+RELEASE CHANNEL ch1;
+RELEASE CHANNEL ch2;
+RELEASE CHANNEL ch3;
+RELEASE CHANNEL ch4;
+}
+

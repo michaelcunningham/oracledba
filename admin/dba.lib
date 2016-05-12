@@ -1,0 +1,85 @@
+#!/bin/sh
+#
+# This file serves as a library of standard functions for DBA use.
+#
+dba_admin_dir=/mnt/dba/admin
+dba_env_info_file=${dba_admin_dir}/ora_pwds
+ORATAB=/etc/oratab
+
+############################################################################
+#
+# Function : get_user_pwd
+#
+# Two parameters should be provided to this function.
+#
+#   $1 = $tns = This is the tns for the database we want the user password.
+#   $2 = $username = This is the username for which we want the user password.
+#
+# Example :
+#
+#   userpwd=`get_user_pwd orcl scott`
+#
+############################################################################
+get_user_pwd () {
+if [ "$1" = "" -o "$2" = "" ]
+then
+  echo
+  echo "   Usage: get_user_pwd <ORACLE_SID> <username>"
+  echo
+  echo "   Example: get_user_pwd orcl scott"
+  echo
+  return 1
+fi
+
+ORACLE_SID=$1
+username=$2
+ORACLE_SID=`echo $ORACLE_SID | tr '[A-Z]' '[a-z]'`
+username=`echo $username | tr '[A-Z]' '[a-z]'`
+userpwd=`awk '($1 == tolower("'$ORACLE_SID'")) && ($4 == "'$username'") {print $5}' ${dba_env_info_file} | uniq`
+
+if [ "$userpwd" = "" ]
+then
+  echo ""
+  return 1
+else
+  echo $userpwd
+  return 0
+fi
+}
+
+############################################################################
+#
+# Function : get_sys_pwd
+#
+# One parameter should be provided to this function.
+#
+#   $1 = $tns = This is the tns of the database we want the sys pwd for.
+#
+# Example :
+#
+#   orasid=`get_sys_pwd tdccpy`
+#
+############################################################################
+get_sys_pwd () {
+if [ "$1" = "" ]
+then
+  echo
+  echo "   Usage: get_sys_pwd <tns>"
+  echo
+  echo "   Example: get_sys_pwd svdev"
+  echo
+  return 1
+fi
+
+tns=$1
+syspwd=`awk '($1 == tolower("'$tns'")) {print $3}' ${dba_env_info_file} | grep -v dummy | uniq`
+
+if [ "$syspwd" = "" ]
+then
+  echo ""
+  return 1
+else
+  echo $syspwd
+  return 0
+fi
+}

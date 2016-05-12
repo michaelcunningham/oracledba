@@ -1,0 +1,114 @@
+Trace file /u01/app/oracle/diag/rdbms/fmda/fmd/trace/fmd_ora_3951_treedump_level_20679.trc
+Oracle Database 12c Enterprise Edition Release 12.1.0.1.0 - 64bit Production
+With the Partitioning, Automatic Storage Management, OLAP, Advanced Analytics
+and Real Application Testing options
+ORACLE_HOME = /u01/app/oracle/product/12.1.0/dbhome_1
+System name:	Linux
+Node name:	ora10.localdomain
+Release:	3.8.13-16.2.1.el6uek.x86_64
+Version:	#1 SMP Thu Nov 7 17:01:44 PST 2013
+Machine:	x86_64
+Instance name: fmd
+Redo thread mounted by this instance: 1
+Oracle process number: 45
+Unix process pid: 3951, image: oracle@ora10.localdomain
+
+
+*** 2016-02-22 19:23:25.618
+*** SESSION ID:(64.5) 2016-02-22 19:23:25.618
+*** CLIENT ID:() 2016-02-22 19:23:25.618
+*** SERVICE NAME:(fmd) 2016-02-22 19:23:25.618
+*** MODULE NAME:(TOAD 12.5.0.99) 2016-02-22 19:23:25.618
+*** ACTION NAME:() 2016-02-22 19:23:25.618
+ 
+----- begin tree dump
+branch: 0x1002153 16785747 (0: nrow: 83, level: 1)
+   leaf: 0x1002154 16785748 (-1: nrow: 230 rrow: 230)
+   leaf: 0x1002155 16785749 (0: nrow: 232 rrow: 232)
+   leaf: 0x1002156 16785750 (1: nrow: 222 rrow: 222)
+   leaf: 0x1002157 16785751 (2: nrow: 231 rrow: 231)
+   leaf: 0x1002158 16785752 (3: nrow: 220 rrow: 220)
+   leaf: 0x1002159 16785753 (4: nrow: 231 rrow: 231)
+   leaf: 0x100215a 16785754 (5: nrow: 228 rrow: 228)
+   leaf: 0x100215b 16785755 (6: nrow: 223 rrow: 223)
+   leaf: 0x100215c 16785756 (7: nrow: 211 rrow: 211)
+   leaf: 0x100215d 16785757 (8: nrow: 216 rrow: 216)
+   leaf: 0x100215e 16785758 (9: nrow: 233 rrow: 233)
+   leaf: 0x100215f 16785759 (10: nrow: 223 rrow: 223)
+   leaf: 0x1002161 16785761 (11: nrow: 213 rrow: 213)
+   leaf: 0x1002162 16785762 (12: nrow: 230 rrow: 230)
+   leaf: 0x1002163 16785763 (13: nrow: 242 rrow: 242)
+   leaf: 0x1002164 16785764 (14: nrow: 227 rrow: 227)
+   leaf: 0x1002165 16785765 (15: nrow: 220 rrow: 220)
+   leaf: 0x1002166 16785766 (16: nrow: 216 rrow: 216)
+   leaf: 0x1002167 16785767 (17: nrow: 213 rrow: 213)
+   leaf: 0x1002168 16785768 (18: nrow: 233 rrow: 233)
+   leaf: 0x1002169 16785769 (19: nrow: 224 rrow: 224)
+   leaf: 0x100216a 16785770 (20: nrow: 213 rrow: 213)
+   leaf: 0x100216b 16785771 (21: nrow: 231 rrow: 231)
+   leaf: 0x100216c 16785772 (22: nrow: 232 rrow: 232)
+   leaf: 0x100216d 16785773 (23: nrow: 236 rrow: 236)
+   leaf: 0x100216e 16785774 (24: nrow: 232 rrow: 232)
+   leaf: 0x100216f 16785775 (25: nrow: 248 rrow: 248)
+   leaf: 0x1002171 16785777 (26: nrow: 251 rrow: 251)
+   leaf: 0x1002172 16785778 (27: nrow: 232 rrow: 232)
+   leaf: 0x1002173 16785779 (28: nrow: 243 rrow: 243)
+   leaf: 0x1002174 16785780 (29: nrow: 265 rrow: 265)
+   leaf: 0x1002175 16785781 (30: nrow: 285 rrow: 285)
+   leaf: 0x1002176 16785782 (31: nrow: 335 rrow: 335)
+   leaf: 0x1002177 16785783 (32: nrow: 296 rrow: 296)
+   leaf: 0x1002178 16785784 (33: nrow: 245 rrow: 245)
+   leaf: 0x1002179 16785785 (34: nrow: 238 rrow: 238)
+   leaf: 0x100217a 16785786 (35: nrow: 235 rrow: 235)
+   leaf: 0x100217b 16785787 (36: nrow: 233 rrow: 233)
+   leaf: 0x100217c 16785788 (37: nrow: 232 rrow: 232)
+   leaf: 0x100217d 16785789 (38: nrow: 271 rrow: 271)
+   leaf: 0x100217e 16785790 (39: nrow: 264 rrow: 264)
+   leaf: 0x100217f 16785791 (40: nrow: 264 rrow: 264)
+   leaf: 0x1000401 16778241 (41: nrow: 230 rrow: 230)
+   leaf: 0x1000402 16778242 (42: nrow: 242 rrow: 242)
+   leaf: 0x1000403 16778243 (43: nrow: 238 rrow: 238)
+   leaf: 0x1000404 16778244 (44: nrow: 234 rrow: 234)
+   leaf: 0x1000405 16778245 (45: nrow: 253 rrow: 253)
+   leaf: 0x1000406 16778246 (46: nrow: 254 rrow: 254)
+   leaf: 0x1000407 16778247 (47: nrow: 258 rrow: 258)
+   leaf: 0x1000408 16778248 (48: nrow: 264 rrow: 264)
+   leaf: 0x1000409 16778249 (49: nrow: 277 rrow: 277)
+   leaf: 0x100040a 16778250 (50: nrow: 269 rrow: 269)
+   leaf: 0x100040b 16778251 (51: nrow: 226 rrow: 226)
+   leaf: 0x100040c 16778252 (52: nrow: 234 rrow: 234)
+   leaf: 0x100040d 16778253 (53: nrow: 263 rrow: 263)
+   leaf: 0x100040e 16778254 (54: nrow: 218 rrow: 218)
+   leaf: 0x100040f 16778255 (55: nrow: 199 rrow: 199)
+   leaf: 0x1000411 16778257 (56: nrow: 204 rrow: 204)
+   leaf: 0x1000412 16778258 (57: nrow: 204 rrow: 204)
+   leaf: 0x1000413 16778259 (58: nrow: 194 rrow: 194)
+   leaf: 0x1000414 16778260 (59: nrow: 196 rrow: 196)
+   leaf: 0x1000415 16778261 (60: nrow: 221 rrow: 221)
+   leaf: 0x1000416 16778262 (61: nrow: 231 rrow: 231)
+   leaf: 0x1000417 16778263 (62: nrow: 255 rrow: 255)
+   leaf: 0x1000418 16778264 (63: nrow: 221 rrow: 221)
+   leaf: 0x1000419 16778265 (64: nrow: 226 rrow: 226)
+   leaf: 0x100041a 16778266 (65: nrow: 220 rrow: 220)
+   leaf: 0x100041b 16778267 (66: nrow: 235 rrow: 235)
+   leaf: 0x100041c 16778268 (67: nrow: 256 rrow: 256)
+   leaf: 0x100041d 16778269 (68: nrow: 241 rrow: 241)
+   leaf: 0x100041e 16778270 (69: nrow: 244 rrow: 244)
+   leaf: 0x100041f 16778271 (70: nrow: 242 rrow: 242)
+   leaf: 0x1000421 16778273 (71: nrow: 231 rrow: 231)
+   leaf: 0x1000422 16778274 (72: nrow: 238 rrow: 238)
+   leaf: 0x1000423 16778275 (73: nrow: 232 rrow: 232)
+   leaf: 0x1000424 16778276 (74: nrow: 236 rrow: 236)
+   leaf: 0x1000425 16778277 (75: nrow: 223 rrow: 223)
+   leaf: 0x1000426 16778278 (76: nrow: 223 rrow: 223)
+   leaf: 0x1000427 16778279 (77: nrow: 220 rrow: 220)
+   leaf: 0x1000428 16778280 (78: nrow: 221 rrow: 221)
+   leaf: 0x1000429 16778281 (79: nrow: 267 rrow: 267)
+   leaf: 0x100042a 16778282 (80: nrow: 237 rrow: 237)
+   leaf: 0x100042b 16778283 (81: nrow: 87 rrow: 87)
+----- end tree dump
+
+*** 2016-02-22 19:23:56.077
+
+*** TRACE CONTINUES IN FILE /u01/app/oracle/diag/rdbms/fmda/fmd/trace/fmd_ora_3951_blockdump_4_8533.trc ***
+
