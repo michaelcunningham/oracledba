@@ -1,0 +1,9 @@
+alias l='ls -al'
+alias lsd='ls -al | grep "^d"'
+alias psg='ps -ef | grep'
+alias dfm="df -P -m | sed \"s/1048576-blocks/MB_blocks/g\" | sed \"s/Capacity/%Used/g\" | awk '{printf(\"%-45s%13s%10s%11s%11s  %-s\\n\", \$1,\$2,\$3,\$4,\$5,\$6)}'"
+alias dbadmin='cd /mnt/dba/admin/;pwd'
+
+export PGDATA=/var/lib/pgsql/9.5/data
+alias pgd='cd $PGDATA;pwd'
+alias pglt='tail -f 40 $(ls -tr $PGDATA/pg_log/postgresql-*.log | tail -1)'

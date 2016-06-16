@@ -37,7 +37,7 @@ export PATH=/usr/local/bin:$PATH
 ORAENV_ASK=NO . /usr/local/bin/oraenv -s
 export HOST=$(hostname -s)
 
-syspwd=admin123
+syspwd=tagged
 
 primary_seq_cnt=`sqlplus -s /nolog  << EOF
 set heading off
